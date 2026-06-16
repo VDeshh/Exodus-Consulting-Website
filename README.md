@@ -19,4 +19,4 @@ Open `index.html` directly in a browser, or serve the folder with any static ser
 ```
 powershell -ExecutionPolicy Bypass -File deploy.ps1
 ```
-Publishes the site to Netlify. Target custom domain: exodusconsulting.com (to confirm).
+Publishes the site to Netlify. Target custom domain: exdsconsulting.com.
