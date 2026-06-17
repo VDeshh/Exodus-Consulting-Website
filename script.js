@@ -3,7 +3,7 @@ const nav = document.getElementById('nav');
 const bgVideo = document.getElementById('bgVideo');
 const bgVideoEl = bgVideo ? bgVideo.querySelector('video') : null;
 const FAST_RATE = 1;     // normal speed while on the hero
-const SLOW_RATE = 0.3;   // slow-motion once scrolled past the hero
+const SLOW_RATE = 0.6;   // gentle slow-motion once past the hero (smoother than a deep slow-mo, which stutters on a fixed-fps video)
 let rateTarget = FAST_RATE, rateRaf = null;
 const easeRate = () => {
   if (!bgVideoEl) { rateRaf = null; return; }
