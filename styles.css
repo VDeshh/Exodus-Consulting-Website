@@ -625,7 +625,7 @@ footer { border-top: 1px solid var(--glass-brd); padding: 36px 0; position: rela
   filter: drop-shadow(0 14px 40px rgba(124,58,237,0.45));
 }
 .sh-headline {
-  font-size: clamp(1.65rem, 3.4vw, 2.85rem);
+  font-size: clamp(2.48rem, 5.1vw, 4.28rem);
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.18;
@@ -636,7 +636,7 @@ footer { border-top: 1px solid var(--glass-brd); padding: 36px 0; position: rela
 .sh-sub {
   margin-top: -12px;
   color: rgba(255,255,255,0.88);
-  font-size: clamp(1rem, 1.8vw, 1.28rem);
+  font-size: clamp(1.5rem, 2.7vw, 1.92rem);
   font-weight: 500;
   letter-spacing: 0.01em;
   text-shadow: 0 2px 22px rgba(0,0,0,0.5);
