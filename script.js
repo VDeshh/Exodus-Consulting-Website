@@ -1,11 +1,29 @@
-// ---- Nav scrolled state + background blur past hero ----
+// ---- Nav scrolled state + background blur & slow-mo past hero ----
 const nav = document.getElementById('nav');
 const bgVideo = document.getElementById('bgVideo');
+const bgVideoEl = bgVideo ? bgVideo.querySelector('video') : null;
+const FAST_RATE = 1;     // normal speed while on the hero
+const SLOW_RATE = 0.3;   // slow-motion once scrolled past the hero
+let rateTarget = FAST_RATE, rateRaf = null;
+const easeRate = () => {
+  if (!bgVideoEl) { rateRaf = null; return; }
+  const cur = bgVideoEl.playbackRate;
+  const next = cur + (rateTarget - cur) * 0.08;
+  if (Math.abs(rateTarget - next) < 0.01) { bgVideoEl.playbackRate = rateTarget; rateRaf = null; return; }
+  bgVideoEl.playbackRate = next;
+  rateRaf = requestAnimationFrame(easeRate);
+};
 const onScroll = () => {
   const y = window.scrollY;
   if (nav) nav.classList.toggle('scrolled', y > 20);
-  // blur the background train once the hero (one viewport) is scrolled past
-  if (bgVideo) bgVideo.classList.toggle('dim', y > window.innerHeight * 0.7);
+  // blur + slow the background train once the hero (one viewport) is scrolled past
+  const pastHero = y > window.innerHeight * 0.7;
+  if (bgVideo) bgVideo.classList.toggle('dim', pastHero);
+  const wantRate = pastHero ? SLOW_RATE : FAST_RATE;
+  if (bgVideoEl && wantRate !== rateTarget) {
+    rateTarget = wantRate;
+    if (!rateRaf) rateRaf = requestAnimationFrame(easeRate);
+  }
 };
 onScroll();
 window.addEventListener('scroll', onScroll, { passive: true });
