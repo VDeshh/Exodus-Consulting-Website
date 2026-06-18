@@ -70,7 +70,7 @@ section { padding: clamp(60px, 8vw, 120px) 0; position: relative; z-index: 1; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.6) saturate(1.2) contrast(1.05);
+  filter: brightness(0.55) saturate(1.2) contrast(1.05);
   transition: filter 0.6s ease;
 }
 /* After scrolling past the hero, blur + slightly darken the train */
@@ -619,13 +619,13 @@ footer { border-top: 1px solid var(--glass-brd); padding: 36px 0; position: rela
   pointer-events: none;
 }
 .sh-logo {
-  height: clamp(54px, 7vw, 88px);
+  height: clamp(62px, 8vw, 100px);
   width: auto;
   margin-bottom: 4px;
   filter: drop-shadow(0 14px 40px rgba(124,58,237,0.45));
 }
 .sh-headline {
-  font-size: clamp(2.48rem, 5.1vw, 4.28rem);
+  font-size: clamp(2.78rem, 5.7vw, 4.8rem);
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.18;
@@ -636,7 +636,7 @@ footer { border-top: 1px solid var(--glass-brd); padding: 36px 0; position: rela
 .sh-sub {
   margin-top: -12px;
   color: rgba(255,255,255,0.88);
-  font-size: clamp(1.5rem, 2.7vw, 1.92rem);
+  font-size: clamp(1.68rem, 3vw, 2.15rem);
   font-weight: 500;
   letter-spacing: 0.01em;
   text-shadow: 0 2px 22px rgba(0,0,0,0.5);
