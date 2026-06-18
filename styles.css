@@ -73,9 +73,9 @@ section { padding: clamp(60px, 8vw, 120px) 0; position: relative; z-index: 1; }
   filter: brightness(0.6) saturate(1.2) contrast(1.05);
   transition: filter 0.6s ease;
 }
-/* After scrolling past the hero, blur + darken the train so content pops */
+/* After scrolling past the hero, blur + slightly darken the train */
 .bg-video-wrap.dim .bg-video {
-  filter: brightness(0.34) saturate(1.08) contrast(1) blur(9px);
+  filter: brightness(0.4) saturate(1.1) contrast(1) blur(9px);
 }
 .bg-video-tint {
   position: absolute;
@@ -89,15 +89,15 @@ section { padding: clamp(60px, 8vw, 120px) 0; position: relative; z-index: 1; }
   inset: 0;
   transition: background 0.6s ease;
   background:
-    radial-gradient(ellipse 1200px 700px at 50% 30%, rgba(168,85,247,0.16), transparent 70%),
-    radial-gradient(ellipse 900px 600px at 80% 80%, rgba(99,102,241,0.12), transparent 70%),
-    linear-gradient(180deg, rgba(10,7,20,0.32) 0%, rgba(8,6,16,0.4) 55%, rgba(6,4,12,0.85) 100%);
+    radial-gradient(ellipse 1200px 700px at 50% 30%, rgba(168,85,247,0.20), transparent 70%),
+    radial-gradient(ellipse 900px 600px at 80% 80%, rgba(99,102,241,0.16), transparent 70%),
+    linear-gradient(180deg, rgba(22,14,40,0.24) 0%, rgba(16,11,32,0.3) 55%, rgba(12,9,24,0.86) 100%);
 }
-/* Past the hero, drop a heavier dark veil so the glass cards & text stand out */
+/* Past the hero, a light extra veil so cards stay readable */
 .bg-video-wrap.dim .bg-video-overlay {
   background:
-    radial-gradient(ellipse 1200px 700px at 50% 30%, rgba(168,85,247,0.09), transparent 70%),
-    linear-gradient(180deg, rgba(5,4,12,0.6) 0%, rgba(4,3,10,0.68) 100%);
+    radial-gradient(ellipse 1200px 700px at 50% 30%, rgba(168,85,247,0.13), transparent 70%),
+    linear-gradient(180deg, rgba(8,6,18,0.3) 0%, rgba(6,5,14,0.42) 100%);
 }
 
 /* ─── Orb Background (about.html fallback) ───────── */
