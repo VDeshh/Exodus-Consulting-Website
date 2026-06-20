@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -47,7 +48,7 @@
   <section class="hero-sh" id="top">
     <div class="hero-sh-center">
       <img class="sh-logo" src="assets/exodus-logo.png" alt="Exodus Consulting" />
-      <h1 class="sh-headline">Move your business forward</h1>
+      <h1 class="sh-headline">Move your business <em>forward</em></h1>
       <p class="sh-sub">AI enablement and custom software</p>
       <a class="sh-cta" href="#services">
         Learn More
@@ -113,6 +114,9 @@
     <a class="scroll-cue" href="#trust" aria-label="Scroll down">
       <span></span>
     </a>
+
+    <!-- Intro reveal: black screen + black hole that iris-opens to reveal the train -->
+    <div id="intro" aria-hidden="true"><div class="intro-hole"></div></div>
   </section>
 
   <!-- TRUST MARQUEE -->
@@ -126,7 +130,8 @@
         <div class="m-logo"><img class="short" src="assets/uniserve.png" alt="Uniserve Communications" /></div>
         <div class="m-logo"><img src="assets/theshow.png" alt="The Show Ottawa" /></div>
         <div class="m-logo"><img class="pit" src="assets/thepit.svg" alt="The Pit UBC" /></div>
-        <div class="m-logo"><img class="square" src="assets/palapa.png" alt="Palapa Tours Ottawa" /></div>
+        <div class="m-logo m-palapa"><img class="square" src="assets/palapa.png" alt="Palapa Tours Ottawa" /><span>Palapa&nbsp;Tours</span></div>
+        <div class="m-logo"><img class="fennec" src="assets/fennec-white.png" alt="Fennec" /></div>
         <!-- duplicate set for seamless loop -->
         <div class="m-logo"><img class="tall" src="assets/harbour.png" alt="" /></div>
         <div class="m-logo"><img src="assets/tradex.png" alt="" /></div>
@@ -134,7 +139,8 @@
         <div class="m-logo"><img class="short" src="assets/uniserve.png" alt="" /></div>
         <div class="m-logo"><img src="assets/theshow.png" alt="" /></div>
         <div class="m-logo"><img class="pit" src="assets/thepit.svg" alt="" /></div>
-        <div class="m-logo"><img class="square" src="assets/palapa.png" alt="" /></div>
+        <div class="m-logo m-palapa"><img class="square" src="assets/palapa.png" alt="" /><span>Palapa&nbsp;Tours</span></div>
+        <div class="m-logo"><img class="fennec" src="assets/fennec-white.png" alt="" /></div>
       </div>
     </div>
   </section>
@@ -163,7 +169,7 @@
             <li>Enterprise-grade deployment</li>
           </ul>
         </div>
-        <div class="svc-card svc-featured reveal">
+        <div class="svc-card reveal">
           <div class="svc-top">
             <div class="svc-icon svc-purple">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
@@ -193,6 +199,9 @@
             <li>Tied to your growth metrics</li>
           </ul>
         </div>
+      </div>
+      <div class="svc-cta">
+        <a class="btn btn-primary" data-calendly href="https://calendly.com/josh-fennecapp/30-min" target="_blank" rel="noopener">Get in Touch <span class="arr"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
       </div>
     </div>
   </section>
@@ -250,8 +259,9 @@
         </article>
         <!-- Palapa Tours Ottawa - tip-out software -->
         <article class="proj-card glass reveal">
-          <div class="proj-logo">
+          <div class="proj-logo proj-palapa">
             <img class="square" src="assets/palapa.png" alt="Palapa Tours Ottawa" />
+            <span>Palapa Tours</span>
           </div>
           <span class="tag t-amber">Tip-out software · Ottawa</span>
           <h3>Palapa Tours Ottawa</h3>
@@ -269,7 +279,7 @@
         <span class="eyebrow" style="margin-inline:auto;"><span class="dot"></span>Our flagship build</span>
         <h2>Fennec OS, the operating<br>system for premium venues</h2>
         <p class="sec-sub">We worked side by side with venue owners to build Fennec: floor plans, reservations, bottle service, ticketing and live ops, all synced in real time across major venues in Canada.</p>
-        <a class="btn btn-glass fennec-link" href="https://www.fennecapp.com" target="_blank" rel="noopener">Visit fennecapp.com <span class="arr"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        <a class="btn fennec-link" href="https://www.fennecapp.com" target="_blank" rel="noopener"><img class="fennec-fox-ico" src="assets/fennec-fox-gold.png" alt="" />Visit Fennec <span class="arr"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
       </div>
       <div class="bento">
         <div class="tile glass reveal">
