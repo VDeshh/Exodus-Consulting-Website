@@ -651,48 +651,10 @@ footer { border-top: 1px solid var(--glass-brd); padding: 36px 0; position: rela
   justify-content: center;
   gap: 24px;
   text-align: center;
-  z-index: 9;
+  z-index: 4;
   padding: 0 24px;
   pointer-events: none;
 }
-
-/* ── Intro reveal: black screen → iris-open to the lightspeed train ── */
-@property --reveal { syntax: '<percentage>'; inherits: false; initial-value: 0%; }
-#intro {
-  position: absolute;
-  inset: 0;
-  z-index: 7;
-  background: #000;
-  pointer-events: none;
-  -webkit-mask: radial-gradient(circle at 50% 50%, transparent var(--reveal), #000 calc(var(--reveal) + 4%));
-          mask: radial-gradient(circle at 50% 50%, transparent var(--reveal), #000 calc(var(--reveal) + 4%));
-  animation: introReveal 2.7s cubic-bezier(0.66, 0, 0.34, 1) forwards;
-}
-.intro-hole {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: clamp(460px, 66vmin, 980px);
-  aspect-ratio: 660 / 371;
-  background: url('assets/blackhole.avif') center / contain no-repeat;
-  filter: drop-shadow(0 0 70px rgba(255,176,84,0.28));
-  animation: holeIntro 2.7s ease-in-out forwards;
-}
-@keyframes introReveal {
-  0%, 27% { --reveal: 0%; }
-  100% { --reveal: 150%; }
-}
-@keyframes holeIntro {
-  0% { opacity: 0; transform: translate(-50%,-50%) scale(0.6); }
-  5% { opacity: 1; }
-  8% { opacity: 0.35; }
-  11% { opacity: 1; }
-  16% { opacity: 0.6; }
-  20% { opacity: 1; transform: translate(-50%,-50%) scale(1); }
-  50% { opacity: 1; transform: translate(-50%,-50%) scale(1.05); }
-  100% { opacity: 0; transform: translate(-50%,-50%) scale(1.5); }
-}
-@media (prefers-reduced-motion: reduce) { #intro { display: none !important; } }
 
 .sh-logo {
   height: clamp(62px, 8vw, 100px);
@@ -713,7 +675,7 @@ footer { border-top: 1px solid var(--glass-brd); padding: 36px 0; position: rela
 .sh-sub {
   margin-top: -12px;
   color: rgba(255,255,255,0.9);
-  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: clamp(1.5rem, 2.7vw, 1.95rem);
   font-weight: 500;
   letter-spacing: 0.01em;

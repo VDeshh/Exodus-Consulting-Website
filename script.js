@@ -1,18 +1,3 @@
-// ---- Intro reveal (plays once per session) ----
-const intro = document.getElementById('intro');
-if (intro) {
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduceMotion || sessionStorage.getItem('exodusIntroSeen')) {
-    intro.style.display = 'none';
-  } else {
-    sessionStorage.setItem('exodusIntroSeen', '1');
-    intro.addEventListener('animationend', (e) => {
-      if (e.animationName === 'introReveal') intro.style.display = 'none';
-    });
-    setTimeout(() => { intro.style.display = 'none'; }, 3400);
-  }
-}
-
 // ---- Nav scrolled state + background blur & slow-mo past hero ----
 const nav = document.getElementById('nav');
 const bgVideo = document.getElementById('bgVideo');

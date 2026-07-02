@@ -17,3 +17,13 @@ exodus-standalone.html
 # OS junk
 Thumbs.db
 .DS_Store
+
+# Internal deliverables / build scripts (NOT for the public site or repo)
+build_*.py
+Exodus-AI-Enablement-Playbook.*
+Exodus-Process-Briefer.*
+Uniserve-Phase1-Chatbot-Report.pdf
+*.jpg.tmp
+pb_*.png
+pbq_*.png
+chk_*.jpg
