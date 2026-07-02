@@ -65,10 +65,10 @@ if (secs.length) {
 }
 
 // ---- Calendly popup ----
-const CAL = 'https://calendly.com/josh-fennecapp/30-min?hide_gdpr_banner=1&background_color=241b38&text_color=ffffff&primary_color=7b4dff';
+const CAL = 'https://calendly.com/shiv-exdsconsulting/30min?hide_gdpr_banner=1&background_color=241b38&text_color=ffffff&primary_color=7b4dff';
 document.querySelectorAll('[data-calendly]').forEach(el => {
   el.addEventListener('click', e => {
     if (window.Calendly) { e.preventDefault(); Calendly.initPopupWidget({ url: CAL }); }
-    else if (!el.getAttribute('href')) { window.open('https://calendly.com/josh-fennecapp/30-min', '_blank'); }
+    else if (!el.getAttribute('href')) { window.open('https://calendly.com/shiv-exdsconsulting/30min', '_blank'); }
   });
 });
