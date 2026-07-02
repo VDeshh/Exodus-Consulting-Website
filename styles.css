@@ -131,6 +131,7 @@ section { padding: clamp(60px, 8vw, 120px) 0; position: relative; z-index: 1; }
 .nav-login:hover { color: var(--fg); }
 .nav-toggle { display: none; background: var(--glass); border: 1px solid var(--glass-brd); border-radius: 10px; padding: 8px; color: var(--fg); }
 .nav-toggle svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2; }
+.nav-links .menu-only { display: none; } /* shown only inside the mobile dropdown (scoped to beat .btn) */
 
 /* ─── Typography ─────────────────────────────────── */
 h1, h2, h3 { font-weight: 800; line-height: 1.08; letter-spacing: -0.025em; }
@@ -602,9 +603,14 @@ footer { border-top: 1px solid var(--glass-brd); padding: 36px 0; position: rela
 }
 
 @media (max-width: 900px) {
-  .nav-links { display: none; position: absolute; top: 62px; left: 14px; right: 14px; flex-direction: column; align-items: stretch; gap: 12px; background: rgba(7,7,15,0.96); border: 1px solid var(--glass-brd); border-radius: var(--r-lg); padding: 18px; backdrop-filter: blur(20px); }
+  .nav-links { display: none; position: absolute; top: 66px; left: 14px; right: 14px; flex-direction: column; align-items: stretch; gap: 14px; background: rgba(7,7,15,0.97); border: 1px solid var(--glass-brd); border-radius: var(--r-lg); padding: 18px; backdrop-filter: blur(20px); box-shadow: 0 24px 60px rgba(0,0,0,0.5); }
   .nav-links.open { display: flex; }
   .nav-toggle { display: flex; }
+  /* mobile bar = logo + hamburger only; Contact + CTA live in the dropdown */
+  .nav-right .nav-login, .nav-right .btn-primary { display: none; }
+  .nav-links .menu-only { display: flex; }
+  .nav-links a.nav-login.menu-only { display: block; color: var(--muted); font-weight: 600; padding-top: 4px; border-top: 1px solid var(--glass-brd); }
+  .nav-links .menu-cta { width: 100%; justify-content: center; white-space: nowrap; min-height: 46px; font-size: 0.95rem; }
   .def-cols { grid-template-columns: 1fr; }
   .ferry { grid-template-columns: 1fr; }
   .project { grid-template-columns: 1fr; }
@@ -1066,7 +1072,11 @@ body:has(.float-pill:hover) .bg-video {
 /* Mobile */
 @media (max-width: 900px) {
   .float-card, .float-pill { display: none; }
-  .sh-headline { font-size: 1.6rem; }
+  .sh-headline { font-size: clamp(2rem, 8vw, 2.6rem); line-height: 1.12; }
+  .sh-sub { font-size: 1.08rem; margin-top: -4px; }
+  .sh-logo { height: clamp(56px, 15vw, 78px); }
+  .sh-cta { font-size: 0.88rem; padding: 8px 8px 8px 18px; }
+  .hero-sh-center { gap: 18px; padding: 0 22px; }
 }
 
 /* Scroll cue */
