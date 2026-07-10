@@ -1,6 +1,6 @@
 /* ─── Reset ─────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-anchor: none; } /* overflow-anchor off: stops mobile browsers re-anchoring (page "sliding down on its own") when late-loading images shift layout */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
@@ -439,6 +439,10 @@ h3 { font-size: 1.25rem; }
    BENTO / SHOWCASE
 ───────────────────────────────────────────────── */
 .bento { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+/* carousel indicator dots (shown on mobile only) */
+.bento-dots { display: none; justify-content: center; gap: 8px; margin-top: 20px; }
+.bento-dots button { width: 8px; height: 8px; border-radius: 50%; border: 0; padding: 0; background: rgba(255,255,255,0.22); transition: width .3s ease, background .3s ease; cursor: pointer; }
+.bento-dots button.on { background: #7b4dff; width: 24px; border-radius: 99px; }
 .tile { padding: 28px; border-radius: var(--r-lg); }
 .tile-icon { width: 46px; height: 46px; border-radius: 13px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
 .tile-icon svg { width: 22px; height: 22px; }
@@ -618,7 +622,6 @@ footer { border-top: 1px solid var(--glass-brd); padding: 36px 0; position: rela
   .stats-row { grid-template-columns: repeat(2, 1fr); }
   .timeline { grid-template-columns: 1fr; gap: 36px; }
   .tl-line { display: none; }
-  .m-logo { width: 40vw; flex-basis: 40vw; }
   .proc-card { padding: 32px; }
   .team { grid-template-columns: 1fr; }
   .exp-band { flex-direction: column; text-align: center; }
@@ -629,7 +632,11 @@ footer { border-top: 1px solid var(--glass-brd); padding: 36px 0; position: rela
 
 @media (max-width: 640px) {
   .def-display { font-size: clamp(3.5rem, 22vw, 5rem); }
-  .bento { grid-template-columns: 1fr; }
+  /* Fennec tiles, service cards and client cards become auto-advancing one-card carousels */
+  .bento, .svc-grid, .proj-grid { display: flex; grid-template-columns: none; max-width: none; overflow-x: auto; scroll-snap-type: x mandatory; gap: 14px; padding: 4px 2px 8px; scrollbar-width: none; -ms-overflow-style: none; }
+  .bento::-webkit-scrollbar, .svc-grid::-webkit-scrollbar, .proj-grid::-webkit-scrollbar { display: none; }
+  .bento .tile, .svc-grid .svc-card, .proj-grid .proj-card { flex: 0 0 86%; scroll-snap-align: center; }
+  .bento-dots { display: flex; }
   .agents { grid-template-columns: repeat(2, 1fr); }
   .svc-grid { max-width: 100%; }
   .stats-row { grid-template-columns: 1fr 1fr; }
@@ -1119,4 +1126,17 @@ body:has(.float-pill:hover) .bg-video {
   background: linear-gradient(180deg, transparent, rgba(7,7,15,0.95));
   pointer-events: none;
   z-index: 2;
+}
+
+/* ─── Mobile marquee: bigger, well-spaced logos (~2.3 visible) ───
+   Lives at end of file so it wins over the base .m-logo rules above. */
+@media (max-width: 900px) {
+  .m-logo { width: 44vw; flex: 0 0 44vw; }
+  .m-logo img { height: 80px; }
+  .m-logo img.tall { height: 96px; }
+  .m-logo img.short { height: 62px; }
+  .m-logo img.pit { height: 92px; }
+  .m-logo img.square { height: 88px; }
+  .m-logo img.fennec { height: 66px; }
+  .m-palapa span { font-size: 1.15rem; }
 }

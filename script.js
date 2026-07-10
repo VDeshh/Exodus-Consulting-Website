@@ -64,6 +64,59 @@ if (secs.length) {
   secs.forEach(s => obs.observe(s));
 }
 
+// ---- Mobile auto-advancing card carousels (Fennec tiles, services, client work) ----
+const carouselMq = window.matchMedia('(max-width: 640px)');
+function makeCarousel(container, dotsWrap, cardSel) {
+  const cards = [...container.querySelectorAll(cardSel)];
+  if (cards.length < 2) return;
+  let idx = 0, timer = null, resumeT = null;
+
+  cards.forEach((_, i) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', 'Go to card ' + (i + 1));
+    b.addEventListener('click', () => { go(i); hold(); });
+    dotsWrap.appendChild(b);
+  });
+  const dots = [...dotsWrap.children];
+  const setDot = i => dots.forEach((d, j) => d.classList.toggle('on', j === i));
+
+  const go = i => {
+    idx = (i + cards.length) % cards.length;
+    const c = cards[idx];
+    container.scrollTo({ left: c.offsetLeft - (container.clientWidth - c.clientWidth) / 2, behavior: 'smooth' });
+    setDot(idx);
+  };
+  const start = () => { if (!timer && carouselMq.matches && !reduce) timer = setInterval(() => go(idx + 1), 4000); };
+  const stop = () => { clearInterval(timer); timer = null; };
+  const hold = () => { stop(); clearTimeout(resumeT); resumeT = setTimeout(start, 8000); };
+
+  // keep dots in sync with manual swipes
+  container.addEventListener('scroll', () => {
+    const mid = container.scrollLeft + container.clientWidth / 2;
+    let best = 0, bd = Infinity;
+    cards.forEach((c, i) => { const d = Math.abs(c.offsetLeft + c.clientWidth / 2 - mid); if (d < bd) { bd = d; best = i; } });
+    if (best !== idx) { idx = best; setDot(idx); }
+  }, { passive: true });
+  container.addEventListener('touchstart', hold, { passive: true });
+  container.addEventListener('pointerdown', hold);
+
+  // advance only while the carousel is on screen, phone-width only
+  const vis = new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? start() : stop()), { threshold: 0.3 });
+  vis.observe(container);
+  const onMq = () => { stop(); if (carouselMq.matches) start(); };
+  if (carouselMq.addEventListener) carouselMq.addEventListener('change', onMq); else carouselMq.addListener(onMq);
+  setDot(0);
+}
+[
+  ['.bento', 'bentoDots', '.tile'],
+  ['.svc-grid', 'svcDots', '.svc-card'],
+  ['.proj-grid', 'projDots', '.proj-card'],
+].forEach(([sel, dotsId, cardSel]) => {
+  const c = document.querySelector(sel), d = document.getElementById(dotsId);
+  if (c && d) makeCarousel(c, d, cardSel);
+});
+
 // ---- Calendly popup ----
 const CAL = 'https://calendly.com/shiv-exdsconsulting/30min?hide_gdpr_banner=1&background_color=241b38&text_color=ffffff&primary_color=7b4dff';
 document.querySelectorAll('[data-calendly]').forEach(el => {
