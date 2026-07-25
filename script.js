@@ -28,6 +28,24 @@ const onScroll = () => {
 onScroll();
 window.addEventListener('scroll', onScroll, { passive: true });
 
+// ---- Force the hero video to play on mobile (autoplay is often blocked) ----
+if (bgVideoEl) {
+  // muted + inline are required for mobile autoplay; set them in JS too, not just markup
+  bgVideoEl.muted = true;
+  bgVideoEl.defaultMuted = true;
+  bgVideoEl.setAttribute('muted', '');
+  bgVideoEl.setAttribute('playsinline', '');
+  bgVideoEl.setAttribute('webkit-playsinline', '');
+  const tryPlay = () => { const p = bgVideoEl.play(); if (p && p.catch) p.catch(() => {}); };
+  tryPlay();
+  ['loadeddata', 'canplay'].forEach(ev => bgVideoEl.addEventListener(ev, tryPlay));
+  // last resort: the first user gesture kicks it off if the browser blocked autoplay
+  const kick = () => tryPlay();
+  ['touchstart', 'pointerdown', 'click', 'scroll'].forEach(ev =>
+    window.addEventListener(ev, kick, { once: true, passive: true }));
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) tryPlay(); });
+}
+
 // ---- Mobile nav toggle ----
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
