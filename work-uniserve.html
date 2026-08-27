@@ -1,0 +1,635 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Uniserve Communications: AI enablement for a Canadian ISP | Exodus Consulting</title>
+  <meta name="description" content="A three month AI enablement programme for Uniserve Communications, a Canadian ISP running about 250 support tickets a month. The heatmap, the build list, the labelled projection and its arithmetic.">
+  <meta name="theme-color" content="#FAF9F7">
+  <link rel="icon" href="assets/exodus-logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Exodus Consulting">
+  <meta property="og:title" content="Uniserve Communications: AI enablement for a Canadian ISP">
+  <meta property="og:description" content="Two tracks, internal and customer facing. All data and models hosted in Canada. In build, with the projection arithmetic printed in full.">
+  <meta property="og:image" content="assets/exodus-logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/exodus.css?v=11">
+  <link rel="stylesheet" href="css/ia.css?v=11">
+  <script src="js/exodus.js?v=11" defer></script>
+</head>
+<body>
+<a class="ex-skip" href="#main">Skip to content</a>
+
+<header class="ex-header">
+  <div class="ex-header__inner">
+    <a class="ex-brand" href="index.html">
+      <img src="assets/exodus-logo.png" alt="Exodus Consulting" width="34" height="17">
+      <span class="ex-brand__name">Exodus Consulting</span>
+    </a>
+
+    <nav class="ex-nav" aria-label="Primary">
+      <a class="ex-nav__link" href="index.html">Home</a>
+      <a class="ex-nav__link" href="services.html">What we build</a>
+      <a class="ex-nav__link is-current" aria-current="page" href="work.html">Our work</a>
+      <a class="ex-nav__link" href="solutions.html">Solutions</a>
+      <a class="ex-nav__link" href="guarantee.html">How we charge</a>
+      <a class="ex-nav__link" href="about.html">About</a>
+      <a class="ex-btn ex-btn--primary ex-btn--sm" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+    </nav>
+
+    <button class="ex-burger" type="button" data-nav-toggle aria-expanded="false" aria-controls="ex-mobile-menu">
+      <span class="ex-burger__bars" aria-hidden="true"></span>
+      <span>Menu</span>
+    </button>
+  </div>
+
+  <div class="ex-mobile-menu" id="ex-mobile-menu">
+    <ul class="ex-mobile-menu__list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">What we build</a></li>
+      <li>
+        <a href="work.html">Our work</a>
+        <ul class="ia-submenu">
+          <li><a href="work-uniserve.html">Uniserve Communications</a></li>
+          <li><a href="work-fennec.html">Fennec</a></li>
+          <li><a href="work-palapa-tours.html">Palapa Tours Ottawa</a></li>
+          <li><a href="work-scoped.html">Scoped engagements</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="solutions.html">Solutions</a>
+        <ul class="ia-submenu">
+          <li><a href="solutions-events-floor.html">01 Events and floor ops</a></li>
+          <li><a href="solutions-ticketing-guests.html">02 Ticketing and guests</a></li>
+          <li><a href="solutions-pos-payments.html">03 POS and payments</a></li>
+          <li><a href="solutions-inventory-staff.html">04-05 Inventory and staff</a></li>
+          <li><a href="solutions-media-intelligence.html">06-07 Media and intelligence</a></li>
+        </ul>
+      </li>
+      <li><a href="guarantee.html">How we charge</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a class="ex-btn ex-btn--primary ex-btn--block" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===================== BREADCRUMB ===================== -->
+  <nav class="ia-crumbs" aria-label="Breadcrumb">
+    <div class="ex-container">
+      <ol class="ia-crumbs__list">
+        <li class="ia-crumbs__item"><a class="ia-crumbs__link" href="index.html">Home</a></li>
+        <li class="ia-crumbs__item"><a class="ia-crumbs__link" href="work.html">Our work</a></li>
+        <li class="ia-crumbs__item"><span aria-current="page">Uniserve</span></li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="ex-hero">
+    <div class="ex-container">
+      <div class="ex-hero__inner">
+        <div>
+          <p class="ex-eyebrow ex-eyebrow--violet">Case study 01</p>
+          <h1 class="ex-hero__title">Uniserve Communications: AI enablement for a Canadian ISP, two tracks in three months. <span class="ex-tag ex-tag--build">In build</span></h1>
+          <p class="ex-hero__lead">Gautam Lohia, Chairman and CEO, brought us in to AI-enable both the company and its own customers. Phase 1 mapped the opportunity and cut it to a shortlist. Phase 2 is in build now. Nothing on this page is presented as a finished result.</p>
+          <div class="ex-hero__actions">
+            <a class="ex-btn ex-btn--primary" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+            <a class="ex-btn ex-btn--secondary" href="#projection">See the arithmetic</a>
+          </div>
+        </div>
+
+        <div class="ex-hero__meta">
+          <p class="ex-eyebrow">Engagement</p>
+          <aside class="ex-rail" aria-label="Uniserve engagement facts">
+            <div class="ex-rail__item"><span class="ex-rail__k">Client</span><span class="ex-rail__v">Uniserve Communications Corporation</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__k">Sector</span><span class="ex-rail__v">Internet and telecom, Canada</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__k">Status</span><span class="ex-rail__v">In build. Phase 1 delivered, Phase 2 under way.</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__k">What we built</span><span class="ex-rail__v">An AI opportunity heatmap and a scored use case shortlist, then a customer support chatbot, a voice agent, a ticket summariser, a proposal assistant and an internal Copilot</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__k">Stack</span><span class="ex-rail__v">ConnectWise, Halo, Railtown AI (RailTracks, RailEngine, Conductor)</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__k">Contact</span><span class="ex-rail__v">Gautam Lohia, Chairman and CEO</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__k">Term</span><span class="ex-rail__v">3 months, two tracks</span></div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 01 THE SITUATION ===================== -->
+  <section class="ex-section ex-section--ruled" id="situation">
+    <div class="ex-container">
+      <p class="ex-eyebrow">The situation</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">About 250 tickets a month, two ticketing systems, and a mandate from the owner.</h2>
+        <p class="ex-shead__sub">Uniserve is a Canadian internet and telecom provider. Support handles about 250 tickets a month across ConnectWise and Halo. That volume is the whole reason the engagement exists.</p>
+      </header>
+
+      <div class="ex-split">
+        <div class="ex-stack-lg">
+          <div class="ex-stack">
+            <p class="ex-measure">The mandate came from the top, not from a department. Gautam Lohia asked for a three month AI enablement programme with two tracks running in parallel: one internal, for the people who run the company, and one external, for Uniserve's own customers. Most AI programmes pick one and quietly drop the other. This one was scoped as both from the first meeting.</p>
+            <p class="ex-measure">Two ticketing systems is the detail that matters. When intake is split across ConnectWise and Halo, the same customer problem can arrive twice, get worked twice, and be counted twice. A technician spends part of the day answering a question that was already answered somewhere they cannot see. That is the leak the customer-facing track is aimed at.</p>
+            <p class="ex-measure">Phase 1 did not start with a tool. It started with a map. Buying software before you know where the work repeats is how the 95 percent figure below happens.</p>
+          </div>
+
+          <div class="ex-stats">
+            <div class="ex-stat">
+              <span class="ex-stat__num">95<span class="ex-stat__unit">%</span></span>
+              <p class="ex-stat__label">of enterprise AI pilots show no measurable P&amp;L return. We started with a map so this engagement would not be one of them.</p>
+              <cite class="ex-stat__source">MIT NANDA, The GenAI Divide, 2025</cite>
+            </div>
+            <div class="ex-stat">
+              <span class="ex-stat__num">93<span class="ex-stat__unit">%</span></span>
+              <p class="ex-stat__label">of AI budgets go to technology and about 7 percent to the people expected to use it. Both Uniserve tracks are scoped around the people.</p>
+              <cite class="ex-stat__source">Deloitte, 2025</cite>
+            </div>
+          </div>
+        </div>
+
+        <aside class="ex-rail" aria-label="Starting conditions">
+          <div class="ex-rail__item"><span class="ex-rail__k">Ticket volume</span><span class="ex-rail__v">About 250 a month</span></div>
+          <div class="ex-rail__item"><span class="ex-rail__k">Ticketing</span><span class="ex-rail__v">ConnectWise and Halo</span></div>
+          <div class="ex-rail__item"><span class="ex-rail__k">Mandate</span><span class="ex-rail__v">Owner level, Chairman and CEO</span></div>
+          <div class="ex-rail__item"><span class="ex-rail__k">Tracks</span><span class="ex-rail__v">Internal and customer facing, in parallel</span></div>
+          <div class="ex-rail__item"><span class="ex-rail__k">Hard constraint</span><span class="ex-rail__v">All data and models hosted in Canada</span></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 02 PHASE 1 ===================== -->
+  <section class="ex-section" id="phase-1">
+    <div class="ex-container">
+      <p class="ex-eyebrow ex-eyebrow--violet">Phase 1</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">The opportunity heatmap, then the cut.</h2>
+        <p class="ex-shead__sub">Four functions read for repeated work. Eight to ten use cases written up with ROI next to each one. Three to five kept.</p>
+      </header>
+
+      <div class="ex-stack-lg">
+        <div class="ex-stack">
+          <p class="ex-measure">We built an AI opportunity heatmap across four functions: customer support, NOC and operations, sales and quoting, and finance and admin. Each function was read for three things: where work repeats, where information is re-typed from one system into another, and where a person waits on another person before they can finish.</p>
+
+          <ul class="ex-index">
+            <li class="ex-index__row">
+              <span class="ex-index__num">01</span>
+              <div>
+                <p class="ex-index__title">Customer support</p>
+                <p class="ex-index__note">About 250 tickets a month across two systems. The heaviest concentration of repeated questions, and the reason the customer-facing track exists.</p>
+              </div>
+            </li>
+            <li class="ex-index__row">
+              <span class="ex-index__num">02</span>
+              <div>
+                <p class="ex-index__title">NOC and operations</p>
+                <p class="ex-index__note">Read for where an engineer waits on information that already exists somewhere in the estate.</p>
+              </div>
+            </li>
+            <li class="ex-index__row">
+              <span class="ex-index__num">03</span>
+              <div>
+                <p class="ex-index__title">Sales and quoting</p>
+                <p class="ex-index__note">Every proposal starting from a blank page and a hunt through old files. This became the proposal assistant.</p>
+              </div>
+            </li>
+            <li class="ex-index__row">
+              <span class="ex-index__num">04</span>
+              <div>
+                <p class="ex-index__title">Finance and admin</p>
+                <p class="ex-index__note">Read for re-typing between systems and for documents nobody can find twice.</p>
+              </div>
+            </li>
+          </ul>
+
+          <p class="ex-measure">Scoring came next. Each candidate use case was written up with the arithmetic beside it, so the ranking was arguable rather than asserted. The shortlist was then cut on ROI plus feasibility, in that order. Feasibility is not a footnote here: a use case that scores well but cannot be hosted in Canada is not a use case for Uniserve, and it was struck for that reason and no other.</p>
+          <p class="ex-measure">Nothing was chosen because it demos well. That is the single biggest difference between a heatmap and a pitch.</p>
+        </div>
+
+        <div>
+          <div class="ex-fig">
+            <span class="ex-fig__num">FIG. 01</span>
+            <span class="ex-fig__label">Phase 1 output</span>
+          </div>
+          <div class="ex-table-wrap">
+            <table class="ex-table">
+              <caption>Phase 1, Uniserve AI enablement programme. Figures from the engagement scope.</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Measure</th>
+                  <th scope="col">Figure</th>
+                  <th scope="col">Where it comes from</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Support tickets a month</th>
+                  <td class="ex-table__num">about 250</td>
+                  <td>Uniserve intake</td>
+                </tr>
+                <tr>
+                  <th scope="row">Functions scanned in the heatmap</th>
+                  <td class="ex-table__num">4</td>
+                  <td>Phase 1 scope</td>
+                </tr>
+                <tr>
+                  <th scope="row">Use cases written up with ROI</th>
+                  <td class="ex-table__num">8 to 10</td>
+                  <td>Phase 1 output</td>
+                </tr>
+                <tr>
+                  <th scope="row">Shortlisted on ROI plus feasibility</th>
+                  <td class="ex-table__num">3 to 5</td>
+                  <td>Phase 1 output</td>
+                </tr>
+                <tr>
+                  <th scope="row">Programme length</th>
+                  <td class="ex-table__num">3 months</td>
+                  <td>Engagement scope</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 03 PHASE 2 ===================== -->
+  <section class="ex-section ex-section--paper-2" id="phase-2">
+    <div class="ex-container">
+      <p class="ex-eyebrow ex-eyebrow--violet">Phase 2</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">What is being built now.</h2>
+        <p class="ex-shead__sub">One customer-facing pair and three internal tools, all of them reading Uniserve's own tickets and documents rather than general web text.</p>
+      </header>
+
+      <div class="ex-stack-lg">
+        <div class="ex-stack">
+          <p class="ex-measure">The customer-facing piece is an AI chatbot and a voice agent for residential support. Both are trained on Uniserve's own tickets and documentation, which is what makes the answers specific to a Uniserve line on a Uniserve network instead of generically plausible. It is also what makes the 20 percent target below reachable: a customer who gets the real answer at 11pm does not create the ticket a technician reads at 9am.</p>
+          <p class="ex-measure">The internal piece is three tools. A ticket summariser that reads the thread and drafts a response for an agent to edit and approve. A sales assistant that builds a proposal from the notes taken on the call. And a Uniserve Copilot that answers questions by retrieving from the company's own documents, so an answer comes with the document it came from.</p>
+
+          <div class="ex-disclose">
+            <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="uniserve-phase2"
+                    data-label-closed="+ The full Phase 2 build list" data-label-open="Show fewer build items">
+              <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+              <span data-disclose-label>+ The full Phase 2 build list</span>
+            </button>
+            <div class="ex-disclose__panel" id="uniserve-phase2" data-collapsed="false">
+              <div class="ex-disclose__inner">
+                <dl class="ex-dl">
+                  <dt class="ex-dl__k">External, customer facing</dt>
+                  <dd class="ex-dl__v">An AI chatbot and a voice agent for residential support, trained on Uniserve tickets and documentation.</dd>
+                  <dt class="ex-dl__k">Support desk</dt>
+                  <dd class="ex-dl__v">A ticket summariser with auto-response drafts, so an agent edits and approves instead of writing from scratch.</dd>
+                  <dt class="ex-dl__k">Sales and quoting</dt>
+                  <dd class="ex-dl__v">A sales assistant that builds proposals from notes taken on the call.</dd>
+                  <dt class="ex-dl__k">Internal</dt>
+                  <dd class="ex-dl__v">A Uniserve Copilot doing retrieval question and answer over the company's own documents.</dd>
+                  <dt class="ex-dl__k">Status</dt>
+                  <dd class="ex-dl__v">In build. Phase 1 is delivered. Nothing in this list is being presented as a finished result.</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="ex-fig">
+            <span class="ex-fig__num">FIG. 02</span>
+            <span class="ex-fig__label">Interface diagram</span>
+          </div>
+          <div class="ex-diagram">
+            <div class="ex-diagram__bar">
+              <span class="ex-diagram__dot"></span>Support ticket path, Phase 2 build
+            </div>
+            <div class="ex-diagram__body">
+              <div class="ex-diagram__flow">
+                <div class="ex-diagram__node">
+                  <span class="ex-diagram__node-k">Intake</span>
+                  ConnectWise or Halo ticket, or a residential customer in the chatbot or on the voice agent
+                </div>
+                <span class="ex-diagram__arrow" aria-hidden="true">-&gt;</span>
+                <div class="ex-diagram__node ex-diagram__node--accent">
+                  <span class="ex-diagram__node-k">Retrieval</span>
+                  Uniserve tickets and documentation, hosted in Canada
+                </div>
+                <span class="ex-diagram__arrow" aria-hidden="true">-&gt;</span>
+                <div class="ex-diagram__node ex-diagram__node--primary">
+                  <span class="ex-diagram__node-k">Draft</span>
+                  Ticket summary plus a suggested response, or a proposal built from call notes
+                </div>
+                <span class="ex-diagram__arrow" aria-hidden="true">-&gt;</span>
+                <div class="ex-diagram__node ex-diagram__node--ok">
+                  <span class="ex-diagram__node-k">Human gate</span>
+                  An agent edits and approves. Nothing irreversible sends on its own.
+                </div>
+              </div>
+            </div>
+            <p class="ex-diagram__caption">INTERFACE DIAGRAM, not a screenshot. It shows the approval gate in the Phase 2 build, not a shipped screen.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 04 THE PROJECTION ===================== -->
+  <section class="ex-section" id="projection">
+    <div class="ex-container">
+      <p class="ex-eyebrow">The numbers</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">A projection, with the sum written out.</h2>
+        <p class="ex-shead__sub"><span class="ex-tag ex-tag--projection">Projection</span> The model below is a forecast built from Uniserve's own ticket volume and hourly cost. It is not a booked result. It is the bar the build is measured against.</p>
+      </header>
+
+      <div class="ex-stack-lg">
+        <div class="ex-stats">
+          <div class="ex-stat">
+            <span class="ex-stat__num">20<span class="ex-stat__unit">%</span></span>
+            <p class="ex-stat__label">fewer redundant customer-created tickets, the target for the chatbot and voice agent.</p>
+            <cite class="ex-stat__source">Projection, Uniserve programme model</cite>
+          </div>
+          <div class="ex-stat">
+            <span class="ex-stat__num">1<span class="ex-stat__unit">hr</span></span>
+            <p class="ex-stat__label">of a technician's day given back, roughly, once the redundant tickets stop arriving.</p>
+            <cite class="ex-stat__source">Projection, Uniserve programme model</cite>
+          </div>
+          <div class="ex-stat">
+            <span class="ex-stat__num">$10,000</span>
+            <p class="ex-stat__label">per technician per year, at about $40 an hour, scaling with team size.</p>
+            <cite class="ex-stat__source">Projection, Uniserve programme model</cite>
+          </div>
+        </div>
+
+        <div>
+          <div class="ex-fig">
+            <span class="ex-fig__num">FIG. 03</span>
+            <span class="ex-fig__label">Projection arithmetic</span>
+          </div>
+          <div class="ex-table-wrap">
+            <table class="ex-table">
+              <caption>Projection, not a booked result. One technician is the unit. Scales with team size. The five and ten technician rows are illustrative multiples; Uniserve's team size is not published here.</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Line</th>
+                  <th scope="col">Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Redundant customer-created tickets</th>
+                  <td class="ex-table__num">about 20% fewer</td>
+                </tr>
+                <tr>
+                  <th scope="row">Technician time given back</th>
+                  <td class="ex-table__num">about 1 hour per day</td>
+                </tr>
+                <tr>
+                  <th scope="row">Working days a year</th>
+                  <td class="ex-table__num">about 250</td>
+                </tr>
+                <tr>
+                  <th scope="row">Hourly cost</th>
+                  <td class="ex-table__num">about $40</td>
+                </tr>
+                <tr>
+                  <th scope="row">Per technician per year</th>
+                  <td class="ex-table__num ex-table__flag">1 hr/day x about 250 days x $40 = about $10,000</td>
+                </tr>
+                <tr>
+                  <th scope="row">Five technicians, illustrative</th>
+                  <td class="ex-table__num">about $50,000 a year</td>
+                </tr>
+                <tr>
+                  <th scope="row">Ten technicians, illustrative</th>
+                  <td class="ex-table__num">about $100,000 a year</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="ex-stack">
+          <p class="ex-measure">One technician is the unit. Ten technicians is ten times the line. That is the whole point of writing the sum out instead of printing a headline: you can disagree with any row and recalculate it yourself.</p>
+          <p class="ex-measure">Two of the inputs are Uniserve's own: the ticket volume and the hourly cost. Two are assumptions we are prepared to defend and to be measured on: the 20 percent deflection target and about 250 working days in a year. If the deflection lands at 10 percent, the line halves, and we would rather you knew which rows carry the risk than be handed a single confident number.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 05 THE CONSTRAINTS (BAND) ===================== -->
+  <section class="ex-band" id="constraints">
+    <div class="ex-container">
+      <div class="ex-split ex-split--wide">
+        <div class="ex-stack">
+          <p class="ex-eyebrow ex-eyebrow--onink">The constraints that shaped the build</p>
+          <h2>Every byte stays in Canada, and a person approves anything irreversible.</h2>
+          <p class="ex-measure">Uniserve is a Canadian carrier, so all data and all models had to be hosted in Canada. That was fixed before the first line of code, and it ruled out a long list of otherwise obvious choices. It is also the reason the platform partner matters as much as the model does.</p>
+          <p class="ex-measure">We build on Railtown AI: the RailTracks agent SDK for the agents themselves, the RailEngine data layer underneath them, and Conductor for observability, so there is a record of what an agent did and why. Observability is not a nice-to-have on a carrier's support desk. If an agent drafted a wrong answer, someone has to be able to go back and see how.</p>
+          <p class="ex-measure">The third constraint is a rule rather than a technology. A human approves before anything irreversible sends. The summariser drafts and an agent approves. The proposal assistant drafts and a salesperson approves. The customer-facing chatbot answers within what it can retrieve and hands off rather than inventing. That gate costs a few seconds per ticket and it is not coming out.</p>
+        </div>
+
+        <div class="ex-stack">
+          <dl class="ex-dl ex-dl--onink">
+            <dt class="ex-dl__k">Hosting requirement</dt>
+            <dd class="ex-dl__v">All data and models in Canada. Non-negotiable, set before build.</dd>
+            <dt class="ex-dl__k">Agent SDK</dt>
+            <dd class="ex-dl__v">RailTracks, Railtown AI.</dd>
+            <dt class="ex-dl__k">Data layer</dt>
+            <dd class="ex-dl__v">RailEngine, Railtown AI.</dd>
+            <dt class="ex-dl__k">Observability</dt>
+            <dd class="ex-dl__v">Conductor, Railtown AI. A record of what an agent did and why.</dd>
+            <dt class="ex-dl__k">Approval gate</dt>
+            <dd class="ex-dl__v">A human edits and approves before anything irreversible sends.</dd>
+            <dt class="ex-dl__k">Ticketing systems</dt>
+            <dd class="ex-dl__v">ConnectWise and Halo, both kept in place.</dd>
+          </dl>
+
+          <div class="ex-logos ex-logos--onink">
+            <p class="ex-logos__claim">Uniserve is in month-by-month build with us across two tracks, internal and customer facing.</p>
+            <ul class="ex-logos__row">
+              <li class="ex-logos__item">
+                <img class="ex-logos__img ex-logos__img--wide" src="assets/uniserve.png" alt="Uniserve Communications Corporation" width="286" height="52" loading="lazy" decoding="async">
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 06 WHAT IS STILL AHEAD ===================== -->
+  <section class="ex-section" id="ahead">
+    <div class="ex-container">
+      <p class="ex-eyebrow">What is still ahead</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">In build. Here is what has not happened yet.</h2>
+        <p class="ex-shead__sub">Phase 1 is delivered. Phase 2 is under construction. The projection is a target, not an outcome, and we will not print it as one until the measurement exists.</p>
+      </header>
+
+      <div class="ex-grid ex-grid--2">
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Delivered</h3>
+            <span class="ex-tag ex-tag--shipped">Done</span>
+          </div>
+          <p class="ex-card__body">The AI opportunity heatmap across the four functions, the 8 to 10 scored use cases, and the shortlist of 3 to 5 chosen on ROI plus feasibility. Uniserve owns that document whatever happens next.</p>
+        </article>
+
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Under construction</h3>
+            <span class="ex-tag ex-tag--build">In build</span>
+          </div>
+          <p class="ex-card__body">The residential chatbot and voice agent, the ticket summariser with its response drafts, the proposal assistant and the internal Copilot. All of it on Canadian hosting, all of it behind the approval gate.</p>
+        </article>
+
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Not yet measured</h3>
+            <span class="ex-tag ex-tag--projection">Projection</span>
+          </div>
+          <p class="ex-card__body">The 20 percent deflection and the hour a day. Both are targets agreed against a baseline in writing. Neither has a result to report, and neither will appear on this site as a result until it does.</p>
+        </article>
+
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">How it is measured</h3>
+            <span class="ex-tag">Method</span>
+          </div>
+          <p class="ex-card__body">Redundant customer-created tickets counted before and after, out of the same ConnectWise and Halo intake. The clock starts at deployment, not at signature. If the system misses the agreed bar we keep working at no additional cost until it clears.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA (BAND) ===================== -->
+  <section class="ex-band ex-band--tight">
+    <div class="ex-container">
+      <div class="ex-split ex-split--wide">
+        <div class="ex-stack">
+          <p class="ex-eyebrow ex-eyebrow--onink">Start the same way Uniserve did</p>
+          <h2>With a map, not a tool.</h2>
+          <p class="ex-measure">The free operations audit is the front half of what Phase 1 was: we read where work repeats, where information is re-typed, and where a person waits on a person, then show you the arithmetic. You keep the map whether or not you hire us.</p>
+          <p class="ex-measure">If we do build, we agree the baseline in writing first, the clock starts at deployment, you can cancel any time, and you own the code. The bar and the timeframe are agreed per engagement. Nothing here guarantees a particular dollar amount.</p>
+          <div class="ex-hero__actions">
+            <a class="ex-btn ex-btn--primary" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+            <a class="ex-btn ex-btn--onink" href="guarantee.html">How we charge</a>
+          </div>
+        </div>
+
+        <div class="ex-stack">
+          <dl class="ex-dl ex-dl--onink">
+            <dt class="ex-dl__k">Who you talk to</dt>
+            <dd class="ex-dl__v">Shiv and Vishal. No account managers, no slide decks.</dd>
+            <dt class="ex-dl__k">Direct</dt>
+            <dd class="ex-dl__v"><a href="mailto:shiv@exdsconsulting.com">shiv@exdsconsulting.com</a></dd>
+            <dt class="ex-dl__k">Read next</dt>
+            <dd class="ex-dl__v"><a href="services.html">What we build</a>, then <a href="work.html">the rest of our work</a>.</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RELATED PAGES ===================== -->
+  <section class="ex-section ex-section--tight ia-related" aria-labelledby="related-heading">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Keep reading</p>
+      <h2 class="ex-shead__title" id="related-heading">Where to go next</h2>
+
+      <ul class="ia-related__grid">
+        <li>
+          <a class="ex-card ia-related__card" href="services.html">
+            <p class="ia-related__kicker">Related capability</p>
+            <h3 class="ex-card__title">The AI opportunity audit</h3>
+            <p class="ex-card__body">The method behind the Uniserve heatmap: every function mapped, every use case scored on ROI and feasibility, the top three to five kept.</p>
+            <span class="ia-related__go">See what we build <span class="ia-related__arrow" aria-hidden="true">-&gt;</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="ex-card ia-related__card" href="work.html">
+            <p class="ia-related__kicker">Back up</p>
+            <h3 class="ex-card__title">All case studies</h3>
+            <p class="ex-card__body">Four case studies, each with its status, its constraint and its arithmetic.</p>
+            <span class="ia-related__go">Back to the index <span class="ia-related__arrow" aria-hidden="true">-&gt;</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="ex-card ia-related__card ia-related__card--next" href="work-fennec.html">
+            <p class="ia-related__kicker">Next case study</p>
+            <h3 class="ex-card__title">Fennec, the flagship</h3>
+            <p class="ex-card__body">An operating system for premium nightlife venues, live across four rooms and 20+ event companies.</p>
+            <span class="ia-related__go">Next <span class="ia-related__arrow" aria-hidden="true">-&gt;</span></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ex-footer">
+  <div class="ex-container">
+    <div class="ex-footer__grid ia-sitemap">
+      <div class="ex-footer__brand">
+        <img src="assets/exodus-logo.png" alt="Exodus Consulting" width="44" height="23">
+        <p class="ex-footer__blurb">AI enablement and custom software for owner-led businesses. Two founders, direct access.</p>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Work</p>
+        <ul>
+          <li><a href="work.html">Our work</a></li>
+          <li><a href="work-uniserve.html">Uniserve Communications</a></li>
+          <li><a href="work-fennec.html">Fennec</a></li>
+          <li><a href="work-palapa-tours.html">Palapa Tours Ottawa</a></li>
+          <li><a href="work-scoped.html">Scoped engagements</a></li>
+        </ul>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Solutions</p>
+        <ul>
+          <li><a href="solutions.html">All solutions</a></li>
+          <li><a href="solutions-events-floor.html">Events and floor ops</a></li>
+          <li><a href="solutions-ticketing-guests.html">Ticketing and guests</a></li>
+          <li><a href="solutions-pos-payments.html">POS and payments</a></li>
+          <li><a href="solutions-inventory-staff.html">Inventory and staff</a></li>
+          <li><a href="solutions-media-intelligence.html">Media and intelligence</a></li>
+        </ul>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Company</p>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">What we build</a></li>
+          <li><a href="guarantee.html">How we charge</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Direct</p>
+        <ul>
+          <li><a href="mailto:shiv@exdsconsulting.com">shiv@exdsconsulting.com</a></li>
+          <li><a href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a></li>
+          <li><a href="https://instagram.com/exodus_consulting_" target="_blank" rel="noopener">@exodus_consulting_</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ex-footer__legal">
+      <span>&copy; 2026 Exodus Consulting</span>
+      <span>Vancouver, BC</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,12 @@
+/* ==========================================================================
+   PAGE CSS: about.html
+   Loaded AFTER css/exodus.css. Existing tokens only. One purpose:
+   the dictionary phonetic has to stay lower case, and every mono utility in
+   the shared sheet is uppercase by design. Nothing else lives here.
+   ========================================================================== */
+.p-about__phon {
+  text-transform: none;
+  letter-spacing: 0.06em;
+  font-size: var(--t-mono-lg);
+  color: var(--text-2);
+}

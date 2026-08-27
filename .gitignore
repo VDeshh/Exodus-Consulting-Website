@@ -27,3 +27,18 @@ Uniserve-Phase1-Chatbot-Report.pdf
 pb_*.png
 pbq_*.png
 chk_*.jpg
+
+# Raw app captures (contain guest PII) and prep artifacts
+assets/product/raw/
+assets/product/index.jpg
+assets/product/contact-sheet.jpg
+assets/product/*.mp4
+_legacy-v1/
+
+# Client-confidential deliverables and internal drafts. This repo is PUBLIC:
+# these contain client pricing, quoted fees and internal test reports and must
+# never be published. They are not website files.
+content/
+oc-email-full.html
+Uniserve-Chatbot-Knowledge-Base.*
+Uniserve-Support-Assistant-Test-Report.pdf

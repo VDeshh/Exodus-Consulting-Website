@@ -1,0 +1,53 @@
+/* ==========================================================================
+   PAGE CSS: work.html
+   Loaded AFTER css/exodus.css and css/ia.css. Existing tokens only.
+   One purpose: the case cards on the index need a client logo lockup and a
+   headline figure inside a .ex-card, and the shared sheet only has the
+   full-width .ex-logos strip. Nothing else lives here.
+   ========================================================================== */
+
+/* Client logo lockup at the top of a case card. Sized by height, never by
+   width, so the wide marks and the square marks sit on the same baseline. */
+.p-work__logo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-md);
+  min-height: 30px;
+  margin-bottom: var(--space-sm);
+  padding-bottom: var(--space-sm);
+  border-bottom: var(--hairline);
+}
+.p-work__logo img {
+  width: auto;
+  max-width: 100%;
+  max-height: 26px;
+  opacity: 0.78;
+}
+.p-work__logo--tall img { max-height: 34px; }
+.p-work__logo--wide img { max-height: 18px; }
+/* A fine-lined pictorial mark needs the extra height and its own colour to
+   stay legible at card scale. */
+.p-work__logo--mark img { max-height: 40px; opacity: 1; }
+
+/* Uniserve and Matchbox only supply white artwork, which is invisible on a
+   light card, so those two marks sit on a small --ink plate. Per image, not
+   per lockup, because the marks beside them are dark. */
+.p-work__logo img.is-light {
+  box-sizing: content-box;
+  padding: 7px 10px;
+  border-radius: var(--r-sm);
+  background-color: var(--ink);
+  opacity: 1;
+}
+
+/* Two status tags side by side in a card head. */
+.p-work__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3xs);
+}
+
+/* The single headline figure inside a case card. */
+.p-work__figure { margin-top: var(--space-md); }
+.p-work__figure .ex-tag { margin-bottom: var(--space-2xs); }

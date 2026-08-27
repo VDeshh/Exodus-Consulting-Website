@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inventory, loss prevention and staff payouts | Exodus Consulting</title>
+  <meta name="description" content="Fennec families 04 and 05: live stock counts per bar and storage room, a reconciliation that flags overpours, and the payout arithmetic we built twice, once inside Fennec and once as standalone tip-out software for Palapa Tours Ottawa.">
+  <meta name="theme-color" content="#FAF9F7">
+  <link rel="icon" href="assets/exodus-logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Exodus Consulting">
+  <meta property="og:title" content="Inventory, loss prevention and staff payouts">
+  <meta property="og:description" content="Live stock counts, a variance report that flags overpours, and payout arithmetic that ends the gratuity argument.">
+  <meta property="og:image" content="assets/exodus-logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/exodus.css?v=11">
+  <link rel="stylesheet" href="css/ia.css?v=11">
+  <script src="js/exodus.js?v=11" defer></script>
+</head>
+<body>
+<a class="ex-skip" href="#main">Skip to content</a>
+
+<header class="ex-header">
+  <div class="ex-header__inner">
+    <a class="ex-brand" href="index.html">
+      <img src="assets/exodus-logo.png" alt="Exodus Consulting" width="34" height="17">
+      <span class="ex-brand__name">Exodus Consulting</span>
+    </a>
+
+    <nav class="ex-nav" aria-label="Primary">
+      <a class="ex-nav__link" href="index.html">Home</a>
+      <a class="ex-nav__link" href="services.html">What we build</a>
+      <a class="ex-nav__link" href="work.html">Our work</a>
+      <a class="ex-nav__link is-current" aria-current="page" href="solutions.html">Solutions</a>
+      <a class="ex-nav__link" href="guarantee.html">How we charge</a>
+      <a class="ex-nav__link" href="about.html">About</a>
+      <a class="ex-btn ex-btn--primary ex-btn--sm" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+    </nav>
+
+    <button class="ex-burger" type="button" data-nav-toggle aria-expanded="false" aria-controls="ex-mobile-menu">
+      <span class="ex-burger__bars" aria-hidden="true"></span>
+      <span>Menu</span>
+    </button>
+  </div>
+
+  <div class="ex-mobile-menu" id="ex-mobile-menu">
+    <ul class="ex-mobile-menu__list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">What we build</a></li>
+      <li>
+        <a href="work.html">Our work</a>
+        <ul class="ia-submenu">
+          <li><a href="work-uniserve.html">Uniserve Communications</a></li>
+          <li><a href="work-fennec.html">Fennec</a></li>
+          <li><a href="work-palapa-tours.html">Palapa Tours Ottawa</a></li>
+          <li><a href="work-scoped.html">Scoped engagements</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="solutions.html">Solutions</a>
+        <ul class="ia-submenu">
+          <li><a href="solutions-events-floor.html">01 Events and floor ops</a></li>
+          <li><a href="solutions-ticketing-guests.html">02 Ticketing and guests</a></li>
+          <li><a href="solutions-pos-payments.html">03 POS and payments</a></li>
+          <li><a href="solutions-inventory-staff.html">04-05 Inventory and staff</a></li>
+          <li><a href="solutions-media-intelligence.html">06-07 Media and intelligence</a></li>
+        </ul>
+      </li>
+      <li><a href="guarantee.html">How we charge</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a class="ex-btn ex-btn--primary ex-btn--block" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ====================================================================
+       BREADCRUMB
+       ==================================================================== -->
+  <nav class="ia-crumbs" aria-label="Breadcrumb">
+    <div class="ex-container">
+      <ol class="ia-crumbs__list">
+        <li class="ia-crumbs__item"><a class="ia-crumbs__link" href="index.html">Home</a></li>
+        <li class="ia-crumbs__item"><a class="ia-crumbs__link" href="solutions.html">Solutions</a></li>
+        <li class="ia-crumbs__item"><span aria-current="page">Inventory and staff</span></li>
+      </ol>
+    </div>
+  </nav>
+
+
+  <!-- ====================================================================
+       1. HERO
+       ==================================================================== -->
+  <section class="ex-hero">
+    <div class="ex-container">
+      <div class="ex-hero__inner">
+        <div>
+          <p class="ex-eyebrow ex-eyebrow--violet">Families 04 and 05</p>
+          <h1 class="ex-hero__title">Count the stock. Reconcile the pour. Split the tips.</h1>
+          <p class="ex-hero__lead">Two families sit on the same arithmetic. One counts what left the bottle and compares it against what was sold. The other takes the pooled gratuity and divides it by rules that were agreed before the shift started. Both exist because a venue lost an argument it could not settle with a spreadsheet.</p>
+          <div class="ex-hero__actions">
+            <a class="ex-btn ex-btn--primary" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+            <a class="ex-btn ex-btn--secondary" href="solutions.html">All seven families</a>
+          </div>
+        </div>
+
+        <aside class="ex-hero__meta">
+          <p><span class="ex-tag ex-tag--live">Live</span> <span class="ex-tag ex-tag--shipped">Shipped</span></p>
+          <div class="ex-rail">
+            <div class="ex-rail__item">
+              <span class="ex-rail__k">Product</span>
+              <span class="ex-rail__v">Fennec, fennecapp.com</span>
+            </div>
+            <div class="ex-rail__item">
+              <span class="ex-rail__k">Family 04</span>
+              <span class="ex-rail__v">Inventory and loss prevention, five modules</span>
+            </div>
+            <div class="ex-rail__item">
+              <span class="ex-rail__k">Family 05</span>
+              <span class="ex-rail__v">Staff and payouts, one module plus one standalone build</span>
+            </div>
+            <div class="ex-rail__item">
+              <span class="ex-rail__k">Standalone build</span>
+              <span class="ex-rail__v">Tip-out software, Palapa Tours Ottawa</span>
+            </div>
+            <div class="ex-rail__item">
+              <span class="ex-rail__k">Counted at</span>
+              <span class="ex-rail__v">Every bar, storage room and floor</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ====================================================================
+       2. FAMILY 04: INVENTORY AND LOSS PREVENTION + FIG. 01
+       ==================================================================== -->
+  <section class="ex-section ex-section--paper-2">
+    <div class="ex-container">
+      <p class="ex-eyebrow ex-eyebrow--violet">Family 04</p>
+      <div class="ex-split">
+        <div>
+          <header class="ex-shead">
+            <h2 class="ex-shead__title">Inventory and loss prevention</h2>
+            <p class="ex-shead__sub">A bar that counts once a month finds out about a bad pour four weeks late. Five modules count where the liquor actually sits, then reconcile what was poured against what was sold.</p>
+          </header>
+
+          <ol class="ex-index">
+            <li class="ex-index__row">
+              <span class="ex-index__num">01</span>
+              <div>
+                <p class="ex-index__title">Inventory Dashboard</p>
+                <p class="ex-index__note">"Live stock counts across every bar, storage room and floor." One screen answers the question a manager otherwise walks the building to answer.</p>
+              </div>
+            </li>
+            <li class="ex-index__row">
+              <span class="ex-index__num">02</span>
+              <div>
+                <p class="ex-index__title">Live Menu</p>
+                <p class="ex-index__note">"Edit menus once, push everywhere - printed, digital and POS." One edit, three surfaces, so the price on the table matches the price on the terminal.</p>
+              </div>
+            </li>
+            <li class="ex-index__row">
+              <span class="ex-index__num">03</span>
+              <div>
+                <p class="ex-index__title">Stock Room</p>
+                <p class="ex-index__note">"Counted, photographed and reconciled." The photograph is the part staff argue with least, because the count carries its own evidence.</p>
+              </div>
+            </li>
+            <li class="ex-index__row">
+              <span class="ex-index__num">04</span>
+              <div>
+                <p class="ex-index__title">In-Bar Inventory</p>
+                <p class="ex-index__note">"Each bar gets its own running count of bottles and kegs." A variance then points at a room rather than at the building.</p>
+              </div>
+            </li>
+            <li class="ex-index__row">
+              <span class="ex-index__num">05</span>
+              <div>
+                <p class="ex-index__title">Revenue Loss Calculator</p>
+                <p class="ex-index__note">"Reconcile pours vs sales, flag overpours and missing inventory." The flag is the whole point: it names the product and the bar while the night is still recent.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <aside class="ex-rail">
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">Counted at</span>
+            <span class="ex-rail__v">Every bar, storage room and floor</span>
+          </div>
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">What we built</span>
+            <span class="ex-rail__v">Products, sessions, variance, reorder and POS routing</span>
+          </div>
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">Flags</span>
+            <span class="ex-rail__v">Overpours and missing inventory</span>
+          </div>
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">Menu edits</span>
+            <span class="ex-rail__v">Once, then printed, digital and POS</span>
+          </div>
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">Module quotes</span>
+            <span class="ex-rail__v">fennecapp.com, word for word</span>
+          </div>
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">Status</span>
+            <span class="ex-rail__v">Live</span>
+          </div>
+        </aside>
+      </div>
+
+      <hr class="ex-rule ex-rule--spaced">
+
+      <div class="ex-fig">
+        <span class="ex-fig__num">FIG. 01</span>
+        <span class="ex-fig__label">Interface diagram, poured against sold</span>
+      </div>
+      <div class="ex-diagram">
+        <div class="ex-diagram__bar">
+          <span class="ex-diagram__dot" aria-hidden="true"></span>
+          Revenue loss calculator
+        </div>
+        <div class="ex-diagram__body">
+          <div class="ex-diagram__flow">
+            <div class="ex-diagram__node">
+              <span class="ex-diagram__node-k">Counted</span>
+              In-bar and stock room
+            </div>
+            <span class="ex-diagram__arrow" aria-hidden="true">-&gt;</span>
+            <div class="ex-diagram__node">
+              <span class="ex-diagram__node-k">Compared against</span>
+              Closed tabs from the POS
+            </div>
+            <span class="ex-diagram__arrow" aria-hidden="true">-&gt;</span>
+            <div class="ex-diagram__node ex-diagram__node--primary">
+              <span class="ex-diagram__node-k">Output</span>
+              Variance per product, per bar
+            </div>
+          </div>
+
+          <div class="ex-table-wrap">
+            <table class="ex-table">
+              <caption>Poured against sold by product, one session. Structural placeholders drawn for this diagram, not any venue's figures.</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Product</th>
+                  <th scope="col">Poured</th>
+                  <th scope="col">Sold</th>
+                  <th scope="col">Variance</th>
+                  <th scope="col">State</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Vodka, 750 ml</th>
+                  <td class="ex-table__num">41 oz</td>
+                  <td class="ex-table__num">38 oz</td>
+                  <td class="ex-table__num ex-table__flag">+3 oz</td>
+                  <td class="ex-table__flag">Flagged, overpour</td>
+                </tr>
+                <tr>
+                  <th scope="row">Tequila, 750 ml</th>
+                  <td class="ex-table__num">26 oz</td>
+                  <td class="ex-table__num">26 oz</td>
+                  <td class="ex-table__num">0 oz</td>
+                  <td class="ex-table__ok">Reconciled</td>
+                </tr>
+                <tr>
+                  <th scope="row">House gin, 1 L</th>
+                  <td class="ex-table__num">54 oz</td>
+                  <td class="ex-table__num">54 oz</td>
+                  <td class="ex-table__num">0 oz</td>
+                  <td class="ex-table__ok">Reconciled</td>
+                </tr>
+                <tr>
+                  <th scope="row">IPA keg, 50 L</th>
+                  <td class="ex-table__num">96 pt</td>
+                  <td class="ex-table__num">96 pt</td>
+                  <td class="ex-table__num">0 pt</td>
+                  <td class="ex-table__ok">Reconciled</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="ex-diagram__caption">INTERFACE DIAGRAM, not a screenshot. One flagged row is the point: the module is quoted as "reconcile pours vs sales, flag overpours and missing inventory", and a flag on Saturday morning is worth more than a spreadsheet at month end. Every figure above is a structural placeholder. No venue's counts, no savings claimed.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ====================================================================
+       3. DARK BAND: the count only works if the catalogue agrees
+       ==================================================================== -->
+  <section class="ex-band ex-band--tight">
+    <div class="ex-container">
+      <p class="ex-eyebrow ex-eyebrow--onink">What the count depends on</p>
+      <div class="ex-split ex-split--wide">
+        <div>
+          <h2>A variance report is only as honest as the item list under it.</h2>
+          <p>Poured against sold is a subtraction, and it fails the moment the two sides are describing different things. So the catalogue comes first: every item, price, modifier and tax code already on the terminals gets listed and compared against the menu the venue thinks it sells. Then each object gets exactly one owner, which is the decision that prevents two prices for one bottle.</p>
+          <p>Menus, prices and packages push out of Fennec. Closed tabs pull back in. That routing lives in <a class="ex-link" href="solutions-pos-payments.html">POS and payments</a>, and it is why the count can be trusted at all.</p>
+          <blockquote class="ex-quote">
+            <p class="ex-quote__text">"Floor plans, reservations, packages and live ops - synced with Square."</p>
+            <cite class="ex-quote__cite">Fennec product copy, fennecapp.com</cite>
+          </blockquote>
+        </div>
+
+        <aside class="ex-rail ex-rail--onink">
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">Pours off sales</span>
+            <span class="ex-rail__v">Revenue Loss Calculator</span>
+          </div>
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">Two systems, one bar</span>
+            <span class="ex-rail__v">Two-way POS sync</span>
+          </div>
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">Connects to</span>
+            <span class="ex-rail__v">Square, Toast, Lightspeed</span>
+          </div>
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">Gratuity disputes</span>
+            <span class="ex-rail__v">Tip-out engine, Palapa Tours</span>
+          </div>
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">New hardware</span>
+            <span class="ex-rail__v">None on the counter</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ====================================================================
+       4. FAMILY 05: STAFF AND PAYOUTS + FIG. 02
+       ==================================================================== -->
+  <section class="ex-section">
+    <div class="ex-container">
+      <p class="ex-eyebrow ex-eyebrow--violet">Family 05</p>
+      <div class="ex-split">
+        <div>
+          <header class="ex-shead">
+            <h2 class="ex-shead__title">Staff and payouts</h2>
+            <p class="ex-shead__sub">Schedules and permissions are table stakes. The part that stops arguments is the payout arithmetic, which we have now built twice: once inside Fennec, once as standalone software for a cruise operator.</p>
+          </header>
+
+          <ol class="ex-index">
+            <li class="ex-index__row">
+              <span class="ex-index__num">01</span>
+              <div>
+                <p class="ex-index__title">Staff Management</p>
+                <p class="ex-index__note">"Schedules, clock-in, role permissions, and tip distribution." Four jobs in one module, and the last one is the one people check twice.</p>
+              </div>
+            </li>
+            <li class="ex-index__row">
+              <span class="ex-index__num">02</span>
+              <div>
+                <p class="ex-index__title">Tip-out engine, Palapa Tours Ottawa <span class="ex-tag ex-tag--shipped">Shipped</span></p>
+                <p class="ex-index__note">Custom software, not a Fennec module. Palapa Tours runs floating tiki-bar cruises, and gratuity splits shifted cruise to cruise, which made them hard to reconcile fairly and caused disputes. We built software that calculates, splits and tracks staff gratuities automatically, so payouts stay consistent and the disputes stop. Read the <a class="ex-link" href="work-palapa-tours.html">Palapa Tours case study</a>.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <aside class="ex-rail">
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">Inside Fennec</span>
+            <span class="ex-rail__v">Schedules, clock-in, role permissions, tip distribution</span>
+          </div>
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">Standalone client</span>
+            <span class="ex-rail__v">Palapa Tours Ottawa</span>
+          </div>
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">Business</span>
+            <span class="ex-rail__v">Floating tiki-bar cruises</span>
+          </div>
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">Problem</span>
+            <span class="ex-rail__v">Tip-out variance cruise to cruise</span>
+          </div>
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">What we built</span>
+            <span class="ex-rail__v">Automatic calculation, split and tracking</span>
+          </div>
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">Status</span>
+            <span class="ex-rail__v">Shipped</span>
+          </div>
+        </aside>
+      </div>
+
+      <hr class="ex-rule ex-rule--spaced">
+
+      <div class="ex-fig">
+        <span class="ex-fig__num">FIG. 02</span>
+        <span class="ex-fig__label">Interface diagram, tip-out split</span>
+      </div>
+      <div class="ex-diagram">
+        <div class="ex-diagram__bar">
+          <span class="ex-diagram__dot" aria-hidden="true"></span>
+          Tip-out split
+        </div>
+        <div class="ex-diagram__body">
+          <div class="ex-diagram__flow">
+            <div class="ex-diagram__node">
+              <span class="ex-diagram__node-k">Input</span>
+              Pooled gratuity for the shift
+            </div>
+            <span class="ex-diagram__arrow" aria-hidden="true">-&gt;</span>
+            <div class="ex-diagram__node">
+              <span class="ex-diagram__node-k">Rules</span>
+              Share per role, agreed in advance
+            </div>
+            <span class="ex-diagram__arrow" aria-hidden="true">-&gt;</span>
+            <div class="ex-diagram__node ex-diagram__node--primary">
+              <span class="ex-diagram__node-k">Output</span>
+              Payout per person, on the record
+            </div>
+          </div>
+
+          <div class="ex-table-wrap">
+            <table class="ex-table">
+              <caption>One shift, one pool, one set of rules. Structural placeholders drawn for this diagram, not any operator's splits.</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Role</th>
+                  <th scope="col">On shift</th>
+                  <th scope="col">Share</th>
+                  <th scope="col">Payout</th>
+                  <th scope="col">State</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Bartenders</th>
+                  <td class="ex-table__num">4</td>
+                  <td class="ex-table__num">45%</td>
+                  <td class="ex-table__num">45% of pool</td>
+                  <td class="ex-table__ok">Locked</td>
+                </tr>
+                <tr>
+                  <th scope="row">Servers</th>
+                  <td class="ex-table__num">3</td>
+                  <td class="ex-table__num">30%</td>
+                  <td class="ex-table__num">30% of pool</td>
+                  <td class="ex-table__ok">Locked</td>
+                </tr>
+                <tr>
+                  <th scope="row">Barback</th>
+                  <td class="ex-table__num">1</td>
+                  <td class="ex-table__num">10%</td>
+                  <td class="ex-table__num">10% of pool</td>
+                  <td class="ex-table__ok">Locked</td>
+                </tr>
+                <tr>
+                  <th scope="row">Host</th>
+                  <td class="ex-table__num">1</td>
+                  <td class="ex-table__num">8%</td>
+                  <td class="ex-table__num">8% of pool</td>
+                  <td class="ex-table__ok">Locked</td>
+                </tr>
+                <tr>
+                  <th scope="row">Galley</th>
+                  <td class="ex-table__num">1</td>
+                  <td class="ex-table__num">7%</td>
+                  <td class="ex-table__num">7% of pool</td>
+                  <td class="ex-table__ok">Locked</td>
+                </tr>
+                <tr>
+                  <th scope="row">Pool</th>
+                  <td class="ex-table__num">10</td>
+                  <td class="ex-table__num">100%</td>
+                  <td class="ex-table__num">Balanced to zero</td>
+                  <td>Closed</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="ex-diagram__caption">INTERFACE DIAGRAM, not a screenshot. The rules are set once, the arithmetic runs every shift, and every row is on the record afterwards. Role names and percentages here are structural placeholders: real splits are the operator's own. This is the mechanism behind the Palapa Tours build, described on the <a class="ex-link" href="work-palapa-tours.html">Palapa Tours case study</a>.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ====================================================================
+       5. THE SAME TWO PARTS OUTSIDE A NIGHTCLUB
+       ==================================================================== -->
+  <section class="ex-section ex-section--paper-2">
+    <div class="ex-container">
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">Both parts get rebuilt for rooms that are not bars</h2>
+        <p class="ex-shead__sub">These two families are shaped like a nightclub because that is the room they were built in. The parts underneath are not. A variance table is loss prevention for anything with stock on a shelf. A tip-out split is a payout engine for anything that pools money and divides it by rule.</p>
+      </header>
+
+      <div class="ex-grid ex-grid--2">
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">The variance table</h3>
+          </div>
+          <p class="ex-card__body">Counted stock on one side, recorded sales on the other, and a flag where the two disagree. It needs a product list, a count and a sales feed. Any of those can come from a POS, a warehouse system or a spreadsheet we replace.</p>
+          <dl class="ex-dl">
+            <dt class="ex-dl__k">Inside Fennec</dt>
+            <dd class="ex-dl__v">Revenue Loss Calculator, live across the venues running Fennec.</dd>
+          </dl>
+        </article>
+
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">The payout engine</h3>
+            <span class="ex-tag ex-tag--shipped">Shipped</span>
+          </div>
+          <p class="ex-card__body">A pool, a rule set per role, and a record of every division. Palapa Tours Ottawa took this part on its own, for floating tiki-bar cruises, and the gratuity disputes stopped.</p>
+          <dl class="ex-dl">
+            <dt class="ex-dl__k">Standalone</dt>
+            <dd class="ex-dl__v">Custom tip-out software, built for one operator, not a Fennec module.</dd>
+          </dl>
+        </article>
+      </div>
+
+      <p class="ex-measure">If a count or a split is currently settled by argument in your business, that is the thing to bring to the audit. We agree the baseline in writing before anything is built.</p>
+    </div>
+  </section>
+
+
+  <!-- ====================================================================
+       6. CTA BAND
+       ==================================================================== -->
+  <section class="ex-band ex-band--tight">
+    <div class="ex-container">
+      <p class="ex-eyebrow ex-eyebrow--onink">Start with the count</p>
+      <div class="ex-split ex-split--wide">
+        <div>
+          <h2>Bring us the number nobody can explain.</h2>
+          <p>The free operations audit maps where time and money leak, then shows the arithmetic. We agree the bar in writing before anything is built, the clock starts at deployment rather than at signature, and if the system misses the agreed bar we keep working at no additional cost until it clears. Cancel any time. You own the code.</p>
+          <div class="ex-hero__actions">
+            <a class="ex-btn ex-btn--primary" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+            <a class="ex-btn ex-btn--onink" href="guarantee.html">How we charge</a>
+            <a class="ex-btn ex-btn--onink" href="work-palapa-tours.html">The tip-out build</a>
+          </div>
+        </div>
+
+        <aside class="ex-rail ex-rail--onink">
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">Audit</span>
+            <span class="ex-rail__v">Free, and you keep the map</span>
+          </div>
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">Baseline</span>
+            <span class="ex-rail__v">Agreed in writing, per engagement</span>
+          </div>
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">Code</span>
+            <span class="ex-rail__v">Yours</span>
+          </div>
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">Direct</span>
+            <span class="ex-rail__v"><a class="ex-link ex-link--quiet" href="mailto:shiv@exdsconsulting.com">shiv@exdsconsulting.com</a></span>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ====================================================================
+       RELATED PAGES
+       ==================================================================== -->
+  <section class="ex-section ex-section--tight ia-related" aria-labelledby="related-heading">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Keep reading</p>
+      <h2 class="ex-shead__title" id="related-heading">Where to go next</h2>
+
+      <ul class="ia-related__grid">
+        <li>
+          <a class="ex-card ia-related__card" href="solutions-pos-payments.html">
+            <p class="ia-related__kicker">Related solution</p>
+            <h3 class="ex-card__title">POS and payments</h3>
+            <p class="ex-card__body">Two-way sync with Square, Toast and Lightspeed, and the ownership decision that makes a variance report trustworthy.</p>
+            <span class="ia-related__go">Read the family <span class="ia-related__arrow" aria-hidden="true">-&gt;</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="ex-card ia-related__card" href="solutions.html">
+            <p class="ia-related__kicker">Back up</p>
+            <h3 class="ex-card__title">All solutions</h3>
+            <p class="ex-card__body">Seven families of Fennec modules, quoted from fennecapp.com, each with the problem it was built against.</p>
+            <span class="ia-related__go">Back to the index <span class="ia-related__arrow" aria-hidden="true">-&gt;</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="ex-card ia-related__card ia-related__card--next" href="solutions-media-intelligence.html">
+            <p class="ia-related__kicker">Next family</p>
+            <h3 class="ex-card__title">Media and intelligence</h3>
+            <p class="ex-card__body">The campaign composer, the email designer, and Ferry AI reading the records the other six families write.</p>
+            <span class="ia-related__go">Next <span class="ia-related__arrow" aria-hidden="true">-&gt;</span></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ex-footer">
+  <div class="ex-container">
+    <div class="ex-footer__grid ia-sitemap">
+      <div class="ex-footer__brand">
+        <img src="assets/exodus-logo.png" alt="Exodus Consulting" width="44" height="23">
+        <p class="ex-footer__blurb">AI enablement and custom software for owner-led businesses. Two founders, direct access.</p>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Work</p>
+        <ul>
+          <li><a href="work.html">Our work</a></li>
+          <li><a href="work-uniserve.html">Uniserve Communications</a></li>
+          <li><a href="work-fennec.html">Fennec</a></li>
+          <li><a href="work-palapa-tours.html">Palapa Tours Ottawa</a></li>
+          <li><a href="work-scoped.html">Scoped engagements</a></li>
+        </ul>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Solutions</p>
+        <ul>
+          <li><a href="solutions.html">All solutions</a></li>
+          <li><a href="solutions-events-floor.html">Events and floor ops</a></li>
+          <li><a href="solutions-ticketing-guests.html">Ticketing and guests</a></li>
+          <li><a href="solutions-pos-payments.html">POS and payments</a></li>
+          <li><a href="solutions-inventory-staff.html">Inventory and staff</a></li>
+          <li><a href="solutions-media-intelligence.html">Media and intelligence</a></li>
+        </ul>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Company</p>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">What we build</a></li>
+          <li><a href="guarantee.html">How we charge</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Direct</p>
+        <ul>
+          <li><a href="mailto:shiv@exdsconsulting.com">shiv@exdsconsulting.com</a></li>
+          <li><a href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a></li>
+          <li><a href="https://instagram.com/exodus_consulting_" target="_blank" rel="noopener">@exodus_consulting_</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ex-footer__legal">
+      <span>&copy; 2026 Exodus Consulting</span>
+      <span>Vancouver, BC</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,462 +1,574 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Exodus Consulting | AI Enablement & Custom Software</title>
-  <meta name="description" content="Exodus Consulting helps businesses modernize with AI and custom software. We work hands-on with owners to save time and grow revenue." />
-  <link rel="icon" href="assets/exodus-logo.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=7" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exodus Consulting | AI enablement and custom software for owner-led businesses</title>
+  <meta name="description" content="We agree the baseline in writing, build the system, train your team, and keep working until it clears the bar. AI enablement and custom software for owner-led businesses.">
+  <meta name="theme-color" content="#FAF9F7">
+  <link rel="icon" href="assets/exodus-logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Exodus Consulting">
+  <meta property="og:title" content="Exodus Consulting">
+  <meta property="og:description" content="AI enablement and custom software for owner-led businesses. Two founders, direct access, no account managers.">
+  <meta property="og:image" content="assets/exodus-logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/exodus.css?v=11">
+  <link rel="stylesheet" href="css/ia.css?v=11">
+  <link rel="stylesheet" href="css/p-index.css?v=11">
+  <script src="js/exodus.js?v=11" defer></script>
 </head>
 <body>
+<a class="ex-skip" href="#main">Skip to content</a>
 
-  <!-- Background video -->
-  <div class="bg-video-wrap" id="bgVideo">
-    <video class="bg-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
-      <source src="assets/bg-video.mp4" type="video/mp4" />
-    </video>
-    <div class="bg-video-tint"></div>
-    <div class="bg-video-overlay"></div>
-  </div>
-
-  <!-- NAV -->
-  <header class="nav" id="nav">
-    <div class="wrap nav-inner">
-      <a class="brand" href="index.html">
-        <img src="assets/exodus-logo.png" alt="Exodus" width="64" height="32" />
-        <span><b>EXODUS</b><small>Consulting</small></span>
-      </a>
-      <nav class="nav-links" id="navLinks">
-        <a href="#services">What We Do</a>
-        <a href="#work">Our Work</a>
-        <a href="#process">Process</a>
-        <a href="about.html">About</a>
-        <a class="nav-login menu-only" href="mailto:shiv@exdsconsulting.com">Contact</a>
-        <button class="btn btn-primary menu-only menu-cta" data-calendly>Book a call <span class="arr"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
-      </nav>
-      <div class="nav-right">
-        <a class="nav-login" href="mailto:shiv@exdsconsulting.com">Contact</a>
-        <button class="btn btn-primary" data-calendly>Book a call <span class="arr"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
-        <button class="nav-toggle" id="navToggle" aria-label="Menu"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
-      </div>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero-sh" id="top">
-    <div class="hero-sh-center">
-      <img class="sh-logo" src="assets/exodus-logo.png" alt="Exodus Consulting" />
-      <h1 class="sh-headline">Move your business <em>forward</em></h1>
-      <p class="sh-sub">AI enablement and custom software</p>
-      <a class="sh-cta" href="#services">
-        Learn More
-        <span class="sh-cta-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-    </div>
-
-    <!-- Floating glass cards -->
-    <div class="float-card fc-chat">
-      <div class="fc-head">
-        <div class="fc-avatar fc-av-purple">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        </div>
-      </div>
-      <p>Found a manual gap in your <u>booking flow</u>. Want me to automate it?</p>
-      <div class="fc-msg-out">yes</div>
-      <p class="fc-muted">Done. That saves about 4 hours a week.</p>
-      <div class="fc-input">
-        <span>preview the workflow</span>
-        <span class="fc-send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </div>
-    </div>
-
-    <div class="float-card fc-workspace">
-      <div class="fc-ws-head">
-        <span class="fc-ws-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg> Operations workspace</span>
-        <span class="fc-ws-share">Share</span>
-      </div>
-      <h4>Ticketing &amp; payouts</h4>
-      <p>Your <u>tip-out flow</u> loses about <span class="hl">6 hrs a week</span>. One agent can run it nightly and clear the manual work.</p>
-      <div class="fc-ws-tools">
-        <span>T</span><span>B</span><span><i>I</i></span><span>U</span><span>S</span><span>≡</span>
-      </div>
-    </div>
-
-    <div class="float-card fc-list">
-      <div class="fc-list-tabs">
-        <span class="active">Priority <em>12</em></span>
-        <span>Pipeline <em>8</em></span>
-        <span>Docs <em>5</em></span>
-        <span>Other <em>19</em></span>
-      </div>
-      <div class="fc-row"><b>Harbour</b><span>Bookings dashboard ready for review</span></div>
-      <div class="fc-row"><b>TradeX</b><span>Vendor portal feedback in one doc</span></div>
-      <div class="fc-row"><b>Uniserve</b><span>AI rollout phase 2 spec ready</span></div>
-      <div class="fc-row"><b>Matchbox</b><span>Inventory agent running clean</span></div>
-      <div class="fc-row"><b>The Show</b><span>Ticketing latency down to 380ms</span></div>
-    </div>
-
-    <div class="float-pill fp-1">
-      <span class="fp-ico"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg></span>
-      Tailor this for your industry
-    </div>
-    <div class="float-pill fp-2">
-      <span class="fp-ico fp-ico-g">G</span>
-      Audit your current stack
-    </div>
-    <div class="float-pill fp-3">
-      <span class="fp-ico"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
-      Schedule a strategy call
-    </div>
-
-    <a class="scroll-cue" href="#trust" aria-label="Scroll down">
-      <span></span>
+<header class="ex-header">
+  <div class="ex-header__inner">
+    <a class="ex-brand" href="index.html">
+      <img src="assets/exodus-logo.png" alt="Exodus Consulting" width="34" height="17">
+      <span class="ex-brand__name">Exodus Consulting</span>
     </a>
 
-  </section>
+    <nav class="ex-nav" aria-label="Primary">
+      <a class="ex-nav__link is-current" aria-current="page" href="index.html">Home</a>
+      <a class="ex-nav__link" href="services.html">What we build</a>
+      <a class="ex-nav__link" href="work.html">Our work</a>
+      <a class="ex-nav__link" href="solutions.html">Solutions</a>
+      <a class="ex-nav__link" href="guarantee.html">How we charge</a>
+      <a class="ex-nav__link" href="about.html">About</a>
+      <a class="ex-btn ex-btn--primary ex-btn--sm" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+    </nav>
 
-  <!-- TRUST MARQUEE -->
-  <section class="trust-strip" id="trust">
-    <span class="trust-lbl">Trusted by operators across hospitality &amp; tech</span>
-    <div class="marquee" aria-hidden="false">
-      <div class="marquee-track">
-        <div class="m-logo"><img class="tall" src="assets/harbour.png" alt="Harbour Event Centre" /></div>
-        <div class="m-logo"><img src="assets/tradex.png" alt="TradeX" /></div>
-        <div class="m-logo"><img src="assets/matchbox.png" alt="Matchbox Global" /></div>
-        <div class="m-logo"><img class="short" src="assets/uniserve.png" alt="Uniserve Communications" /></div>
-        <div class="m-logo"><img src="assets/theshow.png" alt="The Show Ottawa" /></div>
-        <div class="m-logo"><img class="pit" src="assets/thepit.svg" alt="The Pit UBC" /></div>
-        <div class="m-logo m-palapa"><img class="square" src="assets/palapa.png" alt="Palapa Tours Ottawa" /><span>Palapa&nbsp;Tours</span></div>
-        <div class="m-logo"><img class="fennec" src="assets/fennec-white.png" alt="Fennec" /></div>
-        <!-- duplicate set for seamless loop -->
-        <div class="m-logo"><img class="tall" src="assets/harbour.png" alt="" /></div>
-        <div class="m-logo"><img src="assets/tradex.png" alt="" /></div>
-        <div class="m-logo"><img src="assets/matchbox.png" alt="" /></div>
-        <div class="m-logo"><img class="short" src="assets/uniserve.png" alt="" /></div>
-        <div class="m-logo"><img src="assets/theshow.png" alt="" /></div>
-        <div class="m-logo"><img class="pit" src="assets/thepit.svg" alt="" /></div>
-        <div class="m-logo m-palapa"><img class="square" src="assets/palapa.png" alt="" /><span>Palapa&nbsp;Tours</span></div>
-        <div class="m-logo"><img class="fennec" src="assets/fennec-white.png" alt="" /></div>
+    <button class="ex-burger" type="button" data-nav-toggle aria-expanded="false" aria-controls="ex-mobile-menu">
+      <span class="ex-burger__bars" aria-hidden="true"></span>
+      <span>Menu</span>
+    </button>
+  </div>
+
+  <div class="ex-mobile-menu" id="ex-mobile-menu">
+    <ul class="ex-mobile-menu__list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">What we build</a></li>
+      <li>
+        <a href="work.html">Our work</a>
+        <ul class="ia-submenu">
+          <li><a href="work-uniserve.html">Uniserve Communications</a></li>
+          <li><a href="work-fennec.html">Fennec</a></li>
+          <li><a href="work-palapa-tours.html">Palapa Tours Ottawa</a></li>
+          <li><a href="work-scoped.html">Scoped engagements</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="solutions.html">Solutions</a>
+        <ul class="ia-submenu">
+          <li><a href="solutions-events-floor.html">01 Events and floor ops</a></li>
+          <li><a href="solutions-ticketing-guests.html">02 Ticketing and guests</a></li>
+          <li><a href="solutions-pos-payments.html">03 POS and payments</a></li>
+          <li><a href="solutions-inventory-staff.html">04-05 Inventory and staff</a></li>
+          <li><a href="solutions-media-intelligence.html">06-07 Media and intelligence</a></li>
+        </ul>
+      </li>
+      <li><a href="guarantee.html">How we charge</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a class="ex-btn ex-btn--primary ex-btn--block" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- 01. HERO -->
+  <section class="ex-hero">
+    <div class="ex-container">
+      <div class="ex-hero__inner">
+        <div>
+          <p class="ex-eyebrow ex-eyebrow--violet">Exodus Consulting</p>
+          <h1 class="ex-hero__title">We agree the number before anything is built.</h1>
+          <p class="ex-hero__lead">We agree the baseline in writing, build the system, train the people who have to use it, and keep working until it clears the bar you signed.</p>
+          <div class="ex-hero__actions">
+            <a class="ex-btn ex-btn--primary" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+            <a class="ex-btn ex-btn--secondary" href="work.html">See our work</a>
+          </div>
+        </div>
+        <div class="ex-hero__aside">
+          <img class="ex-hero__mark" src="assets/exodus-logo.png" alt="" width="1022" height="525" decoding="async">
+          <div class="ex-hero__meta">
+            <p class="ex-eyebrow">AI enablement and custom software for owner-led businesses</p>
+            <p class="ex-eyebrow">Two founders. Direct access. No account managers, no slide decks.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- WHAT WE DO (SERVICES) -->
-  <section class="services" id="services">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow"><span class="dot"></span>What we do</span>
-        <h2>Modernize how your<br>business works.</h2>
-        <p class="sec-sub">Outdated systems slow you down. We fix that with AI and custom software, built around how you really work.</p>
-      </div>
-      <div class="svc-grid">
-        <div class="svc-card reveal">
-          <div class="svc-top">
-            <div class="svc-icon svc-blue">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-            </div>
-            <h3>AI Enablement</h3>
-          </div>
-          <p>Automating the busywork and giving your team back real hours every week.</p>
-          <ul class="svc-list">
-            <li>Workflow &amp; process automation</li>
-            <li>AI agents &amp; copilots</li>
-            <li>Data pipelines &amp; real-time reporting</li>
-            <li>Enterprise-grade deployment</li>
-          </ul>
-        </div>
-        <div class="svc-card reveal">
-          <div class="svc-top">
-            <div class="svc-icon svc-purple">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-            </div>
-            <h3>Custom Software</h3>
-          </div>
-          <p>Software built around how your business really runs, not an off-the-shelf compromise.</p>
-          <ul class="svc-list">
-            <li>Operating systems, mobile apps, internal tools</li>
-            <li>Web, mobile &amp; backend engineering</li>
-            <li>From prototype to production</li>
-            <li>Direct access to the builders</li>
-          </ul>
-        </div>
-        <div class="svc-card reveal">
-          <div class="svc-top">
-            <div class="svc-icon svc-teal">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-            </div>
-            <h3>Operational Intelligence</h3>
-          </div>
-          <p>We measure every project by what matters to you: hours saved, revenue grown, operations made simpler. Real outcomes, not busywork.</p>
-          <ul class="svc-list">
-            <li>Revenue &amp; efficiency diagnostics</li>
-            <li>Process mapping &amp; redesign</li>
-            <li>KPI dashboards &amp; analytics</li>
-            <li>Tied to your growth metrics</li>
-          </ul>
-        </div>
-      </div>
-      <div class="bento-dots" id="svcDots"></div>
-      <div class="svc-cta">
-        <a class="btn btn-primary" data-calendly href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Get in Touch <span class="arr"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+  <!-- 02. CLIENT LOGO STRIP -->
+  <section class="ex-band ex-band--tight">
+    <div class="ex-container">
+      <div class="ex-logos ex-logos--onink">
+        <p class="ex-logos__claim">Fennec, the venue operating system we co-founded and still build, is live at Harbour Event Centre, TradeX, The Pit UBC, The Show Ottawa and across 20+ event companies. Uniserve and Matchbox Global are in build. Palapa Tours is shipped.</p>
+        <ul class="ex-logos__row">
+          <li class="ex-logos__item">
+            <img class="ex-logos__img ex-logos__img--fennec" loading="lazy" decoding="async" src="assets/fennec-wordmark-light.png" width="1920" height="385" alt="Fennec">
+          </li>
+          <li class="ex-logos__item">
+            <img class="ex-logos__img" loading="lazy" decoding="async" src="assets/harbour.png" width="500" height="309" alt="Harbour Event Centre">
+          </li>
+          <li class="ex-logos__item">
+            <img class="ex-logos__img" loading="lazy" decoding="async" src="assets/tradex.png" width="900" height="510" alt="TradeX">
+          </li>
+          <li class="ex-logos__item">
+            <img class="ex-logos__img" loading="lazy" decoding="async" src="assets/thepit.svg" width="220" height="60" alt="The Pit UBC">
+          </li>
+          <li class="ex-logos__item">
+            <img class="ex-logos__img" loading="lazy" decoding="async" src="assets/theshow.png" width="432" height="200" alt="The Show Ottawa">
+          </li>
+          <li class="ex-logos__item">
+            <img class="ex-logos__img ex-logos__img--wide" loading="lazy" decoding="async" src="assets/uniserve.png" width="286" height="52" alt="Uniserve Communications Corporation">
+          </li>
+          <li class="ex-logos__item">
+            <img class="ex-logos__img ex-logos__img--square" loading="lazy" decoding="async" src="assets/palapa.png" width="592" height="592" alt="Palapa Tours">
+            <span class="ex-logos__name">Palapa Tours</span>
+          </li>
+          <li class="ex-logos__item">
+            <img class="ex-logos__img ex-logos__img--wide" loading="lazy" decoding="async" src="assets/matchbox.png" width="352" height="50" alt="Matchbox Global">
+          </li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- OUR WORK (includes Fennec OS + Ferry) -->
-  <section class="work" id="work">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow"><span class="dot"></span>Our work</span>
-        <h2>Built with those who<br>want to advance.</h2>
+  <!-- 03. WHERE THINGS ACTUALLY STAND -->
+  <section class="ex-section ex-section--ruled">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Where things actually stand</p>
+      <header class="ex-shead">
+        <h2 class="ex-shead__title">Almost everyone is using AI. Almost nobody can point at the money.</h2>
+        <p class="ex-shead__sub">Three numbers from three separate 2024 and 2025 studies, each one printed with its source.</p>
+      </header>
+
+      <div class="ex-stats">
+        <div class="ex-stat">
+          <span class="ex-stat__num">88<span class="ex-stat__unit">%</span></span>
+          <p class="ex-stat__label">of companies report using AI. About 6% attribute more than 5% of profit to it.</p>
+          <cite class="ex-stat__source">McKinsey, State of AI, 2025</cite>
+        </div>
+        <div class="ex-stat">
+          <span class="ex-stat__num">95<span class="ex-stat__unit">%</span></span>
+          <p class="ex-stat__label">of enterprise AI pilots show no measurable P&amp;L return.</p>
+          <cite class="ex-stat__source">MIT NANDA, The GenAI Divide, 2025</cite>
+        </div>
+        <div class="ex-stat">
+          <span class="ex-stat__num">80<span class="ex-stat__unit">%+</span></span>
+          <p class="ex-stat__label">of AI projects fail, about double the failure rate of other IT projects.</p>
+          <cite class="ex-stat__source">RAND, 2024</cite>
+        </div>
       </div>
-      <div class="proj-grid">
-        <!-- Fennec OS - hospitality & events -->
-        <article class="proj-card glass reveal">
-          <div class="proj-logo">
-            <img src="assets/harbour.png" alt="Harbour" />
-            <img src="assets/tradex.png" alt="TradeX" />
+
+      <hr class="ex-rule ex-rule--spaced">
+
+      <p class="ex-measure">The tools are not the problem. Projects fail on everything around the tool: no agreed baseline, no owner in the room, and no training for the people expected to use it. Deloitte found companies spend about 93% of AI budgets on technology and about 7% on the people (Deloitte, 2025). We work it the other way round.</p>
+
+      <p class="ex-measure">Owners do not call us about AI. They call us about three sentences.</p>
+
+      <ul class="ex-index">
+        <li class="ex-index__row">
+          <span class="ex-index__num">01</span>
+          <div>
+            <p class="ex-index__title">The same numbers get retyped into three systems</p>
+            <p class="ex-index__note">A booking is entered once by the guest, once by the host and once again at close. Two of those are unpaid data entry.</p>
           </div>
-          <span class="tag t-blue">Hospitality &amp; events · Canada</span>
-          <h3>Fennec OS</h3>
-          <p>A custom operating system for floor plans, reservations, bottle service, ticketing and live ops. It runs across Harbour Event Centre, TradeX, The Pit, The Show and 20+ event companies, streamlining everything from the door to the bar.</p>
-          <div class="chips">
-            <span class="chip">Operating System</span>
-            <span class="chip">AI Agents</span>
-            <span class="chip">Live Ops</span>
+        </li>
+        <li class="ex-index__row">
+          <span class="ex-index__num">02</span>
+          <div>
+            <p class="ex-index__title">A web lead sits until tomorrow morning</p>
+            <p class="ex-index__note">Harvard Business Review found that contacting a web lead inside an hour made firms about 7 times more likely to qualify it than waiting an hour longer. Source: Harvard Business Review, The Short Life of Online Sales Leads, 2011.</p>
+          </div>
+        </li>
+        <li class="ex-index__row">
+          <span class="ex-index__num">03</span>
+          <div>
+            <p class="ex-index__title">Support answers the same questions every week</p>
+            <p class="ex-index__note">Uniserve runs about 250 support tickets a month. A large share are redundant tickets customers create because they could not find an answer themselves.</p>
+          </div>
+        </li>
+      </ul>
+
+      <p class="ex-measure"><a class="ex-link" href="services.html">What we build to close problems like these</a></p>
+    </div>
+  </section>
+
+  <!-- 04. PRODUCT PROOF: THE FENNEC FEATURE SCROLLER -->
+  <!-- RUN YOUR OWN NUMBERS -->
+  <section class="ex-section ex-section--ruled">
+    <div class="ex-container">
+      <p class="ex-eyebrow ex-eyebrow--violet">Run your own numbers</p>
+      <header class="ex-shead">
+        <h2 class="ex-shead__title">The number we would be measured against.</h2>
+        <p class="ex-shead__sub">Put your own headcount, hours and hourly cost in. Whatever this prints is the kind of figure that goes on the signed page, once we have measured it with you rather than guessed it.</p>
+      </header>
+
+      <div class="ex-fig">
+        <span class="ex-fig__num">FIG. 01</span>
+        <span class="ex-fig__label">ROI calculator</span>
+      </div>
+
+      <div class="ex-roi" data-roi>
+        <div class="ex-roi__grid">
+          <div class="ex-roi__controls">
+            <div class="ex-roi__field">
+              <label class="ex-roi__label" for="roi-people">People doing the manual work</label>
+              <div class="ex-roi__inputs">
+                <input class="ex-roi__range" type="range" id="roi-people" data-roi-range="people" min="1" max="50" step="1" value="3" aria-label="People doing the manual work">
+                <input class="ex-roi__number" type="number" data-roi-number="people" min="1" max="50" step="1" value="3" inputmode="numeric" aria-label="People, exact number">
+              </div>
+              <span class="ex-roi__hint">1 to 50</span>
+            </div>
+
+            <div class="ex-roi__field">
+              <label class="ex-roi__label" for="roi-hours">Hours per person per week</label>
+              <div class="ex-roi__inputs">
+                <input class="ex-roi__range" type="range" id="roi-hours" data-roi-range="hours" min="1" max="40" step="1" value="6" aria-label="Hours per person per week">
+                <input class="ex-roi__number" type="number" data-roi-number="hours" min="1" max="40" step="1" value="6" inputmode="numeric" aria-label="Hours per week, exact number">
+              </div>
+              <span class="ex-roi__hint">1 to 40</span>
+            </div>
+
+            <div class="ex-roi__field">
+              <label class="ex-roi__label" for="roi-rate">Average hourly cost</label>
+              <div class="ex-roi__inputs">
+                <input class="ex-roi__range" type="range" id="roi-rate" data-roi-range="rate" min="15" max="200" step="1" value="40" aria-label="Average hourly cost in dollars">
+                <input class="ex-roi__number" type="number" data-roi-number="rate" min="15" max="200" step="1" value="40" inputmode="numeric" aria-label="Hourly cost, exact number">
+              </div>
+              <span class="ex-roi__hint">$15 to $200</span>
+            </div>
+          </div>
+
+          <div class="ex-roi__out">
+            <div class="ex-roi__out-item">
+              <span class="ex-roi__out-num" data-roi-out="hours" aria-live="polite">864</span>
+              <span class="ex-roi__out-label">Hours recovered per year</span>
+            </div>
+            <div class="ex-roi__out-item">
+              <span class="ex-roi__out-num" data-roi-out="dollars" aria-live="polite">$34,560</span>
+              <span class="ex-roi__out-label">Dollars recovered per year</span>
+            </div>
+            <p class="ex-roi__readout" data-roi-readout aria-live="polite">3 people spending 6 hours a week on manual work costs about $34,560 a year. That is 864 hours you could put back on the floor.</p>
+          </div>
+        </div>
+
+        <pre class="ex-roi__math" data-roi-math>3 people x 6 hrs/week x 48 weeks = 864 hrs/year
+864 hrs/year x $40/hr = $34,560/year</pre>
+
+        <p class="ex-roi__note">An estimate from numbers you enter, not a promise. 48 working weeks assumed. Your real figure depends on the process we replace.</p>
+      </div>
+
+      <p class="ex-more"><a class="ex-link" href="guarantee.html">How the signed baseline is set, and what happens if it misses</a></p>
+    </div>
+  </section>
+
+  <section class="ex-section">
+    <div class="ex-container">
+      <p class="ex-eyebrow">What we have actually built</p>
+      <header class="ex-shead">
+        <h2 class="ex-shead__title">Fennec: one operating system for a venue, in production now.</h2>
+        <p class="ex-shead__sub">Real screens from the live product. Select a module or drag the rail sideways to swap the panel. Lines in quotation marks are Fennec product copy from fennecapp.com.</p>
+      </header>
+
+      <div class="ex-fig">
+        <span class="ex-fig__num">FIG. 02</span>
+        <span class="ex-fig__label">Fennec modules, live product screens</span>
+      </div>
+
+      <div class="ex-stack-lg">
+        <div class="ex-scroller" id="fennec-features" data-scroller>
+          <div class="ex-scroller__head">
+            <p class="ex-scroller__title">Scroll or select a module</p>
+            <div class="ex-scroller__nav">
+              <button class="ex-scroller__btn" type="button" data-scroller-prev aria-label="Scroll modules left">&lt;</button>
+              <button class="ex-scroller__btn" type="button" data-scroller-next aria-label="Scroll modules right">&gt;</button>
+            </div>
+          </div>
+
+          <div class="ex-scroller__rail" data-scroller-rail aria-label="Fennec modules">
+            <button class="ex-scroller__chip" type="button" data-scroller-tab aria-selected="true">
+              <span class="ex-scroller__chip-num">01</span>
+              <span class="ex-scroller__chip-name">Floor Plans</span>
+            </button>
+            <button class="ex-scroller__chip" type="button" data-scroller-tab aria-selected="false">
+              <span class="ex-scroller__chip-num">02</span>
+              <span class="ex-scroller__chip-name">Host Events</span>
+            </button>
+            <button class="ex-scroller__chip" type="button" data-scroller-tab aria-selected="false">
+              <span class="ex-scroller__chip-num">03</span>
+              <span class="ex-scroller__chip-name">Campaigns</span>
+            </button>
+            <button class="ex-scroller__chip" type="button" data-scroller-tab aria-selected="false">
+              <span class="ex-scroller__chip-num">04</span>
+              <span class="ex-scroller__chip-name">Ferry AI</span>
+            </button>
+            <button class="ex-scroller__chip" type="button" data-scroller-tab aria-selected="false">
+              <span class="ex-scroller__chip-num">05</span>
+              <span class="ex-scroller__chip-name">Fennec Pass</span>
+            </button>
+          </div>
+
+          <div class="ex-scroller__panels">
+            <div class="ex-scroller__panel" data-scroller-panel>
+              <div class="ex-scroller__panel-grid">
+                <figure class="ex-shot">
+                  <div class="ex-shot__frame">
+                    <img class="ex-shot__img" loading="lazy" src="assets/product/shots/floorplan-editor.jpg" width="2000" height="953" alt="Fennec floor plan editor: a canvas of placed tables beside an inspector panel setting a table's label, section, capacity, fee, size, VIP flag and QR code." decoding="async">
+                  </div>
+                  <figcaption class="ex-shot__caption">Operator floor plan editor. The inspector sets one table's label, section, capacity, fee, shape, VIP flag and its own QR code, so the layout the guest sees and the layout the floor runs are the same file.</figcaption>
+                </figure>
+                <div>
+                  <h3 class="ex-scroller__panel-title">Floor Plans</h3>
+                  <p class="ex-scroller__panel-quote">"Design, version, and activate floor layouts in seconds."</p>
+                  <p class="ex-scroller__panel-venues">Live in Fennec at Harbour Event Centre, TradeX, The Pit UBC and The Show Ottawa</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="ex-scroller__panel" data-scroller-panel>
+              <div class="ex-scroller__panel-grid">
+                <figure class="ex-shot">
+                  <div class="ex-shot__frame">
+                    <img class="ex-shot__img" src="assets/product/shots/event-builder.jpg" width="2000" height="951" alt="Fennec event builder: poster, event name, URL slug and public link, venue and schedule, guestlist scan cutoff and age restriction, with a live customer preview rendered on a phone." loading="lazy" decoding="async">
+                  </div>
+                  <figcaption class="ex-shot__caption">Operator event builder. Poster, slug, public link, venue, schedule, guestlist scan cutoff and age restriction are set on the left while the phone on the right shows the page the guest will actually land on.</figcaption>
+                </figure>
+                <div>
+                  <h3 class="ex-scroller__panel-title">Host Events</h3>
+                  <p class="ex-scroller__panel-quote">"Build the event, assign hosts, set hold strategies."</p>
+                  <p class="ex-scroller__panel-venues">Live in Fennec across 20+ event companies</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="ex-scroller__panel" data-scroller-panel>
+              <div class="ex-scroller__panel-grid">
+                <figure class="ex-shot">
+                  <div class="ex-shot__frame">
+                    <img class="ex-shot__img" src="assets/product/shots/campaign-composer.jpg" width="2000" height="1217" alt="Fennec campaign composer: email and SMS channel readiness states, audience selection, message body with personalisation tokens and tracked call-to-action options, next to a live inbox preview on a phone." loading="lazy" decoding="async">
+                  </div>
+                  <figcaption class="ex-shot__caption">Campaign composer. Channel readiness for email and SMS, the audience, the tracked call to action, and personalisation tokens such as first name, VIP tier, visit count, lifetime spend and birthday month, previewed as the inbox will render it.</figcaption>
+                </figure>
+                <div>
+                  <h3 class="ex-scroller__panel-title">Campaigns</h3>
+                  <p class="ex-scroller__panel-quote">"Trigger SMS, WhatsApp and email flows from any signal."</p>
+                  <p class="ex-scroller__panel-venues">Live in Fennec, one guest record behind every channel</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="ex-scroller__panel" data-scroller-panel>
+              <div class="ex-scroller__panel-grid">
+                <figure class="ex-shot">
+                  <div class="ex-shot__frame">
+                    <img class="ex-shot__img" src="assets/product/shots/ferry-assistant.jpg" width="1104" height="1356" alt="The Ferry AI assistant panel inside Fennec, listing its roster of agents for sales analytics, event management, table and bottle service, guestlist and reservations, and promos and insights." loading="lazy" decoding="async">
+                  </div>
+                  <figcaption class="ex-shot__caption">The Ferry AI assistant panel and its agent roster: Sales Analytics, Event Management, Table and Bottle, Guestlist and Reservations, and Promos and Insights, all reading the same live venue data.</figcaption>
+                </figure>
+                <div>
+                  <h3 class="ex-scroller__panel-title">Ferry AI</h3>
+                  <p class="ex-scroller__panel-quote">A coordinated agent network across ops, guests, campaigns, inventory and service, with a Revenue Copilot reading voids, pricing, promoters and inventory.</p>
+                  <p class="ex-scroller__panel-venues">Live in Fennec, architected by Vishal Desh</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="ex-scroller__panel" data-scroller-panel>
+              <div class="ex-scroller__panel-grid">
+                <figure class="ex-shot">
+                  <div class="ex-shot__frame">
+                    <img class="ex-shot__img" src="assets/product/shots/guest-pass.jpg" width="1818" height="1842" alt="A Fennec guest member profile showing upcoming tickets, table and guestlist counts, a next-up countdown, the Fennec Pass QR entry code and an explore-by-city feed." loading="lazy" decoding="async">
+                  </div>
+                  <figcaption class="ex-shot__caption">A guest's own profile. Upcoming tickets, table and guestlist counts, a countdown to the next booking, the QR that gets them through the door, and a feed to explore by city.</figcaption>
+                </figure>
+                <div>
+                  <h3 class="ex-scroller__panel-title">Fennec Pass</h3>
+                  <p class="ex-scroller__panel-quote">"A guest's universal nightlife identity - tickets, table bookings, loyalty tiers."</p>
+                  <p class="ex-scroller__panel-venues">Live in Fennec, one pass across every venue</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="ex-measure"><a class="ex-link" href="solutions.html">See every Fennec solution family and what each one replaces</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05. WHAT WE BUILD, COMPACT -->
+  <section class="ex-section ex-section--ruled ex-section--paper-2">
+    <div class="ex-container">
+      <p class="ex-eyebrow">What we build</p>
+      <header class="ex-shead">
+        <h2 class="ex-shead__title">Three kinds of work, and the third one waits for the first two.</h2>
+        <p class="ex-shead__sub">Every engagement starts with the audit. Nothing gets built before the arithmetic is on the page.</p>
+      </header>
+
+      <div class="ex-grid">
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">01 AI opportunity audit</h3>
+          </div>
+          <p class="ex-card__body">We map every function and score the use cases on return and feasibility. Uniserve got a heatmap across support, NOC and operations, sales and quoting, and finance and admin, then a prioritised list of 8 to 10 use cases with the arithmetic attached.</p>
+        </article>
+
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">02 Custom software</h3>
+          </div>
+          <p class="ex-card__body">When the process is the problem, we write the software. Palapa Tours got tip-out software that calculates, splits and tracks staff gratuities. Matchbox Global's technology layer is in build. Fennec is the full version of that idea.</p>
+        </article>
+
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">03 Agent networks and copilots</h3>
+          </div>
+          <p class="ex-card__body">Once the data is clean and the process is real, agents are worth building. Ferry AI coordinates agents across ops, guests, campaigns, inventory and service inside Fennec. Uniserve's Phase 2 is in build.</p>
+        </article>
+      </div>
+
+      <p class="ex-measure"><a class="ex-link" href="services.html">The full capability index</a></p>
+    </div>
+  </section>
+
+  <!-- 06. SELECTED WORK -->
+  <section class="ex-section ex-section--ruled">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Selected work</p>
+      <header class="ex-shead">
+        <h2 class="ex-shead__title">Two engagements, told with the arithmetic attached.</h2>
+        <p class="ex-shead__sub">One is in build with a labelled projection. One is live and running every night.</p>
+      </header>
+
+      <div class="ex-grid ex-grid--2">
+        <article class="ex-card ex-card--raised">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Uniserve Communications</h3>
+            <span class="ex-tag ex-tag--build">In build</span>
+          </div>
+          <p class="ex-card__body">A Canadian ISP and telecom running about 250 support tickets a month across ConnectWise and Halo. Three months, two tracks, all data and all models hosted in Canada. PROJECTION, not a booked result: about 1 hour of a technician's day freed, which is 1 hour x about 250 working days x about $40 an hour, or about $10,000 per technician per year.</p>
+          <div class="ex-card__foot">
+            <a class="ex-btn ex-btn--secondary ex-btn--sm" href="work-uniserve.html">Read the Uniserve study</a>
           </div>
         </article>
-        <!-- Uniserve - AI enablement -->
-        <article class="proj-card glass reveal">
-          <div class="proj-logo">
-            <img src="assets/uniserve.png" alt="Uniserve Communications" />
+
+        <article class="ex-card ex-card--raised">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Fennec, the flagship</h3>
+            <span class="ex-tag ex-tag--live">Live</span>
           </div>
-          <span class="tag t-teal">AI enablement · Enterprise</span>
-          <h3>Uniserve</h3>
-          <p>We bring enterprise experience to every project, including AI enablement at Uniserve Communications Corporation, applying AI to real operational systems at scale.</p>
-          <div class="chips">
-            <span class="chip">AI Enablement</span>
-            <span class="chip">Enterprise</span>
-            <span class="chip">Operations</span>
-          </div>
-        </article>
-        <!-- Matchbox Global - custom software -->
-        <article class="proj-card glass reveal">
-          <div class="proj-logo">
-            <img src="assets/matchbox.png" alt="Matchbox Global" />
-          </div>
-          <span class="tag t-purple">Custom software · UK</span>
-          <h3>Matchbox Global</h3>
-          <p>We're building the technology layer for a UK matchmaking platform, turning complex matching logic into clean, scalable software, taking it from product architecture toward production.</p>
-          <div class="chips">
-            <span class="chip">Full Stack</span>
-            <span class="chip">Custom Platform</span>
-            <span class="chip">In progress</span>
-          </div>
-        </article>
-        <!-- Palapa Tours Ottawa - tip-out software -->
-        <article class="proj-card glass reveal">
-          <div class="proj-logo proj-palapa">
-            <img class="square" src="assets/palapa.png" alt="Palapa Tours Ottawa" />
-            <span>Palapa Tours</span>
-          </div>
-          <span class="tag t-amber">Tip-out software · Ottawa</span>
-          <h3>Palapa Tours Ottawa</h3>
-          <p>Palapa Tours came to us with a tip-out variance problem: gratuity splits shifted from cruise to cruise and were hard to reconcile fairly. We built them customized tip-out software that calculates, splits and tracks staff gratuities automatically across their floating tiki-bar cruises, so every payout is consistent, transparent and free of disputes.</p>
-          <div class="chips">
-            <span class="chip">Tip-out Automation</span>
-            <span class="chip">Payout Accuracy</span>
-            <span class="chip">Custom Build</span>
+          <p class="ex-card__body">An operating system for premium nightlife and event venues, live at Harbour Event Centre, TradeX, The Pit UBC, The Show Ottawa and across 20+ event companies. Floor plans, reservations, ticketing, campaigns and the Ferry AI agent network, with a Revenue Copilot reading voids, pricing, promoters and inventory.</p>
+          <div class="ex-card__foot">
+            <a class="ex-btn ex-btn--secondary ex-btn--sm" href="work-fennec.html">Read the Fennec study</a>
           </div>
         </article>
       </div>
-      <div class="bento-dots" id="projDots"></div>
 
-      <!-- Fennec OS flagship feature grid -->
-      <div class="sec-head center" style="margin-top:78px;">
-        <span class="eyebrow" style="margin-inline:auto;"><span class="dot"></span>Our flagship build</span>
-        <h2>Fennec OS, the operating<br>system for premium venues</h2>
-        <p class="sec-sub">We worked side by side with venue owners to build Fennec: floor plans, reservations, bottle service, ticketing and live ops, all synced in real time across major venues in Canada.</p>
-        <a class="btn fennec-link" href="https://www.fennecapp.com" target="_blank" rel="noopener"><img class="fennec-fox-ico" src="assets/fennec-fox-gold.png" alt="" />Visit Fennec <span class="arr"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-      </div>
-      <div class="bento">
-        <div class="tile glass reveal">
-          <div class="tile-icon bg-blue"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-          <h3>Floor plan editor</h3>
-          <p>Design, version and activate floor layouts in seconds. Drag tables, set minimum spends and mark VIP zones with a live birds-eye view of every floor.</p>
-        </div>
-        <div class="tile glass reveal">
-          <div class="tile-icon bg-purple"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
-          <h3>Live event ops</h3>
-          <p>Real-time table statuses and seat assignments on one synced canvas across every host, VIP and scanner.</p>
-        </div>
-        <div class="tile glass reveal tile-feature">
-          <div class="tile-icon bg-blue"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/></svg></div>
-          <h3>Bottle service</h3>
-          <p>Tailored packages, automated bottle-girl flow and complete order history. Tap a table, start a tab, run the room.</p>
-        </div>
-        <div class="tile glass reveal">
-          <div class="tile-icon bg-green"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-          <h3>Guestlist &amp; ticketing</h3>
-          <p>Sell tickets, import guestlists and check in with a scanner that works offline, built for the door and calibrated for the rush.</p>
-        </div>
-        <div class="tile glass reveal">
-          <div class="tile-icon bg-pink"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-          <h3>Guest CRM</h3>
-          <p>Unified guest profiles with spend history, preferences and segments. Target and personalise outreach across every channel.</p>
-        </div>
-        <div class="tile glass reveal">
-          <div class="tile-icon bg-teal"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-          <h3>Automations &amp; comms</h3>
-          <p>Trigger SMS, WhatsApp and email flows from any signal: booking confirmed, deposit due, birthday next week.</p>
-        </div>
-        <div class="tile glass reveal">
-          <div class="tile-icon bg-purple"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-          <h3>Reports &amp; analytics</h3>
-          <p>Revenue, attendance, table turnover and promoter performance, beautifully visualised, exportable and scheduled to your inbox.</p>
-        </div>
-        <div class="tile glass reveal">
-          <div class="tile-icon bg-green"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
-          <h3>Inventory dashboard</h3>
-          <p>Live stock counts across every bar and storage room. Reorder points, par levels and waste flags in one console.</p>
-        </div>
-      </div>
-      <div class="bento-dots" id="bentoDots"></div>
-
-      <!-- Ferry AI (folded into Our Work) -->
-      <div class="ferry glass reveal" style="margin-top:34px;">
-        <div class="ferry-content">
-          <span class="eyebrow"><span class="dot"></span>AI enablement in action</span>
-          <h2>Ferry, a coordinated AI agent network that runs the night</h2>
-          <p>We built Ferry as the intelligence layer for Fennec: a network of specialized AI agents that handle lead generation, floor ops, guest communication and inventory, so your team can focus on the experience instead of the admin.</p>
-          <div class="ferry-chips">
-            <span class="chip">Real-time ops</span>
-            <span class="chip">Multi-agent</span>
-            <span class="chip">Always on</span>
-          </div>
-        </div>
-        <div class="ferry-agents">
-          <div class="agents">
-            <div class="agent">
-              <div class="av"><img src="assets/ferry-blue.png" alt="Lead agent" /></div>
-              <b>Lead</b><small>Coordinates all</small>
-            </div>
-            <div class="agent">
-              <div class="av"><img src="assets/ferry-green.png" alt="Sales agent" /></div>
-              <b>Sales</b><small>Leads &amp; upsell</small>
-            </div>
-            <div class="agent">
-              <div class="av"><img src="assets/ferry-pink.png" alt="Guest agent" /></div>
-              <b>Guests</b><small>CRM &amp; comms</small>
-            </div>
-            <div class="agent">
-              <div class="av"><img src="assets/ferry-red.png" alt="Campaigns agent" /></div>
-              <b>Campaigns</b><small>Marketing</small>
-            </div>
-            <div class="agent">
-              <div class="av"><img src="assets/ferry-yellow.png" alt="Inventory agent" /></div>
-              <b>Inventory</b><small>Stock &amp; par</small>
-            </div>
-            <div class="agent">
-              <div class="av av-dim"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-              <b>Service</b><small>24/7 support</small>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="stats-row">
-        <div class="stat-block glass reveal"><span class="stat-n">20+</span><span class="stat-lbl">Clients</span></div>
-        <div class="stat-block glass reveal"><span class="stat-n">3+</span><span class="stat-lbl">Enterprise</span></div>
-        <div class="stat-block glass reveal"><span class="stat-n">40+</span><span class="stat-lbl">Hours saved per week</span></div>
-        <div class="stat-block glass reveal"><span class="stat-n">5+</span><span class="stat-lbl">Years working with owners</span></div>
-      </div>
+      <p class="ex-measure">Palapa Tours Ottawa is shipped. Matchbox Global is in build. Market Meats and Royal Feet were scoped and never built, and we say so. <a class="ex-link" href="work.html">All four case studies</a></p>
     </div>
   </section>
 
-  <!-- PROCESS -->
-  <section class="process" id="process">
-    <div class="wrap">
-      <div class="proc-card glass reveal">
-        <div class="sec-head center" style="margin-bottom:54px;">
-          <span class="eyebrow" style="margin-inline:auto;"><span class="dot"></span>How we work</span>
-          <h2>A simple path to real change.</h2>
-          <p class="sec-sub">Three clear steps, from a free first call to a working solution that fits how you run.</p>
-        </div>
-        <div class="timeline">
-          <div class="tl-line"></div>
-          <div class="tl-step">
-            <div class="tl-node"><span>1</span></div>
-            <div class="tl-time">30 minutes</div>
-            <h3>Zero-cost intro call</h3>
-            <p>A free call to learn about your business and see if we are a good fit. No commitment, no cost.</p>
+  <!-- 07. THE GUARANTEE AND THE CLOSING CALL -->
+  <section class="ex-band">
+    <div class="ex-container">
+      <div class="ex-band__inner">
+        <p class="ex-eyebrow ex-eyebrow--onink">How we charge</p>
+        <header class="ex-shead ex-shead--wide">
+          <h2 class="ex-shead__title">We agree the number before anything is built.</h2>
+          <p class="ex-shead__sub">The bar is agreed in writing before anything is built and the clock starts at deployment, not at signature. If the system misses that bar we keep working at no additional cost until it clears, you can cancel at any time, and you own the code either way.</p>
+        </header>
+
+        <p class="ex-measure"><a class="ex-link" href="guarantee.html">The full terms, the engagement timeline and the calculator that runs your own numbers</a></p>
+
+        <hr class="ex-rule ex-rule--spaced">
+
+        <div class="ex-split ex-split--wide">
+          <div>
+            <h3 class="ex-shead__title">Thirty minutes, and you leave with the arithmetic either way.</h3>
+            <p class="ex-shead__sub">Tell us the process that annoys you most. We will map where it leaks, put a number on it, and say plainly whether it is worth building. Two founders on the call.</p>
+            <div class="ex-hero__actions">
+              <a class="ex-btn ex-btn--primary" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+              <a class="ex-btn ex-btn--onink" href="mailto:shiv@exdsconsulting.com">shiv@exdsconsulting.com</a>
+            </div>
           </div>
-          <div class="tl-step">
-            <div class="tl-node"><span>2</span></div>
-            <div class="tl-time">1 to 2 weeks</div>
-            <h3>Full operations audit</h3>
-            <p>We map your day-to-day operations, find where time and money leak, and pin down the core issues worth fixing.</p>
-          </div>
-          <div class="tl-step">
-            <div class="tl-node"><span>3</span></div>
-            <div class="tl-time">4 to 8 weeks</div>
-            <h3>Build with regular check-ins</h3>
-            <p>We build the solution and check in with you often, so it stays aligned with how you actually work.</p>
-          </div>
+
+          <blockquote class="ex-quote">
+            <p class="ex-quote__text">A mass departure. A movement of people leaving one place to begin something new.</p>
+            <cite class="ex-quote__cite">exodus, noun</cite>
+          </blockquote>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT US (STATEMENT) -->
-  <section class="statement">
-    <div class="wrap">
-      <div class="stat-inner reveal">
-        <div class="stat-badge">↗ About Us</div>
-        <p class="stat-text">We are people's people. For 5+ years we have sat down with business owners and learned how they actually run their business. We combine that with <span class="stat-accent">AI expertise</span> and <span class="stat-accent-2">real engineering</span> to move businesses <em class="stat-em">forward</em></p>
-        <div class="stat-foot">
-          <span class="rating-badge">★ 4.9</span>
-          <span class="stat-since">Working with hospitality &amp; tech owners since 2021</span>
-          <a href="about.html" class="stat-link">About us →</a>
-        </div>
+</main>
+
+<footer class="ex-footer">
+  <div class="ex-container">
+    <div class="ex-footer__grid ia-sitemap">
+      <div class="ex-footer__brand">
+        <img src="assets/exodus-logo.png" alt="Exodus Consulting" width="44" height="23">
+        <p class="ex-footer__blurb">AI enablement and custom software for owner-led businesses. Two founders, direct access.</p>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Work</p>
+        <ul>
+          <li><a href="work.html">Our work</a></li>
+          <li><a href="work-uniserve.html">Uniserve Communications</a></li>
+          <li><a href="work-fennec.html">Fennec</a></li>
+          <li><a href="work-palapa-tours.html">Palapa Tours Ottawa</a></li>
+          <li><a href="work-scoped.html">Scoped engagements</a></li>
+        </ul>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Solutions</p>
+        <ul>
+          <li><a href="solutions.html">All solutions</a></li>
+          <li><a href="solutions-events-floor.html">Events and floor ops</a></li>
+          <li><a href="solutions-ticketing-guests.html">Ticketing and guests</a></li>
+          <li><a href="solutions-pos-payments.html">POS and payments</a></li>
+          <li><a href="solutions-inventory-staff.html">Inventory and staff</a></li>
+          <li><a href="solutions-media-intelligence.html">Media and intelligence</a></li>
+        </ul>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Company</p>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">What we build</a></li>
+          <li><a href="guarantee.html">How we charge</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Direct</p>
+        <ul>
+          <li><a href="mailto:shiv@exdsconsulting.com">shiv@exdsconsulting.com</a></li>
+          <li><a href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a></li>
+          <li><a href="https://instagram.com/exodus_consulting_" target="_blank" rel="noopener">@exodus_consulting_</a></li>
+        </ul>
       </div>
     </div>
-  </section>
 
-  <!-- CTA -->
-  <section id="book">
-    <div class="wrap">
-      <div class="cta reveal">
-        <span class="eyebrow" style="margin-inline:auto;"><span class="dot"></span>Take the first step</span>
-        <h2 class="flash-text">Ready to depart the old way?</h2>
-        <p>Book a 30-minute call and tell us what you are working on.</p>
-        <a class="btn btn-primary cta-btn" data-calendly href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Schedule a meeting <span class="arr"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-        <p class="emails">or email <a href="mailto:shiv@exdsconsulting.com">shiv@exdsconsulting.com</a></p>
-      </div>
+    <div class="ex-footer__legal">
+      <span>&copy; 2026 Exodus Consulting</span>
+      <span>Vancouver, BC</span>
     </div>
-  </section>
-
-  <footer>
-    <div class="wrap foot-inner">
-      <a class="foot-brand" href="index.html">
-        <img src="assets/exodus-logo.png" alt="" width="48" height="24" />
-        <b>EXODUS Consulting</b>
-      </a>
-      <div class="foot-links">
-        <a href="#services">What We Do</a>
-        <a href="#work">Our Work</a>
-        <a href="about.html">About</a>
-        <a data-calendly href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a call</a>
-      </div>
-      <div class="foot-copy">© 2026 Exodus Consulting.</div>
-    </div>
-  </footer>
-
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
-  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-  <script src="script.js?v=7"></script>
+  </div>
+</footer>
 </body>
 </html>

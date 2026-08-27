@@ -1,0 +1,278 @@
+/* ==========================================================================
+   EXODUS IA LAYER - v11
+   Loaded AFTER css/exodus.css. Adds only the pieces the 18-page structure
+   needs: breadcrumb, related-pages block, index-page secondary link row,
+   grouped mobile sub-navigation, and the 5-column footer sitemap.
+
+   Rules: existing tokens only, no new colours, no gradients, no !important,
+   no raw hex, one shadow, hairlines, 8-12px radii, weight 500 headings.
+   Writing rule: no en dashes, no em dashes, anywhere. Hyphens only.
+   ========================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   1. BREADCRUMB  .ia-crumbs .ia-crumbs__list .ia-crumbs__item .ia-crumbs__link
+   Mono trail with hairline separators, sitting on a hairline rule.
+   Markup: <nav class="ia-crumbs" aria-label="Breadcrumb"><ol>...</ol></nav>
+   Last item carries aria-current="page" and is not a link.
+   -------------------------------------------------------------------------- */
+.ia-crumbs {
+  padding-block: var(--space-md) 0;
+}
+
+.ia-crumbs__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2xs) var(--space-xs);
+  list-style: none;
+  margin: 0;
+  padding: 0 0 var(--space-xs);
+  border-bottom: var(--hairline);
+  font-family: var(--font-mono);
+  font-size: var(--t-mono-sm);
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: var(--track-mono);
+  color: var(--ink-3);
+}
+
+.ia-crumbs__item {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-2xs) var(--space-xs);
+  margin: 0;
+  max-width: none;
+}
+
+/* Hairline separator, drawn as a leading slash on every item after the first */
+.ia-crumbs__item + .ia-crumbs__item::before {
+  content: "/";
+  color: var(--line-2);
+  font-family: var(--font-mono);
+}
+
+.ia-crumbs__link {
+  color: var(--ink-2);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.ia-crumbs__link:hover {
+  color: var(--ink);
+  border-bottom-color: var(--line-2);
+}
+.ia-crumbs__link:focus-visible {
+  outline: 2px solid var(--violet);
+  outline-offset: 3px;
+  border-radius: var(--r-sm);
+}
+
+.ia-crumbs__item [aria-current="page"] {
+  color: var(--ink);
+}
+
+
+/* --------------------------------------------------------------------------
+   2. INDEX-PAGE SECONDARY LINK ROW
+   .ia-subnav .ia-subnav__label .ia-subnav__row .ia-subnav__link
+   Always-visible sub-navigation for work.html and solutions.html. No JS, no
+   hover menu, nothing to trap a keyboard user.
+   -------------------------------------------------------------------------- */
+.ia-subnav {
+  padding-block: var(--space-sm);
+  border-bottom: var(--hairline);
+}
+
+.ia-subnav__label {
+  margin: 0 0 var(--space-xs);
+  font-family: var(--font-mono);
+  font-size: var(--t-mono-sm);
+  text-transform: uppercase;
+  letter-spacing: var(--track-mono);
+  color: var(--ink-3);
+}
+
+.ia-subnav__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ia-subnav__row li {
+  margin: 0;
+  max-width: none;
+}
+
+.ia-subnav__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  padding: var(--space-2xs) var(--space-xs);
+  border: var(--hairline);
+  border-radius: var(--r-sm);
+  background-color: var(--card);
+  color: var(--ink-2);
+  font-size: var(--t-sm);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease),
+              background-color var(--dur) var(--ease);
+}
+.ia-subnav__link:hover {
+  color: var(--ink);
+  border-color: var(--line-2);
+  background-color: var(--paper-2);
+}
+.ia-subnav__link:focus-visible {
+  outline: 2px solid var(--violet);
+  outline-offset: 2px;
+}
+.ia-subnav__link[aria-current="page"] {
+  color: var(--ink);
+  border-color: var(--violet);
+  background-color: var(--violet-soft);
+}
+
+.ia-subnav__num {
+  font-family: var(--font-mono);
+  font-size: var(--t-mono-sm);
+  letter-spacing: var(--track-mono);
+  color: var(--ink-3);
+}
+.ia-subnav__link:hover .ia-subnav__num,
+.ia-subnav__link[aria-current="page"] .ia-subnav__num { color: var(--violet); }
+
+
+/* --------------------------------------------------------------------------
+   3. RELATED PAGES  .ia-related .ia-related__grid .ia-related__card
+   .ia-related__kicker .ia-related__go
+   Closing block of 2 to 3 cards. Reuses .ex-card styling. The last card is
+   the "next" affordance so a reader can walk the set in order.
+   -------------------------------------------------------------------------- */
+.ia-related__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: var(--space-md);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.ia-related__grid > li {
+  margin: 0;
+  max-width: none;
+  display: flex;
+}
+
+/* The whole card is the link */
+a.ia-related__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  width: 100%;
+  color: var(--ink);
+  text-decoration: none;
+  transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease);
+}
+a.ia-related__card:hover {
+  border-color: var(--line-2);
+  background-color: var(--paper-2);
+  color: var(--ink);
+}
+a.ia-related__card:focus-visible {
+  outline: 2px solid var(--violet);
+  outline-offset: 3px;
+}
+
+.ia-related__kicker {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--t-mono-sm);
+  text-transform: uppercase;
+  letter-spacing: var(--track-mono);
+  color: var(--ink-3);
+}
+
+.ia-related__card .ex-card__title { margin: 0; }
+
+.ia-related__go {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xs);
+  margin-top: auto;
+  padding-top: var(--space-xs);
+  border-top: var(--hairline);
+  font-family: var(--font-mono);
+  font-size: var(--t-mono-sm);
+  text-transform: uppercase;
+  letter-spacing: var(--track-mono);
+  color: var(--ink-3);
+}
+a.ia-related__card:hover .ia-related__go { color: var(--ink-2); }
+
+.ia-related__arrow {
+  color: var(--violet);
+  transition: transform var(--dur) var(--ease);
+}
+a.ia-related__card:hover .ia-related__arrow { transform: translateX(3px); }
+
+/* The forward step in the sequence gets the violet edge */
+a.ia-related__card--next {
+  border-left: 2px solid var(--violet);
+}
+a.ia-related__card--next .ia-related__kicker { color: var(--violet); }
+
+@media (prefers-reduced-motion: reduce) {
+  .ia-related__arrow { transition: none; }
+  a.ia-related__card:hover .ia-related__arrow { transform: none; }
+}
+
+
+/* --------------------------------------------------------------------------
+   4. GROUPED MOBILE SUB-NAVIGATION  .ia-submenu .ia-submenu__title
+   Nested inside the existing .ex-mobile-menu markup. Plain nested lists, so
+   they are visible whenever the drawer is open and need no extra script.
+   -------------------------------------------------------------------------- */
+.ex-mobile-menu .ia-submenu {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 var(--space-2xs) var(--space-sm);
+}
+.ex-mobile-menu .ia-submenu li { margin: 0; max-width: none; }
+.ex-mobile-menu .ia-submenu a {
+  padding: var(--space-2xs) 0;
+  border-bottom: 0;
+  color: var(--ink-2);
+  font-size: var(--t-sm);
+}
+.ex-mobile-menu .ia-submenu a:hover { color: var(--ink); }
+.ex-mobile-menu .ia-submenu > li:last-child > a { border-bottom: var(--hairline); }
+
+
+/* --------------------------------------------------------------------------
+   5. FOOTER SITEMAP  .ex-footer__grid.ia-sitemap
+   Brand + four link columns. Same tokens, same hairlines, one extra column.
+   -------------------------------------------------------------------------- */
+.ex-footer__grid.ia-sitemap {
+  grid-template-columns: minmax(0, 1.3fr) repeat(4, minmax(0, 1fr));
+  gap: var(--space-lg) var(--space-xl);
+}
+
+@media (max-width: 1080px) {
+  .ex-footer__grid.ia-sitemap {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-lg);
+  }
+}
+
+@media (max-width: 820px) {
+  .ex-footer__grid.ia-sitemap { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 560px) {
+  .ex-footer__grid.ia-sitemap { grid-template-columns: minmax(0, 1fr); }
+}

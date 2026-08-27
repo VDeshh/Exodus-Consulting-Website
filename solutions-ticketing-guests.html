@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ticketing and guests | Exodus Consulting</title>
+  <meta name="description" content="Fennec solution family 02: eight live modules covering ticket sales, guestlist imports, scanner check-in, promoter portals, the Guest CRM, loyalty tiers and the Fennec Pass.">
+  <meta name="theme-color" content="#FAF9F7">
+  <link rel="icon" href="assets/exodus-logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Exodus Consulting">
+  <meta property="og:title" content="Ticketing and guests | Exodus Consulting">
+  <meta property="og:description" content="Eight live Fennec modules that keep one guest identity from the first ticket to the fifth visit.">
+  <meta property="og:image" content="assets/exodus-logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/exodus.css?v=11">
+  <link rel="stylesheet" href="css/ia.css?v=11">
+  <script src="js/exodus.js?v=11" defer></script>
+</head>
+<body>
+<a class="ex-skip" href="#main">Skip to content</a>
+
+<header class="ex-header">
+  <div class="ex-header__inner">
+    <a class="ex-brand" href="index.html">
+      <img src="assets/exodus-logo.png" alt="Exodus Consulting" width="34" height="17">
+      <span class="ex-brand__name">Exodus Consulting</span>
+    </a>
+
+    <nav class="ex-nav" aria-label="Primary">
+      <a class="ex-nav__link" href="index.html">Home</a>
+      <a class="ex-nav__link" href="services.html">What we build</a>
+      <a class="ex-nav__link" href="work.html">Our work</a>
+      <a class="ex-nav__link is-current" aria-current="page" href="solutions.html">Solutions</a>
+      <a class="ex-nav__link" href="guarantee.html">How we charge</a>
+      <a class="ex-nav__link" href="about.html">About</a>
+      <a class="ex-btn ex-btn--primary ex-btn--sm" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+    </nav>
+
+    <button class="ex-burger" type="button" data-nav-toggle aria-expanded="false" aria-controls="ex-mobile-menu">
+      <span class="ex-burger__bars" aria-hidden="true"></span>
+      <span>Menu</span>
+    </button>
+  </div>
+
+  <div class="ex-mobile-menu" id="ex-mobile-menu">
+    <ul class="ex-mobile-menu__list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">What we build</a></li>
+      <li>
+        <a href="work.html">Our work</a>
+        <ul class="ia-submenu">
+          <li><a href="work-uniserve.html">Uniserve Communications</a></li>
+          <li><a href="work-fennec.html">Fennec</a></li>
+          <li><a href="work-palapa-tours.html">Palapa Tours Ottawa</a></li>
+          <li><a href="work-scoped.html">Scoped engagements</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="solutions.html">Solutions</a>
+        <ul class="ia-submenu">
+          <li><a href="solutions-events-floor.html">01 Events and floor ops</a></li>
+          <li><a href="solutions-ticketing-guests.html">02 Ticketing and guests</a></li>
+          <li><a href="solutions-pos-payments.html">03 POS and payments</a></li>
+          <li><a href="solutions-inventory-staff.html">04-05 Inventory and staff</a></li>
+          <li><a href="solutions-media-intelligence.html">06-07 Media and intelligence</a></li>
+        </ul>
+      </li>
+      <li><a href="guarantee.html">How we charge</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a class="ex-btn ex-btn--primary ex-btn--block" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ====================================================================
+       BREADCRUMB
+       ==================================================================== -->
+  <nav class="ia-crumbs" aria-label="Breadcrumb">
+    <div class="ex-container">
+      <ol class="ia-crumbs__list">
+        <li class="ia-crumbs__item"><a class="ia-crumbs__link" href="index.html">Home</a></li>
+        <li class="ia-crumbs__item"><a class="ia-crumbs__link" href="solutions.html">Solutions</a></li>
+        <li class="ia-crumbs__item"><span aria-current="page">Ticketing and guests</span></li>
+      </ol>
+    </div>
+  </nav>
+
+
+  <!-- ====================================================================
+       1. HERO
+       ==================================================================== -->
+  <section class="ex-hero">
+    <div class="ex-container">
+      <div class="ex-hero__inner">
+        <div>
+          <p class="ex-eyebrow ex-eyebrow--violet">Solution family 02</p>
+          <h1 class="ex-hero__title">One guest identity, from the first ticket to the fifth visit.</h1>
+          <p class="ex-hero__lead">Most venues know how many tickets they sold and almost nothing about who bought them. Eight modules keep one profile per guest, across every event and every venue on the network, and the scanner at the door reads against the same record the promoter sold from.</p>
+          <div class="ex-hero__actions">
+            <a class="ex-btn ex-btn--primary" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+            <a class="ex-btn ex-btn--secondary" href="work-fennec.html">Read the Fennec case study</a>
+          </div>
+        </div>
+
+        <aside class="ex-hero__meta">
+          <p><span class="ex-tag ex-tag--live">Live</span></p>
+          <div class="ex-rail">
+            <div class="ex-rail__item">
+              <span class="ex-rail__k">Family</span>
+              <span class="ex-rail__v">02 of 07, Ticketing and guests</span>
+            </div>
+            <div class="ex-rail__item">
+              <span class="ex-rail__k">Modules</span>
+              <span class="ex-rail__v">8</span>
+            </div>
+            <div class="ex-rail__item">
+              <span class="ex-rail__k">Product</span>
+              <span class="ex-rail__v">Fennec, fennecapp.com</span>
+            </div>
+            <div class="ex-rail__item">
+              <span class="ex-rail__k">Guest identity</span>
+              <span class="ex-rail__v">Fennec Pass, one QR across every venue</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ====================================================================
+       2. THE EIGHT MODULES
+       ==================================================================== -->
+  <section class="ex-section ex-section--paper-2">
+    <div class="ex-container">
+      <p class="ex-eyebrow">The modules</p>
+      <div class="ex-split">
+        <div>
+          <header class="ex-shead">
+            <h2 class="ex-shead__title">Eight modules, quoted word for word.</h2>
+            <p class="ex-shead__sub">The lines in quotation marks are Fennec's own product copy from fennecapp.com. Where we add anything, we say it is ours. Every module below is in service tonight, not on a roadmap.</p>
+          </header>
+
+          <ol class="ex-index">
+            <li class="ex-index__row">
+              <span class="ex-index__num">01</span>
+              <div>
+                <p class="ex-index__title">Ticketing</p>
+                <p class="ex-index__note">"Sell tickets, import guestlists, and check guests in with a scanner."</p>
+              </div>
+            </li>
+            <li class="ex-index__row">
+              <span class="ex-index__num">02</span>
+              <div>
+                <p class="ex-index__title">Promoter Portal</p>
+                <p class="ex-index__note">"Dedicated promoter dashboards with personal links, guestlist tools, promo codes."</p>
+              </div>
+            </li>
+            <li class="ex-index__row">
+              <span class="ex-index__num">03</span>
+              <div>
+                <p class="ex-index__title">Guest CRM</p>
+                <p class="ex-index__note">"Unified guest profiles with spend history, preferences, and segments."</p>
+              </div>
+            </li>
+            <li class="ex-index__row">
+              <span class="ex-index__num">04</span>
+              <div>
+                <p class="ex-index__title">Guest Management</p>
+                <p class="ex-index__note">"Manage every guest interaction - RSVPs, comps, plus-ones and birthdays."</p>
+              </div>
+            </li>
+            <li class="ex-index__row">
+              <span class="ex-index__num">05</span>
+              <div>
+                <p class="ex-index__title">Loyalty</p>
+                <p class="ex-index__note">"Configure tiers, points and perks once - issue passes across every venue."</p>
+              </div>
+            </li>
+            <li class="ex-index__row">
+              <span class="ex-index__num">06</span>
+              <div>
+                <p class="ex-index__title">Fennec Pass</p>
+                <p class="ex-index__note">"A guest's universal nightlife identity - tickets, table bookings, loyalty tiers."</p>
+              </div>
+            </li>
+            <li class="ex-index__row">
+              <span class="ex-index__num">07</span>
+              <div>
+                <p class="ex-index__title">Discover Events</p>
+                <p class="ex-index__note">"A guest-facing feed of every event across the Fennec network."</p>
+              </div>
+            </li>
+            <li class="ex-index__row">
+              <span class="ex-index__num">08</span>
+              <div>
+                <p class="ex-index__title">Live Ordering</p>
+                <p class="ex-index__note">"Guests scan their table, browse the live menu, and reorder."</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <aside class="ex-rail">
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">Runs at</span>
+            <span class="ex-rail__v">Harbour Event Centre, TradeX, The Pit UBC, The Show Ottawa</span>
+          </div>
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">Also</span>
+            <span class="ex-rail__v">20+ event companies</span>
+          </div>
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">What we built</span>
+            <span class="ex-rail__v">One event record, two faces: operator builder and public page</span>
+          </div>
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">Door</span>
+            <span class="ex-rail__v">Scanner reads the same record the promoter sold from</span>
+          </div>
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">Status</span>
+            <span class="ex-rail__v">Live</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ====================================================================
+       3. FEATURE SCROLLER, FOUR SURFACES
+       ==================================================================== -->
+  <section class="ex-section ex-section--ruled">
+    <div class="ex-container">
+      <p class="ex-eyebrow ex-eyebrow--violet">Four surfaces, one record</p>
+      <header class="ex-shead">
+        <h2 class="ex-shead__title">The operator builds it once. Three guest surfaces read it.</h2>
+        <p class="ex-shead__sub">Step through the four screens below. The same event record that the operator types into is the page a guest lands on, the entry in the network feed, and the ticket sitting in a member's pass.</p>
+      </header>
+
+      <div class="ex-fig">
+        <span class="ex-fig__num">FIG. 01</span>
+        <span class="ex-fig__label">Feature scroller, four ticketing surfaces</span>
+      </div>
+
+      <div class="ex-scroller" id="ticketing-surfaces" data-scroller>
+        <div class="ex-scroller__head">
+          <p class="ex-scroller__title">Scroll or select a surface</p>
+          <div class="ex-scroller__nav">
+            <button class="ex-scroller__btn" type="button" data-scroller-prev aria-label="Scroll surfaces left">&lt;</button>
+            <button class="ex-scroller__btn" type="button" data-scroller-next aria-label="Scroll surfaces right">&gt;</button>
+          </div>
+        </div>
+
+        <div class="ex-scroller__rail" data-scroller-rail aria-label="Ticketing and guest surfaces">
+          <button class="ex-scroller__chip" type="button" data-scroller-tab aria-selected="true">
+            <span class="ex-scroller__chip-num">01</span>
+            <span class="ex-scroller__chip-name">Event builder</span>
+          </button>
+          <button class="ex-scroller__chip" type="button" data-scroller-tab aria-selected="false">
+            <span class="ex-scroller__chip-num">02</span>
+            <span class="ex-scroller__chip-name">Public event page</span>
+          </button>
+          <button class="ex-scroller__chip" type="button" data-scroller-tab aria-selected="false">
+            <span class="ex-scroller__chip-num">03</span>
+            <span class="ex-scroller__chip-name">Discover Events</span>
+          </button>
+          <button class="ex-scroller__chip" type="button" data-scroller-tab aria-selected="false">
+            <span class="ex-scroller__chip-num">04</span>
+            <span class="ex-scroller__chip-name">Fennec Pass</span>
+          </button>
+        </div>
+
+        <div class="ex-scroller__panels">
+          <div class="ex-scroller__panel" data-scroller-panel>
+            <div class="ex-scroller__panel-grid">
+              <figure class="ex-shot">
+                <div class="ex-shot__frame">
+                  <img class="ex-shot__img" src="assets/product/shots/event-builder.jpg" width="2000" height="951" alt="The Fennec event builder: poster upload, event name, URL slug and public link, venue and schedule fields, guestlist scan cutoff, age restriction and public listing toggle, with a live customer preview rendered on a phone." loading="lazy" decoding="async">
+                </div>
+                <figcaption class="ex-shot__caption">Operator event builder. Poster, slug, venue, schedule, guestlist scan cutoff, age restriction and public listing, with the customer view previewed on a phone while you type.</figcaption>
+              </figure>
+              <div>
+                <h3 class="ex-scroller__panel-title">Ticketing</h3>
+                <p class="ex-scroller__panel-quote">"Sell tickets, import guestlists, and check guests in with a scanner."</p>
+                <p>One record holds the event. The scanner at the door reads against the same record the promoter sold from, so a guestlist import does not become a second source of truth.</p>
+                <p class="ex-scroller__panel-venues">Live across 20+ event companies</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ex-scroller__panel" data-scroller-panel>
+            <div class="ex-scroller__panel-grid">
+              <figure class="ex-shot">
+                <div class="ex-shot__frame">
+                  <img class="ex-shot__img" src="assets/product/shots/event-page.jpg" width="1805" height="1347" alt="A live public Fennec event page showing the event date, age limit, venue address, presenter, share actions, and calls to action to reserve a table or join the guestlist." loading="lazy" decoding="async">
+                </div>
+                <figcaption class="ex-shot__caption">The public side of the same event: date, age limit, venue address, presenter, share actions, and two ways to commit.</figcaption>
+              </figure>
+              <div>
+                <h3 class="ex-scroller__panel-title">Public event page</h3>
+                <p class="ex-scroller__panel-quote">The guest-facing face of the event record. Our words, not a product line.</p>
+                <p>Reserve a table or join the guestlist, from the page the operator just built. Nothing is retyped into a second tool, which is why the address on the page is never last season's address.</p>
+                <p class="ex-scroller__panel-venues">Live across the Fennec venue network</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ex-scroller__panel" data-scroller-panel>
+            <div class="ex-scroller__panel-grid">
+              <figure class="ex-shot">
+                <div class="ex-shot__frame">
+                  <img class="ex-shot__img" src="assets/product/shots/discover-feed.jpg" width="1972" height="1951" alt="The guest-facing Fennec discovery feed with one featured event at the top and a grid of upcoming events beneath it." loading="lazy" decoding="async">
+                </div>
+                <figcaption class="ex-shot__caption">A featured event above a grid of what is coming up, assembled from every venue on the network rather than one venue's calendar.</figcaption>
+              </figure>
+              <div>
+                <h3 class="ex-scroller__panel-title">Discover Events</h3>
+                <p class="ex-scroller__panel-quote">"A guest-facing feed of every event across the Fennec network."</p>
+                <p>A venue that joins the network inherits an audience already inside the app. The feed is the reason a guest who came for one room finds the next one.</p>
+                <p class="ex-scroller__panel-venues">Network wide</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ex-scroller__panel" data-scroller-panel>
+            <div class="ex-scroller__panel-grid">
+              <figure class="ex-shot">
+                <div class="ex-shot__frame">
+                  <img class="ex-shot__img" src="assets/product/shots/guest-pass.jpg" width="1818" height="1842" alt="A Fennec guest member profile showing upcoming tickets, table and guestlist counts, a next-up countdown, the Fennec Pass QR entry code and a feed for exploring events by city." loading="lazy" decoding="async">
+                </div>
+                <figcaption class="ex-shot__caption">The guest's own profile: upcoming tickets, table and guestlist counts, a next-up countdown, the Pass QR they enter with, and a city feed underneath.</figcaption>
+              </figure>
+              <div>
+                <h3 class="ex-scroller__panel-title">Fennec Pass</h3>
+                <p class="ex-scroller__panel-quote">"A guest's universal nightlife identity - tickets, table bookings, loyalty tiers."</p>
+                <p>One QR, every venue. Loyalty is configured once and the passes issue themselves, so a tier earned at one room is recognised at the next.</p>
+                <p class="ex-scroller__panel-venues">Live across the Fennec venue network</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ====================================================================
+       4. DARK BAND: THE NIGHT IN ORDER
+       ==================================================================== -->
+  <section class="ex-band">
+    <div class="ex-container">
+      <p class="ex-eyebrow ex-eyebrow--onink">The night in order</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">Six steps, one profile, no retyping.</h2>
+        <p class="ex-shead__sub">This is the path a guest actually walks. Each step writes to the same guest record, which is the only reason the venue still knows who that person is a month later.</p>
+      </header>
+
+      <ol class="ex-timeline">
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">1</span>
+          <div class="ex-timeline__body">
+            <h3 class="ex-timeline__title">The event goes up</h3>
+            <span class="ex-timeline__when">Operator, once</span>
+            <p>Poster, slug, venue, schedule, age restriction and the guestlist scan cutoff go in once, in the event builder, with the customer view previewed alongside.</p>
+          </div>
+        </li>
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">2</span>
+          <div class="ex-timeline__body">
+            <h3 class="ex-timeline__title">Promoters get their own link</h3>
+            <span class="ex-timeline__when">Promoter Portal</span>
+            <p>Dedicated dashboards, personal links, guestlist tools and promo codes. Sales are attributed to the person who made them instead of being argued about on Monday.</p>
+          </div>
+        </li>
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">3</span>
+          <div class="ex-timeline__body">
+            <h3 class="ex-timeline__title">The guest commits</h3>
+            <span class="ex-timeline__when">Public event page</span>
+            <p>A ticket, a table reservation or a guestlist request, taken on the page the operator just built. RSVPs, comps, plus-ones and birthdays are handled in Guest Management rather than in a group chat.</p>
+          </div>
+        </li>
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">4</span>
+          <div class="ex-timeline__body">
+            <h3 class="ex-timeline__title">The door scans</h3>
+            <span class="ex-timeline__when">Night of</span>
+            <p>The scanner reads against the same event record. An imported guestlist and a sold ticket check in through one queue, so the count at the door matches the count in the office.</p>
+          </div>
+        </li>
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">5</span>
+          <div class="ex-timeline__body">
+            <h3 class="ex-timeline__title">The table reorders</h3>
+            <span class="ex-timeline__when">Live Ordering</span>
+            <p>Guests scan their table, browse the live menu, and reorder. Spend lands on the guest profile as it happens instead of being reconstructed from a stack of receipts.</p>
+          </div>
+        </li>
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">6</span>
+          <div class="ex-timeline__body">
+            <h3 class="ex-timeline__title">The profile keeps</h3>
+            <span class="ex-timeline__when">Guest CRM and Loyalty</span>
+            <p>Spend history, preferences and segments sit on one profile. Tiers, points and perks are configured once, and the pass a guest earned at one room is recognised at the next.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+
+  <!-- ====================================================================
+       5. WHAT IT REPLACES
+       ==================================================================== -->
+  <section class="ex-section">
+    <div class="ex-container">
+      <p class="ex-eyebrow">What it replaces</p>
+      <div class="ex-split ex-split--rail-left">
+        <aside class="ex-rail">
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">Before</span>
+            <span class="ex-rail__v">A ticketing site, a spreadsheet guestlist, a promoter's phone, a clipboard at the door</span>
+          </div>
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">After</span>
+            <span class="ex-rail__v">One event record and one guest profile</span>
+          </div>
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">Audience source</span>
+            <span class="ex-rail__v">Guest CRM, not an export</span>
+          </div>
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">Status</span>
+            <span class="ex-rail__v">Live</span>
+          </div>
+        </aside>
+
+        <div class="ex-stack-lg">
+          <header class="ex-shead">
+            <h2 class="ex-shead__title">The cost of four tools is the guest you never recognise again.</h2>
+            <p class="ex-shead__sub">Every handoff between tools is a place a name gets dropped. The venue ends the night with a revenue figure and no idea which of those people had been in three times before.</p>
+          </header>
+
+          <div class="ex-grid ex-grid--2">
+            <article class="ex-card">
+              <div class="ex-card__head">
+                <h3 class="ex-card__title">Promoter Portal</h3>
+                <span class="ex-tag ex-tag--live">Live</span>
+              </div>
+              <p class="ex-card__body">"Dedicated promoter dashboards with personal links, guestlist tools, promo codes." Each promoter sees their own numbers, and the venue sees all of them in one place.</p>
+            </article>
+
+            <article class="ex-card">
+              <div class="ex-card__head">
+                <h3 class="ex-card__title">Guest CRM and Guest Management</h3>
+                <span class="ex-tag ex-tag--live">Live</span>
+              </div>
+              <p class="ex-card__body">"Unified guest profiles with spend history, preferences, and segments", plus every interaction: "RSVPs, comps, plus-ones and birthdays."</p>
+            </article>
+
+            <article class="ex-card">
+              <div class="ex-card__head">
+                <h3 class="ex-card__title">Loyalty and Fennec Pass</h3>
+                <span class="ex-tag ex-tag--live">Live</span>
+              </div>
+              <p class="ex-card__body">"Configure tiers, points and perks once - issue passes across every venue." The Pass is the guest's side of that: "tickets, table bookings, loyalty tiers."</p>
+            </article>
+
+            <article class="ex-card">
+              <div class="ex-card__head">
+                <h3 class="ex-card__title">Discover Events and Live Ordering</h3>
+                <span class="ex-tag ex-tag--live">Live</span>
+              </div>
+              <p class="ex-card__body">A network feed brings guests in, and "guests scan their table, browse the live menu, and reorder" once they are seated, so spend and identity stay attached.</p>
+            </article>
+          </div>
+
+          <blockquote class="ex-quote">
+            <p class="ex-quote__text">A guest's universal nightlife identity - tickets, table bookings, loyalty tiers.</p>
+            <cite class="ex-quote__cite">Fennec product copy, fennecapp.com</cite>
+          </blockquote>
+
+          <div class="ex-stat">
+            <span class="ex-stat__num">7<span class="ex-stat__unit">x</span></span>
+            <p class="ex-stat__label">more likely to qualify a web lead when it was contacted within an hour rather than an hour later. A table request is inbound demand, and it goes cold the same way.</p>
+            <cite class="ex-stat__source">Harvard Business Review, The Short Life of Online Sales Leads, 2011. A finding about web sales leads, applied here by analogy.</cite>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ====================================================================
+       6. DARK BAND: CTA
+       ==================================================================== -->
+  <section class="ex-band ex-band--tight">
+    <div class="ex-container">
+      <p class="ex-eyebrow ex-eyebrow--onink">Beyond nightlife</p>
+      <div class="ex-split ex-split--wide">
+        <div>
+          <h2>An event page is a booking funnel with a scanner at the end.</h2>
+          <p>This family is shaped like a nightclub because that is the room it was built in. The parts underneath are not. A guest profile is a customer record. A promoter link is an attributed sales channel. A loyalty tier is a retention programme. A scanner at the door is admission control for anything with a gate.</p>
+          <p>We start with a free operations audit, agree the baseline in writing before anything is built, and you own the code. See <a class="ex-link" href="guarantee.html">how we charge</a>.</p>
+          <div class="ex-hero__actions">
+            <a class="ex-btn ex-btn--primary" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+            <a class="ex-btn ex-btn--onink" href="work-fennec.html">The Fennec case study</a>
+            <a class="ex-btn ex-btn--onink" href="solutions.html">All seven families</a>
+          </div>
+        </div>
+
+        <div class="ex-stack-lg">
+          <div class="ex-stat ex-stat--onink">
+            <span class="ex-stat__num">4</span>
+            <p class="ex-stat__label">named venues running Fennec: Harbour Event Centre, TradeX, The Pit UBC, The Show Ottawa.</p>
+            <cite class="ex-stat__source">Fennec deployment list</cite>
+          </div>
+          <div class="ex-stat ex-stat--onink">
+            <span class="ex-stat__num">20<span class="ex-stat__unit">+</span></span>
+            <p class="ex-stat__label">event companies selling and scanning through the same ticketing modules.</p>
+            <cite class="ex-stat__source">Fennec deployment list</cite>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ====================================================================
+       RELATED PAGES
+       ==================================================================== -->
+  <section class="ex-section ex-section--tight ia-related" aria-labelledby="related-heading">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Keep reading</p>
+      <h2 class="ex-shead__title" id="related-heading">Where to go next</h2>
+
+      <ul class="ia-related__grid">
+        <li>
+          <a class="ex-card ia-related__card" href="solutions-events-floor.html">
+            <p class="ia-related__kicker">Related solution</p>
+            <h3 class="ex-card__title">Events and floor ops</h3>
+            <p class="ex-card__body">The floor plan editor, live table statuses and the guest-facing table map the reservations on this page land on.</p>
+            <span class="ia-related__go">Read the family <span class="ia-related__arrow" aria-hidden="true">-&gt;</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="ex-card ia-related__card" href="solutions.html">
+            <p class="ia-related__kicker">Back up</p>
+            <h3 class="ex-card__title">All solutions</h3>
+            <p class="ex-card__body">Seven families and 32 modules, each quoted from fennecapp.com and grouped by the job it does.</p>
+            <span class="ia-related__go">Back to the index <span class="ia-related__arrow" aria-hidden="true">-&gt;</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="ex-card ia-related__card ia-related__card--next" href="solutions-pos-payments.html">
+            <p class="ia-related__kicker">Next family</p>
+            <h3 class="ex-card__title">POS and payments</h3>
+            <p class="ex-card__body">Two-way sync with the POS already on the counter: Square, Toast and Lightspeed, plus per-bar control.</p>
+            <span class="ia-related__go">Next <span class="ia-related__arrow" aria-hidden="true">-&gt;</span></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ex-footer">
+  <div class="ex-container">
+    <div class="ex-footer__grid ia-sitemap">
+      <div class="ex-footer__brand">
+        <img src="assets/exodus-logo.png" alt="Exodus Consulting" width="44" height="23">
+        <p class="ex-footer__blurb">AI enablement and custom software for owner-led businesses. Two founders, direct access.</p>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Work</p>
+        <ul>
+          <li><a href="work.html">Our work</a></li>
+          <li><a href="work-uniserve.html">Uniserve Communications</a></li>
+          <li><a href="work-fennec.html">Fennec</a></li>
+          <li><a href="work-palapa-tours.html">Palapa Tours Ottawa</a></li>
+          <li><a href="work-scoped.html">Scoped engagements</a></li>
+        </ul>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Solutions</p>
+        <ul>
+          <li><a href="solutions.html">All solutions</a></li>
+          <li><a href="solutions-events-floor.html">Events and floor ops</a></li>
+          <li><a href="solutions-ticketing-guests.html">Ticketing and guests</a></li>
+          <li><a href="solutions-pos-payments.html">POS and payments</a></li>
+          <li><a href="solutions-inventory-staff.html">Inventory and staff</a></li>
+          <li><a href="solutions-media-intelligence.html">Media and intelligence</a></li>
+        </ul>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Company</p>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">What we build</a></li>
+          <li><a href="guarantee.html">How we charge</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Direct</p>
+        <ul>
+          <li><a href="mailto:shiv@exdsconsulting.com">shiv@exdsconsulting.com</a></li>
+          <li><a href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a></li>
+          <li><a href="https://instagram.com/exodus_consulting_" target="_blank" rel="noopener">@exodus_consulting_</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ex-footer__legal">
+      <span>&copy; 2026 Exodus Consulting</span>
+      <span>Vancouver, BC</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

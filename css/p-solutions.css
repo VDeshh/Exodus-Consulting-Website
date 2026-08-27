@@ -1,0 +1,28 @@
+/* ==========================================================================
+   PAGE CSS - solutions.html (the solution family index)
+   Loaded AFTER css/exodus.css and css/ia.css.
+
+   One job only: the five family cards route the whole page, and the shared
+   auto-fit grid lays five items out as 4 + 1 at desktop, which leaves the
+   last card orphaned on its own row. This pins the family grid to 3 + 2,
+   then 2 columns, then 1.
+
+   Existing tokens only. No new colours, no gradients, no !important,
+   no raw hex. Writing rule: hyphens only, no en or em dashes.
+   ========================================================================== */
+
+.p-solutions__families {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 1000px) {
+  .p-solutions__families {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .p-solutions__families {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

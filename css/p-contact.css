@@ -1,0 +1,83 @@
+/* ==========================================================================
+   EXODUS - PAGE CSS: contact.html
+   Only one thing lives here: the mailto form fields. The shared sheet has no
+   form component, so these rules dress native inputs in the existing tokens.
+   Flat fills, hairline borders, radius 2px. No new colours.
+   Link AFTER css/exodus.css.
+   ========================================================================== */
+
+.pc-form {
+  display: grid;
+  gap: var(--s-md);
+  max-width: 46rem;
+  border-top: var(--rule) solid var(--line);
+  padding-top: var(--s-md);
+}
+
+.pc-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: var(--s-md);
+  align-items: start;
+}
+
+.pc-field {
+  display: grid;
+  gap: var(--s-2xs);
+  min-width: 0;
+}
+
+.pc-field__label {
+  font-family: var(--font-mono);
+  font-size: var(--t-mono-sm);
+  font-weight: 500;
+  letter-spacing: var(--track-mono);
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.pc-field__input,
+.pc-field__area {
+  width: 100%;
+  background-color: var(--ink-2);
+  color: var(--text);
+  border: var(--rule) solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--s-xs) var(--s-sm);
+  font-family: var(--font-body);
+  font-size: var(--t-body);
+  line-height: var(--lh-body);
+  transition: border-color var(--dur) var(--ease);
+}
+
+.pc-field__input:hover,
+.pc-field__area:hover { border-color: var(--line-2); }
+
+.pc-field__input:focus,
+.pc-field__area:focus { border-color: var(--gold); }
+
+.pc-field__input::placeholder,
+.pc-field__area::placeholder { color: var(--text-3); }
+
+.pc-field__area {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.pc-form__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-sm);
+  border-top: var(--rule) solid var(--line);
+  padding-top: var(--s-md);
+}
+
+.pc-form__note {
+  font-family: var(--font-mono);
+  font-size: var(--t-mono-sm);
+  letter-spacing: var(--track-mono);
+  text-transform: uppercase;
+  color: var(--text-3);
+  max-width: 34ch;
+}

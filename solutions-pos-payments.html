@@ -1,0 +1,635 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>POS and payments | Exodus Consulting</title>
+  <meta name="description" content="Fennec solution family 03: two-way sync with the POS you already use, across Square, Toast and Lightspeed, plus what integrating an existing till actually involves.">
+  <meta name="theme-color" content="#FAF9F7">
+  <link rel="icon" href="assets/exodus-logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Exodus Consulting">
+  <meta property="og:title" content="POS and payments | Exodus Consulting">
+  <meta property="og:description" content="Two-way sync with the POS you already use. Square, Toast and Lightspeed, and the decisions an integration really needs.">
+  <meta property="og:image" content="assets/exodus-logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/exodus.css?v=11">
+  <link rel="stylesheet" href="css/ia.css?v=11">
+  <script src="js/exodus.js?v=11" defer></script>
+</head>
+<body>
+<a class="ex-skip" href="#main">Skip to content</a>
+
+<header class="ex-header">
+  <div class="ex-header__inner">
+    <a class="ex-brand" href="index.html">
+      <img src="assets/exodus-logo.png" alt="Exodus Consulting" width="34" height="17">
+      <span class="ex-brand__name">Exodus Consulting</span>
+    </a>
+
+    <nav class="ex-nav" aria-label="Primary">
+      <a class="ex-nav__link" href="index.html">Home</a>
+      <a class="ex-nav__link" href="services.html">What we build</a>
+      <a class="ex-nav__link" href="work.html">Our work</a>
+      <a class="ex-nav__link is-current" aria-current="page" href="solutions.html">Solutions</a>
+      <a class="ex-nav__link" href="guarantee.html">How we charge</a>
+      <a class="ex-nav__link" href="about.html">About</a>
+      <a class="ex-btn ex-btn--primary ex-btn--sm" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+    </nav>
+
+    <button class="ex-burger" type="button" data-nav-toggle aria-expanded="false" aria-controls="ex-mobile-menu">
+      <span class="ex-burger__bars" aria-hidden="true"></span>
+      <span>Menu</span>
+    </button>
+  </div>
+
+  <div class="ex-mobile-menu" id="ex-mobile-menu">
+    <ul class="ex-mobile-menu__list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">What we build</a></li>
+      <li>
+        <a href="work.html">Our work</a>
+        <ul class="ia-submenu">
+          <li><a href="work-uniserve.html">Uniserve Communications</a></li>
+          <li><a href="work-fennec.html">Fennec</a></li>
+          <li><a href="work-palapa-tours.html">Palapa Tours Ottawa</a></li>
+          <li><a href="work-scoped.html">Scoped engagements</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="solutions.html">Solutions</a>
+        <ul class="ia-submenu">
+          <li><a href="solutions-events-floor.html">01 Events and floor ops</a></li>
+          <li><a href="solutions-ticketing-guests.html">02 Ticketing and guests</a></li>
+          <li><a href="solutions-pos-payments.html">03 POS and payments</a></li>
+          <li><a href="solutions-inventory-staff.html">04-05 Inventory and staff</a></li>
+          <li><a href="solutions-media-intelligence.html">06-07 Media and intelligence</a></li>
+        </ul>
+      </li>
+      <li><a href="guarantee.html">How we charge</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a class="ex-btn ex-btn--primary ex-btn--block" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ====================================================================
+       BREADCRUMB
+       ==================================================================== -->
+  <nav class="ia-crumbs" aria-label="Breadcrumb">
+    <div class="ex-container">
+      <ol class="ia-crumbs__list">
+        <li class="ia-crumbs__item"><a class="ia-crumbs__link" href="index.html">Home</a></li>
+        <li class="ia-crumbs__item"><a class="ia-crumbs__link" href="solutions.html">Solutions</a></li>
+        <li class="ia-crumbs__item"><span aria-current="page">POS and payments</span></li>
+      </ol>
+    </div>
+  </nav>
+
+
+  <!-- ====================================================================
+       1. HERO
+       ==================================================================== -->
+  <section class="ex-hero">
+    <div class="ex-container">
+      <div class="ex-hero__inner">
+        <div>
+          <p class="ex-eyebrow ex-eyebrow--violet">Solution family 03</p>
+          <h1 class="ex-hero__title">The till stays where it is.</h1>
+          <p class="ex-hero__lead">Nobody wants to rip out the till two weeks before a long weekend. Fennec syncs both ways with the POS already on the counter, and gives each bar its own controls on top. Two modules, three connectors, and one decision per field about which system owns the truth.</p>
+          <div class="ex-hero__actions">
+            <a class="ex-btn ex-btn--primary" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+            <a class="ex-btn ex-btn--secondary" href="work-fennec.html">Read the Fennec case study</a>
+          </div>
+        </div>
+
+        <aside class="ex-hero__meta">
+          <p><span class="ex-tag ex-tag--live">Live</span></p>
+          <div class="ex-rail">
+            <div class="ex-rail__item">
+              <span class="ex-rail__k">Family</span>
+              <span class="ex-rail__v">03, POS and payments</span>
+            </div>
+            <div class="ex-rail__item">
+              <span class="ex-rail__k">Modules</span>
+              <span class="ex-rail__v">2</span>
+            </div>
+            <div class="ex-rail__item">
+              <span class="ex-rail__k">Connectors</span>
+              <span class="ex-rail__v">Square, Toast, Lightspeed</span>
+            </div>
+            <div class="ex-rail__item">
+              <span class="ex-rail__k">Direction</span>
+              <span class="ex-rail__v">Two-way</span>
+            </div>
+            <div class="ex-rail__item">
+              <span class="ex-rail__k">New hardware</span>
+              <span class="ex-rail__v">None on the counter</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ====================================================================
+       2. THE TWO MODULES
+       ==================================================================== -->
+  <section class="ex-section ex-section--ruled">
+    <div class="ex-container">
+      <p class="ex-eyebrow">The modules</p>
+      <div class="ex-split">
+        <div>
+          <header class="ex-shead">
+            <h2 class="ex-shead__title">Two modules, quoted word for word</h2>
+            <p class="ex-shead__sub">The lines in quotation marks below are Fennec product copy from fennecapp.com. Everything outside the quotation marks is our description of what the module does in a room.</p>
+          </header>
+
+          <ol class="ex-index">
+            <li class="ex-index__row">
+              <span class="ex-index__num">01</span>
+              <div>
+                <p class="ex-index__title">POS Integration</p>
+                <p class="ex-index__note">"Two-way sync with the POS you already use." Square, Toast and Lightspeed. The item catalogue is edited once, pushed to the terminals, and every closed tab comes back attached to a table, an event and a bar.</p>
+              </div>
+            </li>
+            <li class="ex-index__row">
+              <span class="ex-index__num">02</span>
+              <div>
+                <p class="ex-index__title">Bar Management</p>
+                <p class="ex-index__note">"Manage pours, staffing and POS terminals across every bar." Each bar gets its own terminals, its own staffing and its own running count, so a variance points at a room rather than at the building.</p>
+              </div>
+            </li>
+          </ol>
+
+          <blockquote class="ex-quote">
+            <p class="ex-quote__text">"Floor plans, reservations, packages and live ops - synced with Square."</p>
+            <cite class="ex-quote__cite">Fennec product copy, fennecapp.com</cite>
+          </blockquote>
+
+          <p class="ex-measure">That product line names Square because Square is the one it calls out. The module names three: Square, Toast and Lightspeed. We say both, in that order, because a venue deciding whether to keep its till deserves to know which claim is which.</p>
+        </div>
+
+        <aside class="ex-rail">
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">Connectors</span>
+            <span class="ex-rail__v">Square, Toast, Lightspeed</span>
+          </div>
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">Direction</span>
+            <span class="ex-rail__v">Two-way</span>
+          </div>
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">What we built</span>
+            <span class="ex-rail__v">One item catalogue, pushed out and reconciled back</span>
+          </div>
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">Per bar</span>
+            <span class="ex-rail__v">Own terminals, own staffing, own pour counts</span>
+          </div>
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">Sales attach to</span>
+            <span class="ex-rail__v">Table, event and bar</span>
+          </div>
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">Status</span>
+            <span class="ex-rail__v">Live</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ====================================================================
+       3. INTERFACE DIAGRAM: TWO-WAY POS SYNC  (centrepiece)
+       ==================================================================== -->
+  <section class="ex-section ex-section--paper-2">
+    <div class="ex-container">
+      <p class="ex-eyebrow ex-eyebrow--violet">How the sync runs</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">Menus and prices go out. Orders and payments come back.</h2>
+        <p class="ex-shead__sub">There is no screenshot of this surface, so the drawing below is a diagram we built for this page rather than a capture of the app. It shows the direction of travel, what moves each way, and the last-sync state an operator looks for before doors open.</p>
+      </header>
+
+      <div class="ex-fig">
+        <span class="ex-fig__num">FIG. 01</span>
+        <span class="ex-fig__label">Interface diagram, two-way POS sync</span>
+      </div>
+
+      <div class="ex-diagram">
+        <div class="ex-diagram__bar">
+          <span class="ex-diagram__dot" aria-hidden="true"></span>
+          POS sync
+        </div>
+        <div class="ex-diagram__body">
+          <div class="ex-stack">
+            <div class="ex-diagram__flow">
+              <div class="ex-diagram__node ex-diagram__node--primary">
+                <span class="ex-diagram__node-k">Fennec</span>
+                Menus, prices, packages, table fees
+              </div>
+              <span class="ex-diagram__arrow" aria-hidden="true">-&gt;</span>
+              <div class="ex-diagram__node ex-diagram__node--accent">
+                <span class="ex-diagram__node-k">Your POS</span>
+                Items and prices land on every terminal
+              </div>
+            </div>
+
+            <div class="ex-diagram__flow">
+              <div class="ex-diagram__node">
+                <span class="ex-diagram__node-k">Out, field</span>
+                Item name and modifiers
+              </div>
+              <div class="ex-diagram__node">
+                <span class="ex-diagram__node-k">Out, field</span>
+                Price and tax code
+              </div>
+              <div class="ex-diagram__node">
+                <span class="ex-diagram__node-k">Out, field</span>
+                Package and bottle service
+              </div>
+              <div class="ex-diagram__node">
+                <span class="ex-diagram__node-k">Out, field</span>
+                Table fee and minimum
+              </div>
+            </div>
+
+            <div class="ex-diagram__flow">
+              <div class="ex-diagram__node ex-diagram__node--accent">
+                <span class="ex-diagram__node-k">Your POS</span>
+                Tabs closed at the bar
+              </div>
+              <span class="ex-diagram__arrow" aria-hidden="true">-&gt;</span>
+              <div class="ex-diagram__node ex-diagram__node--primary">
+                <span class="ex-diagram__node-k">Fennec</span>
+                Sales post against the table, the event and the bar
+              </div>
+            </div>
+
+            <div class="ex-diagram__flow">
+              <div class="ex-diagram__node">
+                <span class="ex-diagram__node-k">In, field</span>
+                Order lines and quantities
+              </div>
+              <div class="ex-diagram__node">
+                <span class="ex-diagram__node-k">In, field</span>
+                Payments, tips and card type
+              </div>
+              <div class="ex-diagram__node">
+                <span class="ex-diagram__node-k">In, field</span>
+                Voids, comps and refunds
+              </div>
+              <div class="ex-diagram__node">
+                <span class="ex-diagram__node-k">In, field</span>
+                Terminal, bartender and timestamp
+              </div>
+            </div>
+
+            <hr class="ex-rule">
+
+            <div class="ex-diagram__flow">
+              <div class="ex-diagram__node">
+                <span class="ex-diagram__node-k">Connector</span>
+                Square
+              </div>
+              <div class="ex-diagram__node">
+                <span class="ex-diagram__node-k">Connector</span>
+                Toast
+              </div>
+              <div class="ex-diagram__node">
+                <span class="ex-diagram__node-k">Connector</span>
+                Lightspeed
+              </div>
+              <div class="ex-diagram__node ex-diagram__node--ok">
+                <span class="ex-diagram__node-k">Last sync</span>
+                2 minutes ago, 0 items queued
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="ex-diagram__caption">INTERFACE DIAGRAM, not a screenshot. It shows the sync direction Fennec describes as "two-way sync with the POS you already use". The field lists and the last-sync state are example values drawn for this page, not a reading from any venue.</p>
+      </div>
+
+      <p class="ex-measure">Two-way is the part that matters. A one-way push leaves the bar re-typing prices and the office guessing at sales. A one-way pull leaves the menu correct on the terminal and wrong everywhere else. Running both directions means the catalogue has a single home and the night has a single record of what was actually sold, at which bar, on which terminal, against which table.</p>
+    </div>
+  </section>
+
+
+  <!-- ====================================================================
+       4. WHAT AN INTEGRATION ACTUALLY INVOLVES
+       ==================================================================== -->
+  <section class="ex-section">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Integration, honestly</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">What connecting an existing POS actually involves</h2>
+        <p class="ex-shead__sub">Connecting is not a switch. Nothing here needs new hardware on the counter, but four things have to be worked through before a credential is exchanged, and they are the reason an integration succeeds or drifts.</p>
+      </header>
+
+      <div class="ex-stack-lg">
+        <div class="ex-grid ex-grid--2">
+          <article class="ex-card">
+            <div class="ex-card__head">
+              <h3 class="ex-card__title">1. Map the menu that already exists</h3>
+            </div>
+            <p class="ex-card__body">We list every item, modifier, price and tax code sitting on the terminals today, then compare that list against the menu the venue believes it sells. The two never match on the first pass. There are duplicate items from a New Year event, a spelling that only one bartender uses, and a modifier nobody has priced in a year. Cleaning that list is the first real day of work, and it happens whether or not anything gets connected.</p>
+          </article>
+
+          <article class="ex-card">
+            <div class="ex-card__head">
+              <h3 class="ex-card__title">2. Decide the source of truth per field</h3>
+            </div>
+            <p class="ex-card__body">Not per system, per field. Item names and prices are owned by one side. Tax codes usually stay with the POS because that is where the accountant already looks. Packages, table fees and minimums are owned by Fennec because that is where the floor plan lives. If both sides can edit the same field, that field will eventually disagree with itself, and it will do it on the busiest night of the month. We write the ownership down and both sides sign it.</p>
+          </article>
+
+          <article class="ex-card">
+            <div class="ex-card__head">
+              <h3 class="ex-card__title">3. Handle items that exist on one side only</h3>
+            </div>
+            <p class="ex-card__body">Some items live only on the POS: a staff drink, a house shot, a legacy button. Some live only in Fennec: a bottle package priced for a table, an event-night minimum. Each one gets a rule rather than a guess. Map it to a counterpart, mirror it across, or mark it deliberately local so the sync never touches it. Unmapped items are listed and shown to the owner, never silently dropped and never silently created.</p>
+          </article>
+
+          <article class="ex-card">
+            <div class="ex-card__head">
+              <h3 class="ex-card__title">4. Reconcile after one real service</h3>
+            </div>
+            <p class="ex-card__body">The first night runs on both systems and then gets reconciled line by line. Pours are checked against sales, tabs against tables, tips against the payout the staff expect. Whatever the mapping got wrong shows up here, which is exactly why we do it on a real service instead of a test. Overpours and missing inventory get flagged rather than argued about, and that reconciliation becomes the routine the bar keeps.</p>
+          </article>
+        </div>
+
+        <hr class="ex-rule ex-rule--spaced">
+
+        <div class="ex-table-wrap">
+          <table class="ex-table">
+            <caption>The same four things as a sequence, with who does each part.</caption>
+            <thead>
+              <tr>
+                <th scope="col">Step</th>
+                <th scope="col">What happens</th>
+                <th scope="col">Who does it</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row"><span class="ex-table__num">01</span> Read the catalogue</th>
+                <td>Every item, price, modifier and tax code already on the terminals gets listed and compared against the menu the venue thinks it sells.</td>
+                <td>Us</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="ex-table__num">02</span> Set direction per field</th>
+                <td>Menus, prices and packages push out of Fennec. Closed tabs pull back in. Each field gets exactly one owner, which is the decision that prevents two prices for one bottle.</td>
+                <td>Us, with the owner</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="ex-table__num">03</span> Resolve the leftovers</th>
+                <td>Items that exist on one side only get mapped, mirrored or marked local. The unmapped list is shown to the owner before anything goes live.</td>
+                <td>Us, with the bar manager</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="ex-table__num">04</span> Map bars and terminals</th>
+                <td>Each bar is given its own terminals, its own staffing and its own running count of bottles and kegs, so a variance points at a room rather than at the building.</td>
+                <td>Us, with the bar manager</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="ex-table__num">05</span> Reconcile one real night</th>
+                <td>Run a live event on both systems, then reconcile pours against sales and fix whatever the mapping got wrong. Overpours and missing inventory are flagged rather than argued about.</td>
+                <td>Both</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="ex-table__num">06</span> Hand it over</th>
+                <td>The team edits the menu once and it lands printed, digital and on the POS. Training is on the venue's own layout and its own item names.</td>
+                <td>You, with us on call</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr class="ex-rule ex-rule--spaced">
+
+        <div class="ex-fig">
+          <span class="ex-fig__num">FIG. 02</span>
+          <span class="ex-fig__label">Integration questions, expandable</span>
+        </div>
+
+        <div class="ex-faq">
+          <div class="ex-faq__item ex-disclose">
+            <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="pos-faq-1">
+              <span data-disclose-label>Do you replace the POS we already use?</span>
+              <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+            </button>
+            <div class="ex-disclose__panel" id="pos-faq-1" data-collapsed="false">
+              <div class="ex-disclose__inner">
+                <p>No. The module is quoted as "two-way sync with the POS you already use", and it connects to Square, Toast and Lightspeed. The terminals stay where they are and the staff keep the till they know. Fennec sits above it and holds the floor plan, the event, the guest and the stock count.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ex-faq__item ex-disclose">
+            <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="pos-faq-2">
+              <span data-disclose-label>What has to be decided before anything connects?</span>
+              <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+            </button>
+            <div class="ex-disclose__panel" id="pos-faq-2" data-collapsed="false">
+              <div class="ex-disclose__inner">
+                <p>Ownership, field by field. If both systems can edit a price, the price will eventually disagree with itself. We take the item catalogue, name an owner for each field, and write it down before a single credential is exchanged. That meeting is usually an hour and it saves the argument on the busiest night of the month.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ex-faq__item ex-disclose">
+            <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="pos-faq-3">
+              <span data-disclose-label>What happens to items only one system has?</span>
+              <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+            </button>
+            <div class="ex-disclose__panel" id="pos-faq-3" data-collapsed="false">
+              <div class="ex-disclose__inner">
+                <p>They get a rule. Map to a counterpart, mirror across, or mark deliberately local so the sync leaves them alone. The list of anything still unmapped goes to the owner before go-live. Nothing is silently created on the terminals and nothing is silently deleted, because a bartender hunting for a missing button mid-service is worse than a slightly longer setup.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ex-faq__item ex-disclose">
+            <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="pos-faq-4">
+              <span data-disclose-label>What does a POS integration cost?</span>
+              <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+            </button>
+            <div class="ex-disclose__panel" id="pos-faq-4" data-collapsed="false">
+              <div class="ex-disclose__inner">
+                <p>The only integration figure we will print is one we actually quoted. For Market Meats, an independent butcher in Kerrisdale, we scoped $3,000 for the website plus $500 for Square POS integration. <span class="ex-tag ex-tag--proposed">Proposed</span> That was a proposal and it was never built, so treat it as a scoping reference and nothing more. Venue integrations are scoped in the free audit, against your catalogue, before anything is agreed.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ex-faq__item ex-disclose">
+            <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="pos-faq-5">
+              <span data-disclose-label>Who owns the code at the end?</span>
+              <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+            </button>
+            <div class="ex-disclose__panel" id="pos-faq-5" data-collapsed="false">
+              <div class="ex-disclose__inner">
+                <p>You do, and it is written into the agreement before anything is built. The same page covers the rest of how we charge: an agreed baseline in writing, a clock that starts at deployment rather than signature, and work that continues at no additional cost if the system misses the bar. See <a class="ex-link" href="guarantee.html">how we charge</a>.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ====================================================================
+       5. DARK BAND + CTA
+       ==================================================================== -->
+  <section class="ex-band">
+    <div class="ex-container">
+      <p class="ex-eyebrow ex-eyebrow--onink">Why it is built this way</p>
+      <div class="ex-split ex-split--wide">
+        <div>
+          <h2>A sale that knows its table is worth more than a sale that does not.</h2>
+          <p>A closed tab on its own is a number. The same tab attached to a table, an event and a bar is the row that makes the rest of the system work. It tells the variance report what was actually sold at that bar, it tells the payout engine what a section earned, and it tells the owner which promoter filled the room that paid for itself.</p>
+          <p>That is the whole reason the sync runs both ways rather than pushing a menu and hoping. Keep the till, keep the staff who know it, and give the office one record of the night. <span class="ex-tag ex-tag--onink">Live in Fennec</span></p>
+          <div class="ex-hero__actions">
+            <a class="ex-btn ex-btn--primary" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+            <a class="ex-btn ex-btn--onink" href="solutions.html">All solution families</a>
+            <a class="ex-btn ex-btn--onink" href="contact.html">Contact us</a>
+          </div>
+        </div>
+
+        <aside class="ex-rail ex-rail--onink">
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">Modules</span>
+            <span class="ex-rail__v">POS Integration, Bar Management</span>
+          </div>
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">Connectors</span>
+            <span class="ex-rail__v">Square, Toast, Lightspeed</span>
+          </div>
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">Direction</span>
+            <span class="ex-rail__v">Two-way, owner set per field</span>
+          </div>
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">Feeds</span>
+            <span class="ex-rail__v">Variance reports and staff payouts</span>
+          </div>
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">Fennec runs at</span>
+            <span class="ex-rail__v">Harbour Event Centre, TradeX, The Pit UBC, The Show Ottawa</span>
+          </div>
+          <div class="ex-rail__item">
+            <span class="ex-rail__k">Audit</span>
+            <span class="ex-rail__v">Free, and you keep the map</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ====================================================================
+       RELATED PAGES
+       ==================================================================== -->
+  <section class="ex-section ex-section--tight ia-related" aria-labelledby="related-heading">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Keep reading</p>
+      <h2 class="ex-shead__title" id="related-heading">Where to go next</h2>
+
+      <ul class="ia-related__grid">
+        <li>
+          <a class="ex-card ia-related__card" href="solutions-events-floor.html">
+            <p class="ia-related__kicker">Related solution</p>
+            <h3 class="ex-card__title">Events and floor ops</h3>
+            <p class="ex-card__body">The floor plan editor, live table statuses and the guest-facing table map. This is the table a POS sale posts against.</p>
+            <span class="ia-related__go">Read the family <span class="ia-related__arrow" aria-hidden="true">-&gt;</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="ex-card ia-related__card" href="solutions.html">
+            <p class="ia-related__kicker">Back up</p>
+            <h3 class="ex-card__title">All solution families</h3>
+            <p class="ex-card__body">Seven families across five pages, each with the modules quoted from the product and the surfaces that carry them.</p>
+            <span class="ia-related__go">Back to the index <span class="ia-related__arrow" aria-hidden="true">-&gt;</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="ex-card ia-related__card ia-related__card--next" href="solutions-inventory-staff.html">
+            <p class="ia-related__kicker">Next family</p>
+            <h3 class="ex-card__title">Inventory and staff</h3>
+            <p class="ex-card__body">Poured against sold, with the overpour flagged, and the tip-out split that ends the payout argument.</p>
+            <span class="ia-related__go">Next <span class="ia-related__arrow" aria-hidden="true">-&gt;</span></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ex-footer">
+  <div class="ex-container">
+    <div class="ex-footer__grid ia-sitemap">
+      <div class="ex-footer__brand">
+        <img src="assets/exodus-logo.png" alt="Exodus Consulting" width="44" height="23">
+        <p class="ex-footer__blurb">AI enablement and custom software for owner-led businesses. Two founders, direct access.</p>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Work</p>
+        <ul>
+          <li><a href="work.html">Our work</a></li>
+          <li><a href="work-uniserve.html">Uniserve Communications</a></li>
+          <li><a href="work-fennec.html">Fennec</a></li>
+          <li><a href="work-palapa-tours.html">Palapa Tours Ottawa</a></li>
+          <li><a href="work-scoped.html">Scoped engagements</a></li>
+        </ul>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Solutions</p>
+        <ul>
+          <li><a href="solutions.html">All solutions</a></li>
+          <li><a href="solutions-events-floor.html">Events and floor ops</a></li>
+          <li><a href="solutions-ticketing-guests.html">Ticketing and guests</a></li>
+          <li><a href="solutions-pos-payments.html">POS and payments</a></li>
+          <li><a href="solutions-inventory-staff.html">Inventory and staff</a></li>
+          <li><a href="solutions-media-intelligence.html">Media and intelligence</a></li>
+        </ul>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Company</p>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">What we build</a></li>
+          <li><a href="guarantee.html">How we charge</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Direct</p>
+        <ul>
+          <li><a href="mailto:shiv@exdsconsulting.com">shiv@exdsconsulting.com</a></li>
+          <li><a href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a></li>
+          <li><a href="https://instagram.com/exodus_consulting_" target="_blank" rel="noopener">@exodus_consulting_</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ex-footer__legal">
+      <span>&copy; 2026 Exodus Consulting</span>
+      <span>Vancouver, BC</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,29 @@
+/* --------------------------------------------------------------------------
+   p-index.css  -  home page only. Existing tokens only, no new colours.
+   Adds the Exodus mark to the hero's right column and pins the metadata
+   block to the bottom so the column reads top-to-bottom instead of leaving
+   a hole above the copy.
+   -------------------------------------------------------------------------- */
+
+.ex-hero__inner { align-items: stretch; }
+
+.ex-hero__aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-xl);
+}
+
+/* The mark is about 1.95:1 wide, so it is sized by WIDTH and never by height. */
+.ex-hero__mark {
+  display: block;
+  width: clamp(9rem, 17vw, 15rem);
+  height: auto;
+  align-self: flex-start;
+}
+
+@media (max-width: 820px) {
+  .ex-hero__inner { align-items: start; }
+  .ex-hero__aside { gap: var(--space-lg); }
+  .ex-hero__mark { width: 8rem; }
+}
