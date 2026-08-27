@@ -34,8 +34,11 @@ RECIPES = {
     # Email template designer (VIP Bottle Drop + colour tokens). Blur the draft title only.
     "email-designer":   ("cap-7.png", (0.000, 0.000, 1.000, 1.000), [(0.024, 0.012, 0.145, 0.042)]),
 
-    # Ferry AI assistant panel: the agent roster. Cropped out of the dashboard shot.
-    "ferry-assistant":  ("cap-1.png", (0.680, 0.050, 0.972, 0.730), []),
+    # Ferry AI assistant panel, cropped to the card itself (the previous crop cut
+    # the panel off and showed empty dashboard tiles). Blur the faint ghost text
+    # behind the composer, which carries a guest name.
+    "ferry-assistant":  ("cap-1.png", (0.832, 0.440, 0.995, 0.920),
+                         [(0.000, 0.795, 1.000, 0.890)]),
 
     # Guest pass / member profile. Blur name + phone + pass id.
     "guest-pass":       ("cap-8.png", (0.000, 0.020, 1.000, 0.960),
