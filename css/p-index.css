@@ -14,16 +14,66 @@
   gap: var(--space-xl);
 }
 
-/* The mark is about 1.95:1 wide, so it is sized by WIDTH and never by height. */
+/* The mark is about 1.95:1 wide, so it is sized by WIDTH and never by height.
+   It fills the hero's right column so the column does not read as a hole. */
 .ex-hero__mark {
   display: block;
-  width: clamp(9rem, 17vw, 15rem);
+  width: 100%;
+  max-width: 34rem;
   height: auto;
-  align-self: flex-start;
+  align-self: stretch;
+  margin-top: calc(var(--space-2xs) * -1);
 }
 
 @media (max-width: 820px) {
   .ex-hero__inner { align-items: start; }
   .ex-hero__aside { gap: var(--space-lg); }
-  .ex-hero__mark { width: 8rem; }
+  .ex-hero__mark { width: 60%; max-width: 15rem; margin-top: 0; }
+}
+
+@media (max-width: 560px) {
+  .ex-hero__mark { width: 8.5rem; }
+}
+
+/* --------------------------------------------------------------------------
+   Feature scroller: the module screenshots were too small to read. On the
+   home page the panel stacks so the screenshot runs the full panel width,
+   with the copy underneath it.
+   -------------------------------------------------------------------------- */
+.ex-scroller__panel-grid {
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-md);
+}
+.ex-scroller__panel-grid > figure,
+.ex-scroller__panel-grid > .ex-shot,
+.ex-scroller__panel-grid > *:first-child {
+  width: 100%;
+}
+.ex-scroller__panel-grid img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+/* The screenshot always runs the full panel width; the copy sits under it in
+   two columns so the module stays compact without shrinking the image. */
+.ex-scroller__panel-grid > *:not(:first-child) { max-width: 60ch; }
+
+@media (min-width: 900px) {
+  .ex-scroller__panel-grid > *:not(:first-child) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--space-lg);
+    align-items: start;
+    max-width: none;
+  }
+}
+
+/* On wide screens the scroller breaks out past the reading measure so the
+   product screens are big enough to actually read. Guarded so it can never
+   exceed the viewport and cause sideways page scroll. */
+@media (min-width: 1100px) {
+  .ex-hero ~ * .ex-scroller,
+  .ex-scroller {
+    width: min(100%, 68rem);
+  }
 }
