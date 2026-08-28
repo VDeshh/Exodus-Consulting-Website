@@ -42,3 +42,9 @@ content/
 oc-email-full.html
 Uniserve-Chatbot-Knowledge-Base.*
 Uniserve-Support-Assistant-Test-Report.pdf
+
+# Internal, not website files. This repo is public.
+Exodus-Email-Signature.html
+Exodus-Signature-*.html
+train-animation.html
+docs/*.pdf

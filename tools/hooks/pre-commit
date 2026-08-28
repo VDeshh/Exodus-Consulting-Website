@@ -1,0 +1,4 @@
+#!/bin/sh
+# Blocks client-internal material from being committed to this PUBLIC repo.
+# Managed by tools/check-client-internals.py
+python tools/check-client-internals.py --staged || exit 1

@@ -33,7 +33,7 @@ The site is segmented. Each page does one job and routes onward. Nobody scrolls 
 
 | File | Job |
 | --- | --- |
-| `work-uniserve.html` | Uniserve Communications. IN BUILD. The 3-month AI enablement programme, the heatmap, the Canada-hosting constraint, the labelled PROJECTION with its arithmetic. |
+| `work-uniserve.html` | Uniserve Communications. IN BUILD. The 3-month AI enablement programme, the customer-facing chatbot and voice agent, the Canada-hosting constraint, the labelled PROJECTION with its arithmetic. |
 | `work-fennec.html` | Fennec. LIVE. The flagship venue operating system, Ferry AI, the Revenue Copilot. Carries `table-select.jpg`. |
 | `work-palapa-tours.html` | Palapa Tours Ottawa. SHIPPED. Tip-out variance and the custom tip-out software that ended the disputes. |
 | `work-scoped.html` | Scoped engagements. Matchbox Global (IN BUILD), Market Meats (PROPOSED), Royal Feet (PROPOSED). |
@@ -149,7 +149,7 @@ Two to three `--ink` dark bands per page for rhythm.
 | `.ex-logos` `.ex-logos__claim __row __item __img __name` | Logo strip. A claim above is mandatory. `__img--square --wide`. | `<div class="ex-logos"><p class="ex-logos__claim">Fennec runs across five venues and 20+ event companies.</p><ul class="ex-logos__row"><li class="ex-logos__item"><img class="ex-logos__img" src="assets/harbour.png" alt="Harbour Event Centre"></li></ul></div>` |
 | `.ex-btn` `--primary --secondary --onink --sm --block` | Violet primary, hairline secondary, 8px radius, no gradients. | `<a class="ex-btn ex-btn--primary" href="...">Book a free audit</a>` |
 | `.ex-link` `--quiet --mono` | Underlined link with offset. | `<a class="ex-link" href="work.html">the Fennec case study</a>` |
-| `.ex-dl` `.ex-dl__k __v` `--onink` | Mono key over prose value. | `<dl class="ex-dl"><dt class="ex-dl__k">Stack</dt><dd class="ex-dl__v">ConnectWise and Halo</dd></dl>` |
+| `.ex-dl` `.ex-dl__k __v` `--onink` | Mono key over prose value. | `<dl class="ex-dl"><dt class="ex-dl__k">Hosting</dt><dd class="ex-dl__v">All data and models in Canada</dd></dl>` |
 | `.ex-timeline` `.ex-timeline__step __num __body __title __when` | Numbered process timeline. Works inside `.ex-band`. | `<ol class="ex-timeline"><li class="ex-timeline__step"><span class="ex-timeline__num">1</span><div class="ex-timeline__body"><h3 class="ex-timeline__title">Free audit</h3><span class="ex-timeline__when">Week 0</span><p>...</p></div></li></ol>` |
 | `.ex-founders` `.ex-founder` `.ex-founder__photo __name __role __bio __facts` | Two-up founder block, 4:5 photos. | `<div class="ex-founders"><article class="ex-founder"><img class="ex-founder__photo" src="assets/shiv.jpg" alt="Shiv Lohia"><div><h3 class="ex-founder__name">Shiv Lohia</h3><span class="ex-founder__role">Co-Founder</span><p class="ex-founder__bio">...</p></div></article></div>` |
 | `.ex-videoband` `.ex-videoband__video` | The train footage, at most once on the whole site, with a FIG. label. Optional. | `<div class="ex-videoband"><video class="ex-videoband__video" src="assets/bg-video.mp4" muted loop playsinline autoplay></video></div>` |
