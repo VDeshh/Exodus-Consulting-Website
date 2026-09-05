@@ -26,7 +26,9 @@ $pages = (Get-ChildItem "$dist\*.html").Count
 Write-Host "dist built: $pages pages" -ForegroundColor Green
 
 Write-Host "Verifying no client-internal material..." -ForegroundColor Cyan
-python "$src\tools\check-client-internals.py"
+# Gate on dist, not on $src. dist is what actually ships; the working folder
+# also holds gitignored internal drafts that are never copied into a build.
+python "$src\tools\check-client-internals.py" --dir "$dist"
 if ($LASTEXITCODE -ne 0) { Write-Host "BLOCKED: fix the findings above before deploying." -ForegroundColor Red; exit 1 }
 
 Write-Host "Publishing to Netlify..." -ForegroundColor Cyan

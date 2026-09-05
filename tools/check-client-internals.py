@@ -9,6 +9,7 @@ Two kinds of check:
 
 Run manually:      python tools/check-client-internals.py
 Check staged only: python tools/check-client-internals.py --staged
+Check a build dir: python tools/check-client-internals.py --dir dist
 Installed as a pre-commit hook by tools/install-hooks.sh, so a commit that
 contains any of this fails before it is ever pushed.
 
@@ -75,19 +76,28 @@ def staged_files():
     return [f.strip() for f in out.splitlines() if f.strip()]
 
 
-def all_files():
+def all_files(base):
     found = []
-    for root, dirs, files in os.walk(REPO):
+    for root, dirs, files in os.walk(base):
         dirs[:] = [d for d in dirs if d not in SKIP_DIRS]
         for f in files:
-            rel = os.path.relpath(os.path.join(root, f), REPO).replace(os.sep, '/')
+            rel = os.path.relpath(os.path.join(root, f), base).replace(os.sep, '/')
             found.append(rel)
     return found
 
 
 def main():
     staged = '--staged' in sys.argv
-    files = staged_files() if staged else all_files()
+    # --dir scans an arbitrary tree. The deploy script points it at dist/, so the
+    # gate inspects exactly what ships rather than the whole working folder, which
+    # also holds internal drafts that are gitignored and never copied into a build.
+    base = REPO
+    if '--dir' in sys.argv:
+        base = os.path.abspath(sys.argv[sys.argv.index('--dir') + 1])
+        if not os.path.isdir(base):
+            print(f'check-client-internals: no such directory: {base}')
+            return 1
+    files = staged_files() if staged else all_files(base)
     problems = []
 
     for rel in files:
@@ -102,7 +112,7 @@ def main():
             continue
         if os.path.splitext(rel)[1].lower() not in PUBLIC_EXT:
             continue
-        p = os.path.join(REPO, rel)
+        p = os.path.join(base, rel)
         if not os.path.isfile(p):
             continue
         try:
@@ -120,7 +130,9 @@ def main():
                     problems.append(('CONTENT', rel, str(i), why, snippet))
 
     if not problems:
-        scope = 'staged changes' if staged else 'working tree'
+        scope = ('staged changes' if staged else
+                 os.path.relpath(base, REPO).replace(os.sep, '/') + '/' if base != REPO else
+                 'working tree')
         print(f'client-internals check: clean ({len(files)} files scanned in the {scope})')
         return 0
 
