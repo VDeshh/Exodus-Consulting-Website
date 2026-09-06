@@ -964,6 +964,9 @@ button { cursor: pointer; }
 .ex-logos__img--fennec { max-height: 30px; opacity: 1; }
 .ex-logos__img--square { max-height: 30px; }
 .ex-logos__img--wide { max-height: 20px; }
+/* Harbour and TradeX are stacked marks, close to square, so at the default
+   height they read smaller than the wide wordmarks beside them. */
+.ex-logos__img--stack { max-height: 36px; }
 .ex-logos__name {
   font-family: var(--font-mono);
   font-size: var(--t-mono-sm);
@@ -1182,6 +1185,7 @@ button { cursor: pointer; }
   color: var(--ink-2);
   padding-block: var(--space-3xs);
 }
+.ex-founder__links { margin-top: var(--space-sm); }
 
 /* ==========================================================================
    INTERACTIVE COMPONENT 1: FEATURE SCROLLER
