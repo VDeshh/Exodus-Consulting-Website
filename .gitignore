@@ -48,3 +48,6 @@ Exodus-Email-Signature.html
 Exodus-Signature-*.html
 train-animation.html
 docs/*.pdf
+
+.vercel
+.env*
