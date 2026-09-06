@@ -30,9 +30,9 @@
    stay legible at card scale. */
 .p-work__logo--mark img { max-height: 40px; opacity: 1; }
 
-/* Uniserve and Matchbox only supply white artwork, which is invisible on a
-   light card, so those two marks sit on a small --ink plate. Per image, not
-   per lockup, because the marks beside them are dark. */
+/* Uniserve only supplies white artwork, which is invisible on a light card,
+   so that mark sits on a small --ink plate. Per image, not per lockup,
+   because the marks beside it are dark. */
 .p-work__logo img.is-light {
   box-sizing: content-box;
   padding: 7px 10px;

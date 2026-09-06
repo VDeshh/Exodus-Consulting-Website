@@ -36,7 +36,7 @@ The site is segmented. Each page does one job and routes onward. Nobody scrolls 
 | `work-uniserve.html` | Uniserve Communications. IN BUILD. The 3-month AI enablement programme, the customer-facing chatbot and voice agent, the Canada-hosting constraint, the labelled PROJECTION with its arithmetic. |
 | `work-fennec.html` | Fennec. LIVE. The flagship venue operating system, Ferry AI, the Revenue Copilot. Carries `table-select.jpg`. |
 | `work-palapa-tours.html` | Palapa Tours Ottawa. SHIPPED. Tip-out variance and the custom tip-out software that ended the disputes. |
-| `work-scoped.html` | Scoped engagements. Matchbox Global (IN BUILD), Market Meats (PROPOSED), Royal Feet (PROPOSED). |
+| `work-scoped.html` | Scoped engagements. ABC (LIVE), B-Side Group (IN BUILD). |
 
 **Solution family detail pages, linked from `solutions.html`:**
 
@@ -333,7 +333,7 @@ fold. Body 17px minimum, AA contrast.
 Banned words: unlock, leverage, transform, seamless, robust, cutting-edge, game-changing, supercharge,
 "In today's". No three-adjective stacks.
 
-Say what is in progress rather than implying it shipped. Statuses are LIVE (Fennec), IN BUILD (Uniserve,
-Matchbox Global), SHIPPED (Palapa Tours), PROPOSED (Market Meats, Royal Feet). Every borrowed statistic
+Say what is in progress rather than implying it shipped. Statuses are LIVE (Fennec, ABC), IN BUILD
+(Uniserve, B-Side Group), SHIPPED (Palapa Tours). Every borrowed statistic
 prints its real source. Every projection is labelled PROJECTION and shows its arithmetic. Never promise a
 cash refund or a guaranteed dollar figure.

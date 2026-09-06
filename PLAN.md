@@ -19,7 +19,6 @@ Static landing site driving visitors to book a Calendly meeting with Shiv or Vis
 2. **Services** - cards: Custom Software Projects, AI Enablement, Operational Efficiency, Revenue Growth.
 3. **Projects** (main focus):
    - **Fennec** - modern OS for hospitality venues. Worked directly with owners; live in major Canadian venues: Harbour Event Centre, TradeX BC.
-   - **Matchbox Global** - UK matchmaking software; building their tech.
 4. **Experience** - AI enablement at Uniserve Communications Corporation (logo).
 5. **CTA / Book** - embedded Calendly + emails.
 
