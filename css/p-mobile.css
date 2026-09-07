@@ -1,0 +1,240 @@
+/* ==========================================================================
+   MOBILE CORRECTIONS
+   Loaded AFTER css/exodus.css, css/ia.css and any page sheet. Existing tokens
+   only. Everything here is a fix found by measuring real pages at 320, 375 and
+   414 CSS pixels, not a redesign.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. SUBNAV CHIPS MUST WRAP ON A NARROW SCREEN
+   .ia-subnav__link is nowrap so the chips read as single-line tags. That is
+   right on a laptop and wrong on a phone: "Political parties and campaign
+   organisations" is 353px of unbreakable text, which pushed the home page
+   wider than a 320px viewport and gave the whole page a horizontal scroll.
+   Let the label wrap below the point where the longest one stops fitting.
+   -------------------------------------------------------------------------- */
+@media (max-width: 460px) {
+  .ia-subnav__link {
+    white-space: normal;
+    align-items: flex-start;
+  }
+  .ia-subnav__num { flex: 0 0 auto; padding-top: 0.1em; }
+}
+
+/* --------------------------------------------------------------------------
+   2. TAP TARGETS
+   A touch target under about 44px is a mis-tap. These three were 32 to 38.
+   Only the height is raised, so nothing moves on a pointer device.
+   -------------------------------------------------------------------------- */
+@media (pointer: coarse), (max-width: 900px) {
+  .ex-burger {
+    min-height: 44px;
+    padding-inline: var(--space-sm);
+  }
+
+  .ex-scroller__btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  /* The small button variant is used for the header CTA and the founder
+     LinkedIn links. It stays visually small, it just stops being a 33px
+     target. */
+  .ex-btn--sm {
+    min-height: 44px;
+    padding-block: 0.55rem;
+  }
+
+  /* Disclosure rows are the whole FAQ interaction on a phone. */
+  .ex-disclose__btn { min-height: 48px; }
+
+  /* Mobile drawer links sit in a list; give each one a real row height
+     instead of relying on line-height alone. */
+  .ex-mobile-menu__list > li > a {
+    display: block;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  .ex-mobile-menu .ia-submenu a {
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. THE PRODUCT SCROLLER ON A PHONE
+   The panel grid is two columns: screenshot beside prose. Below the point
+   where the screenshot would be a thumbnail, stack them and let the picture
+   run the full width of the panel.
+   -------------------------------------------------------------------------- */
+@media (max-width: 760px) {
+  .ex-scroller__panel-grid { grid-template-columns: minmax(0, 1fr); }
+  .ex-scroller__panels { padding: var(--space-sm); }
+  .ex-scroller__head { flex-wrap: wrap; gap: var(--space-2xs); }
+}
+
+/* --------------------------------------------------------------------------
+   4. WIDE TABLES
+   Three columns of sentences cannot fit a phone. The wrapper already scrolls;
+   this makes the scroll discoverable rather than a surprise, and stops the
+   first column collapsing to one word per line.
+   -------------------------------------------------------------------------- */
+@media (max-width: 760px) {
+  .ex-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .ex-table { min-width: 34rem; }
+  .p-ind__table th[scope="row"] { width: 30%; }
+}
+
+/* --------------------------------------------------------------------------
+   5. FOUNDER PORTRAITS
+   At full width on a phone a 4:5 portrait eats most of the screen before the
+   bio starts. Cap it so the name and the text are visible together.
+   -------------------------------------------------------------------------- */
+@media (max-width: 720px) {
+  .ex-founder__photo {
+    max-width: 20rem;
+    aspect-ratio: 1 / 1;
+    object-position: top center;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. HEADINGS ON A NARROW SCREEN
+   --t-h1 has a 44px floor, which is right down to about 400px and wrong below
+   it: a single long word cannot break, so "Uniserve Communications" pushed
+   work-uniserve 46px wider than a 320px viewport. Lower the floor only where
+   it stops fitting, and keep break-word as a backstop for a longer word than
+   any currently on the site.
+   -------------------------------------------------------------------------- */
+@media (max-width: 420px) {
+  :root {
+    --t-h1: clamp(1.9rem, 7.6vw, 2.75rem);
+    --t-h2: clamp(1.5rem, 6vw, 2rem);
+  }
+}
+
+h1, h2, h3,
+.ex-hero__title,
+.ex-shead__title,
+.ex-card__title,
+.ex-index__title {
+  overflow-wrap: break-word;
+}
+
+/* --------------------------------------------------------------------------
+   7. METADATA RAILS MUST STACK
+   .ex-rail__item is a two-column row with the value right-aligned. On a phone
+   the value column is about half of 375px, so anything longer than a few words
+   becomes a ragged right-aligned block sitting under its own label. This is
+   the most common defect on the site at phone width: it hits the hero rails,
+   the engagement facts, the guarantee terms and every industry page.
+   Stack them and left-align the value.
+   -------------------------------------------------------------------------- */
+@media (max-width: 640px) {
+  .ex-rail__item {
+    display: block;
+  }
+  .ex-rail__k {
+    display: block;
+    margin-bottom: var(--space-3xs);
+  }
+  .ex-rail__v {
+    display: block;
+    text-align: left;
+    max-width: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   8. TABLE CAPTIONS INSIDE A SCROLLING WRAPPER
+   .ex-table gets min-width so it scrolls, and <caption> is part of the table,
+   so the caption inherited that width and was sliced mid-word at the right
+   edge. Pin it to the left of the scroll container and let it wrap.
+   -------------------------------------------------------------------------- */
+@media (max-width: 760px) {
+  .ex-table caption {
+    position: sticky;
+    left: 0;
+    width: 86vw;
+    max-width: 86vw;
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+
+  /* The last column sat flush against the scroll edge, which read as a clip
+     even where the table was complete. */
+  .ex-table td:last-child,
+  .ex-table th:last-child { padding-right: var(--space-md); }
+}
+
+/* --------------------------------------------------------------------------
+   9. INTERFACE DIAGRAMS
+   The diagram frames hold their own small tables and node rows at a width that
+   assumes a desktop column. Let the frame scroll rather than clip, and stop
+   the caption inheriting the scrolled width.
+   -------------------------------------------------------------------------- */
+@media (max-width: 760px) {
+  .ex-diagram__body {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: var(--space-sm);
+  }
+  .ex-diagram__caption {
+    position: sticky;
+    left: 0;
+    width: 86vw;
+    max-width: 86vw;
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+  .ex-diagram__flow { min-width: max-content; }
+}
+
+/* --------------------------------------------------------------------------
+   10. ULTRA-WIDE CAPTURES
+   A capture cropped to a single table strip is 11:1. At 317px of column that
+   is a 28px sliver with nothing legible in it. Give these one their own
+   modifier: hold a readable height and pan sideways instead of shrinking.
+   -------------------------------------------------------------------------- */
+@media (max-width: 760px) {
+  .ex-shot--strip .ex-shot__frame {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .ex-shot--strip .ex-shot__img {
+    width: auto;
+    max-width: none;
+    height: 120px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   11. FIG PLATE
+   .ex-fig is a flex row of "FIG. 0N" and a label. When the label wrapped, the
+   number wrapped with it and split "FIG." from "01" across two lines.
+   -------------------------------------------------------------------------- */
+.ex-fig__num { flex: 0 0 auto; white-space: nowrap; }
+.ex-fig__label { min-width: 0; }
+
+/* --------------------------------------------------------------------------
+   12. HORIZONTAL RAILS NEED A SCROLL CUE
+   The capability tabs and the product scroller chips run off the right edge
+   with a tab cut mid-word and nothing to say the strip moves. Fade the right
+   edge and snap the items.
+   -------------------------------------------------------------------------- */
+@media (max-width: 760px) {
+  .ex-tabs__list,
+  .ex-scroller__rail {
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+    padding-right: var(--space-lg);
+    mask-image: linear-gradient(to right, #000 calc(100% - 2.5rem), transparent);
+  }
+  .ex-tabs__tab,
+  .ex-scroller__chip { scroll-snap-align: start; }
+}

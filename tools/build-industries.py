@@ -75,7 +75,8 @@ def head(title, desc, extra_css=''):
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="css/exodus.css?v=12">
   <link rel="stylesheet" href="css/ia.css?v=12">
-  <link rel="stylesheet" href="css/p-industries.css?v=12">{extra_css}
+  <link rel="stylesheet" href="css/p-industries.css?v=12">
+  <link rel="stylesheet" href="css/p-mobile.css?v=12">{extra_css}
   <script src="js/exodus.js?v=12" defer></script>
 </head>
 <body>
