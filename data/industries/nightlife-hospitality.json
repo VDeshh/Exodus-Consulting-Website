@@ -213,7 +213,7 @@
   "objections": [
     {
       "objection": "We are locked into Eventbrite and Ticketmaster for years.",
-      "answer": "Good. Stay there. Those marketplaces are also how people find out you exist, and switching is slow and expensive. We connect to them instead: link each event to its outside listing, keep selling where you sell, and pull every buyer into records you own. The door scanner takes the original ticket, so nothing at the door changes on the night."
+      "answer": "Good. Stay there. Those marketplaces are also how people find out you exist, and switching is slow and expensive. Eventbrite is one of the seven platforms Fennec connects to directly, so those buyers land in your records as the sale closes. Ticketmaster is not a connector, so that buyer list comes to you as an export and gets loaded the same way. Either route, you keep selling where you sell and the door scanner still takes the original ticket."
     },
     {
       "objection": "I am not ripping out the POS two weeks before a long weekend.",
@@ -235,7 +235,7 @@
   "faq": [
     {
       "q": "Do we have to leave our ticketing platform?",
-      "a": "No. Fennec connects to Eventbrite, Showpass, Ora, TicketWeb, POSH, Flite City, Tixr and Ticketmaster, and all of those are live in production. You link each event to its outside listing, buyers sync into your CRM with name, email, phone and birthday, and their ticket becomes a Fennec Pass. The scanner at the door accepts the pass or the original ticket."
+      "a": "No. Fennec connects to Eventbrite, Showpass, Ora, TicketWeb, POSH, Flite City and Tixr, and all seven are live in production. You link each event to its outside listing, buyers sync into your CRM with name, email, phone and birthday, and their ticket becomes a Fennec Pass. The scanner at the door accepts the pass or the original ticket."
     },
     {
       "q": "How does the pour count actually work?",
@@ -265,7 +265,7 @@
     },
     {
       "title": "Ticketing connectors and one guest record",
-      "body": "Eventbrite, Showpass, Ora, TicketWeb, POSH, Flite City, Tixr and Ticketmaster, all live in production. Connect once, link each event to its outside listing, and buyers sync into the venue's CRM with name, email, phone and birthday. Tickets become Fennec Passes and the door scanner accepts either the pass or the original ticket, offline. The venue keeps its contracts and gains the people behind the sales."
+      "body": "Eventbrite, Showpass, Ora, TicketWeb, POSH, Flite City and Tixr, all live in production. Connect once, link each event to its outside listing, and buyers sync into the venue's CRM with name, email, phone and birthday. Tickets become Fennec Passes and the door scanner accepts either the pass or the original ticket, offline. The venue keeps its contracts and gains the people behind the sales."
     },
     {
       "title": "The marketing product and universal loyalty",
@@ -281,5 +281,59 @@
     "The fastest bartender is not always the most profitable one. Speed shows up in the till and free pouring shows up in the count, and until you can see both against the same shift you are promoting on impression. That is why the loss data belongs in the scheduling module."
   ],
   "meta_title": "Nightlife and hospitality | Exodus Consulting",
-  "meta_description": "Five years running nightlife venues on our own software. Fennec is live at Harbour Event Centre, TradeX, The Pit UBC and The Show Ottawa."
+  "meta_description": "Five years running nightlife venues on our own software. Fennec is live at Harbour Event Centre, TradeX, The Pit UBC and The Show Ottawa.",
+  "shots_title": "Five screens from Fennec, the venue operating system we built and still run.",
+  "shots_sub": "Fennec is live at Harbour Event Centre, TradeX, The Pit UBC and The Show Ottawa. These are captures from the running product, cropped only to remove account identifiers. The workspace shown is a test venue, so the figures in it are test figures.",
+  "shots": [
+    {
+      "src": "assets/product/fennec/dashboard.jpg",
+      "w": 1800,
+      "h": 894,
+      "name": "The night on one screen",
+      "title": "The night on one screen",
+      "body": "Live events, tables reserved, guests expected and the revenue estimate, with tonight and the month ahead underneath. The operator opens one page instead of four tools, and the numbers are the ones the floor is actually generating.",
+      "caption": "The nightly operator dashboard: live events, guest and table counts, the revenue estimate and the month’s event calendar.",
+      "alt": "Fennec dashboard titled Tonight, showing live event cards, a revenue estimate, count tiles for events, tables and guests, and a monthly events calendar."
+    },
+    {
+      "src": "assets/product/fennec/revenue-copilot.jpg",
+      "w": 1800,
+      "h": 894,
+      "name": "Where the money slipped",
+      "title": "Where the money slipped",
+      "body": "The copilot reads the night back and prices what was missed: sold-out tiers, declined tables, promoter performance, bar speed. Each card says what it needs before it will make a claim, and says \"no data\" rather than guessing.",
+      "caption": "The revenue copilot scores last night for missed revenue and ranks the fixes, with each card naming the data it still needs.",
+      "alt": "Revenue copilot screen estimating money left on the table, with a ranked top fix and a leak breakdown across six categories."
+    },
+    {
+      "src": "assets/product/fennec/variance-weighing.jpg",
+      "w": 1800,
+      "h": 161,
+      "name": "Poured against sold",
+      "title": "Poured against sold, by weight",
+      "body": "Every menu item carries a recipe in inventory units. POS sales times recipe gives the theoretical pour. Weighing the open bottles at close gives the actual. The gap is variance, in millilitres and in dollars, and because terminals map to employees it ties back to a person.",
+      "caption": "The weight-based variance report: bottle weight at close against the liquid the POS says was poured, with the difference as over-pour or shrinkage.",
+      "alt": "The weight-based variance panel showing columns for product, type, remaining millilitres, poured, expected and variance, with an explanation of how bottle weight is compared to POS pours."
+    },
+    {
+      "src": "assets/product/fennec/guests-crm.jpg",
+      "w": 1800,
+      "h": 894,
+      "name": "The guest book behind the marketing",
+      "title": "The guest book behind the marketing",
+      "body": "Every guest with their tier, tags, visit count, lifetime spend and last visit, built from tickets, tables and bar tabs rather than a mailing list. Segments like lapsed sixty days or big spender build themselves, which is what makes targeted campaigns possible at all.",
+      "caption": "The guest book: tier, tags, visits, lifetime spend and last visit for every guest, assembled from tickets, tables and bar tabs.",
+      "alt": "Guest CRM screen with tiles for total guests, lifetime spend and marketing opt-ins, a guest radar panel, and a table of guests with tiers and spend."
+    },
+    {
+      "src": "assets/product/fennec/flow-builder.jpg",
+      "w": 1800,
+      "h": 894,
+      "name": "Automations you can read",
+      "title": "Automations you can read",
+      "body": "A flow is a canvas, not a black box: a trigger, a wait, a condition, a send. The send node here drafts with AI against the venue’s own reference material, and a person still turns the flow on. Anyone on the team can open it and see exactly what fires and when.",
+      "caption": "The flow builder: a ticket purchase triggers a wait, a condition check and a personalised send, wired on a canvas the team can read.",
+      "alt": "Campaign flow builder canvas with a node palette on the left and a wired flow of trigger, wait, condition and personalised email send."
+    }
+  ]
 }

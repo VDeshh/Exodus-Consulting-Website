@@ -276,5 +276,39 @@
     "The marketplaces own the discovery, the venue must own the guest. Keep selling on the reservation and delivery platforms, but pull every buyer into your own profile with consent, because a room full of strangers has no reason to come back."
   ],
   "meta_title": "Software for restaurants and bars | Exodus Consulting",
-  "meta_description": "Recipe-based inventory, poured against sold variance, live menus with auto-86, a voice agent for the phone and loyalty from real spend, on the POS you already run."
+  "meta_description": "Recipe-based inventory, poured against sold variance, live menus with auto-86, a voice agent for the phone and loyalty from real spend, on the POS you already run.",
+  "shots_title": "Three screens from the inventory and guest work, running.",
+  "shots_sub": "These come from Fennec, the venue operating system we built. The same mechanics sit under the B-Side Group inventory build, which is still in progress and has no figures to show yet.",
+  "shots": [
+    {
+      "src": "assets/product/fennec/variance-weighing.jpg",
+      "w": 1800,
+      "h": 161,
+      "name": "Purchased against sold",
+      "title": "Purchased against sold, per product",
+      "body": "Recipes turn POS sales into a theoretical pour, and the close-of-night count gives the actual. The difference is the variance, priced. It points at a bar, a shift and a product rather than arriving as one food cost percentage at month end.",
+      "caption": "The variance report compares what the POS says was poured against what is actually left, and prices the difference.",
+      "alt": "Weight-based variance panel with columns for product, type, remaining millilitres, poured, expected and variance."
+    },
+    {
+      "src": "assets/product/fennec/guests-crm.jpg",
+      "w": 1800,
+      "h": 894,
+      "name": "Regulars",
+      "title": "Regulars, in a list rather than in your head",
+      "body": "Visit count, lifetime spend and last visit on every guest, built from the tabs the POS already closed. That is what a lapsed-sixty-days segment needs to exist, and it is the difference between a mailing list and knowing who to call.",
+      "caption": "Guest records with tier, visit count, lifetime spend and last visit, built from closed tabs rather than a sign-up sheet.",
+      "alt": "Guest database screen with summary tiles and a table of guests showing tiers, visits and lifetime spend."
+    },
+    {
+      "src": "assets/product/fennec/flow-builder.jpg",
+      "w": 1800,
+      "h": 894,
+      "name": "A campaign you can audit",
+      "title": "A campaign you can audit",
+      "body": "The trigger, the wait, the condition and the send, laid out where a manager can read them. Consent is checked before anything is composed, and the owner approves the send. No message goes out because a system decided it should.",
+      "caption": "A guest flow on the builder canvas: trigger, wait, condition, then a drafted send that a person approves.",
+      "alt": "Flow builder canvas showing a node palette and a wired automation from trigger through to a personalised send."
+    }
+  ]
 }

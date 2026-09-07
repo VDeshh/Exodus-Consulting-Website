@@ -443,7 +443,7 @@
           </div>
           <figure class="ex-shot ex-shot--onink">
             <div class="ex-shot__frame">
-              <img class="ex-shot__img" src="assets/product/shots/ferry-assistant.jpg" width="1104" height="1356" alt="The Ferry AI assistant panel inside Fennec, listing its roster of agents for sales analytics, event management, table and bottle service, guestlist and reservations, and promos and insights." loading="lazy" decoding="async">
+              <img class="ex-shot__img" src="assets/product/fennec/ferry-assistant.jpg" width="1800" height="894" alt="The Ferry AI hub in Fennec, showing the five agent squad: a general assistant plus specialists for marketing, inventory, staff and events, with the live workflows they run." loading="lazy" decoding="async">
             </div>
             <figcaption class="ex-shot__caption">The Ferry AI panel and its agent roster. Each agent owns a surface of the operation rather than answering everything badly.</figcaption>
           </figure>
@@ -459,7 +459,61 @@
     </div>
   </section>
 
-  <!-- ===================== 07 THE MODULE MAP ===================== -->
+  <!-- ===================== 07 THE HARBOUR INVENTORY BUILD ===================== -->
+  <section class="ex-section ex-section--paper-2" id="inventory">
+    <div class="ex-container">
+      <p class="ex-eyebrow ex-eyebrow--violet">Inside one venue</p>
+
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">Harbour Event Centre runs the inventory module, and it ties every ounce to a person.</h2>
+        <p class="ex-shead__sub">This is the part of Fennec that took the longest to get right, because it is the part that has to be exactly correct or it is worse than nothing. A variance report that blames the wrong bartender costs you the bartender.</p>
+      </header>
+
+      <div class="ex-split">
+        <div class="ex-stack">
+          <h3>Every terminal maps to the person working it</h3>
+          <p class="ex-measure">Sales are not attributed to the bar, they are attributed to whoever was on that till. So the question stops being "why is liquor cost high this month" and becomes "who sold what, on which terminal, on which night". That mapping is the foundation everything else sits on, and it is set up once per venue.</p>
+
+          <h3>Every drink is a recipe made of inventory items</h3>
+          <p class="ex-measure">A vodka soda is one ounce of vodka plus a measured pour of soda, and those two are stock items in their own right. Multiply the night's POS sales by the recipes and you have the theoretical usage: exactly how much liquid should have left the bottles if every pour was to spec.</p>
+
+          <h3>The actual number comes off a scale, over Bluetooth</h3>
+          <p class="ex-measure">At close, the open bottles get weighed. We built the weigh-in flow to be fast and connected the scales over Bluetooth, because a count that takes an hour with a clipboard gets skipped and a count that takes minutes gets done. Bottle weight without the cap, against the liquid the POS says was poured.</p>
+
+          <h3>Theoretical minus actual is the number that matters</h3>
+          <p class="ex-measure">The gap is the variance, in millilitres and in dollars, and because the terminals map to people it resolves to an individual rather than to the building. That is worth having for tax reporting, but the reason an owner keeps using it is staffing: the same data feeds the scheduling module, so a roster can be built around who actually sells and who actually pours to spec.</p>
+
+          <p class="ex-measure">Every step above is a person confirming a number, not a system deciding one. The scale reports, the report flags, and a manager reads it in the morning.</p>
+        </div>
+
+        <div class="ex-stack">
+          <div class="ex-fig">
+            <span class="ex-fig__num">FIG. 07</span>
+            <span class="ex-fig__label">Screenshot, weight-based variance</span>
+          </div>
+          <figure class="ex-shot">
+            <div class="ex-shot__frame">
+              <img class="ex-shot__img" src="assets/product/fennec/variance-weighing.jpg" width="1800" height="161" alt="The weight-based variance panel in Fennec, with columns for product, type, remaining millilitres, poured, expected and variance, and a note explaining that bottle weight at end of night is compared against the liquid the POS says was poured." loading="lazy" decoding="async">
+            </div>
+            <figcaption class="ex-shot__caption">The variance report, captured from a test venue with no service on it, so the table is empty by design. What it shows is the mechanism: bottle weight at close against expected liquid after POS pours, with a negative variance read as over-pour or shrinkage.</figcaption>
+          </figure>
+
+          <aside class="ex-rail" aria-label="Inventory module facts">
+            <div class="ex-rail__item"><span class="ex-rail__k">Venue</span><span class="ex-rail__v">Harbour Event Centre, Vancouver</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__k">Module</span><span class="ex-rail__v">Fennec inventory management</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__k">Theoretical usage</span><span class="ex-rail__v">POS sales multiplied by the recipe on each menu item</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__k">Actual usage</span><span class="ex-rail__v">Open bottles weighed at close, scales connected over Bluetooth</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__k">Resolves to</span><span class="ex-rail__v">A terminal, a shift and the employee working it</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__k">Feeds</span><span class="ex-rail__v">Staff scheduling, reorder points, tax reporting</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__k">Status</span><span class="ex-rail__v">Live</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__k">Figures</span><span class="ex-rail__v">None published. The venue's counts are the venue's.</span></div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 08 THE MODULE MAP ===================== -->
   <section class="ex-section" id="modules">
     <div class="ex-container">
       <p class="ex-eyebrow">The full breakdown</p>
@@ -540,7 +594,7 @@
     </div>
   </section>
 
-  <!-- ===================== CTA (BAND 3) ===================== -->
+  <!-- ===================== 09 CTA (BAND 3) ===================== -->
   <section class="ex-band ex-band--tight">
     <div class="ex-container">
       <div class="ex-split ex-split--wide">

@@ -69,7 +69,7 @@
   "builds": [
     {
       "title": "Every ticket buyer lands in your CRM",
-      "mechanism": "Reads orders from Eventbrite, Showpass, Tixr, Ticketmaster, TicketWeb, Ora, POSH and Flite City as they close. Matches each buyer to an existing guest profile on email and phone, creates a profile when none exists, and attaches the event, tier and spend. Clear matches merge automatically. Near matches with a low confidence score wait for a person to confirm.",
+      "mechanism": "Reads orders from Eventbrite, Showpass, Tixr, TicketWeb, Ora, POSH and Flite City as they close. Matches each buyer to an existing guest profile on email and phone, creates a profile when none exists, and attaches the event, tier and spend. Clear matches merge automatically. Near matches with a low confidence score wait for a person to confirm.",
       "measure": "Share of ticket buyers with a complete profile in the venue's own CRM"
     },
     {
@@ -213,7 +213,7 @@
   "objections": [
     {
       "objection": "We are locked into Ticketmaster for three more years.",
-      "answer": "Good. Stay there. We do not ask a venue to leave a marketplace, because the contract is expensive to break and the marketplace brings real discovery traffic. We connect to it. You keep selling where you sell, and every buyer lands in your own CRM. Eventbrite, Showpass, Ora, TicketWeb, POSH, Flite City, Tixr and Ticketmaster are all live in production today."
+      "answer": "Good. Stay there. We do not ask a venue to leave a marketplace, because the contract is expensive to break and the marketplace brings real discovery traffic. We connect to it. You keep selling where you sell, and every buyer lands in your own CRM. Eventbrite, Showpass, Ora, TicketWeb, POSH, Flite City and Tixr are all live in production today. Ticketmaster is not one of the connectors, so on a Ticketmaster event the buyer list still comes to you as an export and we load it the same way."
     },
     {
       "objection": "Our Wi-Fi is terrible and our scanner already fails.",
@@ -257,7 +257,7 @@
   "what_we_built": [
     {
       "title": "Eight ticketing integrations, live in production",
-      "body": "Fennec connects to Eventbrite, Showpass, Ora, TicketWeb, POSH, Flite City, Tixr and Ticketmaster. A venue connects once and links each event to its outside listing. Buyers sync into the venue's CRM with name, email, phone and birthday, tickets become Fennec Passes, and the door scanner accepts both the Pass and the original ticket. The venue keeps selling where it already sells, and owns the guest afterwards."
+      "body": "Fennec connects to Eventbrite, Showpass, Ora, TicketWeb, POSH, Flite City and Tixr. A venue connects once and links each event to its outside listing. Buyers sync into the venue's CRM with name, email, phone and birthday, tickets become Fennec Passes, and the door scanner accepts both the Pass and the original ticket. The venue keeps selling where it already sells, and owns the guest afterwards."
     },
     {
       "title": "An offline-capable door scanner",
@@ -280,5 +280,39 @@
     "Marketing off real attendance beats marketing off a mailing list. Who came to which kind of night, what they spent and when they lapsed is the data that fills a room with people who came for the same reason."
   ],
   "meta_title": "Event venue and ticketing software | Exodus Consulting",
-  "meta_description": "Ticketing sync, an offline door scanner, promoter ledgers and ad attribution for Canadian venues. Built on Fennec, live at four rooms tonight."
+  "meta_description": "Ticketing sync, an offline door scanner, promoter ledgers and ad attribution for Canadian venues. Built on Fennec, live at four rooms tonight.",
+  "shots_title": "Three screens from the ticketing and door work, running.",
+  "shots_sub": "Captures from Fennec, live across four named venues and more than 20 event companies. The test workspace shown has no connected platforms, so every connector reads as not connected.",
+  "shots": [
+    {
+      "src": "assets/product/fennec/ticketing-integrations.jpg",
+      "w": 1800,
+      "h": 894,
+      "name": "Keep selling where you already sell",
+      "title": "Keep selling where you already sell",
+      "body": "Eventbrite, Showpass, Ora, POSH, Flite City, TicketWeb and Tixr each connect as a source. Buyers arrive as real guest profiles with name, email, phone and birthday, tickets become passes, and the door scanner reads both the pass and the original ticket.",
+      "caption": "The ticketing connectors: outside platforms plug in as sources, and their buyers land in the venue’s own guest records.",
+      "alt": "Ticketing integrations screen with connector cards for Eventbrite, Showpass, Ora, POSH, Flite City, TicketWeb and Tixr, each with a connect button."
+    },
+    {
+      "src": "assets/product/fennec/embed-widgets.jpg",
+      "w": 1800,
+      "h": 894,
+      "name": "The booking widget on your own site",
+      "title": "The booking widget on your own site",
+      "body": "Upcoming events and table booking, themed to the venue and dropped into the venue’s own page as an embed. The booking starts and finishes on your domain, so the guest record is yours from the first click rather than a marketplace’s.",
+      "caption": "The embed builder: theme the events and booking widget to the venue, preview it live, then copy the embed code.",
+      "alt": "Embed widget builder with brand theme presets and a live preview of an upcoming events list with book a table buttons."
+    },
+    {
+      "src": "assets/product/fennec/dashboard.jpg",
+      "w": 1800,
+      "h": 894,
+      "name": "The room",
+      "title": "The room, on the night",
+      "body": "Live events, tables reserved and guests expected, with the revenue estimate beside them. This is the screen the duty manager keeps open, and it is reading the same records the door scanner and the promoter links write to.",
+      "caption": "The operator dashboard on the night: live events, tables reserved, guests expected and the revenue estimate.",
+      "alt": "Fennec dashboard showing live events, count tiles for events, tables and guests, tonight’s events list and a monthly calendar."
+    }
+  ]
 }

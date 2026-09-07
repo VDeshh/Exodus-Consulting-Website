@@ -539,6 +539,75 @@ def render_page(d, prev_slug, next_slug):
   </section>
 ''')
 
+    # 7b. product captures, where the industry has any. Optional "shots" key in
+    #     the JSON: real screens from software we run, never a mockup.
+    shots = d.get('shots') or []
+    if shots:
+        chips, panels = [], []
+        for i, sh in enumerate(shots):
+            sel = 'true' if i == 0 else 'false'
+            chips.append(
+                f'          <button class="ex-scroller__chip" type="button" data-scroller-tab aria-selected="{sel}">\n'
+                f'            <span class="ex-scroller__chip-num">{i + 1:02d}</span>\n'
+                f'            <span class="ex-scroller__chip-name">{e(sh["name"])}</span>\n'
+                f'          </button>')
+            # Only the open panel loads eagerly; the scroller swaps data-src in.
+            attr = 'src' if i == 0 else 'data-src'
+            lazy = '' if i == 0 else ' loading="lazy"'
+            panels.append(
+                f'          <div class="ex-scroller__panel" data-scroller-panel>\n'
+                f'            <div class="ex-scroller__panel-grid">\n'
+                f'              <figure class="ex-shot">\n'
+                f'                <div class="ex-shot__frame">\n'
+                f'                  <img class="ex-shot__img" {attr}="{e(sh["src"])}" width="{sh["w"]}" height="{sh["h"]}" alt="{e(sh["alt"])}"{lazy} decoding="async">\n'
+                f'                </div>\n'
+                f'                <figcaption class="ex-shot__caption">{e(sh["caption"])}</figcaption>\n'
+                f'              </figure>\n'
+                f'              <div>\n'
+                f'                <h3 class="ex-scroller__panel-title">{e(sh["title"])}</h3>\n'
+                f'                <p class="ex-scroller__panel-quote">{e(sh["body"])}</p>\n'
+                f'                <p class="ex-scroller__panel-venues">Live product capture</p>\n'
+                f'              </div>\n'
+                f'            </div>\n'
+                f'          </div>')
+        chips_s = '\n'.join(chips)
+        panels_s = '\n\n'.join(panels)
+        out.append(f'''
+  <!-- ===================== 7b. THE PRODUCT, RUNNING ===================== -->
+  <section class="ex-section">
+    <div class="ex-container">
+      <p class="ex-eyebrow">The product, running</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">{e(d.get('shots_title', 'Real screens from software we run in this industry.'))}</h2>
+        <p class="ex-shead__sub">{e(d.get('shots_sub', 'Captures from the live product, not mockups. Cropped only to remove account identifiers.'))}</p>
+      </header>
+
+      <div class="ex-fig">
+        <span class="ex-fig__num">FIG. 01</span>
+        <span class="ex-fig__label">Product gallery, {len(shots)} live surfaces</span>
+      </div>
+
+      <div class="ex-scroller" id="ind-surfaces" data-scroller>
+        <div class="ex-scroller__head">
+          <p class="ex-scroller__title">Scroll or select a surface</p>
+          <div class="ex-scroller__nav">
+            <button class="ex-scroller__btn" type="button" data-scroller-prev aria-label="Scroll surfaces left">&lt;</button>
+            <button class="ex-scroller__btn" type="button" data-scroller-next aria-label="Scroll surfaces right">&gt;</button>
+          </div>
+        </div>
+
+        <div class="ex-scroller__rail" data-scroller-rail aria-label="Product surfaces">
+{chips_s}
+        </div>
+
+        <div class="ex-scroller__panels">
+{panels_s}
+        </div>
+      </div>
+    </div>
+  </section>
+''')
+
     # 8. our work here (full pages only)
     if full:
         built = '\n'.join(f'''        <article class="ex-card">
