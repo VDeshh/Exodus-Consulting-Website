@@ -1,0 +1,284 @@
+{
+  "slug": "event-venues-ticketing",
+  "name": "Event venues and ticketing",
+  "hero_title": "Keep selling where you sell. Own the guest yourself.",
+  "hero_lead": "Most venues know exactly how many tickets they sold and almost nothing about who bought them. The marketplace holds the buyer, the door holds a clipboard, the promoter holds a spreadsheet, and the bar holds the money. We built Fennec to connect those four without asking anyone to leave the platform they already sell on, and it runs tonight at Harbour Event Centre, TradeX, The Pit UBC and The Show Ottawa.",
+  "segments": [
+    "Nightclubs and late-night event rooms",
+    "Concert halls and live music venues",
+    "Multi-purpose event centres and trade show halls",
+    "Event promoters and touring production companies",
+    "Campus and community venues with a paid door"
+  ],
+  "how_it_runs": [
+    {
+      "title": "The week sells the night. The night counts it.",
+      "body": "Monday to Thursday is listings, posters, promoter chases and answering the same questions on Instagram. Friday and Saturday the whole team is on the floor. Nobody looks at a report until Sunday, and by then the decisions it would have changed, staffing, bar stock, which promoter to push, were already made on gut. The numbers arrive after the moment they were needed."
+    },
+    {
+      "title": "Tickets sell on somebody else's website.",
+      "body": "Eventbrite, Showpass, Ticketmaster and the rest hold the buyer. The venue gets a payout and a CSV. The contract runs for years and switching is slow and expensive, so the venue stays. The cost is quiet: the buyer's name, email and birthday live in the marketplace's database, and the venue markets to a mailing list that is two seasons old."
+    },
+    {
+      "title": "The door is where the night breaks first.",
+      "body": "Two hundred people arrive in the same twenty minutes. The venue Wi-Fi drops the moment the room fills with phones. If the scanner needs a live connection, the line stops and the manager starts reading names off a phone screen. Guestlist is a text thread from three promoters, and two of them added names after the cutoff. Nobody knows the real count until the fire marshal asks."
+    },
+    {
+      "title": "Promoter deals get settled by argument on Monday.",
+      "body": "A promoter is paid on heads through the door, or a cut of the bar, or a flat plus a bonus, and the deal is different for each one. The names came in on a spreadsheet, the scans happened on a device, and the tabs are in the POS. Someone rebuilds the count by hand and the promoter disagrees with it. That dispute costs more than the commission."
+    },
+    {
+      "title": "Ad spend cannot be tied to a ticket.",
+      "body": "The venue spends on Meta and Instagram, the sale closes on a ticketing page it does not control, and the pixel never fires. The owner sees reach and clicks, then a payout two weeks later, and cannot say which post sold a table. So the budget goes to whatever felt like it worked, which is usually the promoter who shouted loudest."
+    },
+    {
+      "title": "Settlement is a stack of printouts at 2am.",
+      "body": "After the last song the promoter, the artist's rep and the manager sit down with a ticketing report, a bar Z-report, a guestlist count and a comp sheet, and try to make them agree. They never quite do. Comps, refunds, plus-ones and voids each live in a different system. The number everyone signs is the one nobody has the energy to fight."
+    }
+  ],
+  "systems": [
+    {
+      "name": "Ticketing marketplaces",
+      "examples": "Eventbrite, Showpass, Tixr, Ticketmaster, TicketWeb, Ora, POSH, Flite City",
+      "holds": "Event listings, ticket tiers, buyer name, email, phone, order value, fees, refunds and the barcode the guest brings to the door.",
+      "how_we_connect": "API and webhooks where the platform offers them, scheduled order exports where it does not. Connect once, link each event to its outside listing, and buyers sync into the venue's own CRM with name, email, phone and birthday. Each ticket becomes a Fennec Pass and the scanner accepts both.",
+      "where_it_stops": "We never write prices, inventory or refunds back to the marketplace. The listing stays the marketplace's record; the guest becomes the venue's."
+    },
+    {
+      "name": "Point of sale",
+      "examples": "Square, Toast, Lightspeed",
+      "holds": "Tabs, items, voids, tips, card type, terminal, bartender and timestamp. The only honest record of what was actually spent.",
+      "how_we_connect": "Two-way sync, live in production for Square, Toast and Lightspeed. Menus, packages and table fees push out; closed tabs pull back in matched to a table, an event and a bar. Field ownership is written down before any credential is exchanged.",
+      "where_it_stops": "Tax codes stay with the POS. Nothing is silently created or deleted on a terminal. Unmapped items go to the owner as a list, never a guess."
+    },
+    {
+      "name": "Marketing and audience tools",
+      "examples": "Mailchimp, Klaviyo, Laylo, Meta Ads Manager, Instagram",
+      "holds": "Mailing lists, SMS lists, drop subscribers, ad spend, reach, clicks and whatever conversion the pixel managed to see.",
+      "how_we_connect": "Consented guests mirror out to Laylo with RSVPs and opt-outs matched back. Server-side conversions post to Meta so an outside ticket sale is attributed to the campaign that drove it. Campaign audiences are built from the guest CRM, not from a stale export.",
+      "where_it_stops": "No send goes out without a person approving the audience and the copy. Opt-outs are honoured everywhere within the CASL window and never overwritten by a re-import."
+    },
+    {
+      "name": "Accounting and payroll",
+      "examples": "QuickBooks Online, Xero, Sage 50, Wagepoint, Payworks",
+      "holds": "The general ledger, promoter and artist payables, staff hours, tip-outs and the GST or PST return.",
+      "how_we_connect": "Scheduled exports of settled event totals, promoter commissions and tip-out math, each line carrying the event ID it came from so the bookkeeper can trace any figure back to the night.",
+      "where_it_stops": "We do not post journal entries or release payments. A bookkeeper or the owner reviews the export and posts it. Payroll stays in the payroll system."
+    }
+  ],
+  "builds": [
+    {
+      "title": "Every ticket buyer lands in your CRM",
+      "mechanism": "Reads orders from Eventbrite, Showpass, Tixr, Ticketmaster, TicketWeb, Ora, POSH and Flite City as they close. Matches each buyer to an existing guest profile on email and phone, creates a profile when none exists, and attaches the event, tier and spend. Clear matches merge automatically. Near matches with a low confidence score wait for a person to confirm.",
+      "measure": "Share of ticket buyers with a complete profile in the venue's own CRM"
+    },
+    {
+      "title": "A door scanner that works with no signal",
+      "mechanism": "Downloads the full event record to each device before doors: sold tickets, guestlist imports, comps and plus-ones. Scans validate locally against that record and sync when the connection returns, so the line never stops for Wi-Fi. Accepts the Fennec Pass and the original marketplace ticket. Door staff still decide who gets in on ID and conduct.",
+      "measure": "Guests scanned per minute at peak, and the live headcount against licensed capacity"
+    },
+    {
+      "title": "Promoter portal with a live commission ledger",
+      "mechanism": "Each promoter gets a trackable personal link, promo codes, guestlist tools and a deposit record. Every sale, scan and tab that traces to their link posts to a ledger they can see during the night. The deal terms are set once per promoter. On Monday the number is already agreed. The owner still approves the payout before money moves.",
+      "measure": "Promoter payout disputes per month"
+    },
+    {
+      "title": "Guestlist imports that stop being a second truth",
+      "mechanism": "Reads CSV files and promoter lists in whatever shape they arrive, normalises names and phones, flags duplicates across promoters and against sold tickets, and writes the clean list into the same event record the scanner reads. Names added after the cutoff are held in a queue and a manager decides whether they go on.",
+      "measure": "Minutes between the last list arriving and doors opening with a clean count"
+    },
+    {
+      "title": "Outside ticket sales attributed to the ad",
+      "mechanism": "Posts server-side conversions to Meta when a synced ticket order closes, carrying the campaign and click identifiers, so a sale on Showpass or Eventbrite is credited to the post that drove it. Reports funnel, cost per guest and return per event by campaign. The owner reads the return and decides where the next budget goes.",
+      "measure": "Cost per guest through the door, by campaign"
+    },
+    {
+      "title": "The night's numbers in one report",
+      "mechanism": "Reads the event record, the scans at the door, the guestlist check-ins, the comp ledger and the closed tabs from Square, Toast or Lightspeed. Reports revenue, attendance, table turnover and promoter and host leaderboards for the night, with every figure carrying the event it came from. Scheduled exports go to the bookkeeper on a timetable the owner sets and approves.",
+      "measure": "Hours between the last tab closing and the night's numbers being read"
+    },
+    {
+      "title": "One loyalty pass across every venue",
+      "mechanism": "Reads visits and spend from the guest CRM and applies the tiers, points and perks the venue configured once. Issues an Apple or Google Wallet pass that the door scanner recognises at every venue on the network, so a tier earned in one room is honoured in the next. The owner sets the tiers and signs off any perk before it issues.",
+      "measure": "Repeat visits per guest, and visits at a second venue on the network"
+    },
+    {
+      "title": "Campaigns triggered by real attendance",
+      "mechanism": "Reads the guest CRM for signals: came to three hip-hop nights then lapsed 60 days, birthday this week, spent over a set amount at a table. Drafts the SMS, WhatsApp or email flow from that segment using reference material from five years in nightlife. Throttling and A/B tests are built in. A person approves the audience and the copy before the first message sends.",
+      "measure": "Return visits within 30 days of a triggered message"
+    }
+  ],
+  "leaks": [
+    {
+      "leak": "Buyers the venue never learns about",
+      "how_measured": "Payout report from the marketplace, no names attached",
+      "what_closes_it": "Ticketing sync that lands every buyer in the venue CRM with consent recorded"
+    },
+    {
+      "leak": "Promoter commissions paid on a disputed count",
+      "how_measured": "Manager rebuilds heads from a spreadsheet and scans on Monday",
+      "what_closes_it": "Live commission ledger tied to personal links, scans and tabs"
+    },
+    {
+      "leak": "Door time lost when the scanner loses signal",
+      "how_measured": "Nobody measures it; the line just gets longer",
+      "what_closes_it": "Offline-capable scanner with the event record cached on the device"
+    },
+    {
+      "leak": "Ad spend with no ticket to show for it",
+      "how_measured": "Reach and clicks in Ads Manager, payout two weeks later",
+      "what_closes_it": "Server-side conversions that attribute outside sales to the campaign"
+    },
+    {
+      "leak": "Comps, plus-ones and voids that never hit the settlement",
+      "how_measured": "A comp sheet on paper and a void report in the POS, reconciled by memory",
+      "what_closes_it": "One event record where every comp and void has a name and a reason"
+    }
+  ],
+  "stats": [
+    {
+      "claim": "Promoters and presenters of performing arts, sports and similar events in Canada kept an operating profit margin of",
+      "figure": "4.7%",
+      "source_org": "Statistics Canada",
+      "source_title": "The Daily: Spectator sports, event promoters, artists and related industries, 2024",
+      "year": "2026",
+      "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/260217/dq260217d-eng.htm",
+      "caveat": "Annual industry survey covering 2024, published February 2026. The margin is an average for the promoters and presenters group, whose operating revenue was $5.3 billion. Individual venues vary widely."
+    },
+    {
+      "claim": "Live music shows booked across Canada in 2023, roughly 50 a day, each one a door, a guestlist and a settlement",
+      "figure": "18,945",
+      "source_org": "Canadian Live Music Association",
+      "source_title": "Hear and Now: Impacts of the Live Music Industry in Canada",
+      "year": "2025",
+      "url": "https://www.canadianlivemusic.ca/economic-impact-assessment",
+      "caveat": "Industry association study prepared with Nordicity using 2023 data. The same report puts the industry's GDP impact at $10.92 billion, a figure that includes indirect and induced effects."
+    },
+    {
+      "claim": "Mandatory fees added late in the checkout that led the Competition Bureau to fine Ticketmaster $4.5 million for misleading pricing",
+      "figure": "20% to 65%",
+      "source_org": "Competition Bureau Canada",
+      "source_title": "Ticketmaster to pay $4.5 million to settle misleading pricing case",
+      "year": "2019",
+      "url": "https://www.canada.ca/en/competition-bureau/news/2019/06/ticketmaster-to-pay-45-million-to-settle-misleading-pricing-case.html",
+      "caveat": "A single enforcement case, not a market survey. The Bureau found fees exceeded 20% of the advertised price in most cases and 65% in some. The consent agreement binds Ticketmaster for ten years."
+    },
+    {
+      "claim": "Canadians who support legislation banning ticket-buying bots",
+      "figure": "80%",
+      "source_org": "Angus Reid Institute",
+      "source_title": "Resale resentment: Four-in-five Canadians say 'ticket-bots' should be banned",
+      "year": "2017",
+      "url": "https://angusreid.org/ticket-bot-resale-legislation/",
+      "caveat": "Online survey of just over 1,500 Canadians in 2017, before Ontario, BC and Alberta passed their ticket sales laws. Opinion data, not a measure of bot activity."
+    }
+  ],
+  "rules": [
+    {
+      "regime": "PIPEDA and BC PIPA",
+      "demands": "A ticket buyer's name, email, phone and birthday are personal information. The venue must state why it collects them, get meaningful consent, limit use to that purpose, keep the data accurate and safeguarded, and delete it when no longer needed. BC, Alberta and Quebec have their own private-sector laws that apply in-province.",
+      "how_we_comply": "Consent and its source are stored on every synced guest record. Marketplace buyers are used for the event they bought and marketed to only where the platform's consent language and the venue's own notice allow it. Role permissions limit who sees phone numbers and birthdays. Data sits on Canadian hosting when the client requires it."
+    },
+    {
+      "regime": "CASL (Canada's Anti-Spam Legislation)",
+      "demands": "Every commercial email or SMS needs express or implied consent, must identify the sender, and must carry a working unsubscribe honoured within ten business days. Implied consent from a purchase expires after two years.",
+      "how_we_comply": "Every flow checks consent type and its expiry before sending. Unsubscribes apply across email, SMS and WhatsApp at once and are never overwritten by a guestlist re-import. The sender identity and physical address are on every template. Throttling keeps the venue's numbers off carrier blocklists."
+    },
+    {
+      "regime": "PCI DSS",
+      "demands": "Anyone who stores, processes or transmits cardholder data must meet the Payment Card Industry Data Security Standard, now at version 4.x. That covers the box office terminal, the bar POS and any deposit taken online.",
+      "how_we_comply": "We never touch a card number. Ticket payments stay with the marketplace, tabs stay with Square, Toast or Lightspeed, and table deposits run through the processor's hosted fields. The CRM stores a token and the last four digits at most, so the venue's PCI scope stays with its processors."
+    },
+    {
+      "regime": "Provincial ticket sales laws (Ontario Ticket Sales Act, 2017; BC Ticket Sales Act; Quebec Consumer Protection Act and Bill 10)",
+      "demands": "Primary sellers must show the total price in Canadian dollars with fees itemised, disclose seat or standing location, and in Ontario publish capacity and distribution before the on-sale. Bots are banned and bot-bought tickets must be cancelled. Quebec caps resale at face value unless the producer consents. Enforcement in BC sits with Consumer Protection BC.",
+      "how_we_comply": "The public event page shows the all-in price and the age limit from the same record the operator built, so the disclosed price is never a stale copy. Capacity and tier counts are logged per event for the Ontario disclosure. Suspicious order velocity from one buyer is flagged for a manager to review before the door."
+    },
+    {
+      "regime": "Competition Act (drip pricing)",
+      "demands": "Advertising a price that cannot actually be paid because mandatory fees are added later is misleading. The Competition Bureau has fined a ticketing company $4.5 million for it and the practice is now named in the Act.",
+      "how_we_comply": "Any price the system displays, on the event page, in a campaign or on a promoter's link, is the total price with fees. Promo codes show the discount against that total. Marketing copy pulls the price from the event record rather than from a template someone typed."
+    },
+    {
+      "regime": "Liquor licensing and occupant load (BC LCRB, AGCO, AGLC)",
+      "demands": "A licensed venue cannot exceed its liquor licence capacity or the occupant load set by the fire and building authority, whichever is lower, and must be able to show its count on request. Minors rules and service hours apply to every ticketed night.",
+      "how_we_comply": "The scanner keeps a live in-and-out count against the licensed capacity and warns the door manager as the room approaches it. Age limits set on the event carry to the public page and the scanner. The count is stored per night, so a question from an inspector six weeks later has an answer."
+    }
+  ],
+  "wont_automate": [
+    "Refunds and chargeback responses. The system assembles the order, the scan history and the policy, and a person decides.",
+    "Who gets into the room. ID checks, intoxication calls and refusals at the door stay with trained staff; the scanner only tells them what the record says.",
+    "Releasing a promoter or artist payout. The ledger makes the number, a person with authority sends the money."
+  ],
+  "objections": [
+    {
+      "objection": "We are locked into Ticketmaster for three more years.",
+      "answer": "Good. Stay there. We do not ask a venue to leave a marketplace, because the contract is expensive to break and the marketplace brings real discovery traffic. We connect to it. You keep selling where you sell, and every buyer lands in your own CRM. Eventbrite, Showpass, Ora, TicketWeb, POSH, Flite City, Tixr and Ticketmaster are all live in production today."
+    },
+    {
+      "objection": "Our Wi-Fi is terrible and our scanner already fails.",
+      "answer": "That is exactly why the scanner caches the whole event record on the device before doors. It validates offline and syncs when the signal comes back. Two hundred phones in one room will always crush the venue Wi-Fi. The door should not depend on it."
+    },
+    {
+      "objection": "Promoters will never trust a number a computer gives them.",
+      "answer": "They trust it more than a number you give them on Monday. Their ledger updates during the night from their own link, their own scans and the tabs that trace back to them. They can see it fill. The dispute usually disappears because both sides are reading the same page at the same time."
+    },
+    {
+      "objection": "We tried a CRM before and nobody used it.",
+      "answer": "A CRM that needs someone to type into it dies by the second weekend. This one fills itself from the ticketing sync, the scanner and the POS. Staff never enter a guest by hand. What the team actually touches is the campaign composer and the reports, and those save them time rather than costing it."
+    },
+    {
+      "objection": "How do we know it pays for itself?",
+      "answer": "We agree the number in writing before we build: disputes per month, cost per guest, minutes to a clean count at the door, whichever leak is biggest at your room. If the system misses the agreed bar we keep working at no extra cost until it clears. You own the code either way, and the audit that finds the number is free."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Does the guest need to download an app to get in?",
+      "a": "No. The original ticket from the marketplace scans at the door exactly as before. The Fennec Pass is offered as well, as an Apple Wallet or PDF ticket, and guests who take it carry one QR across every venue on the network. Either works on the same scanner, and both check in against the same event record, so the count is one count."
+    },
+    {
+      "q": "What happens to buyer data when the ticket sells on Eventbrite or Showpass?",
+      "a": "The order syncs into your CRM with name, email, phone and birthday, along with the event and spend, and the consent the buyer gave at checkout is recorded on the profile. You market to them only where that consent and your own notice allow it. The marketplace keeps its record too. We never write anything back to it."
+    },
+    {
+      "q": "How is a promoter's commission actually calculated?",
+      "a": "You set the deal once per promoter: heads through the door, a percentage of bar or table spend, a flat fee with a bonus, or any mix. Every sale, scan or tab that traces to their personal link or promo code posts to their ledger during the night. On Monday the total is already there with every line traceable. You approve the payout; the software does not move money."
+    },
+    {
+      "q": "Can it tell me which Instagram post sold the tickets?",
+      "a": "Yes, for sales that close on a connected marketplace. When a synced order closes, a server-side conversion posts to Meta carrying the campaign and click identifiers, so the sale is credited to the post or ad that drove it. You then see cost per guest and return per event by campaign, instead of reach and clicks with a payout two weeks later."
+    },
+    {
+      "q": "We run a mix of concerts, private hires and club nights. Does one system fit all three?",
+      "a": "The event record is the same shape for all of them: a date, a room layout, a capacity, an age limit, ticket tiers or a guestlist, and a run of show with hosts and holds. A private hire is an event with one buyer and a deposit. A club night is an event with promoters. Reports roll up across all three, so the month reads as one business."
+    }
+  ],
+  "what_we_built": [
+    {
+      "title": "Eight ticketing integrations, live in production",
+      "body": "Fennec connects to Eventbrite, Showpass, Ora, TicketWeb, POSH, Flite City, Tixr and Ticketmaster. A venue connects once and links each event to its outside listing. Buyers sync into the venue's CRM with name, email, phone and birthday, tickets become Fennec Passes, and the door scanner accepts both the Pass and the original ticket. The venue keeps selling where it already sells, and owns the guest afterwards."
+    },
+    {
+      "title": "An offline-capable door scanner",
+      "body": "The guestlist and ticketing module includes a door scanner that keeps working without a connection, CSV and promoter list imports, and Apple Wallet and PDF tickets. An imported guestlist and a sold ticket check in through one queue against one event record, so the count at the door matches the count in the office. Role-aware views give host, VIP, bottle and scanner staff the screen they need, synced in real time."
+    },
+    {
+      "title": "A promoter portal with a live commission ledger",
+      "body": "Each promoter gets a dashboard with trackable personal links, guestlist tools, promo codes, deposits and a live commission ledger. Sales are attributed to the person who made them instead of being argued about on Monday. The venue sees every promoter in one place; each promoter sees only their own numbers. Promoter and host leaderboards sit in the reports module alongside revenue, attendance and table turnover."
+    },
+    {
+      "title": "Meta Pixel attribution of outside ticket sales",
+      "body": "Fennec posts server-side conversions to Meta so ticket sales that close on an outside marketplace are attributed back to the campaign that drove them. The marketing analytics show the funnel, cost per guest and return per event. Consented guests mirror to Laylo with RSVPs and opt-outs matched back. Campaigns, offers and automated email, SMS and WhatsApp flows are drafted from a plain description, using reference material from five years in nightlife."
+    }
+  ],
+  "learned": [
+    "Do not ask a venue to leave its ticketing marketplace. The contract is long, switching is slow, and the marketplace brings guests who were browsing for somewhere to go. Connect to it and pull the buyer into the venue's own CRM instead.",
+    "The door must work with no signal. A full room kills the Wi-Fi every time, and a scanner that needs a live connection turns a twenty-minute rush into a line around the block.",
+    "A guestlist import that lives anywhere other than the event record becomes a second source of truth by midnight. One record, read by the promoter, the door and the office, is the whole fix.",
+    "Promoter disputes are not about the money. They are about two people holding two different counts. A ledger both sides can watch during the night ends the argument before it starts.",
+    "Marketing off real attendance beats marketing off a mailing list. Who came to which kind of night, what they spent and when they lapsed is the data that fills a room with people who came for the same reason."
+  ],
+  "meta_title": "Event venue and ticketing software | Exodus Consulting",
+  "meta_description": "Ticketing sync, an offline door scanner, promoter ledgers and ad attribution for Canadian venues. Built on Fennec, live at four rooms tonight."
+}

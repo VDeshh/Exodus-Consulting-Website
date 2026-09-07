@@ -1,0 +1,190 @@
+{
+  "slug": "insurance-brokers",
+  "name": "Insurance and financial brokers",
+  "hero_title": "A broker's day is mostly retyping what a system already knows.",
+  "hero_lead": "The management system holds the client. The insurer portal holds the quote. The commission statement holds the money, and none of the three agree without a person typing between them. We build the parts that read those systems, match the records, and leave the licensed work to the licensed people.",
+  "segments": [
+    "Personal lines brokerages running high volumes of auto, home and tenant policies",
+    "Commercial lines brokerages placing contractors, fleets, realty and hospitality accounts",
+    "Brokerages grown by acquisition, running two or three management systems at once",
+    "Life, group benefits and financial advisory practices",
+    "Managing general agents and specialty wholesalers placing risk that does not fit a grid"
+  ],
+  "how_it_runs": [
+    {
+      "title": "The same policy is typed three times",
+      "body": "A new personal lines client goes into the rating engine, then the insurer portal, then the broker management system, and the three do not talk to each other. Name, date of birth, driver's licence, vehicle, prior claims. Every retype is a chance to fat-finger one digit, and that digit turns up months later as a declined claim or a mid-term correction nobody can explain to the client."
+    },
+    {
+      "title": "Renewals arrive as a list, not a plan",
+      "body": "The system prints who expires in sixty days. It does not say which of those will move, which insurer has taken a rate increase, which client had a claim last spring, or which account is actually worth remarketing. So the list gets worked top to bottom by whoever has time, and the accounts that needed the most attention get the same fifteen minutes as everything else."
+    },
+    {
+      "title": "The phone sets the day's agenda",
+      "body": "Proof of insurance for a mortgage lawyer. A pink card that never arrived. When does the payment come out. Is my claim moving. Almost none of it needs a licence, and all of it lands on somebody who holds one. Then a hailstorm comes through the region and the same line takes four times the calls for two weeks, while the renewals that were already late go untouched."
+    },
+    {
+      "title": "Commission statements get reconciled by hand",
+      "body": "Each insurer sends its own format on its own schedule. Somebody opens the statements, works down the policies, and checks that what was paid matches what was earned. Mid-term cancellations, endorsements and timing differences make every month a small investigation. It gets done because it has to get done, and in the month the person doing it is away, it does not get done at all."
+    },
+    {
+      "title": "Nobody can say what retention really is",
+      "body": "Ask an owner what retention was last year and you get a range, not a number. The management system knows which policies expired but not always why they left: moved house, sold the car, went direct, or a competitor phoned first. Without the reason coded against the policy, the number cannot be acted on, so the answer stays a feeling about which producers are holding their book."
+    }
+  ],
+  "systems": [
+    {
+      "name": "The broker management system",
+      "examples": "Applied Epic, Applied TAM, Power Broker, Vertafore SIG and sigXP, Vertafore COM",
+      "holds": "Clients, policies, coverages, endorsement history, activity notes, abeyances, producer of record and trust accounting. It is the file of record and the thing an audit reads.",
+      "how_we_connect": "Read first. The documented API where the vendor offers one, otherwise a scheduled export into a Canadian-hosted copy. Anything written back goes through the supported interface, one record at a time, after a broker approves it on screen.",
+      "where_it_stops": "Coverage, limits, policy status and trust ledger entries are never written by the system. It reads and it drafts. A licensed person commits."
+    },
+    {
+      "name": "Insurer connectivity, documents and rating",
+      "examples": "CSIOnet and CSIO eDocs, insurer broker portals, Applied Rating Services, Applied Policy Works",
+      "holds": "Quotes, declarations, endorsements, billing notices, cancellation notices and claim status. Most of it arrives as a document rather than as data, which is why it gets read by a human today.",
+      "how_we_connect": "eDocs and portal downloads are parsed as they land. Each document is read for policy number, effective date, premium and transaction type, matched to the policy in the management system, and given a confidence score.",
+      "where_it_stops": "No submission, bind, endorsement or cancellation is ever sent to an insurer by the system. A match under the confidence threshold goes to a review queue rather than being filed against the wrong client."
+    },
+    {
+      "name": "Phones, mail, signatures and the ledger",
+      "examples": "RingCentral, Telus Business Connect, Microsoft 365 and Outlook, DocuSign, Vertafore eSign, QuickBooks, Sage 50, Xero",
+      "holds": "Inbound calls and voicemail, the shared service inbox, signed applications and change forms, receivables from clients and payables to insurers.",
+      "how_we_connect": "Webhooks on call and message events, so a request is captured the moment it arrives rather than when somebody gets to it. Accounting comes across as a scheduled export and is only ever read.",
+      "where_it_stops": "No money moves. No refund, no payment to an insurer, no ledger correction. The system reconciles and reports, and the bookkeeper decides what to do about it."
+    }
+  ],
+  "builds": [
+    {
+      "title": "A voice agent on the office line",
+      "mechanism": "It answers, identifies the caller against the client record, and handles the routine: renewal date, payment date, proof of insurance sent to the address on file, a pink card resent, the claim number and the adjuster's contact. Anything about coverage, a change or a quote is transferred to a licensed broker with a written summary of what has already been said. Every call is filed to the client.",
+      "measure": "Share of calls closed without a licensed broker, and average wait time in the week after a storm."
+    },
+    {
+      "title": "A chatbot on your own documents",
+      "mechanism": "It sits on the brokerage website and answers from your policy wordings, your billing pages and, once a client signs in, their own file: what the deductible is, when the next payment comes out, how to add a driver, what documents the lender needs. It does not advise. A coverage question is handed to a broker with the whole thread attached.",
+      "measure": "Weekly volume landing in the shared service inbox."
+    },
+    {
+      "title": "eDocs and statements parsed to the policy",
+      "mechanism": "Every eDoc, portal download and commission statement is read on arrival. The system pulls policy number, effective date, premium, transaction type and commission, matches each line to the policy in the management system, and scores the match. Clean matches file themselves. Anything under the threshold goes to a queue with the source document beside it, and a person decides.",
+      "measure": "Hours a month spent reconciling commission statements."
+    },
+    {
+      "title": "A renewal desk that builds itself",
+      "mechanism": "Sixty days out, the system assembles a pack for each expiring policy: current coverage, the insurer's rate change, claims in the term, premium history, and the reason the client bought in the first place. The list is ranked by how much premium is at risk rather than by expiry date. The broker decides what gets remarketed and what gets a phone call.",
+      "measure": "Share of renewals started more than thirty days before expiry."
+    },
+    {
+      "title": "Certificates and proof of insurance, drafted",
+      "mechanism": "A holder asks for a certificate with particular wording. The system reads the policy record, checks whether the coverage being requested actually exists on that policy, drafts the certificate, and flags every requirement the policy does not meet. The broker reviews and issues it. Nothing goes out carrying a coverage line the policy does not carry.",
+      "measure": "Turnaround time from request received to certificate issued."
+    },
+    {
+      "title": "Reporting where every number cites its source",
+      "mechanism": "Premium in force, retention, new business, loss ratio by insurer and by producer, assembled from the management system and the commission statements rather than typed into a slide the night before. Every figure carries the records it came from, so a number that looks wrong can be opened instead of argued about. Where the data underneath is thin, the report says so.",
+      "measure": "Retention by producer, with a reason coded against every policy that left."
+    }
+  ],
+  "leaks": [
+    {
+      "leak": "Renewals worked too late, then remarketed in a rush.",
+      "how_measured": "Not measured. Nobody counts days between the work starting and the expiry date.",
+      "what_closes_it": "A renewal queue built from the policy dates and ranked by premium at risk."
+    },
+    {
+      "leak": "Commission underpaid by an insurer and never noticed.",
+      "how_measured": "A spreadsheet one person keeps, until that person leaves.",
+      "what_closes_it": "Every statement line matched to a policy, with the unmatched ones listed."
+    },
+    {
+      "leak": "Licensed brokers answering questions that need no licence.",
+      "how_measured": "The phone log exists and nobody reads it.",
+      "what_closes_it": "A voice agent and a chatbot on the routine calls, transferring the rest with context."
+    },
+    {
+      "leak": "Clients who lapsed and never got a call.",
+      "how_measured": "Found out when their new broker asks you for the loss run.",
+      "what_closes_it": "Lapse and non-renewal flags off the policy record, pushed into a call list."
+    }
+  ],
+  "stats": [
+    {
+      "claim": "Insurance brokering in Canada is a small business industry, which is why the owner is usually the one holding the numbers.",
+      "figure": "33,822 establishments",
+      "source_org": "Innovation, Science and Economic Development Canada",
+      "source_title": "Canadian Industry Statistics: Agencies, brokerages and other insurance related activities (NAICS 5242)",
+      "year": "2025",
+      "url": "https://ised-isde.canada.ca/app/ixb/cis/summary-sommaire/5242",
+      "caveat": "Establishment count for the whole of NAICS 5242, which includes claims adjusters and other insurance related activities alongside brokerages. The same page puts 98.6 percent of these establishments in the 0 to 99 employee band."
+    },
+    {
+      "claim": "Two bad months can produce more claims than a normal year, and the brokerage phone line absorbs it first.",
+      "figure": "more than a quarter of a million claims in two months",
+      "source_org": "Insurance Bureau of Canada",
+      "source_title": "2024 shatters record for costliest year for severe weather-related losses in Canadian history at $8.5 billion",
+      "year": "2025",
+      "url": "https://www.ibc.ca/news-insights/news/2024-shatters-record-for-costliest-year-for-severe-weather-related-losses-in-canadian-history-at-8-5-billion",
+      "caveat": "Four catastrophic weather events across July and August 2024, which IBC puts at 50 percent more than Canadian insurers typically receive in an entire year. An industry association figure for an exceptional season, and a count of claims, not a measure of broker workload."
+    },
+    {
+      "claim": "Consumers are escalating more than they used to, and the broker is the first person they ring.",
+      "figure": "7,330 contacts, up 17 percent",
+      "source_org": "General Insurance OmbudService",
+      "source_title": "General Insurance OmbudService receives record number of contacts for second year in a row",
+      "year": "2025",
+      "url": "https://www.newswire.ca/news-releases/general-insurance-ombudservice-receives-record-number-of-contacts-for-second-year-in-a-row-887736072.html",
+      "caveat": "GIO's own 2024 to 2025 annual figure, released by the organisation itself. It counts contacts to the ombudservice, not complaints made to brokerages, and rising contacts can reflect better awareness of GIO as much as worse service."
+    }
+  ],
+  "rules": [
+    {
+      "regime": "PIPEDA, with BC PIPA, Alberta PIPA and Quebec Law 25 where they apply",
+      "demands": "Consent and a stated purpose for personal information, safeguards proportionate to sensitivity, breach reporting, and under Law 25 a disclosure to the individual where a decision is made by automated processing alone.",
+      "how_we_comply": "Client data sits in Canadian hosting. Nothing about coverage, eligibility or price is decided by the system on its own, so a person is always in the decision and the Law 25 automated decision trigger is not met. Every read is logged against a named user, and the models see the minimum fields needed to answer."
+    },
+    {
+      "regime": "Provincial broker licensing and conduct: RIBO, the Insurance Council of BC, the Alberta Insurance Council, the AMF, and the CISRO Principles of Conduct",
+      "demands": "Advice from a licensed person, a written record of what was recommended and disclosed, conflict of interest disclosure, collection of only the information actually needed, and a complaints process.",
+      "how_we_comply": "The voice agent and the chatbot answer facts already sitting in the client's own file. Advice, a coverage change and a quote all transfer to a licensed broker with a written summary. Transcripts file to the client record, so the conversation is documented rather than remembered."
+    },
+    {
+      "regime": "CASL",
+      "demands": "Consent, sender identification and a working unsubscribe on commercial electronic messages, plus a record of how and when each consent was obtained.",
+      "how_we_comply": "Consent state lives on the client record with its date and its source. Service messages such as renewal notices and payment reminders are kept structurally separate from marketing sends, and any campaign list is filtered against the consent field before a send can be started."
+    },
+    {
+      "regime": "PCMLTFA and FINTRAC reporting, for life insurance brokers and agents",
+      "demands": "Client identification records, large cash transaction records, suspicious transaction reporting, and a five year retention period on the records behind each report.",
+      "how_we_comply": "Parsing keeps the source document beside every extracted field, so the record behind any report can be produced rather than reconstructed. Retention is set per record type, and nothing that touches a reportable transaction is deleted on a schedule the compliance officer has not signed."
+    }
+  ],
+  "wont_automate": [
+    "We do not let a system give coverage advice or recommend a limit. That is a licensed person's job, and the errors and omissions policy is written on the assumption that a licensed person did it.",
+    "We do not let a system bind, endorse or cancel a policy with an insurer. A broker presses the button or it does not happen."
+  ],
+  "objections": [],
+  "faq": [
+    {
+      "q": "Do you replace our broker management system?",
+      "a": "No. Epic, Power Broker or SIG stays exactly where it is and the staff keep the screens they know. We read from it and build on top: the phone line, the inbox, the document parsing, the reporting. Writes go back one record at a time through the supported interface, after a broker approves. If we could not read it safely, we would say so before you paid us anything."
+    },
+    {
+      "q": "Our client data cannot leave Canada. Can you work with that?",
+      "a": "Yes. Where the data lives gets decided before anything is built, not patched in afterwards. Client records, the document store and the models all sit in Canadian hosting, and that constraint rules out a long list of otherwise obvious tools. We put the hosting decision in writing at the start and name every service that touches client data, so you can hold us to the list."
+    },
+    {
+      "q": "What happens when the voice agent gets something wrong?",
+      "a": "It transfers. The agent answers only from facts in your own records, and anything outside that list goes to a person with a summary of the call so far. Every call is transcribed and filed to the client record, so a complaint can be reviewed rather than argued about. You set the transfer rules, and we tighten them across the first two weeks of live calls."
+    },
+    {
+      "q": "We just bought a brokerage running a different system. Where do we start?",
+      "a": "With the records, not the software. Two books merged by hand produce the same client three times, with three spellings and a stale address on two of them. We read every source into one shape, match the records across them, resolve duplicates and near-duplicates, and score each match so a weak join stays visible instead of being quietly trusted. Then you decide what merges."
+    }
+  ],
+  "what_we_built": [],
+  "learned": [],
+  "meta_title": "Software for insurance brokers | Exodus Consulting",
+  "meta_description": "Voice agents, chatbots and reconciliation for Canadian insurance and financial brokerages. Built on your broker management system, hosted in Canada."
+}

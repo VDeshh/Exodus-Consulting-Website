@@ -1,0 +1,806 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Software for restaurants and bars | Exodus Consulting</title>
+  <meta name="description" content="Recipe-based inventory, poured against sold variance, live menus with auto-86, a voice agent for the phone and loyalty from real spend, on the POS you already run.">
+  <meta name="theme-color" content="#FAF9F7">
+  <link rel="icon" href="assets/exodus-logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Exodus Consulting">
+  <meta property="og:title" content="Software for restaurants and bars | Exodus Consulting">
+  <meta property="og:description" content="Recipe-based inventory, poured against sold variance, live menus with auto-86, a voice agent for the phone and loyalty from real spend, on the POS you already run.">
+  <meta property="og:image" content="assets/exodus-logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/exodus.css?v=12">
+  <link rel="stylesheet" href="css/ia.css?v=12">
+  <link rel="stylesheet" href="css/p-industries.css?v=12">
+  <script src="js/exodus.js?v=12" defer></script>
+</head>
+<body>
+
+<a class="ex-skip" href="#main">Skip to content</a>
+
+<header class="ex-header">
+  <div class="ex-header__inner">
+    <a class="ex-brand" href="index.html">
+      <img src="assets/exodus-logo.png" alt="Exodus Consulting" width="34" height="17">
+      <span class="ex-brand__name">Exodus Consulting</span>
+    </a>
+
+    <nav class="ex-nav" aria-label="Primary">
+      <a class="ex-nav__link" href="index.html">Home</a>
+      <a class="ex-nav__link" href="services.html">What we build</a>
+      <a class="ex-nav__link" href="work.html">Our work</a>
+      <a class="ex-nav__link is-current" aria-current="page" href="industries.html">Industries</a>
+      <a class="ex-nav__link" href="guarantee.html">How we charge</a>
+      <a class="ex-nav__link" href="about.html">About</a>
+      <a class="ex-btn ex-btn--primary ex-btn--sm" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+    </nav>
+
+    <button class="ex-burger" type="button" data-nav-toggle aria-expanded="false" aria-controls="ex-mobile-menu">
+      <span class="ex-burger__bars" aria-hidden="true"></span>
+      <span>Menu</span>
+    </button>
+  </div>
+
+  <div class="ex-mobile-menu" id="ex-mobile-menu">
+    <ul class="ex-mobile-menu__list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">What we build</a></li>
+      <li>
+        <a href="work.html">Our work</a>
+        <ul class="ia-submenu">
+          <li><a href="work-uniserve.html">Uniserve Communications</a></li>
+          <li><a href="work-fennec.html">Fennec</a></li>
+          <li><a href="work-palapa-tours.html">Palapa Tours Ottawa</a></li>
+          <li><a href="work-scoped.html">Current engagements</a></li>
+          <li><a href="fennec-events-floor.html">Fennec: events and floor ops</a></li>
+          <li><a href="fennec-ticketing-guests.html">Fennec: ticketing and guests</a></li>
+          <li><a href="fennec-pos-payments.html">Fennec: POS and payments</a></li>
+          <li><a href="fennec-inventory-staff.html">Fennec: inventory and staff</a></li>
+          <li><a href="fennec-media-intelligence.html">Fennec: media and intelligence</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="industries.html">Industries</a>
+        <ul class="ia-submenu">
+          <li><a href="industries.html">All industries</a></li>
+          <li><a href="industries-nightlife-hospitality.html">Nightlife and hospitality</a></li>
+          <li><a href="industries-restaurants-bars.html">Restaurants and bars</a></li>
+          <li><a href="industries-event-venues-ticketing.html">Event venues and ticketing</a></li>
+          <li><a href="industries-telecom-isps.html">Telecom and internet providers</a></li>
+          <li><a href="industries-political-campaigns.html">Political parties and campaign organisations</a></li>
+          <li><a href="industries-tours-experiences.html">Tour and experience operators</a></li>
+        </ul>
+      </li>
+      <li><a href="guarantee.html">How we charge</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a class="ex-btn ex-btn--primary ex-btn--block" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <nav class="ia-crumbs" aria-label="Breadcrumb">
+    <div class="ex-container">
+      <ol class="ia-crumbs__list">
+        <li class="ia-crumbs__item"><a class="ia-crumbs__link" href="index.html">Home</a></li>
+        <li class="ia-crumbs__item"><a class="ia-crumbs__link" href="industries.html">Industries</a></li>
+        <li class="ia-crumbs__item"><span aria-current="page">Restaurants and bars</span></li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- ===================== 1. HERO ===================== -->
+  <section class="ex-hero">
+    <div class="ex-container">
+      <div class="ex-hero__inner">
+        <div>
+          <p class="ex-eyebrow ex-eyebrow--violet">Industries / Restaurants and bars</p>
+          <h1 class="ex-hero__title">The money leaks between what you bought and what you sold.</h1>
+          <p class="ex-hero__lead">A restaurant knows its sales to the penny and its costs to the month. The gap between the two is where the margin goes: the pour that ran heavy, the case that died in the walk-in, the invoice that crept up a dollar a kilo. We build software that puts purchased and sold on the same screen, on the POS you already run, so the owner sees the leak while it is still this week&#x27;s problem.</p>
+          <div class="ex-hero__actions">
+            <a class="ex-btn ex-btn--primary" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+            <a class="ex-btn ex-btn--secondary" href="industries.html">All industries</a>
+          </div>
+        </div>
+
+        <div class="ex-hero__meta">
+          <p class="ex-eyebrow">Who this is for</p>
+          <aside class="ex-rail" aria-label="Segments within Restaurants and bars">
+            <div class="ex-rail__item"><span class="ex-rail__v">Independent full-service restaurants and neighbourhood bistros</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__v">Bars, pubs and cocktail rooms where liquor is the margin</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__v">Multi-venue hospitality groups running three to ten rooms</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__v">Breweries, wineries and tasting rooms with a kitchen attached</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__v">Cafes and quick-service counters with high volume and thin tickets</span></div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 2. HOW IT ACTUALLY RUNS ===================== -->
+  <section class="ex-band">
+    <div class="ex-container">
+      <p class="ex-eyebrow ex-eyebrow--onink">How it actually runs</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">Before anything is built, this is the week we are describing.</h2>
+        <p class="ex-shead__sub">No software can be scoped from a category name. These are the specifics of restaurants and bars that decide what is worth building and what is not.</p>
+      </header>
+
+      <ol class="ex-timeline">
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">01</span>
+          <div>
+            <h3 class="ex-timeline__title">The week is run from the manager&#x27;s phone.</h3>
+            <p class="ex-timeline__body">Orders go in by text to the sales rep. The schedule lives in one app, reservations in another, and the numbers arrive as an email from the accountant two weeks after the fact. The owner knows Friday was good because the till was full, not because any one screen said so. The person holding it all together is also expediting on Saturday night.</p>
+          </div>
+        </li>
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">02</span>
+          <div>
+            <h3 class="ex-timeline__title">Inventory is counted on Sunday, on a clipboard.</h3>
+            <p class="ex-timeline__body">Somebody walks the walk-in and the back bar with a sheet, eyeballs the tenths on each bottle, and types the result into a spreadsheet on Monday. The count is a week old by the time anyone reads it. Food cost comes back as one percentage for the whole month, so a case of striploin that vanished in week two looks the same as a slow week.</p>
+          </div>
+        </li>
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">03</span>
+          <div>
+            <h3 class="ex-timeline__title">The busiest night is the night the system breaks.</h3>
+            <p class="ex-timeline__body">Saturday at 8pm the kitchen runs out of halibut, but the server on table 12 has already sold two and the online menu still shows it. The printer jams, the delivery tablet is on a different network, and the phone rings for a party of ten nobody can seat. Every workaround gets invented live and forgotten by Tuesday.</p>
+          </div>
+        </li>
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">04</span>
+          <div>
+            <h3 class="ex-timeline__title">Ordering is done by feel.</h3>
+            <p class="ex-timeline__body">The chef looks at the shelf, remembers roughly what a long weekend does, and orders. Overshoot and the product dies in the walk-in. Undershoot and a dish comes off the menu at 7pm. Neither shows up as a line anywhere, so the same call gets made the same way next week. Par levels exist on paper from three menus ago.</p>
+          </div>
+        </li>
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">05</span>
+          <div>
+            <h3 class="ex-timeline__title">The pour is the most expensive thing nobody measures.</h3>
+            <p class="ex-timeline__body">A bartender free-pouring a quarter ounce heavy is spending the owner&#x27;s money on every drink, all night. Comps and buybacks go through as voids, or do not go through at all. At month end the liquor cost is high and there is no way to say which bar, which shift or which bottle did it. So it gets absorbed and the price goes up.</p>
+          </div>
+        </li>
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">06</span>
+          <div>
+            <h3 class="ex-timeline__title">The guest data is everywhere except in your hands.</h3>
+            <p class="ex-timeline__body">The reservation platform knows the name. The POS knows the tab. The delivery apps know the address and keep it. The email list was built from a fishbowl of business cards in 2019. The owner can name the regulars by face and cannot pull a list of anyone who spent over 200 dollars and has not been back in sixty days.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================== 3. WHERE IT LEAKS ===================== -->
+  <section class="ex-section">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Where it leaks</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">Every one of these is measurable. Most are not measured.</h2>
+        <p class="ex-shead__sub">The free audit prices these in your own numbers before anything is scoped. You keep the map whether or not you hire us.</p>
+      </header>
+
+      <div class="ex-table-wrap">
+        <table class="ex-table p-ind__table">
+          <caption>Where the money and the hours go in restaurants and bars, how it is measured today, and what closes it.</caption>
+          <thead>
+            <tr>
+              <th scope="col">The leak</th>
+              <th scope="col">How it is measured today</th>
+              <th scope="col">What closes it</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Liquor poured and never rung in: overpours, buybacks, unrecorded comps</th>
+              <td>Monthly liquor cost percentage, one number for the whole building</td>
+              <td>Recipe-based variance per bar and per shift, dollarised, reviewed by a manager</td>
+            </tr>
+            <tr>
+              <th scope="row">Food that dies in the walk-in because the order was a guess</th>
+              <td>Waste sheet nobody fills in, and a food cost percentage at month end</td>
+              <td>Reorder points off real consumption and bookings, with a drafted PO the chef edits</td>
+            </tr>
+            <tr>
+              <th scope="row">Phone calls unanswered during service and tables sitting empty after a no-show</th>
+              <td>Not measured; the missed call log on the host stand phone if anyone looks</td>
+              <td>A voice agent that books within the rules and a confirmation flow the host controls</td>
+            </tr>
+            <tr>
+              <th scope="row">Supplier unit prices creeping up a few cents a week across hundreds of lines</th>
+              <td>Noticed once a quarter when the accountant asks why cost of goods rose</td>
+              <td>Line-level invoice parsing that flags price drift and short deliveries as they land</td>
+            </tr>
+            <tr>
+              <th scope="row">Manager hours spent counting, retyping and building the weekly numbers</th>
+              <td>Not measured; it is Sunday night and Monday morning, every week</td>
+              <td>Counts on a phone against one catalogue, and a report that assembles itself from the POS and the counts</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 4. WHAT WE BUILD ===================== -->
+  <section class="ex-section ex-section--paper-2">
+    <div class="ex-container">
+      <p class="ex-eyebrow">What we build</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">8 builds that pay for themselves here.</h2>
+        <p class="ex-shead__sub">Each one states what it reads, what it does, and what a person still approves. Scope is agreed after the audit, one build at a time, against a baseline you sign.</p>
+      </header>
+
+      <div class="ex-grid">
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Poured against sold, per bar, per shift</h3>
+          </div>
+          <p class="ex-card__body">Every menu item carries a recipe in inventory units: one ounce of vodka plus a measured pour of soda. The system reads POS sales per terminal and multiplies by the recipe to get theoretical usage. Actual usage comes from the count, by scale where the bar wants speed. Theoretical minus actual is the variance, in ounces and dollars. A manager reviews every flag before it is raised with anyone.</p>
+          <p class="ex-card__foot">Measured by: Dollarised liquor variance per week, by bar</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">One catalogue, every site, one count</h3>
+          </div>
+          <p class="ex-card__body">A multi-venue group gets one product catalogue with one name per item, so the same gin is not three products across three rooms. Each site counts its own stock on a phone against that catalogue. Purchased and sold sit side by side per site and per product, so a variance points at a room, not at the group. The operator decides what counts as a real discrepancy.</p>
+          <p class="ex-card__foot">Measured by: Minutes per site count, and variance by site</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Reorder points that draft the order</h3>
+          </div>
+          <p class="ex-card__body">The system reads consumption from sales and counts, adjusts for day of week and the bookings already on the reservation platform, and fires a reorder point when stock will not last to the next delivery. It drafts a purchase order per supplier at par. The chef or bar manager edits and approves before anything is sent. The draft learns from what they change.</p>
+          <p class="ex-card__foot">Measured by: Items run out per week, and dead stock written off per month</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Live menu with auto-86</h3>
+          </div>
+          <p class="ex-card__body">The menu is edited once and pushed to the POS, the printed menu file and the website. When the count of a recipe ingredient hits zero the item is marked unavailable on every surface at the same moment, so a server cannot sell what the kitchen no longer has. Bringing it back is a one-tap manager action, never automatic.</p>
+          <p class="ex-card__foot">Measured by: Items sold after the kitchen ran out, per week</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">A voice agent that answers the phone</h3>
+          </div>
+          <p class="ex-card__body">During service nobody can pick up. The agent answers, reads live availability and hours, books a table within the rules the owner set, and takes a large party or private dining enquiry with date, size and budget. Anything outside the rules is transferred to a person with the caller&#x27;s details already on screen. It never takes a card number and never overrides the host.</p>
+          <p class="ex-card__foot">Measured by: Calls answered during service that turned into a booking</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">A chatbot for the questions you answer daily</h3>
+          </div>
+          <p class="ex-card__body">Hours, parking, menu, allergens, whether the patio is dog friendly, group booking policy. The bot reads the live menu record and the reservation rules, so its allergen answer is the kitchen&#x27;s current answer. When a question needs a person, it opens an email with the conversation summarised. Staff answer the questions that need judgement and stop retyping the address.</p>
+          <p class="ex-card__foot">Measured by: Repetitive emails and DMs handled by staff per week</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Supplier invoices read and matched</h3>
+          </div>
+          <p class="ex-card__body">Delivery invoices arrive as PDFs, emails and photos of a crumpled sheet. The system parses each line, matches it to the purchase order and the receiving count, and flags a unit price that moved or a case that was billed but not delivered. Each match carries a confidence score. A draft bill goes to accounting; the bookkeeper approves it before it posts.</p>
+          <p class="ex-card__foot">Measured by: Unit price increases and short deliveries caught per month</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Loyalty and campaigns off real spend</h3>
+          </div>
+          <p class="ex-card__body">POS tabs, reservations and consented contacts are joined into one guest profile with visit count, lifetime spend and last visit. Segments build themselves: lapsed sixty days, big spender, birthday this month. The operator describes the offer and the system drafts the email or SMS to that segment. The owner approves every send. Consent and unsubscribe are enforced under CASL before anything goes out.</p>
+          <p class="ex-card__foot">Measured by: Return visits from the lapsed segment within thirty days</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 5. THE NUMBERS ===================== -->
+  <section class="ex-band">
+    <div class="ex-container">
+      <p class="ex-eyebrow ex-eyebrow--onink">The numbers</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">Borrowed statistics, with their sources and their limits printed.</h2>
+        <p class="ex-shead__sub">None of these are our results. They are the published state of restaurants and bars, linked so you can check them, with the caveat attached where the number is a survey, a forecast or a vendor's own figure.</p>
+      </header>
+
+      <div class="ex-stats">
+            <div class="ex-stat ex-stat--onink p-ind__stat--sm">
+              <span class="ex-stat__num">$101.4 billion, drinking places down 2.3%</span>
+              <p class="ex-stat__label">Canadian restaurants and bars sold this much in 2025, and drinking places were the only segment to shrink</p>
+              <cite class="ex-stat__source"><a class="ex-link ex-link--mono" href="https://www150.statcan.gc.ca/n1/daily-quotidien/260225/dq260225d-eng.htm" target="_blank" rel="noopener">Statistics Canada, 2026</a></cite>
+              <p class="p-ind__caveat">National figure for all food services and drinking places, released February 25, 2026. Sales, not profit.</p>
+            </div>
+            <div class="ex-stat ex-stat--onink">
+              <span class="ex-stat__num">44%</span>
+              <p class="ex-stat__label">Share of Canadian restaurants operating at a loss or just breaking even in November 2025</p>
+              <cite class="ex-stat__source"><a class="ex-link ex-link--mono" href="https://www.restaurantscanada.org/2025-foodservice-sales-buffered-by-gst-holiday-as-rising-operating-costs-and-tariffs-cut-into-profits-restaurants-brace-for-more-obstacles-in-2026/" target="_blank" rel="noopener">Restaurants Canada, 2026</a></cite>
+              <p class="p-ind__caveat">Industry association member survey, self-reported by operators. Up from 41% in June 2025, against 12% in 2019. The release does not split the 44% between operating at a loss and breaking even.</p>
+            </div>
+            <div class="ex-stat ex-stat--onink">
+              <span class="ex-stat__num">69%</span>
+              <p class="ex-stat__label">Canadian restaurants that expected to increase their technology spend in the coming year</p>
+              <cite class="ex-stat__source"><a class="ex-link ex-link--mono" href="https://pos.toasttab.com/ca/blog/on-the-line/85-percent-of-canadian-restaurants-are-struggling-with-inflation-in-2025" target="_blank" rel="noopener">Toast, 2025</a></cite>
+              <p class="p-ind__caveat">Vendor survey by a POS company that sells the technology in question. Sample size not stated on the page. The same survey found 85% of Canadian restaurants called inflation a challenge in 2025.</p>
+            </div>
+            <div class="ex-stat ex-stat--onink p-ind__stat--sm">
+              <span class="ex-stat__num">7.35 million tonnes, worth $17.73 billion</span>
+              <p class="ex-stat__label">Avoidable food waste in Canada from production through retail and hospitality, per year</p>
+              <cite class="ex-stat__source"><a class="ex-link ex-link--mono" href="https://shsitepublicassets.blob.core.windows.net/public-assets/reports/Avoidable%20Crisis%20of%20Food%20Waste%20-%20Roadmap.pdf" target="_blank" rel="noopener">Second Harvest and Value Chain Management International, 2024</a></cite>
+              <p class="p-ind__caveat">Whole supply chain figure, not restaurants alone. Charity research using industry data and estimates. The report puts it at about 12% of the $147.44 billion Canadians spent on food and drink at retail.</p>
+            </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 6. WHERE THE DATA COMES FROM ===================== -->
+  <section class="ex-section">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Where the data comes from</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">Your systems of record stay exactly where they are.</h2>
+        <p class="ex-shead__sub">We read them, we do not replace them. Each one below says what we connect to, how, and the line the build does not cross.</p>
+      </header>
+
+      <div class="ex-grid">
+        <article class="ex-card ex-card--inset">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Point of sale</h3>
+          </div>
+          <p class="ex-card__body"><strong>Usually:</strong> Square for Restaurants, Toast, Lightspeed Restaurant, TouchBistro, Clover</p>
+          <p class="ex-card__body"><strong>What it holds.</strong> Items, modifiers, prices and tax codes; every tab with its tender, tip, void and discount; which terminal and which employee rang it, and when.</p>
+          <p class="ex-card__body"><strong>How we connect.</strong> API, two-way where the platform allows it. Fennec already syncs both ways with Square, Toast and Lightspeed: menus and prices push out, closed tabs pull back in. Where an API is thin we take a scheduled export. Each field gets one owner, written down before a credential is exchanged.</p>
+          <p class="ex-card__foot"><strong>Where it stops.</strong> Nothing is deleted or repriced on a terminal without the owner signing off on the mapping first. Voids, comps and refunds are read for the variance report; the system never issues one.</p>
+        </article>
+        <article class="ex-card ex-card--inset">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Reservations and waitlist</h3>
+          </div>
+          <p class="ex-card__body"><strong>Usually:</strong> OpenTable, Resy, Tock, Libro, Yelp Guest Manager</p>
+          <p class="ex-card__body"><strong>What it holds.</strong> Bookings, party size, time, guest notes, no-show and cancellation history, deposits where taken.</p>
+          <p class="ex-card__body"><strong>How we connect.</strong> API or webhook where offered, otherwise a nightly export. Bookings are read into the guest profile alongside the tab, so a name on the book and a spend at the table become one record. Availability is read so a voice agent or chatbot can answer honestly.</p>
+          <p class="ex-card__foot"><strong>Where it stops.</strong> No booking is cancelled, moved or charged a no-show fee by the system. The host confirms placement, and a fee under Quebec&#x27;s rules or any deposit policy is a person&#x27;s decision every time.</p>
+        </article>
+        <article class="ex-card ex-card--inset">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Scheduling, payroll and tips</h3>
+          </div>
+          <p class="ex-card__body"><strong>Usually:</strong> 7shifts, Push Operations, Homebase, Wagepoint, Payworks, ADP</p>
+          <p class="ex-card__body"><strong>What it holds.</strong> Shifts, clock-ins, wage rates, tip pools and declared gratuities, labour cost per hour.</p>
+          <p class="ex-card__body"><strong>How we connect.</strong> Read-only API or scheduled export. Sales per hour per employee from the POS are joined to the schedule, so labour as a share of sales is visible by shift rather than by month. Tip-out rules the owner sets are applied the same way every close.</p>
+          <p class="ex-card__foot"><strong>Where it stops.</strong> The system never publishes a schedule, changes a wage or moves money. A tip split is calculated and shown; a manager approves it before payout.</p>
+        </article>
+        <article class="ex-card ex-card--inset">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Accounting and supplier invoices</h3>
+          </div>
+          <p class="ex-card__body"><strong>Usually:</strong> QuickBooks Online, Sage 50, Xero, Dext, Plooto, Sysco and Gordon Food Service ordering portals, BC Liquor Distribution Branch wholesale</p>
+          <p class="ex-card__body"><strong>What it holds.</strong> Bills, payments, the general ledger, supplier price lists, delivery invoices as PDFs, emails and photos.</p>
+          <p class="ex-card__body"><strong>How we connect.</strong> Invoices are parsed from email and photo, matched to the purchase order and the receiving count, and posted to accounting as draft bills through the API. Unit prices per item are tracked so a quiet increase on a case of oil shows up the week it happens.</p>
+          <p class="ex-card__foot"><strong>Where it stops.</strong> Nothing is paid and nothing is posted as final. A draft bill carries a confidence score, and the bookkeeper approves or corrects it before it touches the books.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 7. THE RULES ===================== -->
+  <section class="ex-section ex-section--paper-2">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Built around your rules</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">The regimes that govern this work, and how the build answers each one.</h2>
+        <p class="ex-shead__sub">Constraints come first, because they decide the architecture. Bring us your hosting, residency and regulatory rules at the start and we design to them rather than around them.</p>
+      </header>
+
+      <div class="ex-table-wrap">
+        <table class="ex-table p-ind__table">
+          <caption>Regulatory and professional obligations that shape a build in restaurants and bars.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Regime</th>
+              <th scope="col">What it demands here</th>
+              <th scope="col">How the build complies</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">PIPEDA and BC PIPA (Alberta PIPA, Quebec Law 25 where you operate there)</th>
+              <td>Guest names, phone numbers, emails, birthdays and spend history are personal information. Collect only what the purpose needs, tell guests what it is for, protect it, and hand it over or delete it when they ask. Quebec adds a privacy officer, a published policy and breach logging.</td>
+              <td>One guest profile with a recorded purpose and source per field. Employee access by role, so a server sees a table and not a lifetime spend. Hosting in Canada when the owner wants it. Deletion on request wipes the profile and every campaign list built from it.</td>
+            </tr>
+            <tr>
+              <th scope="row">CASL (Canada&#x27;s Anti-Spam Legislation)</th>
+              <td>Every marketing email or SMS needs express consent, or implied consent from an existing business relationship that expires two years after the last purchase. Each message must identify the sender and carry an unsubscribe that works within ten business days.</td>
+              <td>Consent type, date and source are stored on the guest profile. Implied consent segments age out automatically. No campaign sends to a contact without a consent record, every message carries the venue&#x27;s identity and a one-click unsubscribe, and opt-outs are honoured the same day.</td>
+            </tr>
+            <tr>
+              <th scope="row">PCI DSS</th>
+              <td>Card data taken at the terminal, online or over the phone must be handled inside a compliant environment. Storing full card numbers outside the payment processor puts the venue on the hook for the breach.</td>
+              <td>We never touch card numbers. Payments stay inside Square, Toast, Lightspeed or the processor. Our systems read tender type, amount and tip, and the voice agent is built so it cannot accept or record a card number, only transfer to a person or a hosted payment link.</td>
+            </tr>
+            <tr>
+              <th scope="row">BC Liquor and Cannabis Regulation Branch, Food Primary and Liquor Primary licence terms</th>
+              <td>Keep liquor purchase records, a register of liquor purchased and received, liquor sales records with quantity and price, disposal records, food sales and employee records for at least six years. Licensees, managers, servers and anyone left in charge hold Serving It Right, with the certificate number and expiry on file.</td>
+              <td>Every purchase, count, transfer and sale is a timestamped record retained for six years and exportable for an inspector. Staff records carry the Serving It Right number and expiry, and the schedule flags a shift with nobody certified in charge.</td>
+            </tr>
+            <tr>
+              <th scope="row">BC Food Premises Regulation, enforced by the regional health authority</th>
+              <td>A permit to operate, FOODSAFE for the operator and for at least one employee on shift when the operator is out, a written food safety plan with critical limits, a sanitation plan, and potentially hazardous food held at 4 degrees or below or 60 degrees or above.</td>
+              <td>FOODSAFE certificates and expiry dates sit on the staff record beside Serving It Right. Temperature and receiving checks can be logged on the same phone as the count so the food safety plan has evidence. The system prompts; a person takes the temperature and signs.</td>
+            </tr>
+            <tr>
+              <th scope="row">Quebec Consumer Protection Act, no-show fee rules (July 2025)</th>
+              <td>A Quebec restaurant may charge up to $10 per person for a full no-show on a booking of two or more, only if the fee was disclosed before booking, a confirmation with a cancellation link went out between 6 and 48 hours before, and guests could cancel at any time up to three hours ahead.</td>
+              <td>For Quebec venues the confirmation flow sends in the window, keeps the cancellation link live, and records disclosure at booking. The system reports which no-shows qualify. Charging the fee is a manager&#x27;s decision, made per booking, never automatic.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <hr class="ex-rule ex-rule--spaced">
+
+      <div class="ex-split">
+        <div class="ex-stack">
+          <h3>What we will not automate</h3>
+          <ul class="ex-measure">
+          <li>We will not void, comp or refund a tab automatically. The system reads voids for the variance report; a manager with a key still approves each one, because a void is where theft hides.</li>
+          <li>We will not send a supplier order or pay an invoice without a person. Draft POs and draft bills are the system&#x27;s job. The chef and the bookkeeper sign.</li>
+          <li>We will not charge a no-show fee, cancel a booking or move a table on the system&#x27;s own judgement. The host owns the book, and a guest dispute is a person&#x27;s conversation.</li>
+          </ul>
+        </div>
+        <div class="ex-stack">
+          <div class="ex-card ex-card--inset">
+            <div class="ex-card__head">
+              <h3 class="ex-card__title">A person stays in the loop</h3>
+            </div>
+            <p class="ex-card__body">Anything that spends money, sends something irreversible, or carries a professional obligation arrives as a draft with a named reviewer. The system prepares the work. A person decides whether it ships.</p>
+            <p class="ex-card__foot">You own the code and the data at the end of the engagement.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 8. OUR WORK HERE ===================== -->
+  <section class="ex-section">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Our work here</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">What we have built in this industry, at its real status.</h2>
+        <p class="ex-shead__sub">Live means running now. In build means under construction, with some phases delivered and some not. Shipped means delivered and closed. Where there is no number yet, we say so instead of borrowing one.</p>
+      </header>
+
+      <div class="ex-grid">
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">B-Side Group: inventory across three restaurant venues, in build</h3>
+          </div>
+          <p class="ex-card__body">A hospitality group brought us in to build customised inventory management across three of their restaurants. The shape of the build: stock counts done per site on a shared catalogue so the same product has one name in every room, purchased set against sold as variance per site, and reorder points that fire from real consumption. It is under construction, so no count is running in our software yet and no variance figure exists. When there is one, it will appear with its arithmetic beside it.</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Fennec: recipe-based inventory and two-way POS sync, live</h3>
+          </div>
+          <p class="ex-card__body">Fennec, the venue operating system we co-founded, runs live at Harbour Event Centre, TradeX, The Pit UBC and The Show Ottawa. It syncs both ways with Square, Toast and Lightspeed, matching tabs to tables. At Harbour every menu item carries a recipe, every terminal maps to the employee working it, and open bottles are weighed at close over a Bluetooth scale. Sales times recipes is theoretical usage; the weigh-in is actual; the gap is the Revenue Loss Calculator&#x27;s dollarised variance, per bartender. The live menu pushes one edit to print, digital and POS and auto-86es when stock runs out.</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Palapa Tours Ottawa: tip-out software, shipped</h3>
+          </div>
+          <p class="ex-card__body">A floating tiki-bar cruise operator with a different crew every sailing. Gratuity splits shifted cruise to cruise and the crew argued about pay. We built software that totals the pool when the cruise closes, applies the split rules the operator set once by role, and records every payout per staff member. The variance went away, so the disputes had nothing left to be about. Shipped, closed, and owned by the client. No dollar figure is claimed because none was given.</p>
+        </article>
+      </div>
+
+      <hr class="ex-rule ex-rule--spaced">
+
+      <h3>What the work taught us</h3>
+      <ol class="ex-index">
+        <li class="ex-index__row">
+          <span class="ex-index__num">01</span>
+          <div>
+            <p class="ex-index__note">A variance report is only as honest as the item list under it. Clean the catalogue against what is actually on the terminals first; three names for one gin will produce three wrong numbers.</p>
+          </div>
+        </li>
+        <li class="ex-index__row">
+          <span class="ex-index__num">02</span>
+          <div>
+            <p class="ex-index__note">Count speed decides whether a count happens. A weigh-in over a Bluetooth scale that takes minutes gets done every week. A clipboard hour gets done when someone remembers.</p>
+          </div>
+        </li>
+        <li class="ex-index__row">
+          <span class="ex-index__num">03</span>
+          <div>
+            <p class="ex-index__note">Tie the terminal to the person. A liquor cost percentage for the building is a complaint. A dollar variance per bar, per shift, per bartender is a conversation with evidence.</p>
+          </div>
+        </li>
+        <li class="ex-index__row">
+          <span class="ex-index__num">04</span>
+          <div>
+            <p class="ex-index__note">Decide who owns each field before connecting anything. If both the POS and the inventory system can edit a price, they will disagree on the busiest night of the year.</p>
+          </div>
+        </li>
+        <li class="ex-index__row">
+          <span class="ex-index__num">05</span>
+          <div>
+            <p class="ex-index__note">The marketplaces own the discovery, the venue must own the guest. Keep selling on the reservation and delivery platforms, but pull every buyer into your own profile with consent, because a room full of strangers has no reason to come back.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================== 9. THE OBJECTIONS ===================== -->
+  <section class="ex-section ex-section--paper-2">
+    <div class="ex-container">
+      <p class="ex-eyebrow">The objections</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">The reasons an owner here says no, answered straight.</h2>
+      </header>
+
+      <div class="ex-faq">
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="obj-1">
+            <span>We run Toast. We are not switching POS two weeks before a long weekend.</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="obj-1" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>Good. We do not replace the till. Fennec already syncs both ways with Square, Toast and Lightspeed, and that is the pattern we build on: menus push out, closed tabs pull in, and each field gets one owner in writing before anything connects. The staff keep the terminal they know.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="obj-2">
+            <span>My chef counts inventory fine. It is a clipboard, but it works.</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="obj-2" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>The count probably is fine. The problem is what happens to it: it lands in a spreadsheet a week later as one food cost percentage. Purchased against sold per product, per week, is a different number and it points at a shelf. The chef keeps counting. The count just goes somewhere useful.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="obj-3">
+            <span>Margins are thin. We cannot afford software on top of everything else.</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="obj-3" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>Nearly half of Canadian restaurants were at a loss or breaking even at the end of 2025, and the leaks are usually in liquor variance and dead stock. We start with a free audit that prices the leak in your own numbers. If the arithmetic does not clear, we tell you and you keep the map.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="obj-4">
+            <span>Staff will not use it. They barely use the scheduling app.</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="obj-4" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>Staff use things that are faster than the alternative. A count on a phone against a catalogue with the right names beats a clipboard. A menu that goes off everywhere when the kitchen runs out beats a server getting yelled at on table 12. We build for the person on shift, not for a dashboard the owner reads.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="obj-5">
+            <span>We tried an inventory app. It was dead in three months.</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="obj-5" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>Most die because the item list under them was wrong: three names for one gin, recipes nobody kept up, a POS that never mapped. The first real day of our work is cleaning that catalogue against what is actually on the terminals. The count is the easy part once the names agree.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 10. FAQ ===================== -->
+  <section class="ex-section">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Questions</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">The questions we get asked in restaurants and bars.</h2>
+      </header>
+
+      <div class="ex-faq">
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="faq-1">
+            <span>Do we have to weigh every bottle every night?</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="faq-1" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>No. You choose the cadence per bar. A weekly count with a scale and a Bluetooth connection takes minutes, and a nightly count on the high-value shelf is a few more. The variance is calculated against whatever period you count. Nightly gives you a per-shift answer; weekly gives you a per-week one. Most rooms start weekly and tighten where the number tells them to.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="faq-2">
+            <span>Will the variance report tell me who is stealing?</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="faq-2" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>It tells you where the ounces went: which bar, which shift, which product, and where terminals map to employees, which person&#x27;s sales. That is a conversation starter with evidence, not a verdict. Heavy pours, unrecorded comps and a bad recipe all look like variance until a manager looks. The system flags; the manager decides what it means.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="faq-3">
+            <span>Can the voice agent take a reservation for a party of twelve on a Saturday?</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="faq-3" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>Only if you have told it that it can. Large parties, private dining and anything outside the rules you set are transferred to a person with the caller&#x27;s name, number, date and size already captured, so the conversation starts halfway through. Routine bookings within your rules it takes itself. It never takes a card number.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="faq-4">
+            <span>We are three venues with three different POS setups. Is that a problem?</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="faq-4" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>It is the normal case. Each site keeps its own terminals and its own count, but the catalogue is shared: one name per product, one recipe per menu item. The sync maps each site&#x27;s terminal items to that catalogue. Variance is then comparable across rooms, and a reorder point can see stock at the venue next door before it drafts an order.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="faq-5">
+            <span>Who owns the guest list and the code at the end?</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="faq-5" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>You do, both. The guest profiles, consent records and spend history sit in your database, hosted in Canada if you want it there. The code is written into the agreement as yours before anything is built. We agree the baseline number in writing first, the clock starts at deployment, and if the system misses the bar we keep working at no extra cost until it clears.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ex-band">
+    <div class="ex-container">
+      <div class="ex-split ex-split--wide">
+        <div class="ex-stack">
+          <p class="ex-eyebrow ex-eyebrow--onink">What happens next</p>
+          <h2>Start with the audit, and know the number before you commit.</h2>
+          <p class="ex-measure">Three to five days. We map where the hours and the money go in your restaurants and bars operation and hand you a ranked plan with the payback attached.</p>
+          <p class="ex-measure">We map where time and money leak, and show the arithmetic before you commit to anything. You keep the map whether or not you hire us. If we do build, we agree the baseline in writing first, the clock starts at deployment rather than signature, and you own the code.</p>
+          <div class="ex-hero__actions">
+            <a class="ex-btn ex-btn--primary" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+            <a class="ex-btn ex-btn--onink" href="guarantee.html">How we charge</a>
+          </div>
+        </div>
+        <div class="ex-stack">
+          <dl class="ex-dl ex-dl--onink">
+            <dt class="ex-dl__k">Who you talk to</dt>
+            <dd class="ex-dl__v">Shiv and Vishal. No account managers, no slide decks.</dd>
+            <dt class="ex-dl__k">Direct</dt>
+            <dd class="ex-dl__v"><a href="mailto:shiv@exdsconsulting.com">shiv@exdsconsulting.com</a></dd>
+            <dt class="ex-dl__k">Read next</dt>
+            <dd class="ex-dl__v"><a href="services.html">What we build</a>, then <a href="work.html">Our work</a>.</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RELATED ===================== -->
+  <section class="ex-section ex-section--tight ia-related" aria-labelledby="related-heading">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Keep reading</p>
+      <h2 class="ex-shead__title" id="related-heading">Where to go next</h2>
+
+      <ul class="ia-related__grid">
+        <li>
+          <a class="ex-card ia-related__card" href="industries.html">
+            <p class="ia-related__kicker">Back up</p>
+            <h3 class="ex-card__title">All industries</h3>
+            <p class="ex-card__body">Every industry we build for, grouped by where our own work sits and where the same method applies.</p>
+            <span class="ia-related__go">See the index <span class="ia-related__arrow" aria-hidden="true">-&gt;</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="ex-card ia-related__card" href="work.html">
+            <p class="ia-related__kicker">The proof</p>
+            <h3 class="ex-card__title">Our work</h3>
+            <p class="ex-card__body">Five engagements at their real status, with the Fennec product gallery and the arithmetic behind every number.</p>
+            <span class="ia-related__go">Read the studies <span class="ia-related__arrow" aria-hidden="true">-&gt;</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="ex-card ia-related__card ia-related__card--next" href="industries-event-venues-ticketing.html">
+            <p class="ia-related__kicker">Next industry</p>
+            <h3 class="ex-card__title">Event venues and ticketing</h3>
+            <p class="ex-card__body">The same method, a different set of systems, rules and failure modes.</p>
+            <span class="ia-related__go">Next <span class="ia-related__arrow" aria-hidden="true">-&gt;</span></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ex-footer">
+  <div class="ex-container">
+    <div class="ex-footer__grid ia-sitemap">
+      <div class="ex-footer__brand">
+        <img src="assets/exodus-logo.png" alt="Exodus Consulting" width="44" height="23">
+        <p class="ex-footer__blurb">AI enablement and custom software for owner-led businesses. Two founders, direct access.</p>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Work</p>
+        <ul>
+          <li><a href="work.html">Our work</a></li>
+          <li><a href="work-uniserve.html">Uniserve Communications</a></li>
+          <li><a href="work-fennec.html">Fennec</a></li>
+          <li><a href="work-palapa-tours.html">Palapa Tours Ottawa</a></li>
+          <li><a href="work-scoped.html">Current engagements</a></li>
+          <li><a href="fennec-events-floor.html">Fennec: events and floor</a></li>
+          <li><a href="fennec-ticketing-guests.html">Fennec: ticketing and guests</a></li>
+          <li><a href="fennec-pos-payments.html">Fennec: POS and payments</a></li>
+          <li><a href="fennec-inventory-staff.html">Fennec: inventory and staff</a></li>
+          <li><a href="fennec-media-intelligence.html">Fennec: media and intelligence</a></li>
+        </ul>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Industries</p>
+        <ul>
+          <li><a href="industries.html">All industries</a></li>
+          <li><a href="industries-nightlife-hospitality.html">Nightlife and hospitality</a></li>
+          <li><a href="industries-restaurants-bars.html">Restaurants and bars</a></li>
+          <li><a href="industries-event-venues-ticketing.html">Event venues and ticketing</a></li>
+          <li><a href="industries-telecom-isps.html">Telecom and internet providers</a></li>
+          <li><a href="industries-political-campaigns.html">Political parties and campaign organisations</a></li>
+          <li><a href="industries-tours-experiences.html">Tour and experience operators</a></li>
+        </ul>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Company</p>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">What we build</a></li>
+          <li><a href="guarantee.html">How we charge</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Direct</p>
+        <ul>
+          <li><a href="mailto:shiv@exdsconsulting.com">shiv@exdsconsulting.com</a></li>
+          <li><a href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a></li>
+          <li><a href="https://instagram.com/exodus_consulting_" target="_blank" rel="noopener">@exodus_consulting_</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ex-footer__legal">
+      <span>&copy; 2026 Exodus Consulting</span>
+      <span>Vancouver, BC</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

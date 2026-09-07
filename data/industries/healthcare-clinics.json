@@ -1,0 +1,190 @@
+{
+  "slug": "healthcare-clinics",
+  "name": "Healthcare clinics",
+  "hero_title": "Most clinic hours go to the phone, not the patient.",
+  "hero_lead": "A Canadian clinic runs on an EMR that holds the chart, a fax machine that holds the referrals, a phone line that never stops and a billing remittance nobody has time to read. We build the layer between those: a voice agent for the routine calls, intake that files faxes with a confidence score, waitlist fill, claim reconciliation and a weekly report where every number cites its source. Clinical decisions stay with the clinician, and every byte stays in Canada.",
+  "segments": [
+    "Family practice and walk-in clinics",
+    "Allied health clinics: physiotherapy, chiropractic, massage therapy, counselling",
+    "Dental and orthodontic offices",
+    "Specialist and diagnostic clinics: dermatology, cardiology, imaging, sleep",
+    "Medical aesthetics and private-pay clinics"
+  ],
+  "how_it_runs": [
+    {
+      "title": "The phone rings faster than two MOAs can answer.",
+      "body": "Monday at 8:30 the line lights up with weekend problems, refill requests and people asking if the doctor is taking new patients. Each call is two minutes, and most of them are the same call. Voicemail fills, the front desk spends the afternoon calling back, and the patient who needed a same-day slot has already gone to a walk-in. Nobody counts how many calls were dropped."
+    },
+    {
+      "title": "The fax machine is still the referral system.",
+      "body": "Consult notes, lab reports, hospital discharge summaries and specialist letters arrive as faxes or scanned PDFs. Someone reads each one, works out which patient it belongs to, and files it into the right chart. A misread name means a report sits in the wrong file until the doctor asks where it went. Indexing is a full job in a busy clinic and it never shows up in the budget as one."
+    },
+    {
+      "title": "No-shows are guessed, not counted.",
+      "body": "Every clinic knows no-shows hurt and almost none know their rate. A Tuesday with three empty slots feels bad; nobody checks whether it was three or eight, or which provider, or which appointment type. Reminder calls go out if someone has time. A cancellation at 9am is a lost slot because the waitlist is a sticky note and nobody has time to phone down it."
+    },
+    {
+      "title": "The EMR holds the chart, not the business.",
+      "body": "PS Suite, Accuro or Oscar knows every encounter, but the owner's questions live elsewhere: which provider is booked to capacity, how many hours the rooms sit empty, what the uninsured-service revenue was last month, how much MOA time went to phones. Answering any of these means an export, a spreadsheet and an evening. So the questions get answered once a year, at tax time, if at all."
+    },
+    {
+      "title": "Rejected claims surface weeks after the visit.",
+      "body": "Fee-for-service billing goes out through Teleplan, OHIP or the provincial equivalent, and the remittance comes back with rejections: wrong code, expired coverage, missing referral number. Fixing each one means finding the visit, understanding the reason and resubmitting before the deadline. In a small clinic the biller is also the receptionist, so rejections get worked when the phone is quiet, which is never. Some simply expire."
+    }
+  ],
+  "systems": [
+    {
+      "name": "EMR (electronic medical record)",
+      "examples": "Telus Health PS Suite, Med Access and CHR; WELL Health Oscar Pro; QHR Accuro; Medesync in Quebec",
+      "holds": "The chart: encounters, notes, labs, prescriptions, the appointment book, the inbox of inbound documents, and the billing codes attached to each visit.",
+      "how_we_connect": "Vendor API where one is offered, otherwise scheduled exports and a read-only reporting extract. Appointment slots and demographic fields are the only things written back, and each write is logged with who approved it.",
+      "where_it_stops": "We never write a clinical note, alter a diagnosis, touch a prescription or file a document into a chart without a named staff member confirming the match."
+    },
+    {
+      "name": "Practice management and booking (allied health, dental, private pay)",
+      "examples": "Jane App, Cliniko, ClinicMaster, Practice Perfect, Dentrix, ClearDent",
+      "holds": "Bookings, practitioner calendars, intake forms, treatment plans, invoices, and insurance claims sent through Telus eClaims or Pacific Blue Cross.",
+      "how_we_connect": "API or webhooks where the product exposes them, calendar feeds and scheduled exports where it does not. Waitlist offers and reminders read the calendar; a booking is written back only when the patient accepts.",
+      "where_it_stops": "No treatment plan, chart note or insurance claim is created or changed by the system. Fee changes and cancellation policy are set by the owner, never inferred."
+    },
+    {
+      "name": "Billing, payments and accounting",
+      "examples": "Teleplan (BC MSP), OHIP claims through the EMR, Telus eClaims, Moneris and Square terminals, QuickBooks Online, Xero",
+      "holds": "Submitted claims, remittances and rejection codes, card settlements for uninsured and private-pay services, and the general ledger.",
+      "how_we_connect": "Read-only remittance files and payer exports, payment processor reporting APIs, accounting API for read access. Every figure on the owner's report links back to the file or record it came from.",
+      "where_it_stops": "No claim is resubmitted, no refund issued and no journal entry posted without the biller or the owner approving that specific item."
+    }
+  ],
+  "builds": [
+    {
+      "title": "Voice agent for the routine calls",
+      "mechanism": "Reads the schedule and the clinic's own rules: hours, which providers accept new patients, what to bring, how refills work. Books, moves and confirms appointments in open slots, logs refill requests for the doctor, and answers the questions that fill the voicemail. Any mention of symptoms, pain or urgency transfers to a person immediately with the caller's details on screen. Staff approve every new-patient registration.",
+      "measure": "Calls resolved without a callback, per week"
+    },
+    {
+      "title": "Website chatbot that shrinks the email queue",
+      "mechanism": "Reads the clinic's published pages, the fee schedule for uninsured services, forms and policies. Answers the repeated questions: are you accepting patients, where do I park, what does a sick note cost, how do I get my records. Hands anything clinical or account-specific to the front desk with the conversation attached. Staff review the unanswered-question log weekly and approve new answers before they go live.",
+      "measure": "Front-desk emails per week"
+    },
+    {
+      "title": "Fax and referral intake with confidence scores",
+      "mechanism": "Reads every inbound fax and scanned document, pulls out patient name, birthdate, health number, sender and document type, and matches it to a chart. Each match carries a confidence score. High-confidence matches are queued for one-click filing; low-confidence ones are shown side by side with the candidate charts. An MOA confirms every filing. Nothing enters a chart without a person clicking.",
+      "measure": "Hours from fax received to filed in chart"
+    },
+    {
+      "title": "Reminders and waitlist fill",
+      "mechanism": "Reads tomorrow's schedule from the EMR or Jane and sends confirmations by SMS or email, with a reply to cancel. A cancellation frees the slot and the system offers it to matching waitlist patients in the order staff set. The first to accept is booked. Staff approve the reminder wording and the waitlist rules, and can hold any slot back for urgent same-day use.",
+      "measure": "No-show rate per provider per week"
+    },
+    {
+      "title": "Claim rejection reconciliation",
+      "mechanism": "Reads the remittance file from Teleplan, OHIP or the provincial payer and the visit list from the EMR, matches every rejection to its encounter, and groups them by reason. It drafts the correction: the likely code, the missing referral number, the coverage check. The biller approves each resubmission. Nothing is sent to the payer without that click, and every deadline is shown.",
+      "measure": "Dollars in rejected claims older than 30 days"
+    },
+    {
+      "title": "The owner's weekly report",
+      "mechanism": "Pulls visits per provider, room hours used, no-shows, phone answer rate, rejected claims and uninsured-service revenue from the systems that hold them, and assembles one page every Monday. Every number links to the export it came from, so a figure that looks wrong can be traced in one click. The owner decides what goes on the page; the system never changes a source record.",
+      "measure": "Manager hours spent building month-end numbers"
+    }
+  ],
+  "leaks": [
+    {
+      "leak": "Calls that hit voicemail and never get returned, or get returned after the patient booked elsewhere.",
+      "how_measured": "It is not. Nobody counts abandoned calls; the front desk knows it was a bad morning.",
+      "what_closes_it": "A voice agent that answers every call and logs each one, so the answer rate becomes a number on the weekly report."
+    },
+    {
+      "leak": "Empty slots from no-shows and late cancellations that a waitlisted patient would have taken.",
+      "how_measured": "The MOA's impression of the week, or a count done once when a physician asked.",
+      "what_closes_it": "Reminders with reply-to-cancel and automatic waitlist offers, with the no-show rate tracked per provider."
+    },
+    {
+      "leak": "Rejected claims that pass their resubmission deadline because nobody had a quiet hour.",
+      "how_measured": "A remittance PDF skimmed once a month; the total written off is rarely added up.",
+      "what_closes_it": "A rejection queue matched to visits, with drafted corrections and deadlines, worked from the top down."
+    },
+    {
+      "leak": "Afternoons spent reading and filing faxes, plus the misfiled report that resurfaces at the wrong moment.",
+      "how_measured": "It is folded into the receptionist's day and never appears as a line item.",
+      "what_closes_it": "Parsed intake with a confidence score per match, so staff confirm instead of hunt."
+    }
+  ],
+  "stats": [
+    {
+      "claim": "Canadian physicians spend 18.5 million hours a year on unnecessary administrative work, the equivalent of 55.6 million patient visits.",
+      "figure": "18.5 million hours",
+      "source_org": "Canadian Federation of Independent Business (CFIB)",
+      "source_title": "Patients before Paperwork",
+      "year": "2023",
+      "url": "https://www.cfib-fcei.ca/en/media/canadian-doctors-spend-over-18-million-hours-a-year-on-unnecessary-administrative-work",
+      "caveat": "CFIB estimate extrapolated nationally from physician survey data and Nova Scotia work; a modelled figure, not a count."
+    },
+    {
+      "claim": "82.8% of Canadians aged 18 and over had a regular health care provider in 2023, down from 85.8% in 2022.",
+      "figure": "82.8%",
+      "source_org": "Statistics Canada",
+      "source_title": "Health of Canadians: Access to health care (Catalogue 82-570-X)",
+      "year": "2024",
+      "url": "https://www150.statcan.gc.ca/n1/pub/82-570-x/2024001/section4-eng.htm",
+      "caveat": "Self-reported data from the Canadian Community Health Survey; a regular provider includes nurse practitioners, not only family doctors."
+    },
+    {
+      "claim": "73% of Canadian physicians cite poor system integration or multiple unconnected systems as a major barrier to using digital health tools.",
+      "figure": "73%",
+      "source_org": "Canada Health Infoway and Canadian Medical Association",
+      "source_title": "2024 National Survey of Canadian Physicians",
+      "year": "2024",
+      "url": "https://www.cma.ca/about-us/what-we-do/press-room/canada-health-infoway-canadian-medical-association-survey-shows-physicians-are-embracing-connected",
+      "caveat": "Survey of 1,145 CMA member physicians and residents run by Leger; self-reported, and the sample is CMA members rather than all physicians."
+    }
+  ],
+  "rules": [
+    {
+      "regime": "BC Personal Information Protection Act (PIPA), with PIPEDA and provincial health acts such as Ontario PHIPA and Alberta HIA elsewhere",
+      "demands": "A private clinic is the custodian of its patients' personal health information. It must name a privacy officer, collect only what it needs, document consent, safeguard the data, keep a retention schedule and manage breaches. The Doctors of BC privacy toolkit discourages patient information leaving Canada even where the Act does not forbid it.",
+      "how_we_comply": "Every model and every byte hosted in Canada. Role-based access, an audit log on every read and write, and the minimum fields needed for each job. A written agreement names the clinic as custodian and Exodus as its service provider, and the clinic owns the code and the data."
+    },
+    {
+      "regime": "College of Physicians and Surgeons of BC practice standards (Virtual Care; Medical Records Documentation and Management), and the equivalent college in each province",
+      "demands": "The licensee is accountable for the record whatever tool touched it. Patient identity must be confirmed before information is shared, consent to remote communication documented, and the medical record created and kept to the College's standard.",
+      "how_we_comply": "The voice agent and chatbot verify identity before disclosing anything about an appointment or a record, and never give clinical advice. Every automated entry is labelled as such and tied to the staff member who approved it. Nothing is written into the clinical note."
+    },
+    {
+      "regime": "CASL (Canada's Anti-Spam Legislation)",
+      "demands": "Commercial electronic messages need consent, sender identification and a working unsubscribe. Appointment reminders and messages a patient asked for are transactional; recall campaigns, new-service announcements and promotions are commercial.",
+      "how_we_comply": "Reminders and marketing run as separate streams. Marketing goes only to patients with recorded consent, with the date and source of that consent stored, an unsubscribe in every message, and opt-outs applied across every channel."
+    },
+    {
+      "regime": "PCI DSS (Payment Card Industry Data Security Standard)",
+      "demands": "Any clinic that stores, processes or transmits card data for uninsured services, private-pay treatment or product sales is in scope, regardless of size, and validates through its acquiring bank.",
+      "how_we_comply": "Card numbers never touch anything we build. Payments run through the clinic's existing processor (Moneris, Square, Jane Payments) and we read tokenised settlement reports only, so the clinic's PCI scope stays with the processor."
+    }
+  ],
+  "wont_automate": [
+    "Clinical triage. The voice agent never tells a patient whether a symptom can wait; any mention of symptoms, pain or urgency transfers to a person at once.",
+    "Writing to the chart. No note, diagnosis, prescription or document is entered into the medical record without a named clinician or MOA confirming it."
+  ],
+  "objections": [],
+  "faq": [
+    {
+      "q": "Does any patient data leave Canada?",
+      "a": "No. Every model and every byte is hosted in Canada, and that is fixed before the first line of code rather than patched in later. BC PIPA does not strictly forbid data leaving the country, but the Doctors of BC privacy toolkit discourages it and the CMPA does not endorse non-Canadian providers for sensitive data. So we treat Canadian hosting as a hard constraint on the architecture, not a preference we trade away."
+    },
+    {
+      "q": "Will the phone agent give medical advice?",
+      "a": "No. It books, moves and confirms appointments, answers questions about hours, providers, fees for uninsured services and what to bring, and logs refill requests for the doctor to action. The moment a caller mentions a symptom, pain or anything urgent, the call transfers to a person with the caller's details on screen. That rule is written down and it is not negotiable."
+    },
+    {
+      "q": "Do we have to change our EMR?",
+      "a": "No. PS Suite, Med Access, Accuro, Oscar Pro, Jane and the rest stay exactly where they are. We connect through the vendor's API where one exists and through scheduled exports where it does not, and we decide field by field what may be written back. Appointment slots and demographics, yes, with a log. Clinical content, never."
+    },
+    {
+      "q": "How do you know it worked?",
+      "a": "We agree the number in writing before the build starts: calls resolved without a callback, no-show rate per provider, dollars in rejected claims older than 30 days, hours from fax received to filed. The baseline is measured first, the clock starts at deployment, and if the system misses the bar we keep working at no extra cost until it clears. You own the code either way."
+    }
+  ],
+  "what_we_built": [],
+  "learned": [],
+  "meta_title": "AI and software for healthcare clinics | Exodus Consulting",
+  "meta_description": "Phone agents, fax intake, waitlist fill and claim reconciliation for Canadian clinics, built around PS Suite, Accuro, Oscar and Jane, hosted in Canada."
+}

@@ -1,0 +1,276 @@
+{
+  "slug": "political-campaigns",
+  "name": "Political parties and campaign organisations",
+  "hero_title": "A campaign runs on lists, and the lists disagree.",
+  "hero_lead": "Supporter records arrive from sign-up forms, door knocks, donation pages, phone banks and the voters list, each in its own shape. We read every source into one, match the records, resolve the duplicates and score each match so the campaign knows what it can rely on. Outreach and reporting then run off one reconciled set instead of five arguing spreadsheets.",
+  "segments": [
+    "Municipal parties and elector organisations",
+    "Provincial and federal riding associations",
+    "Mayoral, council, school board and park board campaigns",
+    "Leadership and nomination campaigns",
+    "Issue campaigns, referendum campaigns and third party sponsors"
+  ],
+  "how_it_runs": [
+    {
+      "title": "The same supporter exists three times.",
+      "body": "A person signs a petition on the website, gives twenty dollars on a donation page and answers a door knock two months later. Each tool stores its own record: one with a middle initial, one with an old apartment number, one with a phone number typed as text. Nobody merges them, so the campaign counts three supporters, mails three envelopes and never knows the person already gave."
+    },
+    {
+      "title": "Volunteers type fast and go home.",
+      "body": "Canvass sheets, phone notes and sign-up cards get keyed in by whoever is free at nine at night. Street names are abbreviated three ways, postal codes are guessed, and a lean is marked as a 3 by one volunteer and a Y by another. The field director trusts the totals because there is nothing else to trust, and the errors compound quietly until a list is cut from them."
+    },
+    {
+      "title": "Money has rules, and the rules have a clock.",
+      "body": "In BC an individual may give $1,429.70 per candidate or elector organisation in 2026, contributors must be BC residents and citizens or permanent residents, and the disclosure statement is due 90 days after voting day. Contributions arrive through a card page, e-transfers and cheques at events, so someone reconciles them by hand, checks the limit per person and hopes the same donor was not entered under two spellings."
+    },
+    {
+      "title": "The voters list comes with conditions.",
+      "body": "Candidates and elector organisations receive a list of electors for election purposes and nothing else. It cannot be folded into a fundraising database or sold on, and it goes stale the moment people move. Matching a supporter file against it to find who is registered and where they vote is real work, and it has to be done in a way that keeps the list separate and traceable when the regulator asks."
+    },
+    {
+      "title": "Voting day is a phone tree.",
+      "body": "Vancouver's 2022 election drew 36.3 percent of registered voters, so the whole day is spent finding your own supporters and getting them to a voting place. Strike lists come in from scrutineers on paper, callers work from a morning export, and the same household gets called twice while another gets missed. Every hour the list is behind, volunteers ring people who have already voted."
+    },
+    {
+      "title": "Nobody has a clean count of supporters.",
+      "body": "Ask a campaign manager how many distinct people back the party and the answer is a range: the email list says one number, the donor file another, the canvass app a third. Those figures overlap and nobody knows by how much. Budgets for mail, calls and doors get set off the largest number, and the campaign pays to reach the same people again and again."
+    }
+  ],
+  "systems": [
+    {
+      "name": "Supporter database and CRM",
+      "examples": "NationBuilder, Salesforce Nonprofit Cloud, HubSpot, Google Sheets and Excel exports from earlier campaigns",
+      "holds": "Supporter profiles, tags, email and phone consent flags, donation history, volunteer status, event RSVPs, website sign-ups",
+      "how_we_connect": "API where the vendor offers one, otherwise a scheduled CSV export read into our own store. We read profiles, tags and consent fields and write back a match key and a confidence score to a custom field.",
+      "where_it_stops": "We never merge or delete records inside the vendor system on our own. Merges below the agreed confidence threshold sit in a queue until a named person approves them."
+    },
+    {
+      "name": "Field and phone tools",
+      "examples": "Ecanvasser, CallHub, Knockbase, MiniVAN style canvass apps, plus paper walk sheets scanned at the end of the night",
+      "holds": "Turf assignments, door results, lean codes, call outcomes, do-not-call requests, volunteer shift logs",
+      "how_we_connect": "Nightly export or webhook on each completed canvass or call session. We normalise lean codes and outcomes into one vocabulary and attach them to the reconciled supporter record.",
+      "where_it_stops": "We do not push new walk lists or dial lists into the field tool without the field director signing off on the cut. Do-not-call requests flow one way: into the ledger, immediately, with no override."
+    },
+    {
+      "name": "Email, donations and payments",
+      "examples": "Mailchimp, Constant Contact, NationBuilder email, Stripe, Square, PayPal, e-transfer notices from the bank",
+      "holds": "Send history, opens and unsubscribes, donation amounts and dates, card receipts, recurring gifts, refunds",
+      "how_we_connect": "Read-only API access to the email and payment platforms, plus a mailbox rule that files e-transfer notices for parsing. Unsubscribes and bounces are read every hour and written to the consent ledger.",
+      "where_it_stops": "We never send a message or move money. Sends are scheduled by a person after the audience is reviewed. Refunds of over-limit contributions are raised as a task for the finance lead, not processed by software."
+    },
+    {
+      "name": "Finance, filing and electoral lists",
+      "examples": "QuickBooks Online, Xero, Elections BC's electronic filing system for disclosure statements, the list of electors supplied for the election",
+      "holds": "The general ledger, receipted contributions, campaign expenses, the disclosure statement itself, elector names and addresses",
+      "how_we_connect": "Scheduled export from the accounting system so contributions in the ledger can be reconciled against the payment platforms. The electors list is loaded into a separate store with its own access log and matched against, never copied into, the supporter set.",
+      "where_it_stops": "Nothing is filed with Elections BC or the City of Vancouver by software. The disclosure statement is prepared as a draft with every line traceable, and a person reviews, signs and files it."
+    }
+  ],
+  "builds": [
+    {
+      "title": "Every source read into one shape",
+      "mechanism": "Reads exports from the CRM, canvass app, email tool, payment platforms and old spreadsheets. Splits names into parts, standardises addresses to Canada Post format, normalises phone numbers and lean codes, and stamps every field with the source it came from and the date it was captured. The campaign's data lead approves the field mapping for each new source before it is loaded.",
+      "measure": "Number of source files loaded without a manual fix"
+    },
+    {
+      "title": "Records matched and every join scored",
+      "mechanism": "Compares records across sources on name, address, email, phone and date of birth where held, and assigns each candidate match a confidence score. High scores link on their own and are logged. Middling scores go to a review queue. Low scores stay apart. A person sets the thresholds and can move them, and every link records who or what made it.",
+      "measure": "Duplicate rate remaining in the master file after each load"
+    },
+    {
+      "title": "A review queue for the near-misses",
+      "mechanism": "Presents uncertain pairs side by side: same surname and street but different unit, same email and a changed surname, two donors with one phone number. The reviewer confirms, rejects or asks for more information, and the decision is stored so the same pair never comes back. Confirmed decisions feed the thresholds, but no merge happens without the click.",
+      "measure": "Pairs reviewed per volunteer hour"
+    },
+    {
+      "title": "A consent and contact-preference ledger",
+      "mechanism": "Holds, per person, what they consented to, from which form, on which date, and every unsubscribe, do-not-call or do-not-knock request from any channel. Unsubscribes from the email tool and do-not-call flags from the phone tool land here within the hour. Any list cut for outreach is filtered through the ledger. Nobody can override a stop request, including the campaign manager.",
+      "measure": "Messages sent to people with a stop request on file: target zero"
+    },
+    {
+      "title": "Contribution limits checked before the receipt",
+      "mechanism": "Reads every contribution from the payment platforms, the bank notices and the ledger, matches the donor to one reconciled record, and totals gifts per person against the annual limit for the year. Flags anything over the limit, any anonymous gift over $50, and any donor whose address is outside BC. The finance lead decides on refunds and issues the receipt; software only raises the flag.",
+      "measure": "Over-limit or ineligible contributions caught before receipting"
+    },
+    {
+      "title": "Walk and call lists cut from one set",
+      "mechanism": "Takes the reconciled supporter file, applies the consent ledger, and cuts turf by street and voting division so a household appears on one sheet only. Voting-day strike lists from scrutineers are keyed in and the call list refreshes so callers stop ringing people who have voted. The field director reviews and releases each cut; nothing is pushed to volunteers unreviewed.",
+      "measure": "Duplicate contacts per household on voting day"
+    },
+    {
+      "title": "Reports where every number cites its source",
+      "mechanism": "Assembles the weekly numbers the campaign manager asks for: distinct supporters, new sign-ups, contributions to date against budget, doors knocked and calls completed, all from the reconciled store. Each figure carries the source file, load date and confidence band it was built from, so a disputed number can be traced back in one click rather than argued about in a meeting.",
+      "measure": "Hours spent rebuilding the weekly numbers by hand"
+    },
+    {
+      "title": "Segments for targeted outreach from first-party data",
+      "mechanism": "Builds audiences from what the campaign itself holds and has consent for: donors who gave once and not again, sign-ups who never answered a door, volunteers who worked last election, households in a division with a low return rate. Segments are named and documented, drawn only from consented fields, and every send list is signed off by the communications lead before it leaves the building.",
+      "measure": "Response rate per segment versus the untargeted list"
+    }
+  ],
+  "leaks": [
+    {
+      "leak": "Duplicate mail, calls and emails to one person",
+      "how_measured": "Rarely measured; noticed when a donor complains about three envelopes",
+      "what_closes_it": "One reconciled record per person with a scored match across every source"
+    },
+    {
+      "leak": "Contributions refunded or disclosed late because the donor was entered twice",
+      "how_measured": "Discovered at filing time while reconciling the ledger against the card platform",
+      "what_closes_it": "Per-person totals against the limit, checked at the moment the gift lands"
+    },
+    {
+      "leak": "Volunteer hours spent re-keying and cleaning spreadsheets",
+      "how_measured": "Not measured; absorbed into late nights before a cut",
+      "what_closes_it": "Sources parsed into one shape on load, with fixes applied once and remembered"
+    },
+    {
+      "leak": "Callers ringing people who already voted",
+      "how_measured": "Anecdotes from the phone bank at 6pm",
+      "what_closes_it": "Strike lists keyed in through the day and the call list refreshed from one set"
+    },
+    {
+      "leak": "Budget set off the largest list rather than the real distinct count",
+      "how_measured": "Never known; three lists, three numbers, no overlap figure",
+      "what_closes_it": "A distinct supporter count with its overlap and confidence band printed beside it"
+    }
+  ],
+  "stats": [
+    {
+      "claim": "Even the national register kept by Elections Canada holds only 88 percent of eligible electors at their current address, so any supporter file older than a cycle is carrying stale addresses",
+      "figure": "88.0%",
+      "source_org": "Elections Canada",
+      "source_title": "National Register of Electors - Updates: November 2025 Annual Lists of Electors",
+      "year": "2025",
+      "url": "https://www.elections.ca/content.aspx?section=pol&document=index&dir=ann%2Fupd&lang=e",
+      "caveat": "Currency figure for the November 2025 annual lists; coverage on the same page is 96.1 percent of 29.3 million eligible electors. A federal register, not a campaign's own file."
+    },
+    {
+      "claim": "Elections Canada estimates about 1.5 percent of active register records are overcoverage: duplicates, deceased electors and non-citizens, on a file of 27.4 million records",
+      "figure": "1.5%",
+      "source_org": "Elections Canada",
+      "source_title": "Evaluating the Quality of the National Register of Electors - Data Quality Confirmation Study",
+      "year": "2023",
+      "url": "https://www.elections.ca/content.aspx?section=pol&dir=ann%2Fdqcs&document=index&lang=e",
+      "caveat": "Estimate from a record-linkage study of the 2021 register extract with Statistics Canada. A professionally maintained register; campaign files built from many tools typically carry far more duplication."
+    },
+    {
+      "claim": "Vancouver's 2022 general local election recorded 171,494 ballots from 472,665 registered voters, a turnout of 36.3 percent, which is why finding and moving your own supporters is the whole of voting day",
+      "figure": "36.3%",
+      "source_org": "City of Vancouver",
+      "source_title": "Official 2022 Vancouver election results",
+      "year": "2022",
+      "url": "https://vancouver.ca/news-calendar/official-2022-vancouver-election-results.aspx",
+      "caveat": "One municipality, one election. Turnout varies by year and jurisdiction."
+    },
+    {
+      "claim": "Elections BC reviewed and audited more than 3,400 campaign financing disclosure statements after the 2022 general local elections and issued monetary penalties for non-compliance",
+      "figure": "3,400+",
+      "source_org": "Elections BC",
+      "source_title": "2022 General Local Elections Report Available",
+      "year": "2024",
+      "url": "https://elections.bc.ca/news/2022-general-local-elections-report-available/",
+      "caveat": "News release accompanying the report on the October 15, 2022 elections. Covers all BC local jurisdictions, not Vancouver alone."
+    }
+  ],
+  "rules": [
+    {
+      "regime": "Local Elections Campaign Financing Act (LECFA), administered by Elections BC",
+      "demands": "Elector organisations register, run all money through the person responsible under the Act, accept contributions only from BC residents who are citizens or permanent residents, stay under the annual per-person limit ($1,429.70 in 2026), refuse anonymous gifts over $50, put sponsorship information on all election advertising, file a disclosure statement within 90 days of voting day, file annual financial reports by March 31, and keep records for five years.",
+      "how_we_comply": "Every contribution is matched to one reconciled donor record and totalled against the limit as it lands. Ineligible or over-limit gifts are flagged for the finance lead. The disclosure statement is assembled as a draft with each line traceable to its source, and a person reviews, signs and files it. Records and their sources are retained for the full statutory period."
+    },
+    {
+      "regime": "Vancouver Charter, Part I (elections in the City of Vancouver)",
+      "demands": "Vancouver runs its elections under its own Charter rather than the Local Government Act. The City's Chief Election Officer administers registration, the list of electors and the declaration of results, and reports candidates who fail to file disclosure statements to an open meeting of Council. The list of electors is provided for election purposes only.",
+      "how_we_comply": "The list of electors is loaded into a separate store with its own access log, used only for matching registered status and voting division, and never copied into the supporter database or used for fundraising. It is deleted at the end of the period the campaign is permitted to hold it, and the deletion is recorded."
+    },
+    {
+      "regime": "Personal Information Protection Act (BC PIPA)",
+      "demands": "PIPA applies to political parties in BC, including federal parties operating in the province, as the Information and Privacy Commissioner ordered in 2022 and the BC Supreme Court upheld in 2024. It requires consent for collection, use and disclosure, limits collection to what a reasonable person would consider appropriate, gives people a right to see and correct their information, and requires retention periods. The Commissioner's 2019 Full Disclosure report found parties collecting too much about voters without consent.",
+      "how_we_comply": "Every field records where it came from and the consent that covers it. We do not collect or infer ethnicity, religion, income or other sensitive characteristics. Access requests can be answered from one reconciled record. Retention periods are set per source and enforced, and disclosure to platforms for profiling does not happen."
+    },
+    {
+      "regime": "Personal Information Protection and Electronic Documents Act (PIPEDA)",
+      "demands": "PIPEDA does not directly govern political parties, but it does govern the commercial vendors that hold campaign data: the CRM, email, payment and hosting providers. It requires those organisations to protect the information, limit its use to the purpose collected, and report breaches.",
+      "how_we_comply": "Vendor contracts are reviewed for where data is stored and who can see it. Our own store is hosted in Canada. Access is per person and logged, exports are recorded, and the campaign owns the code and the data outright so nothing depends on a vendor's retention policy."
+    },
+    {
+      "regime": "Canada's Anti-Spam Legislation (CASL), enforced by the CRTC",
+      "demands": "Messages from a party or candidate whose primary purpose is to solicit a financial or non-monetary contribution are excluded from CASL. Any other commercial electronic message, and any message that promotes a product, service or person, needs consent, sender identification and a working unsubscribe. Penalties run to $10 million per violation for an organisation.",
+      "how_we_comply": "The consent ledger records the basis for contacting each person, and every send list is filtered through it. Unsubscribes from every channel are honoured within the hour. Because the exclusion turns on the primary purpose of a message, the communications lead classifies each send before it goes and the classification is stored with it."
+    },
+    {
+      "regime": "CRTC Unsolicited Telecommunications Rules for political entities",
+      "demands": "Parties and candidates are exempt from the National Do Not Call List but must keep an internal do-not-call list, process requests immediately, keep numbers on it for three years and identify themselves and the purpose of the call. Recorded-message calls may not solicit donations without express consent, and may only run 9am to 9:30pm on weekdays and 10am to 6pm on weekends.",
+      "how_we_comply": "Do-not-call requests from the phone tool flow into the ledger the same day and cannot be overridden. Dial lists are filtered against it before release. Call scripts and identification lines are stored with each list, and recorded-message campaigns are scheduled by a person inside the permitted hours."
+    }
+  ],
+  "wont_automate": [
+    "We will not let software merge two records on its own below the agreed confidence threshold. A wrong merge turns two supporters into one and a real person into a stranger, so every uncertain match waits for a named reviewer.",
+    "We will not let software send a message to anyone whose consent status is unknown or who has asked to be left alone, and we will not build an override for it, not even for the campaign manager on voting day.",
+    "We will not score or profile voters on ethnicity, religion, income or other sensitive characteristics. BC's regulator found parties collecting this without consent, and it is not needed to run a clean list."
+  ],
+  "objections": [
+    {
+      "objection": "We already have NationBuilder. Why do we need anything else?",
+      "answer": "Keep it. The problem is not the tool, it is that the canvass app, the payment page and three old spreadsheets never agreed with it. We read all of them into one shape, match the records, score each match and write the result back into the system you already use. You keep your workflow and get one supporter per person."
+    },
+    {
+      "objection": "A campaign is eight weeks. There is no time to set this up.",
+      "answer": "The parsing and matching are built against your actual files, and the first reconciled set usually exists before a walk list would have been cut anyway. Elector organisations run between elections too: annual filings, donor renewals, membership. The set is more useful the earlier it starts, and it carries into the next cycle."
+    },
+    {
+      "objection": "Our data is a mess. It will not work on ours.",
+      "answer": "Messy is the normal case and the reason confidence scoring exists. Clean pairs link on their own, uncertain pairs go to a queue with the evidence side by side, and hopeless records stay apart and are listed. You see exactly how much of the file is trustworthy rather than being told it is fine."
+    },
+    {
+      "objection": "The privacy rules for parties are unclear. This feels risky.",
+      "answer": "They are clearer than they were: BC's Commissioner and the BC Supreme Court have both said PIPA applies to parties in the province. A reconciled set with a source and a consent basis on every field is the least risky way to hold supporter data, because you can answer an access request or a regulator from one record."
+    },
+    {
+      "objection": "Volunteers will not use another system.",
+      "answer": "They do not have to. Volunteers keep using the canvass app and the phone tool they know. The reconciliation runs underneath, on exports and connections, and the only new screen is the review queue for uncertain matches, which one or two data volunteers work through in short sessions."
+    }
+  ],
+  "faq": [
+    {
+      "q": "What does a confidence score actually mean on a match?",
+      "a": "It is a number that says how strongly two records point to the same person, based on how many fields agree and how reliable each field is. An exact email match scores high. A shared surname and street with different units scores low. You set the thresholds: above one line records link on their own, between the lines a person reviews, below the other they stay apart."
+    },
+    {
+      "q": "Can you use the voters list to clean our supporter file?",
+      "a": "We can match against it to confirm who is registered and which voting division they are in, which is what it is provided for. We do not copy it into the supporter database, use it for fundraising, or keep it past the period you are allowed to hold it. It sits in its own store with an access log so you can show exactly how it was used."
+    },
+    {
+      "q": "Which political messages are covered by CASL?",
+      "a": "Messages from a party or candidate whose primary purpose is asking for a contribution are excluded. Almost everything else sent to an email address or by text, including messages promoting a candidate, needs consent, sender identification and an unsubscribe. The CRTC publishes this and we build to it: the communications lead classifies each send and the consent ledger filters the list."
+    },
+    {
+      "q": "What happens when a donor gives twice under two spellings?",
+      "a": "The matching links the two records, and the per-person total is recalculated against the annual limit for that year. If the combined total is over, or the donor turns out to be outside BC, the finance lead gets a flag with both records and the evidence for the link. The refund or the receipt is their decision; software only makes sure the question is asked before filing."
+    },
+    {
+      "q": "Who owns the reconciled data and the code afterwards?",
+      "a": "You do. The reconciled set, the match decisions, the consent ledger and the code are yours, written into the agreement before anything is built. That matters for a campaign more than most, because the organisation outlives any one cycle and the next team should inherit a clean set rather than start from exports again."
+    }
+  ],
+  "what_we_built": [
+    {
+      "title": "ABC, Vancouver: records parsed and reconciled",
+      "body": "ABC is a municipal political party in Vancouver, and the engagement is live. The organisation grew in stages, so the same person could exist three times across different tools with a different spelling and a stale address on each. We read every source into a common shape, match the records across them, resolve the duplicates and near-duplicates, and attach a confidence score to every match so a weak join stays visible instead of being quietly trusted."
+    },
+    {
+      "title": "ABC, Vancouver: campaigns planned off one set",
+      "body": "Their targeted marketing campaigns are planned against the reconciled set rather than several disagreeing lists. That is the point of the reconciliation work: outreach built on unreconciled records spends its budget arguing with the data instead of reaching people. We claim no electoral or polling outcome, take no position on the party or its policies, and nothing here should be read as the party endorsing us."
+    }
+  ],
+  "learned": [
+    "Campaign data is never one file. It is whatever tool each part of the operation adopted in the year it started, and the reconciliation is most of the value.",
+    "A confidence score matters more than a merge. A weak join that is visible can be checked; a weak join that was trusted quietly turns into wrong mail and wrong totals.",
+    "Near-duplicates are the hard part. Exact duplicates are easy; the same person with a middle initial, a new flat and a new surname is where the review queue earns its place.",
+    "Consent has to travel with the record. If the source form and the date are not stored beside the email address, the campaign cannot prove why it is allowed to send.",
+    "The voters list must stay separate from the supporter file. Matching against it is fine and useful; folding it in is the mistake that cannot be undone."
+  ],
+  "meta_title": "Campaign data reconciliation | Exodus Consulting",
+  "meta_description": "Supporter records parsed, matched and confidence scored, with outreach and Elections BC reporting run off one reconciled set. Built in Vancouver for campaigns."
+}

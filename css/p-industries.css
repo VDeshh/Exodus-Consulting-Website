@@ -1,0 +1,31 @@
+/* ==========================================================================
+   PAGE CSS: industries.html and industries-*.html
+   Loaded AFTER css/exodus.css and css/ia.css. Existing tokens only.
+   ========================================================================== */
+
+/* Most stat figures on this site are short ("95%", "44%"). The industry pages
+   quote published figures that carry their own words ("8.0 standard drinks a
+   week", "over 6,400 complaints a week"), and at the full display size those
+   wrap to four lines and stop reading as a number. Two step-downs, applied by
+   the generator from the length of the figure. */
+.p-ind__stat--md .ex-stat__num { font-size: clamp(1.75rem, 2vw + 1.1rem, 2.375rem); }
+.p-ind__stat--sm .ex-stat__num { font-size: clamp(1.375rem, 1.2vw + 1rem, 1.75rem); }
+
+/* The claim sits directly under the figure and the caveat sits under the
+   source, so the caveat needs to read as a footnote rather than a second
+   claim of equal weight. */
+.p-ind__caveat {
+  margin-top: var(--space-2xs);
+  color: var(--ink-3);
+  font-size: var(--t-xs);
+  line-height: 1.5;
+}
+.ex-stat--onink .p-ind__caveat { color: var(--ink-3); }
+
+/* The leaks and rules tables carry three columns of sentences. Give the first
+   column room to act as a row header without squeezing the other two. */
+.p-ind__table th[scope="row"] { width: 26%; }
+
+@media (max-width: 720px) {
+  .p-ind__table th[scope="row"] { width: auto; }
+}

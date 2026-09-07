@@ -1,0 +1,800 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Campaign data reconciliation | Exodus Consulting</title>
+  <meta name="description" content="Supporter records parsed, matched and confidence scored, with outreach and Elections BC reporting run off one reconciled set. Built in Vancouver for campaigns.">
+  <meta name="theme-color" content="#FAF9F7">
+  <link rel="icon" href="assets/exodus-logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Exodus Consulting">
+  <meta property="og:title" content="Campaign data reconciliation | Exodus Consulting">
+  <meta property="og:description" content="Supporter records parsed, matched and confidence scored, with outreach and Elections BC reporting run off one reconciled set. Built in Vancouver for campaigns.">
+  <meta property="og:image" content="assets/exodus-logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/exodus.css?v=12">
+  <link rel="stylesheet" href="css/ia.css?v=12">
+  <link rel="stylesheet" href="css/p-industries.css?v=12">
+  <script src="js/exodus.js?v=12" defer></script>
+</head>
+<body>
+
+<a class="ex-skip" href="#main">Skip to content</a>
+
+<header class="ex-header">
+  <div class="ex-header__inner">
+    <a class="ex-brand" href="index.html">
+      <img src="assets/exodus-logo.png" alt="Exodus Consulting" width="34" height="17">
+      <span class="ex-brand__name">Exodus Consulting</span>
+    </a>
+
+    <nav class="ex-nav" aria-label="Primary">
+      <a class="ex-nav__link" href="index.html">Home</a>
+      <a class="ex-nav__link" href="services.html">What we build</a>
+      <a class="ex-nav__link" href="work.html">Our work</a>
+      <a class="ex-nav__link is-current" aria-current="page" href="industries.html">Industries</a>
+      <a class="ex-nav__link" href="guarantee.html">How we charge</a>
+      <a class="ex-nav__link" href="about.html">About</a>
+      <a class="ex-btn ex-btn--primary ex-btn--sm" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+    </nav>
+
+    <button class="ex-burger" type="button" data-nav-toggle aria-expanded="false" aria-controls="ex-mobile-menu">
+      <span class="ex-burger__bars" aria-hidden="true"></span>
+      <span>Menu</span>
+    </button>
+  </div>
+
+  <div class="ex-mobile-menu" id="ex-mobile-menu">
+    <ul class="ex-mobile-menu__list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">What we build</a></li>
+      <li>
+        <a href="work.html">Our work</a>
+        <ul class="ia-submenu">
+          <li><a href="work-uniserve.html">Uniserve Communications</a></li>
+          <li><a href="work-fennec.html">Fennec</a></li>
+          <li><a href="work-palapa-tours.html">Palapa Tours Ottawa</a></li>
+          <li><a href="work-scoped.html">Current engagements</a></li>
+          <li><a href="fennec-events-floor.html">Fennec: events and floor ops</a></li>
+          <li><a href="fennec-ticketing-guests.html">Fennec: ticketing and guests</a></li>
+          <li><a href="fennec-pos-payments.html">Fennec: POS and payments</a></li>
+          <li><a href="fennec-inventory-staff.html">Fennec: inventory and staff</a></li>
+          <li><a href="fennec-media-intelligence.html">Fennec: media and intelligence</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="industries.html">Industries</a>
+        <ul class="ia-submenu">
+          <li><a href="industries.html">All industries</a></li>
+          <li><a href="industries-nightlife-hospitality.html">Nightlife and hospitality</a></li>
+          <li><a href="industries-restaurants-bars.html">Restaurants and bars</a></li>
+          <li><a href="industries-event-venues-ticketing.html">Event venues and ticketing</a></li>
+          <li><a href="industries-telecom-isps.html">Telecom and internet providers</a></li>
+          <li><a href="industries-political-campaigns.html">Political parties and campaign organisations</a></li>
+          <li><a href="industries-tours-experiences.html">Tour and experience operators</a></li>
+        </ul>
+      </li>
+      <li><a href="guarantee.html">How we charge</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a class="ex-btn ex-btn--primary ex-btn--block" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <nav class="ia-crumbs" aria-label="Breadcrumb">
+    <div class="ex-container">
+      <ol class="ia-crumbs__list">
+        <li class="ia-crumbs__item"><a class="ia-crumbs__link" href="index.html">Home</a></li>
+        <li class="ia-crumbs__item"><a class="ia-crumbs__link" href="industries.html">Industries</a></li>
+        <li class="ia-crumbs__item"><span aria-current="page">Political parties and campaign organisations</span></li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- ===================== 1. HERO ===================== -->
+  <section class="ex-hero">
+    <div class="ex-container">
+      <div class="ex-hero__inner">
+        <div>
+          <p class="ex-eyebrow ex-eyebrow--violet">Industries / Political parties and campaign organisations</p>
+          <h1 class="ex-hero__title">A campaign runs on lists, and the lists disagree.</h1>
+          <p class="ex-hero__lead">Supporter records arrive from sign-up forms, door knocks, donation pages, phone banks and the voters list, each in its own shape. We read every source into one, match the records, resolve the duplicates and score each match so the campaign knows what it can rely on. Outreach and reporting then run off one reconciled set instead of five arguing spreadsheets.</p>
+          <div class="ex-hero__actions">
+            <a class="ex-btn ex-btn--primary" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+            <a class="ex-btn ex-btn--secondary" href="industries.html">All industries</a>
+          </div>
+        </div>
+
+        <div class="ex-hero__meta">
+          <p class="ex-eyebrow">Who this is for</p>
+          <aside class="ex-rail" aria-label="Segments within Political parties and campaign organisations">
+            <div class="ex-rail__item"><span class="ex-rail__v">Municipal parties and elector organisations</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__v">Provincial and federal riding associations</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__v">Mayoral, council, school board and park board campaigns</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__v">Leadership and nomination campaigns</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__v">Issue campaigns, referendum campaigns and third party sponsors</span></div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 2. HOW IT ACTUALLY RUNS ===================== -->
+  <section class="ex-band">
+    <div class="ex-container">
+      <p class="ex-eyebrow ex-eyebrow--onink">How it actually runs</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">Before anything is built, this is the week we are describing.</h2>
+        <p class="ex-shead__sub">No software can be scoped from a category name. These are the specifics of political parties and campaign organisations that decide what is worth building and what is not.</p>
+      </header>
+
+      <ol class="ex-timeline">
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">01</span>
+          <div>
+            <h3 class="ex-timeline__title">The same supporter exists three times.</h3>
+            <p class="ex-timeline__body">A person signs a petition on the website, gives twenty dollars on a donation page and answers a door knock two months later. Each tool stores its own record: one with a middle initial, one with an old apartment number, one with a phone number typed as text. Nobody merges them, so the campaign counts three supporters, mails three envelopes and never knows the person already gave.</p>
+          </div>
+        </li>
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">02</span>
+          <div>
+            <h3 class="ex-timeline__title">Volunteers type fast and go home.</h3>
+            <p class="ex-timeline__body">Canvass sheets, phone notes and sign-up cards get keyed in by whoever is free at nine at night. Street names are abbreviated three ways, postal codes are guessed, and a lean is marked as a 3 by one volunteer and a Y by another. The field director trusts the totals because there is nothing else to trust, and the errors compound quietly until a list is cut from them.</p>
+          </div>
+        </li>
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">03</span>
+          <div>
+            <h3 class="ex-timeline__title">Money has rules, and the rules have a clock.</h3>
+            <p class="ex-timeline__body">In BC an individual may give $1,429.70 per candidate or elector organisation in 2026, contributors must be BC residents and citizens or permanent residents, and the disclosure statement is due 90 days after voting day. Contributions arrive through a card page, e-transfers and cheques at events, so someone reconciles them by hand, checks the limit per person and hopes the same donor was not entered under two spellings.</p>
+          </div>
+        </li>
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">04</span>
+          <div>
+            <h3 class="ex-timeline__title">The voters list comes with conditions.</h3>
+            <p class="ex-timeline__body">Candidates and elector organisations receive a list of electors for election purposes and nothing else. It cannot be folded into a fundraising database or sold on, and it goes stale the moment people move. Matching a supporter file against it to find who is registered and where they vote is real work, and it has to be done in a way that keeps the list separate and traceable when the regulator asks.</p>
+          </div>
+        </li>
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">05</span>
+          <div>
+            <h3 class="ex-timeline__title">Voting day is a phone tree.</h3>
+            <p class="ex-timeline__body">Vancouver&#x27;s 2022 election drew 36.3 percent of registered voters, so the whole day is spent finding your own supporters and getting them to a voting place. Strike lists come in from scrutineers on paper, callers work from a morning export, and the same household gets called twice while another gets missed. Every hour the list is behind, volunteers ring people who have already voted.</p>
+          </div>
+        </li>
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">06</span>
+          <div>
+            <h3 class="ex-timeline__title">Nobody has a clean count of supporters.</h3>
+            <p class="ex-timeline__body">Ask a campaign manager how many distinct people back the party and the answer is a range: the email list says one number, the donor file another, the canvass app a third. Those figures overlap and nobody knows by how much. Budgets for mail, calls and doors get set off the largest number, and the campaign pays to reach the same people again and again.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================== 3. WHERE IT LEAKS ===================== -->
+  <section class="ex-section">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Where it leaks</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">Every one of these is measurable. Most are not measured.</h2>
+        <p class="ex-shead__sub">The free audit prices these in your own numbers before anything is scoped. You keep the map whether or not you hire us.</p>
+      </header>
+
+      <div class="ex-table-wrap">
+        <table class="ex-table p-ind__table">
+          <caption>Where the money and the hours go in political parties and campaign organisations, how it is measured today, and what closes it.</caption>
+          <thead>
+            <tr>
+              <th scope="col">The leak</th>
+              <th scope="col">How it is measured today</th>
+              <th scope="col">What closes it</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Duplicate mail, calls and emails to one person</th>
+              <td>Rarely measured; noticed when a donor complains about three envelopes</td>
+              <td>One reconciled record per person with a scored match across every source</td>
+            </tr>
+            <tr>
+              <th scope="row">Contributions refunded or disclosed late because the donor was entered twice</th>
+              <td>Discovered at filing time while reconciling the ledger against the card platform</td>
+              <td>Per-person totals against the limit, checked at the moment the gift lands</td>
+            </tr>
+            <tr>
+              <th scope="row">Volunteer hours spent re-keying and cleaning spreadsheets</th>
+              <td>Not measured; absorbed into late nights before a cut</td>
+              <td>Sources parsed into one shape on load, with fixes applied once and remembered</td>
+            </tr>
+            <tr>
+              <th scope="row">Callers ringing people who already voted</th>
+              <td>Anecdotes from the phone bank at 6pm</td>
+              <td>Strike lists keyed in through the day and the call list refreshed from one set</td>
+            </tr>
+            <tr>
+              <th scope="row">Budget set off the largest list rather than the real distinct count</th>
+              <td>Never known; three lists, three numbers, no overlap figure</td>
+              <td>A distinct supporter count with its overlap and confidence band printed beside it</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 4. WHAT WE BUILD ===================== -->
+  <section class="ex-section ex-section--paper-2">
+    <div class="ex-container">
+      <p class="ex-eyebrow">What we build</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">8 builds that pay for themselves here.</h2>
+        <p class="ex-shead__sub">Each one states what it reads, what it does, and what a person still approves. Scope is agreed after the audit, one build at a time, against a baseline you sign.</p>
+      </header>
+
+      <div class="ex-grid">
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Every source read into one shape</h3>
+          </div>
+          <p class="ex-card__body">Reads exports from the CRM, canvass app, email tool, payment platforms and old spreadsheets. Splits names into parts, standardises addresses to Canada Post format, normalises phone numbers and lean codes, and stamps every field with the source it came from and the date it was captured. The campaign&#x27;s data lead approves the field mapping for each new source before it is loaded.</p>
+          <p class="ex-card__foot">Measured by: Number of source files loaded without a manual fix</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Records matched and every join scored</h3>
+          </div>
+          <p class="ex-card__body">Compares records across sources on name, address, email, phone and date of birth where held, and assigns each candidate match a confidence score. High scores link on their own and are logged. Middling scores go to a review queue. Low scores stay apart. A person sets the thresholds and can move them, and every link records who or what made it.</p>
+          <p class="ex-card__foot">Measured by: Duplicate rate remaining in the master file after each load</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">A review queue for the near-misses</h3>
+          </div>
+          <p class="ex-card__body">Presents uncertain pairs side by side: same surname and street but different unit, same email and a changed surname, two donors with one phone number. The reviewer confirms, rejects or asks for more information, and the decision is stored so the same pair never comes back. Confirmed decisions feed the thresholds, but no merge happens without the click.</p>
+          <p class="ex-card__foot">Measured by: Pairs reviewed per volunteer hour</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">A consent and contact-preference ledger</h3>
+          </div>
+          <p class="ex-card__body">Holds, per person, what they consented to, from which form, on which date, and every unsubscribe, do-not-call or do-not-knock request from any channel. Unsubscribes from the email tool and do-not-call flags from the phone tool land here within the hour. Any list cut for outreach is filtered through the ledger. Nobody can override a stop request, including the campaign manager.</p>
+          <p class="ex-card__foot">Measured by: Messages sent to people with a stop request on file: target zero</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Contribution limits checked before the receipt</h3>
+          </div>
+          <p class="ex-card__body">Reads every contribution from the payment platforms, the bank notices and the ledger, matches the donor to one reconciled record, and totals gifts per person against the annual limit for the year. Flags anything over the limit, any anonymous gift over $50, and any donor whose address is outside BC. The finance lead decides on refunds and issues the receipt; software only raises the flag.</p>
+          <p class="ex-card__foot">Measured by: Over-limit or ineligible contributions caught before receipting</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Walk and call lists cut from one set</h3>
+          </div>
+          <p class="ex-card__body">Takes the reconciled supporter file, applies the consent ledger, and cuts turf by street and voting division so a household appears on one sheet only. Voting-day strike lists from scrutineers are keyed in and the call list refreshes so callers stop ringing people who have voted. The field director reviews and releases each cut; nothing is pushed to volunteers unreviewed.</p>
+          <p class="ex-card__foot">Measured by: Duplicate contacts per household on voting day</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Reports where every number cites its source</h3>
+          </div>
+          <p class="ex-card__body">Assembles the weekly numbers the campaign manager asks for: distinct supporters, new sign-ups, contributions to date against budget, doors knocked and calls completed, all from the reconciled store. Each figure carries the source file, load date and confidence band it was built from, so a disputed number can be traced back in one click rather than argued about in a meeting.</p>
+          <p class="ex-card__foot">Measured by: Hours spent rebuilding the weekly numbers by hand</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Segments for targeted outreach from first-party data</h3>
+          </div>
+          <p class="ex-card__body">Builds audiences from what the campaign itself holds and has consent for: donors who gave once and not again, sign-ups who never answered a door, volunteers who worked last election, households in a division with a low return rate. Segments are named and documented, drawn only from consented fields, and every send list is signed off by the communications lead before it leaves the building.</p>
+          <p class="ex-card__foot">Measured by: Response rate per segment versus the untargeted list</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 5. THE NUMBERS ===================== -->
+  <section class="ex-band">
+    <div class="ex-container">
+      <p class="ex-eyebrow ex-eyebrow--onink">The numbers</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">Borrowed statistics, with their sources and their limits printed.</h2>
+        <p class="ex-shead__sub">None of these are our results. They are the published state of political parties and campaign organisations, linked so you can check them, with the caveat attached where the number is a survey, a forecast or a vendor's own figure.</p>
+      </header>
+
+      <div class="ex-stats">
+            <div class="ex-stat ex-stat--onink">
+              <span class="ex-stat__num">88.0%</span>
+              <p class="ex-stat__label">Even the national register kept by Elections Canada holds only 88 percent of eligible electors at their current address, so any supporter file older than a cycle is carrying stale addresses</p>
+              <cite class="ex-stat__source"><a class="ex-link ex-link--mono" href="https://www.elections.ca/content.aspx?section=pol&amp;document=index&amp;dir=ann%2Fupd&amp;lang=e" target="_blank" rel="noopener">Elections Canada, 2025</a></cite>
+              <p class="p-ind__caveat">Currency figure for the November 2025 annual lists; coverage on the same page is 96.1 percent of 29.3 million eligible electors. A federal register, not a campaign&#x27;s own file.</p>
+            </div>
+            <div class="ex-stat ex-stat--onink">
+              <span class="ex-stat__num">1.5%</span>
+              <p class="ex-stat__label">Elections Canada estimates about 1.5 percent of active register records are overcoverage: duplicates, deceased electors and non-citizens, on a file of 27.4 million records</p>
+              <cite class="ex-stat__source"><a class="ex-link ex-link--mono" href="https://www.elections.ca/content.aspx?section=pol&amp;dir=ann%2Fdqcs&amp;document=index&amp;lang=e" target="_blank" rel="noopener">Elections Canada, 2023</a></cite>
+              <p class="p-ind__caveat">Estimate from a record-linkage study of the 2021 register extract with Statistics Canada. A professionally maintained register; campaign files built from many tools typically carry far more duplication.</p>
+            </div>
+            <div class="ex-stat ex-stat--onink">
+              <span class="ex-stat__num">36.3%</span>
+              <p class="ex-stat__label">Vancouver&#x27;s 2022 general local election recorded 171,494 ballots from 472,665 registered voters, a turnout of 36.3 percent, which is why finding and moving your own supporters is the whole of voting day</p>
+              <cite class="ex-stat__source"><a class="ex-link ex-link--mono" href="https://vancouver.ca/news-calendar/official-2022-vancouver-election-results.aspx" target="_blank" rel="noopener">City of Vancouver, 2022</a></cite>
+              <p class="p-ind__caveat">One municipality, one election. Turnout varies by year and jurisdiction.</p>
+            </div>
+            <div class="ex-stat ex-stat--onink">
+              <span class="ex-stat__num">3,400+</span>
+              <p class="ex-stat__label">Elections BC reviewed and audited more than 3,400 campaign financing disclosure statements after the 2022 general local elections and issued monetary penalties for non-compliance</p>
+              <cite class="ex-stat__source"><a class="ex-link ex-link--mono" href="https://elections.bc.ca/news/2022-general-local-elections-report-available/" target="_blank" rel="noopener">Elections BC, 2024</a></cite>
+              <p class="p-ind__caveat">News release accompanying the report on the October 15, 2022 elections. Covers all BC local jurisdictions, not Vancouver alone.</p>
+            </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 6. WHERE THE DATA COMES FROM ===================== -->
+  <section class="ex-section">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Where the data comes from</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">Your systems of record stay exactly where they are.</h2>
+        <p class="ex-shead__sub">We read them, we do not replace them. Each one below says what we connect to, how, and the line the build does not cross.</p>
+      </header>
+
+      <div class="ex-grid">
+        <article class="ex-card ex-card--inset">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Supporter database and CRM</h3>
+          </div>
+          <p class="ex-card__body"><strong>Usually:</strong> NationBuilder, Salesforce Nonprofit Cloud, HubSpot, Google Sheets and Excel exports from earlier campaigns</p>
+          <p class="ex-card__body"><strong>What it holds.</strong> Supporter profiles, tags, email and phone consent flags, donation history, volunteer status, event RSVPs, website sign-ups</p>
+          <p class="ex-card__body"><strong>How we connect.</strong> API where the vendor offers one, otherwise a scheduled CSV export read into our own store. We read profiles, tags and consent fields and write back a match key and a confidence score to a custom field.</p>
+          <p class="ex-card__foot"><strong>Where it stops.</strong> We never merge or delete records inside the vendor system on our own. Merges below the agreed confidence threshold sit in a queue until a named person approves them.</p>
+        </article>
+        <article class="ex-card ex-card--inset">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Field and phone tools</h3>
+          </div>
+          <p class="ex-card__body"><strong>Usually:</strong> Ecanvasser, CallHub, Knockbase, MiniVAN style canvass apps, plus paper walk sheets scanned at the end of the night</p>
+          <p class="ex-card__body"><strong>What it holds.</strong> Turf assignments, door results, lean codes, call outcomes, do-not-call requests, volunteer shift logs</p>
+          <p class="ex-card__body"><strong>How we connect.</strong> Nightly export or webhook on each completed canvass or call session. We normalise lean codes and outcomes into one vocabulary and attach them to the reconciled supporter record.</p>
+          <p class="ex-card__foot"><strong>Where it stops.</strong> We do not push new walk lists or dial lists into the field tool without the field director signing off on the cut. Do-not-call requests flow one way: into the ledger, immediately, with no override.</p>
+        </article>
+        <article class="ex-card ex-card--inset">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Email, donations and payments</h3>
+          </div>
+          <p class="ex-card__body"><strong>Usually:</strong> Mailchimp, Constant Contact, NationBuilder email, Stripe, Square, PayPal, e-transfer notices from the bank</p>
+          <p class="ex-card__body"><strong>What it holds.</strong> Send history, opens and unsubscribes, donation amounts and dates, card receipts, recurring gifts, refunds</p>
+          <p class="ex-card__body"><strong>How we connect.</strong> Read-only API access to the email and payment platforms, plus a mailbox rule that files e-transfer notices for parsing. Unsubscribes and bounces are read every hour and written to the consent ledger.</p>
+          <p class="ex-card__foot"><strong>Where it stops.</strong> We never send a message or move money. Sends are scheduled by a person after the audience is reviewed. Refunds of over-limit contributions are raised as a task for the finance lead, not processed by software.</p>
+        </article>
+        <article class="ex-card ex-card--inset">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Finance, filing and electoral lists</h3>
+          </div>
+          <p class="ex-card__body"><strong>Usually:</strong> QuickBooks Online, Xero, Elections BC&#x27;s electronic filing system for disclosure statements, the list of electors supplied for the election</p>
+          <p class="ex-card__body"><strong>What it holds.</strong> The general ledger, receipted contributions, campaign expenses, the disclosure statement itself, elector names and addresses</p>
+          <p class="ex-card__body"><strong>How we connect.</strong> Scheduled export from the accounting system so contributions in the ledger can be reconciled against the payment platforms. The electors list is loaded into a separate store with its own access log and matched against, never copied into, the supporter set.</p>
+          <p class="ex-card__foot"><strong>Where it stops.</strong> Nothing is filed with Elections BC or the City of Vancouver by software. The disclosure statement is prepared as a draft with every line traceable, and a person reviews, signs and files it.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 7. THE RULES ===================== -->
+  <section class="ex-section ex-section--paper-2">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Built around your rules</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">The regimes that govern this work, and how the build answers each one.</h2>
+        <p class="ex-shead__sub">Constraints come first, because they decide the architecture. Bring us your hosting, residency and regulatory rules at the start and we design to them rather than around them.</p>
+      </header>
+
+      <div class="ex-table-wrap">
+        <table class="ex-table p-ind__table">
+          <caption>Regulatory and professional obligations that shape a build in political parties and campaign organisations.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Regime</th>
+              <th scope="col">What it demands here</th>
+              <th scope="col">How the build complies</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Local Elections Campaign Financing Act (LECFA), administered by Elections BC</th>
+              <td>Elector organisations register, run all money through the person responsible under the Act, accept contributions only from BC residents who are citizens or permanent residents, stay under the annual per-person limit ($1,429.70 in 2026), refuse anonymous gifts over $50, put sponsorship information on all election advertising, file a disclosure statement within 90 days of voting day, file annual financial reports by March 31, and keep records for five years.</td>
+              <td>Every contribution is matched to one reconciled donor record and totalled against the limit as it lands. Ineligible or over-limit gifts are flagged for the finance lead. The disclosure statement is assembled as a draft with each line traceable to its source, and a person reviews, signs and files it. Records and their sources are retained for the full statutory period.</td>
+            </tr>
+            <tr>
+              <th scope="row">Vancouver Charter, Part I (elections in the City of Vancouver)</th>
+              <td>Vancouver runs its elections under its own Charter rather than the Local Government Act. The City&#x27;s Chief Election Officer administers registration, the list of electors and the declaration of results, and reports candidates who fail to file disclosure statements to an open meeting of Council. The list of electors is provided for election purposes only.</td>
+              <td>The list of electors is loaded into a separate store with its own access log, used only for matching registered status and voting division, and never copied into the supporter database or used for fundraising. It is deleted at the end of the period the campaign is permitted to hold it, and the deletion is recorded.</td>
+            </tr>
+            <tr>
+              <th scope="row">Personal Information Protection Act (BC PIPA)</th>
+              <td>PIPA applies to political parties in BC, including federal parties operating in the province, as the Information and Privacy Commissioner ordered in 2022 and the BC Supreme Court upheld in 2024. It requires consent for collection, use and disclosure, limits collection to what a reasonable person would consider appropriate, gives people a right to see and correct their information, and requires retention periods. The Commissioner&#x27;s 2019 Full Disclosure report found parties collecting too much about voters without consent.</td>
+              <td>Every field records where it came from and the consent that covers it. We do not collect or infer ethnicity, religion, income or other sensitive characteristics. Access requests can be answered from one reconciled record. Retention periods are set per source and enforced, and disclosure to platforms for profiling does not happen.</td>
+            </tr>
+            <tr>
+              <th scope="row">Personal Information Protection and Electronic Documents Act (PIPEDA)</th>
+              <td>PIPEDA does not directly govern political parties, but it does govern the commercial vendors that hold campaign data: the CRM, email, payment and hosting providers. It requires those organisations to protect the information, limit its use to the purpose collected, and report breaches.</td>
+              <td>Vendor contracts are reviewed for where data is stored and who can see it. Our own store is hosted in Canada. Access is per person and logged, exports are recorded, and the campaign owns the code and the data outright so nothing depends on a vendor&#x27;s retention policy.</td>
+            </tr>
+            <tr>
+              <th scope="row">Canada&#x27;s Anti-Spam Legislation (CASL), enforced by the CRTC</th>
+              <td>Messages from a party or candidate whose primary purpose is to solicit a financial or non-monetary contribution are excluded from CASL. Any other commercial electronic message, and any message that promotes a product, service or person, needs consent, sender identification and a working unsubscribe. Penalties run to $10 million per violation for an organisation.</td>
+              <td>The consent ledger records the basis for contacting each person, and every send list is filtered through it. Unsubscribes from every channel are honoured within the hour. Because the exclusion turns on the primary purpose of a message, the communications lead classifies each send before it goes and the classification is stored with it.</td>
+            </tr>
+            <tr>
+              <th scope="row">CRTC Unsolicited Telecommunications Rules for political entities</th>
+              <td>Parties and candidates are exempt from the National Do Not Call List but must keep an internal do-not-call list, process requests immediately, keep numbers on it for three years and identify themselves and the purpose of the call. Recorded-message calls may not solicit donations without express consent, and may only run 9am to 9:30pm on weekdays and 10am to 6pm on weekends.</td>
+              <td>Do-not-call requests from the phone tool flow into the ledger the same day and cannot be overridden. Dial lists are filtered against it before release. Call scripts and identification lines are stored with each list, and recorded-message campaigns are scheduled by a person inside the permitted hours.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <hr class="ex-rule ex-rule--spaced">
+
+      <div class="ex-split">
+        <div class="ex-stack">
+          <h3>Where we stop</h3>
+          <ul class="ex-measure">
+          <li>We will not let software merge two records on its own below the agreed confidence threshold. A wrong merge turns two supporters into one and a real person into a stranger, so every uncertain match waits for a named reviewer.</li>
+          <li>We will not let software send a message to anyone whose consent status is unknown or who has asked to be left alone, and we will not build an override for it, not even for the campaign manager on voting day.</li>
+          <li>We will not score or profile voters on ethnicity, religion, income or other sensitive characteristics. BC&#x27;s regulator found parties collecting this without consent, and it is not needed to run a clean list.</li>
+          </ul>
+        </div>
+        <div class="ex-stack">
+          <div class="ex-card ex-card--inset">
+            <div class="ex-card__head">
+              <h3 class="ex-card__title">A person stays in the loop</h3>
+            </div>
+            <p class="ex-card__body">Anything that spends money, sends something irreversible, or carries a legal obligation arrives as a draft with a named reviewer. The system prepares the work. A person decides whether it ships.</p>
+            <p class="ex-card__foot">You own the code and the data at the end of the engagement.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 8. OUR WORK HERE ===================== -->
+  <section class="ex-section">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Our work here</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">What we have built in this industry, at its real status.</h2>
+        <p class="ex-shead__sub">Live means running now. In build means under construction, with some phases delivered and some not. Shipped means delivered and closed. Where there is no number yet, we say so instead of borrowing one.</p>
+      </header>
+
+      <div class="ex-grid">
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">ABC, Vancouver: records parsed and reconciled</h3>
+          </div>
+          <p class="ex-card__body">ABC is a municipal political party in Vancouver, and the engagement is live. The organisation grew in stages, so the same person could exist three times across different tools with a different spelling and a stale address on each. We read every source into a common shape, match the records across them, resolve the duplicates and near-duplicates, and attach a confidence score to every match so a weak join stays visible instead of being quietly trusted.</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">ABC, Vancouver: campaigns planned off one set</h3>
+          </div>
+          <p class="ex-card__body">Their targeted marketing campaigns are planned against the reconciled set rather than several disagreeing lists. That is the point of the reconciliation work: outreach built on unreconciled records spends its budget arguing with the data instead of reaching people. We claim no electoral or polling outcome, take no position on the party or its policies, and nothing here should be read as the party endorsing us.</p>
+        </article>
+      </div>
+
+      <hr class="ex-rule ex-rule--spaced">
+
+      <h3>What the work taught us</h3>
+      <ol class="ex-index">
+        <li class="ex-index__row">
+          <span class="ex-index__num">01</span>
+          <div>
+            <p class="ex-index__note">Campaign data is never one file. It is whatever tool each part of the operation adopted in the year it started, and the reconciliation is most of the value.</p>
+          </div>
+        </li>
+        <li class="ex-index__row">
+          <span class="ex-index__num">02</span>
+          <div>
+            <p class="ex-index__note">A confidence score matters more than a merge. A weak join that is visible can be checked; a weak join that was trusted quietly turns into wrong mail and wrong totals.</p>
+          </div>
+        </li>
+        <li class="ex-index__row">
+          <span class="ex-index__num">03</span>
+          <div>
+            <p class="ex-index__note">Near-duplicates are the hard part. Exact duplicates are easy; the same person with a middle initial, a new flat and a new surname is where the review queue earns its place.</p>
+          </div>
+        </li>
+        <li class="ex-index__row">
+          <span class="ex-index__num">04</span>
+          <div>
+            <p class="ex-index__note">Consent has to travel with the record. If the source form and the date are not stored beside the email address, the campaign cannot prove why it is allowed to send.</p>
+          </div>
+        </li>
+        <li class="ex-index__row">
+          <span class="ex-index__num">05</span>
+          <div>
+            <p class="ex-index__note">The voters list must stay separate from the supporter file. Matching against it is fine and useful; folding it in is the mistake that cannot be undone.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================== 9. THE OBJECTIONS ===================== -->
+  <section class="ex-section ex-section--paper-2">
+    <div class="ex-container">
+      <p class="ex-eyebrow">The objections</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">The reasons an owner here says no, answered straight.</h2>
+      </header>
+
+      <div class="ex-faq">
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="obj-1">
+            <span>We already have NationBuilder. Why do we need anything else?</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="obj-1" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>Keep it. The problem is not the tool, it is that the canvass app, the payment page and three old spreadsheets never agreed with it. We read all of them into one shape, match the records, score each match and write the result back into the system you already use. You keep your workflow and get one supporter per person.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="obj-2">
+            <span>A campaign is eight weeks. There is no time to set this up.</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="obj-2" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>The parsing and matching are built against your actual files, and the first reconciled set usually exists before a walk list would have been cut anyway. Elector organisations run between elections too: annual filings, donor renewals, membership. The set is more useful the earlier it starts, and it carries into the next cycle.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="obj-3">
+            <span>Our data is a mess. It will not work on ours.</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="obj-3" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>Messy is the normal case and the reason confidence scoring exists. Clean pairs link on their own, uncertain pairs go to a queue with the evidence side by side, and hopeless records stay apart and are listed. You see exactly how much of the file is trustworthy rather than being told it is fine.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="obj-4">
+            <span>The privacy rules for parties are unclear. This feels risky.</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="obj-4" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>They are clearer than they were: BC&#x27;s Commissioner and the BC Supreme Court have both said PIPA applies to parties in the province. A reconciled set with a source and a consent basis on every field is the least risky way to hold supporter data, because you can answer an access request or a regulator from one record.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="obj-5">
+            <span>Volunteers will not use another system.</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="obj-5" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>They do not have to. Volunteers keep using the canvass app and the phone tool they know. The reconciliation runs underneath, on exports and connections, and the only new screen is the review queue for uncertain matches, which one or two data volunteers work through in short sessions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 10. FAQ ===================== -->
+  <section class="ex-section">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Questions</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">The questions we get asked in political parties and campaign organisations.</h2>
+      </header>
+
+      <div class="ex-faq">
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="faq-1">
+            <span>What does a confidence score actually mean on a match?</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="faq-1" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>It is a number that says how strongly two records point to the same person, based on how many fields agree and how reliable each field is. An exact email match scores high. A shared surname and street with different units scores low. You set the thresholds: above one line records link on their own, between the lines a person reviews, below the other they stay apart.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="faq-2">
+            <span>Can you use the voters list to clean our supporter file?</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="faq-2" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>We can match against it to confirm who is registered and which voting division they are in, which is what it is provided for. We do not copy it into the supporter database, use it for fundraising, or keep it past the period you are allowed to hold it. It sits in its own store with an access log so you can show exactly how it was used.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="faq-3">
+            <span>Which political messages are covered by CASL?</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="faq-3" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>Messages from a party or candidate whose primary purpose is asking for a contribution are excluded. Almost everything else sent to an email address or by text, including messages promoting a candidate, needs consent, sender identification and an unsubscribe. The CRTC publishes this and we build to it: the communications lead classifies each send and the consent ledger filters the list.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="faq-4">
+            <span>What happens when a donor gives twice under two spellings?</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="faq-4" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>The matching links the two records, and the per-person total is recalculated against the annual limit for that year. If the combined total is over, or the donor turns out to be outside BC, the finance lead gets a flag with both records and the evidence for the link. The refund or the receipt is their decision; software only makes sure the question is asked before filing.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="faq-5">
+            <span>Who owns the reconciled data and the code afterwards?</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="faq-5" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>You do. The reconciled set, the match decisions, the consent ledger and the code are yours, written into the agreement before anything is built. That matters for a campaign more than most, because the organisation outlives any one cycle and the next team should inherit a clean set rather than start from exports again.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ex-band">
+    <div class="ex-container">
+      <div class="ex-split ex-split--wide">
+        <div class="ex-stack">
+          <p class="ex-eyebrow ex-eyebrow--onink">What happens next</p>
+          <h2>Start with the audit, and know the number before you commit.</h2>
+          <p class="ex-measure">Three to five days. We map where the hours and the money go in your political parties and campaign organisations operation and hand you a ranked plan with the payback attached.</p>
+          <p class="ex-measure">We map where time and money leak, and show the arithmetic before you commit to anything. You keep the map whether or not you hire us. If we do build, we agree the baseline in writing first, the clock starts at deployment rather than signature, and you own the code.</p>
+          <div class="ex-hero__actions">
+            <a class="ex-btn ex-btn--primary" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+            <a class="ex-btn ex-btn--onink" href="guarantee.html">How we charge</a>
+          </div>
+        </div>
+        <div class="ex-stack">
+          <dl class="ex-dl ex-dl--onink">
+            <dt class="ex-dl__k">Who you talk to</dt>
+            <dd class="ex-dl__v">Shiv and Vishal. No account managers, no slide decks.</dd>
+            <dt class="ex-dl__k">Direct</dt>
+            <dd class="ex-dl__v"><a href="mailto:shiv@exdsconsulting.com">shiv@exdsconsulting.com</a></dd>
+            <dt class="ex-dl__k">Read next</dt>
+            <dd class="ex-dl__v"><a href="services.html">What we build</a>, then <a href="work.html">Our work</a>.</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RELATED ===================== -->
+  <section class="ex-section ex-section--tight ia-related" aria-labelledby="related-heading">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Keep reading</p>
+      <h2 class="ex-shead__title" id="related-heading">Where to go next</h2>
+
+      <ul class="ia-related__grid">
+        <li>
+          <a class="ex-card ia-related__card" href="industries.html">
+            <p class="ia-related__kicker">Back up</p>
+            <h3 class="ex-card__title">All industries</h3>
+            <p class="ex-card__body">Every industry we build for, grouped by where our own work sits and where the same method applies.</p>
+            <span class="ia-related__go">See the index <span class="ia-related__arrow" aria-hidden="true">-&gt;</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="ex-card ia-related__card" href="work.html">
+            <p class="ia-related__kicker">The proof</p>
+            <h3 class="ex-card__title">Our work</h3>
+            <p class="ex-card__body">Five engagements at their real status, with the Fennec product gallery and the arithmetic behind every number.</p>
+            <span class="ia-related__go">Read the studies <span class="ia-related__arrow" aria-hidden="true">-&gt;</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="ex-card ia-related__card ia-related__card--next" href="industries-tours-experiences.html">
+            <p class="ia-related__kicker">Next industry</p>
+            <h3 class="ex-card__title">Tour and experience operators</h3>
+            <p class="ex-card__body">The same method, a different set of systems, rules and failure modes.</p>
+            <span class="ia-related__go">Next <span class="ia-related__arrow" aria-hidden="true">-&gt;</span></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ex-footer">
+  <div class="ex-container">
+    <div class="ex-footer__grid ia-sitemap">
+      <div class="ex-footer__brand">
+        <img src="assets/exodus-logo.png" alt="Exodus Consulting" width="44" height="23">
+        <p class="ex-footer__blurb">Custom software and data work for owner-led organisations. Two founders, direct access.</p>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Work</p>
+        <ul>
+          <li><a href="work.html">Our work</a></li>
+          <li><a href="work-uniserve.html">Uniserve Communications</a></li>
+          <li><a href="work-fennec.html">Fennec</a></li>
+          <li><a href="work-palapa-tours.html">Palapa Tours Ottawa</a></li>
+          <li><a href="work-scoped.html">Current engagements</a></li>
+          <li><a href="fennec-events-floor.html">Fennec: events and floor</a></li>
+          <li><a href="fennec-ticketing-guests.html">Fennec: ticketing and guests</a></li>
+          <li><a href="fennec-pos-payments.html">Fennec: POS and payments</a></li>
+          <li><a href="fennec-inventory-staff.html">Fennec: inventory and staff</a></li>
+          <li><a href="fennec-media-intelligence.html">Fennec: media and intelligence</a></li>
+        </ul>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Industries</p>
+        <ul>
+          <li><a href="industries.html">All industries</a></li>
+          <li><a href="industries-nightlife-hospitality.html">Nightlife and hospitality</a></li>
+          <li><a href="industries-restaurants-bars.html">Restaurants and bars</a></li>
+          <li><a href="industries-event-venues-ticketing.html">Event venues and ticketing</a></li>
+          <li><a href="industries-telecom-isps.html">Telecom and internet providers</a></li>
+          <li><a href="industries-political-campaigns.html">Political parties and campaign organisations</a></li>
+          <li><a href="industries-tours-experiences.html">Tour and experience operators</a></li>
+        </ul>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Company</p>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">What we build</a></li>
+          <li><a href="guarantee.html">How we charge</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Direct</p>
+        <ul>
+          <li><a href="mailto:shiv@exdsconsulting.com">shiv@exdsconsulting.com</a></li>
+          <li><a href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a></li>
+          <li><a href="https://instagram.com/exodus_consulting_" target="_blank" rel="noopener">@exodus_consulting_</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ex-footer__legal">
+      <span>&copy; 2026 Exodus Consulting</span>
+      <span>Vancouver, BC</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

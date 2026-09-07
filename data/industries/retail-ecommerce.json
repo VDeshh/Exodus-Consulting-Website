@@ -1,0 +1,190 @@
+{
+  "slug": "retail-ecommerce",
+  "name": "Retail and ecommerce",
+  "hero_title": "The shop, the web store and the books never agree on stock.",
+  "hero_lead": "An independent retailer in Canada sells on the floor, on the website and on a marketplace or two, and each one keeps its own count. We connect the POS, the store platform, the carrier and the accounting so one number is the true one, and every report cites where it came from. Then we put an agent on the phone and the website so the twenty repeat questions stop eating the staff who know the products.",
+  "segments": [
+    "Independent shops with one to five locations and a web store on the side",
+    "Shopify and WooCommerce brands selling direct, with an Amazon or Etsy listing beside it",
+    "Specialty retailers: bike, outdoor, garden, pet, books, where staff knowledge is the product",
+    "Grocery, liquor and convenience with high volume, thin margin and fast-moving stock",
+    "Wholesale and trade sellers taking orders by email and phone from repeat accounts"
+  ],
+  "how_it_runs": [
+    {
+      "title": "Stock is counted in three places and trusted in none.",
+      "body": "The POS says twelve on hand. The web store says nine. The shelf has seven because two went out the back door and one is in a fitting room. Each system was right at some moment and nobody knows which. So staff walk to the shelf before promising a customer anything, and the website oversells the last unit on a Saturday."
+    },
+    {
+      "title": "The busiest week breaks the back room, not the till.",
+      "body": "Black Friday and Boxing Week do not break the till. They break the back room. Orders land faster than anyone can pick, the label printer jams, the Canada Post cut-off passes, and by Tuesday the inbox is full of people asking where their parcel is. The owner spends the best week of the year answering email instead of selling."
+    },
+    {
+      "title": "Reordering is done by feel, from the stock room.",
+      "body": "The order to the supplier is written by the person who has stood in the stock room longest. They know what moved last month and they guess at next month. Minimums, lead times and seasonal spikes live in their head. When they take a holiday the order is either late or double, and the shop finds out which in six weeks."
+    },
+    {
+      "title": "The inbox is the same twenty questions on repeat.",
+      "body": "Where is my order. Do you have this in a medium. Can I return it in store. What are your hours on the holiday. The same twenty questions arrive by email, Instagram message and phone, and a staff member who knows the products answers them between customers. The question that needed that knowledge waits behind the ones that did not."
+    },
+    {
+      "title": "Sales are known to the penny. Margin is known at year end.",
+      "body": "Sales are known to the penny. Margin is known at year end, when the accountant lands it. Between the two sit marketplace fees, payment fees, shipping the store ate on free delivery, discount codes, returns and the landed cost of the last container. Nobody has a clean number for which product actually made money, so the best seller is assumed to be the best earner."
+    }
+  ],
+  "systems": [
+    {
+      "name": "POS and store platform",
+      "examples": "Shopify POS and Shopify, Lightspeed Retail, Square for Retail, Moneris Go, Clover, WooCommerce",
+      "holds": "The product catalogue, prices, barcodes, on-hand counts per location, every transaction and refund, and the customer record with purchase history.",
+      "how_we_connect": "API and webhooks. Shopify and Lightspeed both push a sale the moment it closes; Square and Clover expose the same by API. We read first, for weeks, before anything writes back.",
+      "where_it_stops": "No price, on-hand count or customer record is changed without a person approving the change. Refunds are never issued by the system."
+    },
+    {
+      "name": "Carriers, marketplaces and fulfilment",
+      "examples": "Canada Post, Purolator, UPS, ShipStation, Amazon Seller Central, Etsy, eBay, Faire",
+      "holds": "Labels, tracking events and shipping cost per parcel; marketplace orders, fees and payouts; the listings that drift out of step with the shop's own catalogue.",
+      "how_we_connect": "Carrier and marketplace APIs for orders, tracking and fees, plus scheduled settlement exports where an API does not exist. Tracking is read into the order record so the chatbot and the phone agent can answer from it.",
+      "where_it_stops": "Marketplace listings, prices and stock are never edited automatically. A proposed change goes to a person with the reason attached."
+    },
+    {
+      "name": "Accounting and back office",
+      "examples": "QuickBooks Online, Sage 50 and Sage Business Cloud, Xero, Dext for supplier invoices",
+      "holds": "The general ledger, supplier bills and landed cost, payment processor payouts, sales tax by province, and the year-end figures the owner waits for.",
+      "how_we_connect": "Read-only ledger access and scheduled exports. Sales, fees and cost of goods are pulled into the weekly margin report; supplier invoices are matched to purchase orders and receipts.",
+      "where_it_stops": "Nothing is posted to the ledger. Proposed journal entries and invoice matches go to the bookkeeper as a list to approve, so the books stay theirs."
+    }
+  ],
+  "builds": [
+    {
+      "title": "One stock number across every channel",
+      "mechanism": "The system reads sales and adjustments from the POS, the web store and each marketplace by API and webhook as they happen. It computes one on-hand figure per SKU per location and flags any channel that disagrees with it. Corrections to a live count are proposed with the evidence beside them; a staff member approves before any channel is updated.",
+      "measure": "Oversells per month: orders taken for stock that was not there"
+    },
+    {
+      "title": "Reorder proposals from real sell-through",
+      "mechanism": "It reads sell-through per SKU over rolling windows, supplier lead times and minimum order quantities, and the on-hand count above. Each week it drafts a purchase order per supplier with the reasoning printed next to every line: what sold, what is left, when it runs out. The buyer edits and approves the order. Nothing is sent to a supplier without a signature.",
+      "measure": "Stockout days on the top 100 SKUs"
+    },
+    {
+      "title": "Website chatbot for orders, stock and returns",
+      "mechanism": "The chatbot reads order status from the store platform, tracking from the carrier, live stock per location and the store's own returns policy. It answers where an order is, whether a size is in stock at a given shop, and how to start a return. Anything involving money, a complaint or a product recommendation that needs judgement is handed to a person with the transcript attached.",
+      "measure": "Support emails per 100 orders"
+    },
+    {
+      "title": "Voice agent on the store phone",
+      "mechanism": "The agent answers the store line, reads hours, location and live stock, and checks order status against the store platform. It resolves the routine calls, takes a message with a callback number for the rest, and transfers a caller who asks for a person with the reason already noted. Staff on the floor stop leaving a customer mid-sale to answer an hours question.",
+      "measure": "Calls resolved without a staff member picking up"
+    },
+    {
+      "title": "Weekly margin report, every number sourced",
+      "mechanism": "Every Monday the system pulls sales from the POS and web store, fees from the marketplaces and payment processor, shipping cost from the carrier account and cost of goods from the purchase orders. It assembles margin per product, per channel and per week, and each figure links to the rows it came from. The owner reads it; nothing is posted to the books.",
+      "measure": "Hours per month spent assembling the numbers"
+    },
+    {
+      "title": "Campaigns from your own purchase history",
+      "mechanism": "It reads the customer records and purchase history already in the POS and store platform, with consent status on each record. It builds segments such as bought once and lapsed 90 days, or repeat buyer of one category, and drafts the email or SMS for each. The owner approves every segment and every message before a send, and unsubscribes are honoured automatically.",
+      "measure": "Repeat purchase rate at 90 days"
+    }
+  ],
+  "leaks": [
+    {
+      "leak": "Oversells and stockouts between the shop, the web store and the marketplace",
+      "how_measured": "Apology emails and cancelled orders, counted by nobody",
+      "what_closes_it": "One on-hand figure per SKU, read from every channel as it changes"
+    },
+    {
+      "leak": "Staff hours on where is my order and do you have this in stock",
+      "how_measured": "Not measured; it is the gap between the rota and what got done",
+      "what_closes_it": "A chatbot and a phone agent answering from live order and stock data"
+    },
+    {
+      "leak": "Dead stock ordered on feel, and the markdown that clears it",
+      "how_measured": "The clearance rail and the year-end write-down",
+      "what_closes_it": "Weekly reorder proposals from sell-through, approved by the buyer"
+    },
+    {
+      "leak": "Marketplace fees, free shipping and returns eating margin unseen",
+      "how_measured": "Once a year, when the accountant closes the books",
+      "what_closes_it": "A weekly margin report per product and channel with every number cited"
+    }
+  ],
+  "stats": [
+    {
+      "claim": "Retail e-commerce sales in Canada reached $4.3 billion in December 2025, 6.1% of total retail trade, up from 5.8% in November",
+      "figure": "6.1%",
+      "source_org": "Statistics Canada",
+      "source_title": "The Daily: Retail trade, December 2025",
+      "year": "2026",
+      "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/260220/dq260220a-eng.htm",
+      "caveat": "Monthly figure reported on an unadjusted basis. Counts e-commerce sales of retailers only, not sales by businesses outside the retail sector, so the true share of online shopping is higher."
+    },
+    {
+      "claim": "Small businesses in retail trade employed 875,706 people in Canada in 2024, out of 96,799 small employer businesses in the sector",
+      "figure": "875,706",
+      "source_org": "Innovation, Science and Economic Development Canada",
+      "source_title": "Key Small Business Statistics 2025",
+      "year": "2025",
+      "url": "https://ised-isde.canada.ca/site/sme-research-statistics/en/key-small-business-statistics/key-small-business-statistics-2025",
+      "caveat": "Small business defined as 1 to 99 employees. Business count is as of December 2024; employment is the 2024 figure from Table 6."
+    },
+    {
+      "claim": "The average documented online shopping cart abandonment rate is 70.22%, calculated across 50 separate studies",
+      "figure": "70.22%",
+      "source_org": "Baymard Institute",
+      "source_title": "50 Cart Abandonment Rate Statistics",
+      "year": "2025",
+      "url": "https://baymard.com/lists/cart-abandonment-rate",
+      "caveat": "An average of studies compiled by a UX research vendor, not a Canadian figure. Individual studies range widely, and the rate includes shoppers who were only browsing."
+    }
+  ],
+  "rules": [
+    {
+      "regime": "PIPEDA (Personal Information Protection and Electronic Documents Act)",
+      "demands": "Federal private-sector privacy law. A retailer collecting names, emails, addresses and purchase history needs meaningful consent, must collect only what the stated purpose needs, safeguard it, and report breaches that pose a real risk of significant harm to the Privacy Commissioner and to the people affected.",
+      "how_we_comply": "Consent purpose and date are stored on every customer record. The system reads only the fields the agreed build needs, keeps an access log, and can be hosted entirely in Canada. Loyalty and campaign features are switched off for any record without consent."
+    },
+    {
+      "regime": "BC PIPA, Alberta PIPA and Quebec Law 25",
+      "demands": "Provincial private-sector privacy law applies instead of PIPEDA inside BC, Alberta and Quebec. Law 25 goes furthest: a named privacy officer, a privacy impact assessment before new systems handle personal data, disclosure when a decision about a person is made by automated means, and consent for profiling.",
+      "how_we_comply": "Segments are built only from consented fields and a person approves every one, so no customer is treated differently by an automated decision alone. For Quebec customers the build carries the assessment, the disclosure text and the opt-out Law 25 requires."
+    },
+    {
+      "regime": "CASL (Canada's Anti-Spam Legislation)",
+      "demands": "A commercial email or SMS needs express consent, or implied consent from a purchase within the last two years. Every message identifies the sender, and the unsubscribe must work and be honoured within ten business days.",
+      "how_we_comply": "Consent type, source and date sit on each contact. A campaign draft will not include a contact whose implied consent has lapsed or who has no consent on file. Unsubscribes are applied the same day across email and SMS, and the log is kept."
+    },
+    {
+      "regime": "PCI DSS v4.0.1",
+      "demands": "Anyone who stores, processes or transmits card data meets the Payment Card Industry standard. For a small retailer the practical route is to never hold card numbers and let a certified processor take the payment.",
+      "how_we_comply": "The system never touches a card number. Payments stay with Shopify Payments, Moneris, Square or Stripe, and we read only the transaction amount and token. The chatbot and the phone agent refuse card details and stop a caller who starts reading a number."
+    }
+  ],
+  "wont_automate": [
+    "Refunds, chargebacks and store credit. Money leaving the account is approved by a person every time, with the order and the reason in front of them.",
+    "Price changes and markdowns pushed live to any channel. The system proposes with the sell-through beside it; the owner decides what a product sells for."
+  ],
+  "objections": [],
+  "faq": [
+    {
+      "q": "Do we have to leave Shopify or Lightspeed?",
+      "a": "No. The POS and the store platform stay. Both have APIs that let us read sales, stock and customers, and both accept writes when a person has approved them. We build alongside what you run and connect to it. Replacing a working till two weeks before Boxing Week is how retailers lose a season, and we will not suggest it."
+    },
+    {
+      "q": "Our product data is a mess. Does that stop this?",
+      "a": "It is the first job, not a blocker. Every SKU on every channel gets listed and matched: the same jacket with three names, the barcode that maps to two products, the marketplace listing nobody updated. We clean that list with you before anything connects. The unmatched items go on a list for you to decide, never silently merged or dropped."
+    },
+    {
+      "q": "Will a chatbot annoy customers and cost us sales?",
+      "a": "It will if it is asked to sell. Ours is scoped to the questions with a factual answer in your systems: order status, stock at a location, hours, how to return. A customer who asks anything else, or who asks for a person, gets a person, with the conversation handed over so they do not repeat themselves. We measure it on emails avoided, not on chats held."
+    },
+    {
+      "q": "Where does our customer data live?",
+      "a": "Where you decide. Customer and sales records can be hosted entirely in Canada, and we build to that requirement from the start rather than patching it in later. The system reads from your POS and store platform, keeps only what the agreed build needs, and never sells or shares it. You own the code and the data, and the access list is written down before anything connects."
+    }
+  ],
+  "what_we_built": [],
+  "learned": [],
+  "meta_title": "Retail and ecommerce software | Exodus Consulting",
+  "meta_description": "Custom software and AI for Canadian retailers: one stock count across POS, web store and marketplace, plus reorder proposals and sourced margin reports."
+}

@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Accounting firm software and AI | Exodus Consulting</title>
+  <meta name="description" content="Document chasing, slip extraction, client queries and realisation reporting for Canadian accounting and bookkeeping firms. Hosted in Canada.">
+  <meta name="theme-color" content="#FAF9F7">
+  <link rel="icon" href="assets/exodus-logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Exodus Consulting">
+  <meta property="og:title" content="Accounting firm software and AI | Exodus Consulting">
+  <meta property="og:description" content="Document chasing, slip extraction, client queries and realisation reporting for Canadian accounting and bookkeeping firms. Hosted in Canada.">
+  <meta property="og:image" content="assets/exodus-logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/exodus.css?v=12">
+  <link rel="stylesheet" href="css/ia.css?v=12">
+  <link rel="stylesheet" href="css/p-industries.css?v=12">
+  <script src="js/exodus.js?v=12" defer></script>
+</head>
+<body>
+
+<a class="ex-skip" href="#main">Skip to content</a>
+
+<header class="ex-header">
+  <div class="ex-header__inner">
+    <a class="ex-brand" href="index.html">
+      <img src="assets/exodus-logo.png" alt="Exodus Consulting" width="34" height="17">
+      <span class="ex-brand__name">Exodus Consulting</span>
+    </a>
+
+    <nav class="ex-nav" aria-label="Primary">
+      <a class="ex-nav__link" href="index.html">Home</a>
+      <a class="ex-nav__link" href="services.html">What we build</a>
+      <a class="ex-nav__link" href="work.html">Our work</a>
+      <a class="ex-nav__link is-current" aria-current="page" href="industries.html">Industries</a>
+      <a class="ex-nav__link" href="guarantee.html">How we charge</a>
+      <a class="ex-nav__link" href="about.html">About</a>
+      <a class="ex-btn ex-btn--primary ex-btn--sm" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+    </nav>
+
+    <button class="ex-burger" type="button" data-nav-toggle aria-expanded="false" aria-controls="ex-mobile-menu">
+      <span class="ex-burger__bars" aria-hidden="true"></span>
+      <span>Menu</span>
+    </button>
+  </div>
+
+  <div class="ex-mobile-menu" id="ex-mobile-menu">
+    <ul class="ex-mobile-menu__list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">What we build</a></li>
+      <li>
+        <a href="work.html">Our work</a>
+        <ul class="ia-submenu">
+          <li><a href="work-uniserve.html">Uniserve Communications</a></li>
+          <li><a href="work-fennec.html">Fennec</a></li>
+          <li><a href="work-palapa-tours.html">Palapa Tours Ottawa</a></li>
+          <li><a href="work-scoped.html">Current engagements</a></li>
+          <li><a href="fennec-events-floor.html">Fennec: events and floor ops</a></li>
+          <li><a href="fennec-ticketing-guests.html">Fennec: ticketing and guests</a></li>
+          <li><a href="fennec-pos-payments.html">Fennec: POS and payments</a></li>
+          <li><a href="fennec-inventory-staff.html">Fennec: inventory and staff</a></li>
+          <li><a href="fennec-media-intelligence.html">Fennec: media and intelligence</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="industries.html">Industries</a>
+        <ul class="ia-submenu">
+          <li><a href="industries.html">All industries</a></li>
+          <li><a href="industries-nightlife-hospitality.html">Nightlife and hospitality</a></li>
+          <li><a href="industries-restaurants-bars.html">Restaurants and bars</a></li>
+          <li><a href="industries-event-venues-ticketing.html">Event venues and ticketing</a></li>
+          <li><a href="industries-telecom-isps.html">Telecom and internet providers</a></li>
+          <li><a href="industries-political-campaigns.html">Political parties and campaign organisations</a></li>
+          <li><a href="industries-tours-experiences.html">Tour and experience operators</a></li>
+        </ul>
+      </li>
+      <li><a href="guarantee.html">How we charge</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a class="ex-btn ex-btn--primary ex-btn--block" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <nav class="ia-crumbs" aria-label="Breadcrumb">
+    <div class="ex-container">
+      <ol class="ia-crumbs__list">
+        <li class="ia-crumbs__item"><a class="ia-crumbs__link" href="index.html">Home</a></li>
+        <li class="ia-crumbs__item"><a class="ia-crumbs__link" href="industries.html">Industries</a></li>
+        <li class="ia-crumbs__item"><span aria-current="page">Accounting and bookkeeping firms</span></li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- ===================== 1. HERO ===================== -->
+  <section class="ex-hero">
+    <div class="ex-container">
+      <div class="ex-hero__inner">
+        <div>
+          <p class="ex-eyebrow ex-eyebrow--violet">Industries / Accounting and bookkeeping firms</p>
+          <h1 class="ex-hero__title">Every firm sells hours it spends chasing documents.</h1>
+          <p class="ex-hero__lead">Accounting and bookkeeping firms in Canada are mostly one to four people. The billable work is judgement. The unbillable work is asking a client for the same bank statement three times, re-keying slips from phone photos, and answering the same deadline question by email. We build the software that takes the second list off the desk and leaves the first one alone.</p>
+          <div class="ex-hero__actions">
+            <a class="ex-btn ex-btn--primary" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+            <a class="ex-btn ex-btn--secondary" href="industries.html">All industries</a>
+          </div>
+        </div>
+
+        <div class="ex-hero__meta">
+          <p class="ex-eyebrow">Who this is for</p>
+          <aside class="ex-rail" aria-label="Segments within Accounting and bookkeeping firms">
+            <div class="ex-rail__item"><span class="ex-rail__v">Sole-practitioner CPA firms doing year-ends and T1 season</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__v">Bookkeeping practices on QuickBooks Online or Xero with 40 to 200 monthly clients</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__v">Tax preparation shops that live between February and April 30</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__v">Payroll and fractional CFO practices</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__v">Multi-partner regional firms with review and compilation engagements</span></div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 2. HOW IT ACTUALLY RUNS ===================== -->
+  <section class="ex-band">
+    <div class="ex-container">
+      <p class="ex-eyebrow ex-eyebrow--onink">How it actually runs</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">Before anything is built, this is the week we are describing.</h2>
+        <p class="ex-shead__sub">No software can be scoped from a category name. These are the specifics of accounting and bookkeeping firms that decide what is worth building and what is not.</p>
+      </header>
+
+      <ol class="ex-timeline">
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">01</span>
+          <div>
+            <h3 class="ex-timeline__title">Tax season is a fixed deadline against a variable inbox.</h3>
+            <p class="ex-timeline__body">Personal returns are due April 30 and self-employed returns June 15, and neither date moves because a client forgot a T5. From February to May the firm runs on whatever arrives, in whatever order, in whatever format. The preparer opens an email, finds a phone photo of a slip, types it into TaxCycle, and sends the same reminder for the third time. The queue lives in someone&#x27;s head.</p>
+          </div>
+        </li>
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">02</span>
+          <div>
+            <h3 class="ex-timeline__title">The bookkeeping is done. The tidy-up is not.</h3>
+            <p class="ex-timeline__body">Bank feeds land in QuickBooks Online or Xero every night. Most transactions code themselves. The rest sit in an uncategorised pile until someone asks the client what the $412 e-transfer was. That question goes out by email, gets answered three weeks later, and the month cannot close until it does. Month-end is late because of twelve transactions, not because of the ledger.</p>
+          </div>
+        </li>
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">03</span>
+          <div>
+            <h3 class="ex-timeline__title">Documents arrive on every channel except the one you asked for.</h3>
+            <p class="ex-timeline__body">The firm has a portal. Clients still text a receipt, email a PDF, drop a shoebox at reception, or forward a Dext link nobody set up. Each one is filed by hand, renamed by hand, and matched to the right client and year by hand. Nobody has a clean count of how many documents came in, how many are still missing, and which clients are the reason.</p>
+          </div>
+        </li>
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">04</span>
+          <div>
+            <h3 class="ex-timeline__title">The owner prices on gut and finds out at year-end.</h3>
+            <p class="ex-timeline__body">Fixed-fee bookkeeping is priced when the client signs. Actual hours are recorded loosely, if at all, in Karbon or a spreadsheet. The owner knows which clients feel like work but cannot show the number, so the renewal conversation is a guess. Year-end write-offs are the first honest measure of which files lost money, and by then the answer is a year late.</p>
+          </div>
+        </li>
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">05</span>
+          <div>
+            <h3 class="ex-timeline__title">Staff are hard to find, so partners do junior work.</h3>
+            <p class="ex-timeline__body">Firms across Canada report the same thing: the pipeline of new accountants is thinner, and a good bookkeeper who knows Canadian payroll and GST is hard to replace. The result is that partners review, but partners also code transactions, chase slips and answer portal questions, because there is nobody else. Every hour of that is an hour not billed at partner rates.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================== 3. WHERE IT LEAKS ===================== -->
+  <section class="ex-section">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Where it leaks</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">Every one of these is measurable. Most are not measured.</h2>
+        <p class="ex-shead__sub">The free audit prices these in your own numbers before anything is scoped. You keep the map whether or not you hire us.</p>
+      </header>
+
+      <div class="ex-table-wrap">
+        <table class="ex-table p-ind__table">
+          <caption>Where the money and the hours go in accounting and bookkeeping firms, how it is measured today, and what closes it.</caption>
+          <thead>
+            <tr>
+              <th scope="col">The leak</th>
+              <th scope="col">How it is measured today</th>
+              <th scope="col">What closes it</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Unbillable hours chasing client documents</th>
+              <td>Not measured. Felt in evening email.</td>
+              <td>Automated request lists with reminders and an exceptions view.</td>
+            </tr>
+            <tr>
+              <th scope="row">Month-end held open by a handful of uncoded transactions</th>
+              <td>Close date per client, if anyone records it.</td>
+              <td>Batched client queries with suggested codes, posted on approval.</td>
+            </tr>
+            <tr>
+              <th scope="row">Fixed-fee clients quietly running past the hours priced</th>
+              <td>Year-end write-offs, a year late.</td>
+              <td>Monthly realisation per client, every number citing its entries.</td>
+            </tr>
+            <tr>
+              <th scope="row">Partner time on routine questions and re-keying</th>
+              <td>Nobody tracks it. Partners bill less than expected.</td>
+              <td>Chatbot and phone agent for routine questions; slip extraction for the keying.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 4. WHAT WE BUILD ===================== -->
+  <section class="ex-section ex-section--paper-2">
+    <div class="ex-container">
+      <p class="ex-eyebrow">What we build</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">6 builds that pay for themselves here.</h2>
+        <p class="ex-shead__sub">Each one states what it reads, what it does, and what a person still approves. Scope is agreed after the audit, one build at a time, against a baseline you sign.</p>
+      </header>
+
+      <div class="ex-grid">
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Document chasing that runs itself</h3>
+          </div>
+          <p class="ex-card__body">The system reads each client&#x27;s engagement and last year&#x27;s file to build the list of what is needed: slips, statements, receipts by category. It sends the request, watches the portal, the Dext inbox and email for what arrives, ticks items off and sends the next reminder on a schedule the firm sets. A person sees the exceptions list and decides who gets a phone call.</p>
+          <p class="ex-card__foot">Measured by: Days from first request to complete file, per client</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Slip and receipt extraction with confidence scores</h3>
+          </div>
+          <p class="ex-card__body">Photos, PDFs and scans are read into structured fields: payer, box numbers, amounts, GST/HST, date. Every field carries a confidence score. High confidence rows are prepared as an import for TaxCycle or the ledger. Low confidence rows are flagged with the source image beside the extracted value. The preparer approves the import; nothing lands in a return unreviewed.</p>
+          <p class="ex-card__foot">Measured by: Minutes of keying per return</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Uncategorised transactions, batched and asked once</h3>
+          </div>
+          <p class="ex-card__body">The system reads the uncoded transactions in QuickBooks Online or Xero, groups them by client, and drafts one plain question per batch with a suggested code based on that client&#x27;s own history. The client answers in the portal or by replying to a text. The bookkeeper reviews the suggested coding and posts it. The system never posts on its own.</p>
+          <p class="ex-card__foot">Measured by: Days to close each client&#x27;s month</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Website chatbot for the routine questions</h3>
+          </div>
+          <p class="ex-card__body">Trained on the firm&#x27;s own answers: deadlines, what to bring, how to upload, what a Notice of Assessment means, how to pay an instalment. It answers those on the website and in the portal, and hands anything about a specific client&#x27;s file to a named person with the conversation attached. It never gives advice on a specific tax situation.</p>
+          <p class="ex-card__foot">Measured by: Routine emails per week reaching staff</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Phone agent for tax season</h3>
+          </div>
+          <p class="ex-card__body">Answers the phone from February to April, tells callers where their return sits (received, in progress, awaiting signature, filed) by reading the practice management status, books a call with the right preparer, and takes a message with the file number. Anything involving money, advice or an upset client is transferred to a person with the notes attached.</p>
+          <p class="ex-card__foot">Measured by: Calls resolved without a staff pickup</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Realisation report that assembles itself</h3>
+          </div>
+          <p class="ex-card__body">Reads time entries from Karbon or Financial Cents, fixed fees from the engagement, and the invoiced amounts. Produces realisation per client and per service line each month, with every number linking to the entries behind it. Flags clients whose actual hours have run past the fee. The owner decides what to do about pricing. The report only shows.</p>
+          <p class="ex-card__foot">Measured by: Realisation rate per client</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 5. THE NUMBERS ===================== -->
+  <section class="ex-band">
+    <div class="ex-container">
+      <p class="ex-eyebrow ex-eyebrow--onink">The numbers</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">Borrowed statistics, with their sources and their limits printed.</h2>
+        <p class="ex-shead__sub">None of these are our results. They are the published state of accounting and bookkeeping firms, linked so you can check them, with the caveat attached where the number is a survey, a forecast or a vendor's own figure.</p>
+      </header>
+
+      <div class="ex-stats">
+            <div class="ex-stat ex-stat--onink">
+              <span class="ex-stat__num">74.9%</span>
+              <p class="ex-stat__label">Canadian accounting, tax, bookkeeping and payroll firms are overwhelmingly small: most employer firms have fewer than five staff.</p>
+              <cite class="ex-stat__source"><a class="ex-link ex-link--mono" href="https://ised-isde.canada.ca/app/ixb/cis/businesses-entreprises/5412" target="_blank" rel="noopener">Innovation, Science and Economic Development Canada, Canadian Industry Statistics, using Statistics Canada data, 2025</a></cite>
+              <p class="p-ind__caveat">Share of employer establishments with 1 to 4 employees. Of 62,102 establishments in the sector, 39,313 have no employees or an indeterminate size and are outside this percentage.</p>
+            </div>
+            <div class="ex-stat ex-stat--onink">
+              <span class="ex-stat__num">60%</span>
+              <p class="ex-stat__label">Six in ten individual tax returns in Canada are filed by a preparer through EFILE.</p>
+              <cite class="ex-stat__source"><a class="ex-link ex-link--mono" href="https://www.canada.ca/en/revenue-agency/corporate/about-canada-revenue-agency-cra/individual-income-tax-return-statistics.html" target="_blank" rel="noopener">Canada Revenue Agency, 2026</a></cite>
+              <p class="p-ind__caveat">19,827,110 EFILE returns out of 33,098,360 received between February 6 and August 30, 2026. The CRA updates this page in place, so the counts move as late returns arrive.</p>
+            </div>
+            <div class="ex-stat ex-stat--onink">
+              <span class="ex-stat__num">65.2%</span>
+              <p class="ex-stat__label">Getting information and documents from clients is the workflow challenge firm owners name most often.</p>
+              <cite class="ex-stat__source"><a class="ex-link ex-link--mono" href="https://financial-cents.com/resources/articles/2024-report-state-of-accounting-workflow-automation/" target="_blank" rel="noopener">Financial Cents, 2024</a></cite>
+              <p class="p-ind__caveat">Vendor survey by a practice management software company. 367 completed responses, mostly North American, not specifically Canadian.</p>
+            </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 6. WHERE THE DATA COMES FROM ===================== -->
+  <section class="ex-section">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Where the data comes from</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">Your systems of record stay exactly where they are.</h2>
+        <p class="ex-shead__sub">We read them, we do not replace them. Each one below says what we connect to, how, and the line the build does not cross.</p>
+      </header>
+
+      <div class="ex-grid">
+        <article class="ex-card ex-card--inset">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">General ledger and bank feeds</h3>
+          </div>
+          <p class="ex-card__body"><strong>Usually:</strong> QuickBooks Online, Xero, Sage 50, Sage Business Cloud Accounting, Wave</p>
+          <p class="ex-card__body"><strong>What it holds.</strong> Chart of accounts, bank and credit card feeds, coded transactions, invoices and bills, GST/HST filings, payroll journals.</p>
+          <p class="ex-card__body"><strong>How we connect.</strong> Read through the QuickBooks Online and Xero APIs with the firm&#x27;s own app credentials, one connection per client file. Sage 50 desktop files are read from a scheduled export. We read transactions, attachments and account codes.</p>
+          <p class="ex-card__foot"><strong>Where it stops.</strong> We never post a journal entry, reclassify a transaction or file a GST/HST return without a bookkeeper approving the specific change. A suggested code is a suggestion until a person accepts it.</p>
+        </article>
+        <article class="ex-card ex-card--inset">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Tax and working papers</h3>
+          </div>
+          <p class="ex-card__body"><strong>Usually:</strong> TaxCycle, Intuit ProFile, Wolters Kluwer Cantax and Taxprep, CaseWare Working Papers</p>
+          <p class="ex-card__body"><strong>What it holds.</strong> T1, T2 and T3 returns, slips, carryforwards, T183 authorisations, year-end trial balances, adjusting entries, review and compilation files.</p>
+          <p class="ex-card__body"><strong>How we connect.</strong> Read-only. Client lists and slip data come out on a scheduled export or through the software&#x27;s own import formats. Extracted slip values are prepared as an import file the preparer loads and checks.</p>
+          <p class="ex-card__foot"><strong>Where it stops.</strong> Nothing is transmitted to the CRA by our software. EFILE happens from the certified tax software, by the registered preparer, after a signed T183 is on file.</p>
+        </article>
+        <article class="ex-card ex-card--inset">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Practice management and client intake</h3>
+          </div>
+          <p class="ex-card__body"><strong>Usually:</strong> Karbon, Financial Cents, Canopy, TaxDome, Ignition, Dext, Hubdoc</p>
+          <p class="ex-card__body"><strong>What it holds.</strong> Client list, engagement letters, recurring work schedules, task status, time entries, document requests and the client portal.</p>
+          <p class="ex-card__body"><strong>How we connect.</strong> API or webhook where the product offers one, so a task closes or a request updates when the document actually arrives. Dext and Hubdoc are read for what has been captured against what was asked for.</p>
+          <p class="ex-card__foot"><strong>Where it stops.</strong> Engagement letters, fee changes and anything that reaches a client as a commitment are drafted by the system and sent by a person.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 7. THE RULES ===================== -->
+  <section class="ex-section ex-section--paper-2">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Built around your rules</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">The regimes that govern this work, and how the build answers each one.</h2>
+        <p class="ex-shead__sub">Constraints come first, because they decide the architecture. Bring us your hosting, residency and regulatory rules at the start and we design to them rather than around them.</p>
+      </header>
+
+      <div class="ex-table-wrap">
+        <table class="ex-table p-ind__table">
+          <caption>Regulatory and professional obligations that shape a build in accounting and bookkeeping firms.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Regime</th>
+              <th scope="col">What it demands here</th>
+              <th scope="col">How the build complies</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">PIPEDA and BC PIPA (Personal Information Protection Act)</th>
+              <td>Client financial and identity data is personal information. Collect only what the engagement needs, use it for that purpose, protect it with safeguards that match its sensitivity, and be able to say where it is stored and who can see it.</td>
+              <td>Data hosted in Canada, encrypted at rest and in transit, access scoped per client file and per staff role, an audit log of every read, and retention set to the firm&#x27;s own policy so nothing lingers after the engagement ends.</td>
+            </tr>
+            <tr>
+              <th scope="row">CPABC Code of Professional Conduct, Rule 208 (Confidentiality of information)</th>
+              <td>A CPA must not disclose confidential client information without authority and must limit access to people with a legitimate purpose. CPABC guidance on AI tools says confidential client data should not go into tools that may store, expose or reuse it.</td>
+              <td>Models run in an environment the firm controls, with no training on client data and no third-party retention. Every extraction and draft is logged with its input and output, so a member can document the tool, the query and the result as Rule 218 expects.</td>
+            </tr>
+            <tr>
+              <th scope="row">CRA EFILE electronic filer requirements</th>
+              <td>The registered preparer must deal directly with the client, verify identity, hold a signed T183 before transmitting, protect taxpayer information, report any loss or unauthorised disclosure, and prepare and file from Canada. Breaches lead to suspension.</td>
+              <td>Our software never transmits to the CRA. It prepares data for the certified tax software, records which T183 is on file before a return is marked ready, and keeps every byte in Canada. The preparer files.</td>
+            </tr>
+            <tr>
+              <th scope="row">PCMLTFA and FINTRAC obligations for accountants</th>
+              <td>An accountant who receives, pays or transfers funds on a client&#x27;s behalf, or gives instructions to do so, becomes a reporting entity: compliance programme, client identification, record keeping and suspicious transaction reporting.</td>
+              <td>Where a firm handles client funds, the system records identity verification per client and keeps transaction records in the shape FINTRAC expects. It never files a report on its own; the firm&#x27;s compliance officer decides what is suspicious.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <hr class="ex-rule ex-rule--spaced">
+
+      <div class="ex-split">
+        <div class="ex-stack">
+          <h3>What we will not automate</h3>
+          <ul class="ex-measure">
+          <li>We will not let software decide a tax position or transmit a return. Slip data gets extracted and checked; the judgement, the sign-off and the EFILE stay with the registered preparer whose name is on it.</li>
+          <li>We will not send a client a fee change, an engagement letter or a demand for payment without a person pressing send. Those are commitments between a firm and its client, and the CPA owns them.</li>
+          </ul>
+        </div>
+        <div class="ex-stack">
+          <div class="ex-card ex-card--inset">
+            <div class="ex-card__head">
+              <h3 class="ex-card__title">A person stays in the loop</h3>
+            </div>
+            <p class="ex-card__body">Anything that spends money, sends something irreversible, or carries a professional obligation arrives as a draft with a named reviewer. The system prepares the work. A person decides whether it ships.</p>
+            <p class="ex-card__foot">You own the code and the data at the end of the engagement.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 10. FAQ ===================== -->
+  <section class="ex-section">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Questions</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">The questions we get asked in accounting and bookkeeping firms.</h2>
+      </header>
+
+      <div class="ex-faq">
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="faq-1">
+            <span>Our clients are already bad at using the portal we have. Why would another system help?</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="faq-1" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>It is not another portal. The system works through whatever the client already uses: email, text, the existing portal, a Dext inbox. It reads what arrives on any of them and matches it to the request. The client&#x27;s behaviour does not have to change. Your staff stop being the ones who notice what is still missing and type the reminder.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="faq-2">
+            <span>Where does client data sit, and can a model learn from it?</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="faq-2" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>In Canada, on infrastructure the firm controls, with the models running there too. Nothing is sent to a public AI service and nothing is used to train anything. That is the arrangement CPABC guidance expects before client data goes near an AI tool, and it is written into the build before the first line of code, not patched in afterwards.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="faq-3">
+            <span>Will this replace TaxCycle, QuickBooks or Karbon?</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="faq-3" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>No. Those stay the systems of record. We read from them and prepare imports for them. Replacing tools your staff know in February is how a firm loses a tax season. The work sits in the gaps between those systems: what arrived, what is missing, what needs a question, and what a client&#x27;s file actually cost.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="faq-4">
+            <span>How do you measure whether it worked?</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="faq-4" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>One number is agreed in writing before the build starts, taken from your own data: days from request to complete file, keying minutes per return, or realisation per client. We baseline it, deploy, and measure against the same baseline. If the system misses the agreed bar we keep working at no extra cost until it clears. You own the code either way.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ex-band">
+    <div class="ex-container">
+      <div class="ex-split ex-split--wide">
+        <div class="ex-stack">
+          <p class="ex-eyebrow ex-eyebrow--onink">What happens next</p>
+          <h2>Start with the audit, and know the number before you commit.</h2>
+          <p class="ex-measure">Three to five days. We map where the hours and the money go in your accounting and bookkeeping firms operation and hand you a ranked plan with the payback attached.</p>
+          <p class="ex-measure">We map where time and money leak, and show the arithmetic before you commit to anything. You keep the map whether or not you hire us. If we do build, we agree the baseline in writing first, the clock starts at deployment rather than signature, and you own the code.</p>
+          <div class="ex-hero__actions">
+            <a class="ex-btn ex-btn--primary" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+            <a class="ex-btn ex-btn--onink" href="guarantee.html">How we charge</a>
+          </div>
+        </div>
+        <div class="ex-stack">
+          <dl class="ex-dl ex-dl--onink">
+            <dt class="ex-dl__k">Who you talk to</dt>
+            <dd class="ex-dl__v">Shiv and Vishal. No account managers, no slide decks.</dd>
+            <dt class="ex-dl__k">Direct</dt>
+            <dd class="ex-dl__v"><a href="mailto:shiv@exdsconsulting.com">shiv@exdsconsulting.com</a></dd>
+            <dt class="ex-dl__k">Read next</dt>
+            <dd class="ex-dl__v"><a href="services.html">What we build</a>, then <a href="work.html">Our work</a>.</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RELATED ===================== -->
+  <section class="ex-section ex-section--tight ia-related" aria-labelledby="related-heading">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Keep reading</p>
+      <h2 class="ex-shead__title" id="related-heading">Where to go next</h2>
+
+      <ul class="ia-related__grid">
+        <li>
+          <a class="ex-card ia-related__card" href="industries.html">
+            <p class="ia-related__kicker">Back up</p>
+            <h3 class="ex-card__title">All industries</h3>
+            <p class="ex-card__body">Every industry we build for, grouped by where our own work sits and where the same method applies.</p>
+            <span class="ia-related__go">See the index <span class="ia-related__arrow" aria-hidden="true">-&gt;</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="ex-card ia-related__card" href="work.html">
+            <p class="ia-related__kicker">The proof</p>
+            <h3 class="ex-card__title">Our work</h3>
+            <p class="ex-card__body">Five engagements at their real status, with the Fennec product gallery and the arithmetic behind every number.</p>
+            <span class="ia-related__go">Read the studies <span class="ia-related__arrow" aria-hidden="true">-&gt;</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="ex-card ia-related__card ia-related__card--next" href="industries-healthcare-clinics.html">
+            <p class="ia-related__kicker">Next industry</p>
+            <h3 class="ex-card__title">Healthcare clinics</h3>
+            <p class="ex-card__body">The same method, a different set of systems, rules and failure modes.</p>
+            <span class="ia-related__go">Next <span class="ia-related__arrow" aria-hidden="true">-&gt;</span></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ex-footer">
+  <div class="ex-container">
+    <div class="ex-footer__grid ia-sitemap">
+      <div class="ex-footer__brand">
+        <img src="assets/exodus-logo.png" alt="Exodus Consulting" width="44" height="23">
+        <p class="ex-footer__blurb">AI enablement and custom software for owner-led businesses. Two founders, direct access.</p>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Work</p>
+        <ul>
+          <li><a href="work.html">Our work</a></li>
+          <li><a href="work-uniserve.html">Uniserve Communications</a></li>
+          <li><a href="work-fennec.html">Fennec</a></li>
+          <li><a href="work-palapa-tours.html">Palapa Tours Ottawa</a></li>
+          <li><a href="work-scoped.html">Current engagements</a></li>
+          <li><a href="fennec-events-floor.html">Fennec: events and floor</a></li>
+          <li><a href="fennec-ticketing-guests.html">Fennec: ticketing and guests</a></li>
+          <li><a href="fennec-pos-payments.html">Fennec: POS and payments</a></li>
+          <li><a href="fennec-inventory-staff.html">Fennec: inventory and staff</a></li>
+          <li><a href="fennec-media-intelligence.html">Fennec: media and intelligence</a></li>
+        </ul>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Industries</p>
+        <ul>
+          <li><a href="industries.html">All industries</a></li>
+          <li><a href="industries-nightlife-hospitality.html">Nightlife and hospitality</a></li>
+          <li><a href="industries-restaurants-bars.html">Restaurants and bars</a></li>
+          <li><a href="industries-event-venues-ticketing.html">Event venues and ticketing</a></li>
+          <li><a href="industries-telecom-isps.html">Telecom and internet providers</a></li>
+          <li><a href="industries-political-campaigns.html">Political parties and campaign organisations</a></li>
+          <li><a href="industries-tours-experiences.html">Tour and experience operators</a></li>
+        </ul>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Company</p>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">What we build</a></li>
+          <li><a href="guarantee.html">How we charge</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Direct</p>
+        <ul>
+          <li><a href="mailto:shiv@exdsconsulting.com">shiv@exdsconsulting.com</a></li>
+          <li><a href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a></li>
+          <li><a href="https://instagram.com/exodus_consulting_" target="_blank" rel="noopener">@exodus_consulting_</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ex-footer__legal">
+      <span>&copy; 2026 Exodus Consulting</span>
+      <span>Vancouver, BC</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

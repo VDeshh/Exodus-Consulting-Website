@@ -1,0 +1,280 @@
+{
+  "slug": "restaurants-bars",
+  "name": "Restaurants and bars",
+  "hero_title": "The money leaks between what you bought and what you sold.",
+  "hero_lead": "A restaurant knows its sales to the penny and its costs to the month. The gap between the two is where the margin goes: the pour that ran heavy, the case that died in the walk-in, the invoice that crept up a dollar a kilo. We build software that puts purchased and sold on the same screen, on the POS you already run, so the owner sees the leak while it is still this week's problem.",
+  "segments": [
+    "Independent full-service restaurants and neighbourhood bistros",
+    "Bars, pubs and cocktail rooms where liquor is the margin",
+    "Multi-venue hospitality groups running three to ten rooms",
+    "Breweries, wineries and tasting rooms with a kitchen attached",
+    "Cafes and quick-service counters with high volume and thin tickets"
+  ],
+  "how_it_runs": [
+    {
+      "title": "The week is run from the manager's phone.",
+      "body": "Orders go in by text to the sales rep. The schedule lives in one app, reservations in another, and the numbers arrive as an email from the accountant two weeks after the fact. The owner knows Friday was good because the till was full, not because any one screen said so. The person holding it all together is also expediting on Saturday night."
+    },
+    {
+      "title": "Inventory is counted on Sunday, on a clipboard.",
+      "body": "Somebody walks the walk-in and the back bar with a sheet, eyeballs the tenths on each bottle, and types the result into a spreadsheet on Monday. The count is a week old by the time anyone reads it. Food cost comes back as one percentage for the whole month, so a case of striploin that vanished in week two looks the same as a slow week."
+    },
+    {
+      "title": "The busiest night is the night the system breaks.",
+      "body": "Saturday at 8pm the kitchen runs out of halibut, but the server on table 12 has already sold two and the online menu still shows it. The printer jams, the delivery tablet is on a different network, and the phone rings for a party of ten nobody can seat. Every workaround gets invented live and forgotten by Tuesday."
+    },
+    {
+      "title": "Ordering is done by feel.",
+      "body": "The chef looks at the shelf, remembers roughly what a long weekend does, and orders. Overshoot and the product dies in the walk-in. Undershoot and a dish comes off the menu at 7pm. Neither shows up as a line anywhere, so the same call gets made the same way next week. Par levels exist on paper from three menus ago."
+    },
+    {
+      "title": "The pour is the most expensive thing nobody measures.",
+      "body": "A bartender free-pouring a quarter ounce heavy is spending the owner's money on every drink, all night. Comps and buybacks go through as voids, or do not go through at all. At month end the liquor cost is high and there is no way to say which bar, which shift or which bottle did it. So it gets absorbed and the price goes up."
+    },
+    {
+      "title": "The guest data is everywhere except in your hands.",
+      "body": "The reservation platform knows the name. The POS knows the tab. The delivery apps know the address and keep it. The email list was built from a fishbowl of business cards in 2019. The owner can name the regulars by face and cannot pull a list of anyone who spent over 200 dollars and has not been back in sixty days."
+    }
+  ],
+  "systems": [
+    {
+      "name": "Point of sale",
+      "examples": "Square for Restaurants, Toast, Lightspeed Restaurant, TouchBistro, Clover",
+      "holds": "Items, modifiers, prices and tax codes; every tab with its tender, tip, void and discount; which terminal and which employee rang it, and when.",
+      "how_we_connect": "API, two-way where the platform allows it. Fennec already syncs both ways with Square, Toast and Lightspeed: menus and prices push out, closed tabs pull back in. Where an API is thin we take a scheduled export. Each field gets one owner, written down before a credential is exchanged.",
+      "where_it_stops": "Nothing is deleted or repriced on a terminal without the owner signing off on the mapping first. Voids, comps and refunds are read for the variance report; the system never issues one."
+    },
+    {
+      "name": "Reservations and waitlist",
+      "examples": "OpenTable, Resy, Tock, Libro, Yelp Guest Manager",
+      "holds": "Bookings, party size, time, guest notes, no-show and cancellation history, deposits where taken.",
+      "how_we_connect": "API or webhook where offered, otherwise a nightly export. Bookings are read into the guest profile alongside the tab, so a name on the book and a spend at the table become one record. Availability is read so a voice agent or chatbot can answer honestly.",
+      "where_it_stops": "No booking is cancelled, moved or charged a no-show fee by the system. The host confirms placement, and a fee under Quebec's rules or any deposit policy is a person's decision every time."
+    },
+    {
+      "name": "Scheduling, payroll and tips",
+      "examples": "7shifts, Push Operations, Homebase, Wagepoint, Payworks, ADP",
+      "holds": "Shifts, clock-ins, wage rates, tip pools and declared gratuities, labour cost per hour.",
+      "how_we_connect": "Read-only API or scheduled export. Sales per hour per employee from the POS are joined to the schedule, so labour as a share of sales is visible by shift rather than by month. Tip-out rules the owner sets are applied the same way every close.",
+      "where_it_stops": "The system never publishes a schedule, changes a wage or moves money. A tip split is calculated and shown; a manager approves it before payout."
+    },
+    {
+      "name": "Accounting and supplier invoices",
+      "examples": "QuickBooks Online, Sage 50, Xero, Dext, Plooto, Sysco and Gordon Food Service ordering portals, BC Liquor Distribution Branch wholesale",
+      "holds": "Bills, payments, the general ledger, supplier price lists, delivery invoices as PDFs, emails and photos.",
+      "how_we_connect": "Invoices are parsed from email and photo, matched to the purchase order and the receiving count, and posted to accounting as draft bills through the API. Unit prices per item are tracked so a quiet increase on a case of oil shows up the week it happens.",
+      "where_it_stops": "Nothing is paid and nothing is posted as final. A draft bill carries a confidence score, and the bookkeeper approves or corrects it before it touches the books."
+    }
+  ],
+  "builds": [
+    {
+      "title": "Poured against sold, per bar, per shift",
+      "mechanism": "Every menu item carries a recipe in inventory units: one ounce of vodka plus a measured pour of soda. The system reads POS sales per terminal and multiplies by the recipe to get theoretical usage. Actual usage comes from the count, by scale where the bar wants speed. Theoretical minus actual is the variance, in ounces and dollars. A manager reviews every flag before it is raised with anyone.",
+      "measure": "Dollarised liquor variance per week, by bar"
+    },
+    {
+      "title": "One catalogue, every site, one count",
+      "mechanism": "A multi-venue group gets one product catalogue with one name per item, so the same gin is not three products across three rooms. Each site counts its own stock on a phone against that catalogue. Purchased and sold sit side by side per site and per product, so a variance points at a room, not at the group. The operator decides what counts as a real discrepancy.",
+      "measure": "Minutes per site count, and variance by site"
+    },
+    {
+      "title": "Reorder points that draft the order",
+      "mechanism": "The system reads consumption from sales and counts, adjusts for day of week and the bookings already on the reservation platform, and fires a reorder point when stock will not last to the next delivery. It drafts a purchase order per supplier at par. The chef or bar manager edits and approves before anything is sent. The draft learns from what they change.",
+      "measure": "Items run out per week, and dead stock written off per month"
+    },
+    {
+      "title": "Live menu with auto-86",
+      "mechanism": "The menu is edited once and pushed to the POS, the printed menu file and the website. When the count of a recipe ingredient hits zero the item is marked unavailable on every surface at the same moment, so a server cannot sell what the kitchen no longer has. Bringing it back is a one-tap manager action, never automatic.",
+      "measure": "Items sold after the kitchen ran out, per week"
+    },
+    {
+      "title": "A voice agent that answers the phone",
+      "mechanism": "During service nobody can pick up. The agent answers, reads live availability and hours, books a table within the rules the owner set, and takes a large party or private dining enquiry with date, size and budget. Anything outside the rules is transferred to a person with the caller's details already on screen. It never takes a card number and never overrides the host.",
+      "measure": "Calls answered during service that turned into a booking"
+    },
+    {
+      "title": "A chatbot for the questions you answer daily",
+      "mechanism": "Hours, parking, menu, allergens, whether the patio is dog friendly, group booking policy. The bot reads the live menu record and the reservation rules, so its allergen answer is the kitchen's current answer. When a question needs a person, it opens an email with the conversation summarised. Staff answer the questions that need judgement and stop retyping the address.",
+      "measure": "Repetitive emails and DMs handled by staff per week"
+    },
+    {
+      "title": "Supplier invoices read and matched",
+      "mechanism": "Delivery invoices arrive as PDFs, emails and photos of a crumpled sheet. The system parses each line, matches it to the purchase order and the receiving count, and flags a unit price that moved or a case that was billed but not delivered. Each match carries a confidence score. A draft bill goes to accounting; the bookkeeper approves it before it posts.",
+      "measure": "Unit price increases and short deliveries caught per month"
+    },
+    {
+      "title": "Loyalty and campaigns off real spend",
+      "mechanism": "POS tabs, reservations and consented contacts are joined into one guest profile with visit count, lifetime spend and last visit. Segments build themselves: lapsed sixty days, big spender, birthday this month. The operator describes the offer and the system drafts the email or SMS to that segment. The owner approves every send. Consent and unsubscribe are enforced under CASL before anything goes out.",
+      "measure": "Return visits from the lapsed segment within thirty days"
+    }
+  ],
+  "leaks": [
+    {
+      "leak": "Liquor poured and never rung in: overpours, buybacks, unrecorded comps",
+      "how_measured": "Monthly liquor cost percentage, one number for the whole building",
+      "what_closes_it": "Recipe-based variance per bar and per shift, dollarised, reviewed by a manager"
+    },
+    {
+      "leak": "Food that dies in the walk-in because the order was a guess",
+      "how_measured": "Waste sheet nobody fills in, and a food cost percentage at month end",
+      "what_closes_it": "Reorder points off real consumption and bookings, with a drafted PO the chef edits"
+    },
+    {
+      "leak": "Phone calls unanswered during service and tables sitting empty after a no-show",
+      "how_measured": "Not measured; the missed call log on the host stand phone if anyone looks",
+      "what_closes_it": "A voice agent that books within the rules and a confirmation flow the host controls"
+    },
+    {
+      "leak": "Supplier unit prices creeping up a few cents a week across hundreds of lines",
+      "how_measured": "Noticed once a quarter when the accountant asks why cost of goods rose",
+      "what_closes_it": "Line-level invoice parsing that flags price drift and short deliveries as they land"
+    },
+    {
+      "leak": "Manager hours spent counting, retyping and building the weekly numbers",
+      "how_measured": "Not measured; it is Sunday night and Monday morning, every week",
+      "what_closes_it": "Counts on a phone against one catalogue, and a report that assembles itself from the POS and the counts"
+    }
+  ],
+  "stats": [
+    {
+      "claim": "Canadian restaurants and bars sold this much in 2025, and drinking places were the only segment to shrink",
+      "figure": "$101.4 billion, drinking places down 2.3%",
+      "source_org": "Statistics Canada",
+      "source_title": "The Daily: Food services and drinking places, December 2025",
+      "year": "2026",
+      "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/260225/dq260225d-eng.htm",
+      "caveat": "National figure for all food services and drinking places, released February 25, 2026. Sales, not profit."
+    },
+    {
+      "claim": "Share of Canadian restaurants operating at a loss or just breaking even in November 2025",
+      "figure": "44%",
+      "source_org": "Restaurants Canada",
+      "source_title": "The Quarterly, Q4 2025 (2025 foodservice sales buffered by GST holiday as rising operating costs and tariffs cut into profits)",
+      "year": "2026",
+      "url": "https://www.restaurantscanada.org/2025-foodservice-sales-buffered-by-gst-holiday-as-rising-operating-costs-and-tariffs-cut-into-profits-restaurants-brace-for-more-obstacles-in-2026/",
+      "caveat": "Industry association member survey, self-reported by operators. Up from 41% in June 2025, against 12% in 2019. The release does not split the 44% between operating at a loss and breaking even."
+    },
+    {
+      "claim": "Canadian restaurants that expected to increase their technology spend in the coming year",
+      "figure": "69%",
+      "source_org": "Toast",
+      "source_title": "Voice of the Canadian Restaurant Industry 2025, cited in: 85% of Canadian restaurants are struggling with inflation in 2025",
+      "year": "2025",
+      "url": "https://pos.toasttab.com/ca/blog/on-the-line/85-percent-of-canadian-restaurants-are-struggling-with-inflation-in-2025",
+      "caveat": "Vendor survey by a POS company that sells the technology in question. Sample size not stated on the page. The same survey found 85% of Canadian restaurants called inflation a challenge in 2025."
+    },
+    {
+      "claim": "Avoidable food waste in Canada from production through retail and hospitality, per year",
+      "figure": "7.35 million tonnes, worth $17.73 billion",
+      "source_org": "Second Harvest and Value Chain Management International",
+      "source_title": "The Avoidable Crisis of Food Waste Roadmap: Update",
+      "year": "2024",
+      "url": "https://shsitepublicassets.blob.core.windows.net/public-assets/reports/Avoidable%20Crisis%20of%20Food%20Waste%20-%20Roadmap.pdf",
+      "caveat": "Whole supply chain figure, not restaurants alone. Charity research using industry data and estimates. The report puts it at about 12% of the $147.44 billion Canadians spent on food and drink at retail."
+    }
+  ],
+  "rules": [
+    {
+      "regime": "PIPEDA and BC PIPA (Alberta PIPA, Quebec Law 25 where you operate there)",
+      "demands": "Guest names, phone numbers, emails, birthdays and spend history are personal information. Collect only what the purpose needs, tell guests what it is for, protect it, and hand it over or delete it when they ask. Quebec adds a privacy officer, a published policy and breach logging.",
+      "how_we_comply": "One guest profile with a recorded purpose and source per field. Employee access by role, so a server sees a table and not a lifetime spend. Hosting in Canada when the owner wants it. Deletion on request wipes the profile and every campaign list built from it."
+    },
+    {
+      "regime": "CASL (Canada's Anti-Spam Legislation)",
+      "demands": "Every marketing email or SMS needs express consent, or implied consent from an existing business relationship that expires two years after the last purchase. Each message must identify the sender and carry an unsubscribe that works within ten business days.",
+      "how_we_comply": "Consent type, date and source are stored on the guest profile. Implied consent segments age out automatically. No campaign sends to a contact without a consent record, every message carries the venue's identity and a one-click unsubscribe, and opt-outs are honoured the same day."
+    },
+    {
+      "regime": "PCI DSS",
+      "demands": "Card data taken at the terminal, online or over the phone must be handled inside a compliant environment. Storing full card numbers outside the payment processor puts the venue on the hook for the breach.",
+      "how_we_comply": "We never touch card numbers. Payments stay inside Square, Toast, Lightspeed or the processor. Our systems read tender type, amount and tip, and the voice agent is built so it cannot accept or record a card number, only transfer to a person or a hosted payment link."
+    },
+    {
+      "regime": "BC Liquor and Cannabis Regulation Branch, Food Primary and Liquor Primary licence terms",
+      "demands": "Keep liquor purchase records, a register of liquor purchased and received, liquor sales records with quantity and price, disposal records, food sales and employee records for at least six years. Licensees, managers, servers and anyone left in charge hold Serving It Right, with the certificate number and expiry on file.",
+      "how_we_comply": "Every purchase, count, transfer and sale is a timestamped record retained for six years and exportable for an inspector. Staff records carry the Serving It Right number and expiry, and the schedule flags a shift with nobody certified in charge."
+    },
+    {
+      "regime": "BC Food Premises Regulation, enforced by the regional health authority",
+      "demands": "A permit to operate, FOODSAFE for the operator and for at least one employee on shift when the operator is out, a written food safety plan with critical limits, a sanitation plan, and potentially hazardous food held at 4 degrees or below or 60 degrees or above.",
+      "how_we_comply": "FOODSAFE certificates and expiry dates sit on the staff record beside Serving It Right. Temperature and receiving checks can be logged on the same phone as the count so the food safety plan has evidence. The system prompts; a person takes the temperature and signs."
+    },
+    {
+      "regime": "Quebec Consumer Protection Act, no-show fee rules (July 2025)",
+      "demands": "A Quebec restaurant may charge up to $10 per person for a full no-show on a booking of two or more, only if the fee was disclosed before booking, a confirmation with a cancellation link went out between 6 and 48 hours before, and guests could cancel at any time up to three hours ahead.",
+      "how_we_comply": "For Quebec venues the confirmation flow sends in the window, keeps the cancellation link live, and records disclosure at booking. The system reports which no-shows qualify. Charging the fee is a manager's decision, made per booking, never automatic."
+    }
+  ],
+  "wont_automate": [
+    "We will not void, comp or refund a tab automatically. The system reads voids for the variance report; a manager with a key still approves each one, because a void is where theft hides.",
+    "We will not send a supplier order or pay an invoice without a person. Draft POs and draft bills are the system's job. The chef and the bookkeeper sign.",
+    "We will not charge a no-show fee, cancel a booking or move a table on the system's own judgement. The host owns the book, and a guest dispute is a person's conversation."
+  ],
+  "objections": [
+    {
+      "objection": "We run Toast. We are not switching POS two weeks before a long weekend.",
+      "answer": "Good. We do not replace the till. Fennec already syncs both ways with Square, Toast and Lightspeed, and that is the pattern we build on: menus push out, closed tabs pull in, and each field gets one owner in writing before anything connects. The staff keep the terminal they know."
+    },
+    {
+      "objection": "My chef counts inventory fine. It is a clipboard, but it works.",
+      "answer": "The count probably is fine. The problem is what happens to it: it lands in a spreadsheet a week later as one food cost percentage. Purchased against sold per product, per week, is a different number and it points at a shelf. The chef keeps counting. The count just goes somewhere useful."
+    },
+    {
+      "objection": "Margins are thin. We cannot afford software on top of everything else.",
+      "answer": "Nearly half of Canadian restaurants were at a loss or breaking even at the end of 2025, and the leaks are usually in liquor variance and dead stock. We start with a free audit that prices the leak in your own numbers. If the arithmetic does not clear, we tell you and you keep the map."
+    },
+    {
+      "objection": "Staff will not use it. They barely use the scheduling app.",
+      "answer": "Staff use things that are faster than the alternative. A count on a phone against a catalogue with the right names beats a clipboard. A menu that goes off everywhere when the kitchen runs out beats a server getting yelled at on table 12. We build for the person on shift, not for a dashboard the owner reads."
+    },
+    {
+      "objection": "We tried an inventory app. It was dead in three months.",
+      "answer": "Most die because the item list under them was wrong: three names for one gin, recipes nobody kept up, a POS that never mapped. The first real day of our work is cleaning that catalogue against what is actually on the terminals. The count is the easy part once the names agree."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Do we have to weigh every bottle every night?",
+      "a": "No. You choose the cadence per bar. A weekly count with a scale and a Bluetooth connection takes minutes, and a nightly count on the high-value shelf is a few more. The variance is calculated against whatever period you count. Nightly gives you a per-shift answer; weekly gives you a per-week one. Most rooms start weekly and tighten where the number tells them to."
+    },
+    {
+      "q": "Will the variance report tell me who is stealing?",
+      "a": "It tells you where the ounces went: which bar, which shift, which product, and where terminals map to employees, which person's sales. That is a conversation starter with evidence, not a verdict. Heavy pours, unrecorded comps and a bad recipe all look like variance until a manager looks. The system flags; the manager decides what it means."
+    },
+    {
+      "q": "Can the voice agent take a reservation for a party of twelve on a Saturday?",
+      "a": "Only if you have told it that it can. Large parties, private dining and anything outside the rules you set are transferred to a person with the caller's name, number, date and size already captured, so the conversation starts halfway through. Routine bookings within your rules it takes itself. It never takes a card number."
+    },
+    {
+      "q": "We are three venues with three different POS setups. Is that a problem?",
+      "a": "It is the normal case. Each site keeps its own terminals and its own count, but the catalogue is shared: one name per product, one recipe per menu item. The sync maps each site's terminal items to that catalogue. Variance is then comparable across rooms, and a reorder point can see stock at the venue next door before it drafts an order."
+    },
+    {
+      "q": "Who owns the guest list and the code at the end?",
+      "a": "You do, both. The guest profiles, consent records and spend history sit in your database, hosted in Canada if you want it there. The code is written into the agreement as yours before anything is built. We agree the baseline number in writing first, the clock starts at deployment, and if the system misses the bar we keep working at no extra cost until it clears."
+    }
+  ],
+  "what_we_built": [
+    {
+      "title": "B-Side Group: inventory across three restaurant venues, in build",
+      "body": "A hospitality group brought us in to build customised inventory management across three of their restaurants. The shape of the build: stock counts done per site on a shared catalogue so the same product has one name in every room, purchased set against sold as variance per site, and reorder points that fire from real consumption. It is under construction, so no count is running in our software yet and no variance figure exists. When there is one, it will appear with its arithmetic beside it."
+    },
+    {
+      "title": "Fennec: recipe-based inventory and two-way POS sync, live",
+      "body": "Fennec, the venue operating system we co-founded, runs live at Harbour Event Centre, TradeX, The Pit UBC and The Show Ottawa. It syncs both ways with Square, Toast and Lightspeed, matching tabs to tables. At Harbour every menu item carries a recipe, every terminal maps to the employee working it, and open bottles are weighed at close over a Bluetooth scale. Sales times recipes is theoretical usage; the weigh-in is actual; the gap is the Revenue Loss Calculator's dollarised variance, per bartender. The live menu pushes one edit to print, digital and POS and auto-86es when stock runs out."
+    },
+    {
+      "title": "Palapa Tours Ottawa: tip-out software, shipped",
+      "body": "A floating tiki-bar cruise operator with a different crew every sailing. Gratuity splits shifted cruise to cruise and the crew argued about pay. We built software that totals the pool when the cruise closes, applies the split rules the operator set once by role, and records every payout per staff member. The variance went away, so the disputes had nothing left to be about. Shipped, closed, and owned by the client. No dollar figure is claimed because none was given."
+    }
+  ],
+  "learned": [
+    "A variance report is only as honest as the item list under it. Clean the catalogue against what is actually on the terminals first; three names for one gin will produce three wrong numbers.",
+    "Count speed decides whether a count happens. A weigh-in over a Bluetooth scale that takes minutes gets done every week. A clipboard hour gets done when someone remembers.",
+    "Tie the terminal to the person. A liquor cost percentage for the building is a complaint. A dollar variance per bar, per shift, per bartender is a conversation with evidence.",
+    "Decide who owns each field before connecting anything. If both the POS and the inventory system can edit a price, they will disagree on the busiest night of the year.",
+    "The marketplaces own the discovery, the venue must own the guest. Keep selling on the reservation and delivery platforms, but pull every buyer into your own profile with consent, because a room full of strangers has no reason to come back."
+  ],
+  "meta_title": "Software for restaurants and bars | Exodus Consulting",
+  "meta_description": "Recipe-based inventory, poured against sold variance, live menus with auto-86, a voice agent for the phone and loyalty from real spend, on the POS you already run."
+}

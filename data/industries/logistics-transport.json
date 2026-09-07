@@ -1,0 +1,190 @@
+{
+  "slug": "logistics-transport",
+  "name": "Logistics and transportation",
+  "hero_title": "Every load gets typed in three times before it is paid.",
+  "hero_lead": "A carrier or a small 3PL runs on a dispatch board, an ELD platform and an accounting file, and the same load is keyed into each one by hand. We connect those systems, put a voice agent on the check-call phone, and turn detention, empty kilometres and unbilled accessorials into numbers that assemble themselves. A dispatcher still decides who drives what.",
+  "segments": [
+    "For-hire truckload and LTL carriers with 5 to 100 trucks",
+    "Owner-operator fleets and small freight brokerages",
+    "Courier and final-mile delivery companies",
+    "Drayage and intermodal carriers serving Vancouver, Prince Rupert and Montreal ports",
+    "Moving, freight forwarding and warehousing operators"
+  ],
+  "how_it_runs": [
+    {
+      "title": "The rate confirmation arrives as a PDF and gets re-typed",
+      "body": "A broker emails a rate con. Dispatch reads it, keys the shipper, consignee, pickup window, rate and reference numbers into the TMS, and then the driver gets the same details by text. At delivery the BOL is photographed, emailed back, and someone matches it to the load again so the invoice can go out. One load, three or four manual entries, and the reference number is wrong on one of them."
+    },
+    {
+      "title": "The phone rings all day with the same three questions",
+      "body": "Where is my truck. Can you cover a load tomorrow from Surrey to Calgary. What is your rate to Edmonton. The dispatcher who answers is the same person building tomorrow's board, so every check call costs a planning minute. The GPS answer is on the ELD screen already. The rate answer is in last month's invoices. Neither gets to the caller without a person looking it up."
+    },
+    {
+      "title": "Detention happens, and most of it never gets billed",
+      "body": "A driver sits at a dock for three hours. The ELD knows exactly when the truck arrived and left, because it was geofenced and logging the whole time. But the detention claim depends on the driver remembering to note it, dispatch remembering to add the accessorial, and the office chasing the broker for it. Fleets charge for detention on paper and collect on a fraction of it."
+    },
+    {
+      "title": "The weekly numbers are built in a spreadsheet on Sunday",
+      "body": "Revenue per truck, cost per kilometre, empty kilometres, fuel per litre, driver pay as a share of revenue. Owners want these every week and get them once a month, if the bookkeeper is caught up. The data exists in the TMS, the ELD platform, the fuel card statement and the accounting file, and it takes one person a Sunday afternoon to line it up."
+    },
+    {
+      "title": "Compliance lives in expiry dates nobody is watching",
+      "body": "Driver licences, medicals, insurance certificates, CVIP inspections, IFTA filings, the National Safety Code profile and the annual carrier renewal all expire on their own schedule. Small fleets track them in a binder or a shared spreadsheet. The first warning is usually a roadside inspection, a rejected load from a shipper's compliance check or an insurer asking for a document nobody can find."
+    }
+  ],
+  "systems": [
+    {
+      "name": "Dispatch and TMS",
+      "examples": "Axon Software (Saskatoon), Tailwind TMS (Vancouver), Rose Rocket (Toronto), Trimble TruckMate, McLeod LoadMaster",
+      "holds": "Orders, loads, stops, drivers and equipment assigned, rates, accessorials, customer invoices and driver settlements.",
+      "how_we_connect": "API where the vendor offers one (Rose Rocket, Tailwind and TruckMate do), otherwise a scheduled export or a read-only database replica. We write new orders in as draft records with the source document attached.",
+      "where_it_stops": "We never assign a driver, change a rate or issue an invoice without a dispatcher or the office approving it. Drafts wait in a queue; a person promotes them."
+    },
+    {
+      "name": "ELD and telematics",
+      "examples": "Geotab (Oakville), ISAAC Instruments (Quebec), Samsara, Motive, Trimble",
+      "holds": "Hours of service logs, GPS breadcrumbs, geofence arrivals and departures, engine faults, fuel consumption and driver behaviour events.",
+      "how_we_connect": "Read-only API pull on a schedule, plus webhooks where the platform fires them for arrivals and departures. Location and time stamps flow into the load record and the detention calculation.",
+      "where_it_stops": "Hours of service logs are never edited, annotated or certified by our software. Only the driver and the carrier's safety person touch a record of duty status."
+    },
+    {
+      "name": "Accounting and fuel",
+      "examples": "QuickBooks Online, Sage 50 Canadian, Xero, fuel card statements from Petro-Canada SuperPass, Shell Fleet, Comdata",
+      "holds": "Customer invoices, receivables, payables, driver pay, fuel purchases by card and province, and the IFTA inputs.",
+      "how_we_connect": "QuickBooks and Xero by API. Sage 50 by scheduled export. Fuel card statements by parsing the monthly CSV or PDF, with each line matched to a truck and a trip.",
+      "where_it_stops": "We post invoices as drafts and match payments as suggestions. A bookkeeper approves every posting. Nothing is filed with CRA or a provincial fuel tax authority by the system."
+    }
+  ],
+  "builds": [
+    {
+      "title": "Voice agent for check calls and quotes",
+      "mechanism": "Answers the dispatch line. For a check call it reads the load reference, pulls the last ELD position and the current ETA, and tells the caller. For a quote it reads the lane and your rate history, gives a range you set, and books a callback. Anything about a claim, a damaged load or an angry shipper transfers to a person with the transcript attached. A dispatcher confirms every quote before it becomes a rate.",
+      "measure": "Calls resolved without a dispatcher picking up, per week"
+    },
+    {
+      "title": "Rate confirmation and BOL parsing",
+      "mechanism": "Reads incoming rate cons, BOLs and PODs from the dispatch inbox and the driver app. Extracts shipper, consignee, windows, rate, references and weights, and creates a draft order in the TMS with a confidence score on each field. Low-confidence fields are highlighted. Dispatch reviews the draft and promotes it in one click. At delivery the POD is matched to the load so invoicing can start the same day.",
+      "measure": "Minutes from rate con received to order live in the TMS"
+    },
+    {
+      "title": "Detention and accessorial recovery",
+      "mechanism": "Reads geofence arrival and departure stamps from the ELD platform for every stop, compares them to the appointment window and the free time in the customer's contract, and flags every stop where detention is owed. Drafts the accessorial line with the time stamps as evidence and attaches it to the invoice. The office approves each claim before it goes out; nothing is billed automatically.",
+      "measure": "Detention dollars invoiced per month"
+    },
+    {
+      "title": "Driver and carrier onboarding with expiry tracking",
+      "mechanism": "New drivers and partner carriers upload licence, abstract, medical, insurance certificate and safety fitness certificate through a form. The system reads each document, checks the expiry date and the name against the application, and builds the file. It then watches every expiry date across the fleet and warns 60, 30 and 7 days out. The safety manager approves each driver before they are dispatchable.",
+      "measure": "Expired documents found at roadside or by a shipper audit"
+    },
+    {
+      "title": "Dispatch board assistant",
+      "mechanism": "Reads tomorrow's open loads, every driver's remaining hours of service, current truck positions and home time commitments. Proposes a plan that covers the loads with the least empty distance and no hours violations, and shows the empty kilometres each option costs. The dispatcher drags, changes or rejects any line. No driver is assigned and no load is accepted or declined without a dispatcher approving it.",
+      "measure": "Empty kilometres as a share of total kilometres"
+    },
+    {
+      "title": "Weekly fleet report that cites its sources",
+      "mechanism": "Every Monday the system assembles revenue per truck, revenue per loaded kilometre, cost per kilometre, empty share, fuel litres per 100 kilometres by truck, detention billed and collected, and receivables past 30 days. Every number carries a link to the TMS, ELD or accounting records it came from, so a doubtful figure can be traced in seconds. The owner reads it. Nobody builds it.",
+      "measure": "Hours the office spends assembling numbers each week"
+    }
+  ],
+  "leaks": [
+    {
+      "leak": "Detention time that is logged by the ELD but never invoiced",
+      "how_measured": "Driver memory, a note on the BOL, and whether dispatch remembered to add the line",
+      "what_closes_it": "Geofence stamps compared to appointment windows, with a drafted accessorial per stop for the office to approve"
+    },
+    {
+      "leak": "Empty kilometres between drop and next pickup",
+      "how_measured": "Rarely; odometer totals against loaded distance once a month, if at all",
+      "what_closes_it": "A weekly empty share per truck and a dispatch assistant that prices each option's deadhead before assignment"
+    },
+    {
+      "leak": "Re-typing rate cons, BOLs and PODs into the TMS and the accounting file",
+      "how_measured": "Nobody times it; it is what the dispatcher and the bookkeeper do between phone calls",
+      "what_closes_it": "Document parsing into draft orders with confidence scores, promoted by a person in one click"
+    },
+    {
+      "leak": "Invoices that go out days after delivery because the POD is missing",
+      "how_measured": "Days sales outstanding, seen at month end",
+      "what_closes_it": "POD matched to the load on arrival, so the draft invoice is ready for approval the same day"
+    }
+  ],
+  "stats": [
+    {
+      "claim": "Truck driver job vacancies in Canada in the first quarter of 2026, at a 4.7 percent vacancy rate",
+      "figure": "13,310",
+      "source_org": "Trucking HR Canada",
+      "source_title": "Trucking Labour Pulse Dashboard, Labour Market Information",
+      "year": "2026",
+      "url": "https://truckinghr.com/labour-market-information/",
+      "caveat": "Industry association dashboard built on Statistics Canada labour data, updated April 2026. Quarterly figures move; check the live dashboard."
+    },
+    {
+      "claim": "Trucking businesses in Canada as of December 2022, of which 83,898 had no employees at all",
+      "figure": "136,664",
+      "source_org": "Transport Canada",
+      "source_title": "Transportation in Canada 2022, Key traffic and volume statistics",
+      "year": "2023",
+      "url": "https://tc.canada.ca/en/corporate-services/transparency/corporate-management-reporting/transportation-canada-annual-reports/transportation-canada-2022/key-traffic-volume-statistics-2",
+      "caveat": "Business counts from Statistics Canada's business register. Most of the industry is owner-operators and very small fleets, which is who this page is written for."
+    },
+    {
+      "claim": "Fleets that charge detention fees, while fewer than half of detention invoices actually get paid",
+      "figure": "94.5%",
+      "source_org": "American Transportation Research Institute",
+      "source_title": "Driver Detention Impacts on Safety and Productivity",
+      "year": "2024",
+      "url": "https://truckingresearch.org/2024/09/new-research-documents-substantial-financial-and-safety-impacts-from-truck-driver-detention/",
+      "caveat": "United States research based on a survey of motor carriers and drivers plus ELD data. Canadian dock behaviour is similar but not separately measured."
+    }
+  ],
+  "rules": [
+    {
+      "regime": "Commercial Vehicle Drivers Hours of Service Regulations (Transport Canada) and the ELD mandate",
+      "demands": "Federally regulated carriers must record hours of service on an ELD certified by an accredited third party. Records of duty status belong to the driver and the carrier, must be retained, and edits must be annotated and approved by the driver.",
+      "how_we_comply": "Our systems read hours of service and location data from the certified ELD platform and never write to it. No log is edited, certified or annotated by software we build. Remaining hours are used only to propose dispatch plans that a person approves."
+    },
+    {
+      "regime": "National Safety Code, provincial carrier safety programmes (BC NSC safety certificate, Ontario CVOR)",
+      "demands": "Carriers must hold a safety fitness certificate, keep driver files, inspection records and hours of service records for set periods, and their profile is scored on inspections, collisions and convictions.",
+      "how_we_comply": "Driver and vehicle files are built from parsed documents with retention dates set to the regulated period. Expiry warnings run automatically. The safety manager approves every driver file before dispatch and nothing is deleted before its retention date."
+    },
+    {
+      "regime": "PIPEDA and BC PIPA",
+      "demands": "GPS positions, hours of service and driver behaviour events are personal information about an identifiable employee. Collection must be for a reasonable purpose, drivers must be told, and access must be limited and logged.",
+      "how_we_comply": "Location and behaviour data are used for dispatch, safety and billing only, with role-based access and an audit log of every read. Drivers are told what is collected and why. Where a carrier requires it, every model and every byte is hosted in Canada, and we design to that constraint before the first line of code."
+    },
+    {
+      "regime": "Canada's Anti-Spam Legislation (CASL)",
+      "demands": "Commercial email or text to shippers, brokers and prospects needs express or implied consent, sender identification and a working unsubscribe.",
+      "how_we_comply": "Capacity emails and lane offers go only to contacts with recorded consent or an existing business relationship within the CASL window. Every message carries the carrier's identity and an unsubscribe that is honoured within ten business days. Transactional messages about a live load are kept separate from marketing sends."
+    }
+  ],
+  "wont_automate": [
+    "We will not edit, annotate or certify a driver's hours of service log. Only the driver and the carrier's safety person touch a record of duty status.",
+    "We will not accept a load, assign a driver or file a CBSA eManifest without a dispatcher approving it. The system drafts; a person commits."
+  ],
+  "objections": [],
+  "faq": [
+    {
+      "q": "We run Axon and Geotab already. Do we have to change either of them?",
+      "a": "No. Both stay. Axon holds the loads and the money, Geotab holds the hours and the positions, and we read from each and write drafts back into the TMS only. The first day of work is mapping which system owns which field, writing that down, and agreeing what never gets written back. Your dispatchers keep the screens they know."
+    },
+    {
+      "q": "Will a voice agent annoy brokers who want a real dispatcher?",
+      "a": "It answers the check call with the truck's actual position and ETA, which is what the broker wanted, and it does it in seconds. Anything that is not a status question or a simple quote goes straight to a person, with the caller's details and the load already on screen. If a caller asks for a human at any point, they get one. You set the rules for what it can say."
+    },
+    {
+      "q": "How do you handle drivers who worry about being tracked?",
+      "a": "The ELD is already tracking them by law; we do not add a device. What we do is use the data for dispatch, detention billing and safety only, restrict who can see it by role, log every access, and put that in writing so drivers can read it. Detention recovery is popular with drivers because it turns the hours they waste at docks into evidence."
+    },
+    {
+      "q": "What does an engagement look like and what does it cost?",
+      "a": "It starts with a free audit: we sit with dispatch and the office for a few days, map where time and re-typing go, and print the arithmetic. You keep that map whether or not you hire us. If we build, the measured number is agreed in writing first, and if the system misses it we keep working at no extra cost until it clears. You own the code. Fees are set per engagement."
+    }
+  ],
+  "what_we_built": [],
+  "learned": [],
+  "meta_title": "Trucking and logistics software | Exodus Consulting",
+  "meta_description": "Custom software and AI for Canadian carriers and 3PLs: check-call voice agent, rate con parsing, detention recovery and weekly fleet numbers."
+}

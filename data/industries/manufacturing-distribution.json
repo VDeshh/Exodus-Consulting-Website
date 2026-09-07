@@ -1,0 +1,190 @@
+{
+  "slug": "manufacturing-distribution",
+  "name": "Manufacturing and distribution",
+  "hero_title": "The ERP holds the parts. The answers still live in inboxes.",
+  "hero_lead": "Most shops already own an ERP. What they do not own is the hour a day spent reading orders off PDFs, answering the same three phone calls, and walking to the floor to check a number the system should already know. We build the layer that closes those gaps and leaves the ERP where it is.",
+  "segments": [
+    "Custom fabricators and job shops",
+    "Food and beverage processors",
+    "Industrial and building products distributors",
+    "Contract manufacturers supplying larger OEMs",
+    "Importers and wholesalers shipping into retail"
+  ],
+  "how_it_runs": [
+    {
+      "title": "The truck leaves at three, ready or not",
+      "body": "Everything bends around the carrier cut-off. Picks that looked fine at ten are short at two, because a line ran long or a pallet was miscounted three weeks ago. The shipper chases the floor, the floor chases receiving, and somebody drives a box to the depot in their own car. None of it is written down afterwards, so the same shortage happens again next month."
+    },
+    {
+      "title": "Orders arrive in six different formats",
+      "body": "One customer purchase order comes as a PDF attached to an email. Another comes in as an EDI 850. A third is a phone call from a buyer who has ordered the same thing for nine years and has never once used a part number. Someone reads all of them and types them into the ERP. Every typo becomes a wrong ship, a credit note and a phone call."
+    },
+    {
+      "title": "The real stock number lives in someone's head",
+      "body": "The ERP says forty on hand. The floor knows eight are on hold for rework, six are in a customer's colour, and the rest are on a pallet nobody has put away. So the planner walks out and counts. That walk happens several times a day, the number that comes back is right for about an hour, and it never gets written back."
+    },
+    {
+      "title": "Pricing and lead times are quoted from memory",
+      "body": "A buyer asks what a run of five hundred costs and how fast it can ship. The honest answer depends on the steel price this week, what is already on the machine, and whether the operator who runs that job is in. Most shops answer from experience, which is usually close and occasionally expensive. Nobody goes back later to check which quotes actually made money."
+    },
+    {
+      "title": "Margin per product is a year-end surprise",
+      "body": "Sales, freight, scrap, rework and overtime sit in different places, so the owner sees revenue weekly and margin once a year. A product that stopped paying its way in March gets found by the accountant the following spring. By then it has been quoted at that price for twelve months and the customer has built a budget around it."
+    }
+  ],
+  "systems": [
+    {
+      "name": "ERP and shop floor systems",
+      "examples": "SAP Business One, Microsoft Dynamics 365 Business Central, Epicor Kinetic, Genius ERP, NetSuite, SYSPRO, Odoo",
+      "holds": "Item master, bills of material, routings, work orders, purchase orders, on-hand stock by location, standard costs and job history.",
+      "how_we_connect": "Read through the vendor API where one exists, otherwise a nightly export into a read-only replica. Writes go back through the API on approved records only.",
+      "where_it_stops": "We never write to the item master, a standard cost, a bill of material or a posted transaction automatically. Those are changed by a person inside the ERP."
+    },
+    {
+      "name": "Warehouse, shipping and EDI",
+      "examples": "Fishbowl, Acumatica, ShipStation, Descartes, SPS Commerce, TrueCommerce",
+      "holds": "Bin locations, lot and serial numbers, pick lists, carrier rates and tracking, and the retail document set: 850 orders, 856 shipping notices, 810 invoices.",
+      "how_we_connect": "API for the warehouse and carrier side, SFTP file drops for the EDI side, and a webhook on shipment confirmation where the platform offers one.",
+      "where_it_stops": "No shipping notice and no invoice goes out to a retailer without a person releasing it. A wrong 856 is a chargeback, so that gate stays."
+    },
+    {
+      "name": "Quoting, CRM and accounting",
+      "examples": "Salesforce, HubSpot, Zoho CRM, QuickBooks Online, Sage 50, Xero",
+      "holds": "Customer records, quotes, price lists, credit terms, accounts receivable ageing, invoices and payment history.",
+      "how_we_connect": "Scoped read access through the API, plus a nightly export of the receivable ageing so reporting does not hammer the live ledger during the day.",
+      "where_it_stops": "No price is changed, no credit limit is moved and no invoice is posted by a system. It can draft and flag. A person commits."
+    }
+  ],
+  "builds": [
+    {
+      "title": "Voice agent for order status calls",
+      "mechanism": "The agent answers the main line and reads a copy of the ERP: order status, promised ship date, tracking number and stock on hand by location. It closes the repeat calls, then transfers anything about pricing, a claim or a rush to the right person with a written summary already open in front of them. No order is changed on the call. A person makes every change.",
+      "measure": "Share of inbound calls closed without a person."
+    },
+    {
+      "title": "Website chatbot for spec questions",
+      "mechanism": "It reads the product catalogue, the spec sheets, the safety data sheets, pack sizes, minimum order quantities and the published lead-time table. It answers the questions that arrive twenty times a week in writing, and passes the rest to sales with the whole thread attached. It never gives a firm price or a delivery promise. A person quotes.",
+      "measure": "Emails landing in the sales inbox each week."
+    },
+    {
+      "title": "Purchase orders parsed and matched",
+      "mechanism": "It reads incoming customer orders as they arrive: PDF attachments, scanned faxes, plain email text and EDI 850 files. Every line is matched to a part number, a price and a customer, and scored for confidence. Clean lines queue for release. Weak matches are shown beside the original document so the reason is visible. A person releases the order into the ERP.",
+      "measure": "Order lines typed by hand each week."
+    },
+    {
+      "title": "Reorder points set from real usage",
+      "mechanism": "It reads receipts, production output, shipments and counts per location, then sets a reorder point per part from what actually moves rather than a number somebody set years ago. It flags where the counted stock and the expected stock disagree, by part and by location, while the week is still recent. Purchasing approves every order before it goes to a supplier.",
+      "measure": "Stockouts a month on the parts that actually sell."
+    },
+    {
+      "title": "One item catalogue across the systems",
+      "mechanism": "We list every item, price, unit of measure and tax code sitting in the ERP, the warehouse system and the accounting file, then give each field exactly one owner. Supplier part numbers, customer part numbers and internal codes are mapped into a single record. Anything unmapped goes on a list for the owner. Nothing is created or deleted silently.",
+      "measure": "Duplicate and unmapped part numbers remaining."
+    },
+    {
+      "title": "A monthly pack that assembles itself",
+      "mechanism": "Overnight it pulls sales, freight, scrap, rework, labour hours and purchases, then builds margin by product, on time and in full by customer, and variance by location. Every figure carries the table and the date range it came from, so any number can be argued with rather than believed. The owner reviews the pack and signs it before anyone outside sees it.",
+      "measure": "Hours spent building the month-end pack."
+    }
+  ],
+  "leaks": [
+    {
+      "leak": "Phone time answering where is my order",
+      "how_measured": "Not measured at all. It is spread across everyone's day.",
+      "what_closes_it": "A voice agent that reads order status from the ERP and logs every call."
+    },
+    {
+      "leak": "Orders retyped from PDFs into the ERP",
+      "how_measured": "Only counted when a wrong quantity ships and a credit note follows.",
+      "what_closes_it": "Parsing with a confidence score per line and a human release step."
+    },
+    {
+      "leak": "Stock bought on a hunch",
+      "how_measured": "A year-end count and a write-off nobody can explain by product.",
+      "what_closes_it": "Reorder points set per part from actual consumption, reviewed by purchasing."
+    },
+    {
+      "leak": "Retail chargebacks for late or wrong paperwork",
+      "how_measured": "A deduction on a remittance, often months after the shipment.",
+      "what_closes_it": "Checks on the shipping notice before release, and a deduction log tied back to the order."
+    }
+  ],
+  "stats": [
+    {
+      "claim": "Canadian manufacturers were sitting on $125.9 billion of inventory in May 2026, about 1.61 months of sales at the current rate.",
+      "figure": "1.61 months",
+      "source_org": "Statistics Canada",
+      "source_title": "Monthly Survey of Manufacturing, May 2026",
+      "year": "2026",
+      "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/260715/dq260715a-eng.htm",
+      "caveat": "A seasonally adjusted national figure covering all Canadian manufacturing. It says nothing about any single plant."
+    },
+    {
+      "claim": "58 per cent of Canadian manufacturers use ERP software, and a quarter use none of the nine software systems the survey asked about.",
+      "figure": "58 per cent",
+      "source_org": "Canadian Manufacturers and Exporters",
+      "source_title": "2023 Technology Adoption Survey",
+      "year": "2023",
+      "url": "https://cme-mec.ca/wp-content/uploads/2023/05/2023-CME-Technology-Adoption-Survey-Report_final_web.pdf",
+      "caveat": "An industry association survey of 279 self-selected respondents, and the sample holds more large firms than the sector actually does."
+    },
+    {
+      "claim": "Only 7.9 per cent of Canadian wholesale trade businesses reported using AI in the second quarter of 2026, against 19.2 per cent of businesses across all sectors.",
+      "figure": "7.9 per cent",
+      "source_org": "Statistics Canada",
+      "source_title": "Analysis on artificial intelligence use by businesses in Canada, second quarter of 2026",
+      "year": "2026",
+      "url": "https://www150.statcan.gc.ca/n1/pub/11-621-m/11-621-m2026010-eng.htm",
+      "caveat": "Self-reported in a quarterly business survey. Each firm decides for itself what counts as using AI."
+    }
+  ],
+  "rules": [
+    {
+      "regime": "PIPEDA, with BC PIPA, Alberta PIPA and Quebec Law 25",
+      "demands": "Consent, a stated purpose and real safeguards for personal information about buyers, drivers and staff. Quebec adds breach reporting and a named person accountable for privacy.",
+      "how_we_comply": "A build reads personal fields only where it needs them, access is set per role, every read is logged, and hosting stays in Canada when the client requires it."
+    },
+    {
+      "regime": "CASL",
+      "demands": "Consent, clear sender identification and a working unsubscribe on every commercial electronic message, including reorder prompts, price list updates and restock notices.",
+      "how_we_comply": "Consent and where it came from sit on the customer record, the unsubscribe is honoured across every system that sends, and a suppressed contact cannot be quietly re-added by a spreadsheet import."
+    },
+    {
+      "regime": "Safe Food for Canadians Regulations",
+      "demands": "Food businesses have to trace each lot one step back and one step forward through the supply chain, and keep those traceability records for two years.",
+      "how_we_comply": "Lot codes stay attached to the receipt, the production record and the shipment, so a trace runs in both directions from one query instead of three binders and a phone call."
+    },
+    {
+      "regime": "CBSA record keeping and CUSMA certification of origin",
+      "demands": "Importers keep records of origin, value and payment for six years, and hold a valid certification of origin before claiming preferential tariff treatment.",
+      "how_we_comply": "Import documents are filed against the purchase order they belong to, origin certificates are stored with an expiry date, and a missing or stale certificate is flagged before the goods land."
+    }
+  ],
+  "wont_automate": [
+    "We do not let software send a shipping notice or an invoice to a retailer on its own. A wrong 856 becomes a chargeback and the operator wears it, so a person releases the file.",
+    "We do not automate a quality hold, a lot disposition or a recall decision. Those are signed by the person who carries the responsibility, and the record has to show their name."
+  ],
+  "objections": [],
+  "faq": [
+    {
+      "q": "Do we have to replace our ERP?",
+      "a": "No. The ERP stays where it is. We read from it, usually through its API or a nightly copy, and write back only where you have agreed a system may write. Most of what leaks in a shop is not inside the ERP anyway. It is the phone, the inbox, the spreadsheet beside the terminal, and the walk out to the floor to check a number."
+    },
+    {
+      "q": "Our data is a mess. Is that a problem?",
+      "a": "It is the work, not a blocker. Two part numbers for one item, a supplier code nobody recognises, a price list from 2021. We read every source into one shape, match records across them, and score each match for confidence so a weak join stays visible instead of being quietly trusted. That cleanup happens before anything gets connected."
+    },
+    {
+      "q": "What if a customer just wants a person on the phone?",
+      "a": "They get one. The voice agent handles the calls that repeat: where is my order, what is the lead time, is that part in stock. Anything else transfers to a named person with a written summary of what has already been said, so the customer does not start again. A caller can ask for a person at any point and the agent hands over."
+    },
+    {
+      "q": "How do we know it paid for itself?",
+      "a": "We agree the number in writing before the build starts: calls closed without a person, order lines typed by hand, stockouts a month, hours on the month-end pack. Then we measure against that same baseline. The clock starts at deployment rather than signature, and if the system misses the agreed bar we keep working at no extra cost until it clears."
+    }
+  ],
+  "what_we_built": [],
+  "learned": [],
+  "meta_title": "Manufacturing and distribution | Exodus Consulting",
+  "meta_description": "Voice agents, order parsing, inventory logic and reporting for Canadian manufacturers and distributors, built on top of the ERP you already run."
+}

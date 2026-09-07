@@ -1,0 +1,276 @@
+{
+  "slug": "tours-experiences",
+  "name": "Tour and experience operators",
+  "hero_title": "Every departure is a shift, a manifest and a payout.",
+  "hero_lead": "Boat cruises, walking tours, food tours, rentals and guided days out all run the same way: a short season, a crew that changes with every departure, and bookings arriving from five channels at once. We built the tip-out software that ended the gratuity disputes at Palapa Tours in Ottawa. This page is what else we build for operators like them, and where we stop.",
+  "segments": [
+    "Sightseeing and dinner cruise operators, harbour boats and floating bars",
+    "Walking, food, bike and brewery tour companies",
+    "Kayak, paddleboard, e-bike and boat rental outfits",
+    "Adventure and guided-day operators: zipline, rafting, whale watching, ski and snow tours",
+    "Escape rooms, workshops and ticketed indoor experiences"
+  ],
+  "how_it_runs": [
+    {
+      "title": "The season pays for the year in about sixteen weeks",
+      "body": "Most operators earn the bulk of the year between the May long weekend and Thanksgiving. Every decision made in March about boats, guides, deposits and marketing is a bet on that window. A wet July does not come back. The owner runs the shoulder season on thin crews and spends the winter fixing the things that broke in August, with no live data to look at."
+    },
+    {
+      "title": "Bookings arrive from five places and one spreadsheet",
+      "body": "Direct website bookings land in the reservation system. Viator and GetYourGuide sales arrive by email or channel manager, sometimes minutes before departure. Hotels and concierges phone. Walk-ups pay at the dock. Someone rebuilds the manifest by hand before every departure, and the number of seats left is whatever that person believes it is at that moment."
+    },
+    {
+      "title": "The crew is different on every departure",
+      "body": "A captain, a bartender, a deckhand and a guide on Friday. A different bartender and two guides on Saturday. Students, retirees and second-jobbers on staggered availability. The schedule lives in a group chat, certifications live in a folder, and who actually worked which sailing is reconstructed from memory when payroll is due. Tip-out follows the same memory."
+    },
+    {
+      "title": "Weather calls are made by gut, twice a day",
+      "body": "Wind, lightning, smoke and water levels decide whether a departure runs. The call is made from a radar app and a phone call to the captain, then forty guests have to be told, moved or refunded within the hour. Each channel has its own refund rules and its own deadline. The cost of a cancelled departure is never totalled, so nobody knows what a bad-weather week actually costs."
+    },
+    {
+      "title": "The phone rings with the same six questions",
+      "body": "Where do we park. What should we wear. Is it running today. Can we bring a stroller. Is there a washroom on board. Can we move to the 7pm. Those calls hit the person who is also checking in the 5pm departure. In peak season the phone goes to voicemail, the voicemail goes unanswered, and the guest books the operator down the street who picked up."
+    },
+    {
+      "title": "The owner never has a clean number per departure",
+      "body": "Revenue is in the booking system, minus commission that shows up on a monthly OTA statement. Bar and merchandise sales sit in the POS. Wages and tips are in payroll and a notebook. Fuel is on a card. Nobody assembles one line that says what the Saturday sunset sailing actually made after crew, commission and fuel, so pricing and scheduling decisions are made on gross sales and feel."
+    }
+  ],
+  "systems": [
+    {
+      "name": "Reservation and booking system",
+      "examples": "FareHarbor, Peek Pro, Checkfront, Zaui, Rezdy, Bokun, Xola",
+      "holds": "Departure schedule, capacity per departure, bookings, guest contact details, waivers, gift cards, pricing tiers and the manifest for each sailing or tour.",
+      "how_we_connect": "Vendor API where one exists, webhook on new booking, change or cancellation, otherwise a scheduled export of manifests and payments. Read first. Writes back are limited to fields we have agreed in writing, such as capacity holds or a note on a booking.",
+      "where_it_stops": "We never cancel, refund or move a guest booking without a person approving it. Pricing and capacity rules stay in the booking system and are changed by the owner, not by the software."
+    },
+    {
+      "name": "Marketplaces and resellers",
+      "examples": "Viator (Tripadvisor), GetYourGuide, Expedia Local Expert, Klook, Airbnb Experiences, hotel concierge desks",
+      "holds": "Third-party bookings, the reseller's own cancellation terms, commission owed, guest reviews and payout statements that arrive weekly or monthly.",
+      "how_we_connect": "Through the booking system's channel connection where the operator already has one, plus parsing of payout statements and booking emails into one ledger. Each reseller booking is matched to a manifest line and later to a payout line, with a confidence score on the match.",
+      "where_it_stops": "We do not post listings, change prices or reply to reviews on a marketplace automatically. Those are the operator's public face and a person does them."
+    },
+    {
+      "name": "POS and payments",
+      "examples": "Square, Lightspeed, Clover, Moneris, Stripe (through the booking system)",
+      "holds": "Onboard bar and merchandise sales, walk-up ticket payments, card tips, cash tips recorded at close, and the terminal, staff member and timestamp on every transaction.",
+      "how_we_connect": "Two-way with Square, Toast and Lightspeed is live in our Fennec product; for a tour operator we typically read sales, tips and payment type by API per departure window and never store card numbers. Card data stays with the processor.",
+      "where_it_stops": "We never touch card data or take payments ourselves. Refunds are triggered by a person. Tips are read from the POS, never written to it."
+    },
+    {
+      "name": "Payroll, scheduling and accounting",
+      "examples": "QuickBooks Online, Xero, Wagepoint, Payworks, ADP, 7shifts, Deputy, Google Sheets",
+      "holds": "Who worked which departure, hours, roles, pay rates, the tip-out per person, T4 reporting and the general ledger the accountant closes each month.",
+      "how_we_connect": "Scheduled export or API. Tip-out and per-departure crew cost are produced as a file or ledger entry the bookkeeper imports, with every line traceable to a departure and a rule.",
+      "where_it_stops": "We do not run payroll or file with CRA. The owner approves each payout run before it leaves the system, and the accountant keeps ownership of the ledger."
+    }
+  ],
+  "builds": [
+    {
+      "title": "Tip-out engine per departure",
+      "mechanism": "Reads card tips from the POS and cash tips entered at close for one sailing or tour, totals the pool, applies the split rules the owner set once by role and hours, and writes a payout line per crew member per departure. The owner reviews and approves each payout run. The record stays, so a question about last weekend has an answer instead of an argument.",
+      "measure": "Number of payout disputes per month, and minutes from close to approved payout"
+    },
+    {
+      "title": "Voice agent for the booking phone",
+      "mechanism": "Answers the phone in peak season, reads live departure status and availability from the booking system, and resolves the routine calls: is it running, where to park, what to wear, how many seats are left, how to change a time. Anything involving a refund, a group, an accessibility need or an upset guest is transferred to a person with the caller's details and the reason already summarised.",
+      "measure": "Share of inbound calls resolved without a staff member, and missed calls per week"
+    },
+    {
+      "title": "Website chatbot on the operator's own pages",
+      "mechanism": "Sits on the booking and FAQ pages, answers from the operator's own policies, schedule and live availability, and links straight to the right departure. It says when it does not know and hands the thread to email with the conversation attached. The owner approves the answer set and sees every question it could not answer, which is how the FAQ grows.",
+      "measure": "Emails to the inbox per 100 bookings, and chat conversations ending in a booking"
+    },
+    {
+      "title": "One manifest from every channel",
+      "mechanism": "Reads new bookings from the booking system, marketplace emails and channel connections, and the walk-up POS, then assembles a single manifest per departure with a confidence score on each match. Duplicates and near-duplicates are flagged, not merged silently. The crew lead sees one list at the dock; anything under the confidence threshold is shown to a person to confirm.",
+      "measure": "Manifest corrections made at the dock per departure"
+    },
+    {
+      "title": "Reseller payout reconciliation",
+      "mechanism": "Parses Viator, GetYourGuide and other payout statements, matches each paid line to a manifest booking and a commission rate, and lists what was booked but never paid, paid at the wrong rate, or refunded on one side only. Each match carries a confidence score. The bookkeeper approves the reconciled batch before it posts to accounting.",
+      "measure": "Dollars of unmatched or underpaid reseller bookings found per month"
+    },
+    {
+      "title": "Crew scheduling tied to the manifest",
+      "mechanism": "Reads bookings per departure and staff availability, certifications and roles, then proposes a crew for each departure that meets the minimum crewing the operator has set and the passenger count. Expiring certifications are flagged before the schedule is published. The operations manager edits and publishes the schedule; the software never publishes on its own.",
+      "measure": "Crew hours per guest carried, and departures short-crewed or over-crewed per week"
+    },
+    {
+      "title": "Weather call and rebooking assistant",
+      "mechanism": "When the owner or captain marks a departure as cancelled or delayed, the system drafts the guest messages per channel, works out each booking's refund or move options under that channel's rules, and proposes the nearest departures with seats. A person reviews the batch and sends. Every message, move and refund is logged against the departure so the cost of the day is known.",
+      "measure": "Minutes from the weather call to every guest notified, and share of cancelled bookings rebooked instead of refunded"
+    },
+    {
+      "title": "Guest list, review requests and repeat visits",
+      "mechanism": "Builds one guest profile from bookings across channels where consent allows, sends a review request after each departure, and drafts seasonal offers to past guests by segment: locals, groups, gift-card buyers, lapsed two seasons. Consent and unsubscribe are enforced per CASL. The owner approves every campaign before it goes, and drafts are just drafts.",
+      "measure": "Reviews per 100 guests, and share of bookings from returning guests"
+    }
+  ],
+  "leaks": [
+    {
+      "leak": "Reseller commission paid on bookings that were cancelled, no-showed or double counted",
+      "how_measured": "Rarely. The monthly OTA statement is accepted as sent.",
+      "what_closes_it": "Line-by-line reconciliation of payouts against the manifest, with a confidence score and an exceptions list."
+    },
+    {
+      "leak": "Tip-out drift and the disputes that follow it",
+      "how_measured": "By argument, after the boat comes in.",
+      "what_closes_it": "Fixed split rules applied the same way every departure, with a stored payout per person per departure."
+    },
+    {
+      "leak": "Missed calls in peak season that become someone else's booking",
+      "how_measured": "Voicemail count, if anyone looks.",
+      "what_closes_it": "A voice agent that answers the routine six questions and transfers the rest with context."
+    },
+    {
+      "leak": "Cancelled departures with the cost never totalled",
+      "how_measured": "Not at all. Refunds go out and the day is forgotten.",
+      "what_closes_it": "Every cancellation logged with refunds, moves, crew cost and fuel against the departure."
+    },
+    {
+      "leak": "Staff hours rebuilding manifests and answering the same emails",
+      "how_measured": "Nobody times it. It is just the job.",
+      "what_closes_it": "One assembled manifest per departure and a chatbot that clears the repetitive questions."
+    }
+  ],
+  "stats": [
+    {
+      "claim": "Tourism supported 717,200 jobs in Canada in the fourth quarter of 2025, 3.33 percent of all employment.",
+      "figure": "717,200 jobs",
+      "source_org": "Statistics Canada",
+      "source_title": "The Daily: National tourism indicators, fourth quarter 2025",
+      "year": "2026",
+      "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/260327/dq260327a-eng.htm",
+      "caveat": "Whole tourism sector, not tour and experience operators alone. Quarterly estimate subject to revision."
+    },
+    {
+      "claim": "Around 80,000 people entered tourism employment in July 2025 alone, a 3.7 percent jump from June, as operators staffed up for the season.",
+      "figure": "About 80,000 hires in one month",
+      "source_org": "Tourism HR Canada",
+      "source_title": "Canadian Tourism Labour Market Snapshot: July 2025",
+      "year": "2025",
+      "url": "https://tourismhr.ca/canadian-tourism-labour-market-snapshot-july-2025/",
+      "caveat": "Seasonally unadjusted Labour Force Survey figure for the whole tourism sector, analysed by an industry body."
+    },
+    {
+      "claim": "Canada had 562 businesses in scenic and sightseeing water transportation in 2025, and 96.5 percent of the employers were micro or small, with fewer than 100 staff.",
+      "figure": "562 businesses, 96.5% small",
+      "source_org": "Innovation, Science and Economic Development Canada",
+      "source_title": "Canadian Industry Statistics: Scenic and sightseeing transportation, water (NAICS 4872), Businesses",
+      "year": "2025",
+      "url": "https://ised-isde.canada.ca/app/ixb/cis/businesses-entreprises/4872",
+      "caveat": "Statistics Canada special tabulation, unpublished data. Boat operators only; land-based tour companies sit in other NAICS codes."
+    },
+    {
+      "claim": "Online travel agencies took 37 percent of tours, activities and attractions bookings in 2025, while total online bookings held at 60 percent.",
+      "figure": "37% of bookings through OTAs",
+      "source_org": "Arival",
+      "source_title": "Global Operator Landscape (4th Ed.): The State of Experiences",
+      "year": "2026",
+      "url": "https://arival.travel/article/direct-bookings-dive-otas-rise/",
+      "caveat": "Global operator survey of more than 5,000 operators by an industry research firm, not Canada-specific."
+    }
+  ],
+  "rules": [
+    {
+      "regime": "Ontario Employment Standards Act, Part V.1 (Employee Tips and Other Gratuities), with parallel gratuity rules in the BC Employment Standards Act",
+      "demands": "Employers may not withhold, deduct from or claw back tips except as the Act allows. Tip pools are permitted, only tips go in, the employer or a manager may share only in narrow cases, a written tip-sharing policy must be posted and kept for three years after it ends, and payment must be by cash, cheque or direct deposit to an account the employee chose. CRA also treats tips split by an employer-set formula as controlled tips, which are pensionable and insurable.",
+      "how_we_comply": "The split rules are written down once in the system and printed as the posted policy. Nothing is deducted from the pool except the permitted card-processing share, if the owner elects to take it. Every payout per person per departure is stored, exportable to payroll so controlled tips reach the T4, and available to the employee who asks."
+    },
+    {
+      "regime": "Canada Shipping Act, 2001, Small Vessel Regulations and Marine Personnel Regulations (Transport Canada)",
+      "demands": "Any vessel carrying a paying passenger is a passenger vessel. Vessels carrying more than 12 passengers are inspected annually, crew certification depends on vessel size and passenger count, and a safety briefing is required before departure. Passenger counts must never exceed the certified limit.",
+      "how_we_comply": "Capacity per departure in the booking system is treated as a hard ceiling the software cannot raise. Crew scheduling flags any departure without the certified roles the operator has set and any expiring certificate. Manifests are stored per departure so a count can be produced for an inspector."
+    },
+    {
+      "regime": "Liquor Licence and Control Act, 2019 (Alcohol and Gaming Commission of Ontario) and provincial liquor authorities elsewhere",
+      "demands": "A licensed boat may sell and serve liquor only within the window set on its licence relative to leaving and returning to the dock, and not while docked. Servers hold Smart Serve or the provincial equivalent, and price lists and premises changes are filed with the regulator.",
+      "how_we_comply": "POS sales are read with timestamps against the departure and return times, so bar sales outside the licensed window show up as an exception for the owner rather than being buried. Server certification is a field on the staff record and is flagged when missing or expired."
+    },
+    {
+      "regime": "PIPEDA, and BC PIPA, Alberta PIPA or Quebec Law 25 where they apply",
+      "demands": "Guest names, emails, phone numbers, waivers and booking history are personal information collected in a commercial activity. Collection is limited to what the purpose needs, the purpose is stated, retention is limited, safeguards are in place and guests may ask what is held about them. Quebec adds breach reporting and privacy impact assessments for new systems.",
+      "how_we_comply": "Guest profiles hold only booking-relevant fields. Marketing use is separated from operational use and gated on consent. Retention periods are set per record type and enforced. Hosting location is a decision made with the owner before the build, and Canadian hosting is available where required. Access requests can be answered from one screen."
+    },
+    {
+      "regime": "Canada's Anti-Spam Legislation (CASL)",
+      "demands": "Commercial email and SMS need express or implied consent, must identify the sender and must carry a working unsubscribe. Implied consent from a purchase lasts a limited time. Transactional messages about a booking the guest already holds are treated differently from promotions.",
+      "how_we_comply": "Booking confirmations, weather notices and review requests are sent as transactional messages tied to a live booking. Promotional sends go only to guests with recorded consent and its date, every message carries identification and an unsubscribe that takes effect immediately, and the owner approves each campaign."
+    },
+    {
+      "regime": "PCI DSS (Payment Card Industry Data Security Standard)",
+      "demands": "Any business that accepts cards must protect cardholder data, and small merchants validate through a self-assessment questionnaire set by their acquirer. Storing card numbers outside a validated processor widens scope and risk.",
+      "how_we_comply": "We never store, read or transmit card numbers. Payments stay inside the booking system and the POS processor, and our systems read only sale totals, tips, payment type and tokens. That keeps the operator's PCI scope where it already is."
+    }
+  ],
+  "wont_automate": [
+    "The weather call. A captain or the owner decides whether a departure runs; the software only does the messaging and the arithmetic afterwards.",
+    "Refunds and cancellations of guest bookings. A person approves each one, because a refund sent in error is money gone and a cancelled booking is a guest lost.",
+    "Replies to public reviews and marketplace listings. That is the operator's own voice, and a wrong automated reply lives online for years."
+  ],
+  "objections": [
+    {
+      "objection": "We are only busy for four months. Software cannot pay back in that window.",
+      "answer": "The window is the point. Four months of manifests, payouts and missed calls is where the money is, and the build is priced to be measured against one season. We agree the number in writing before we start, and if it misses we keep working until it clears. The off-season is when the build happens, so nothing changes mid-August."
+    },
+    {
+      "objection": "Our booking system already does most of this.",
+      "answer": "Often it does the booking part well. What it does not do is total the tip pool, reconcile the reseller payout, answer the phone or tell you what Saturday made after crew and commission. We read from the booking system rather than replace it, and we start with a free audit that says which of those gaps is worth closing and which is not."
+    },
+    {
+      "objection": "The crew will not trust a computer with their tips.",
+      "answer": "They do not trust a person with them either, which is why the arguments happen. What crews trust is a rule that is written down, applied the same way every time, and a record they can look at. That is what we built for Palapa Tours: the variance went away, and with it the thing the argument was about."
+    },
+    {
+      "objection": "A voice agent will annoy our guests.",
+      "answer": "A voicemail annoys them more. The agent answers the routine questions from your live schedule and hands anything else to a person with the caller's details already summarised. Guests who want a person get one faster than they do today, because the line is not tied up with someone asking where to park."
+    },
+    {
+      "objection": "We are a small team. We cannot run another system.",
+      "answer": "Nothing here asks you to run a system. The manifest assembles itself, the payout batch is one approval, the exceptions list is one email. Two founders build it, train your crew lead on your own departures, and you own the code. If it needs a full-time operator, we built the wrong thing."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Can you fix tip-out if we split by hours worked, not by role?",
+      "a": "Yes. The split rule is yours: by role, by hours, by points, by a mix, with different rules for the bar and the deck if that is how you run. We write the rule down once, the arithmetic runs the same way on every departure, and each person's line shows how it was reached. What we will not do is change the rule quietly. Rule changes are made by the owner and dated."
+    },
+    {
+      "q": "Do we have to leave Viator or GetYourGuide to work with you?",
+      "a": "No. Marketplaces bring you guests you would not otherwise reach, and leaving them is a business decision, not a software one. We connect to what you already sell through, pull every buyer into your own manifest and guest list, and reconcile what the marketplace pays against what it sold. Then you decide, with real numbers, how much of that traffic you want to move direct."
+    },
+    {
+      "q": "What happens when the weather cancels a departure?",
+      "a": "The captain or owner marks the departure as cancelled. The system then drafts messages per channel, works out each booking's refund or move options under that channel's rules, and proposes the nearest departures with seats. A person reviews the batch and sends it. Nothing is refunded or moved automatically, and the whole day is logged so you finally know what a cancellation costs."
+    },
+    {
+      "q": "Where does our guest data live?",
+      "a": "That is decided with you before anything is built. Canadian hosting is available and is the default when a client asks for it. Guest profiles hold only booking-relevant fields, marketing use is separated from operational use and gated on consent, and card numbers never touch our systems at all. They stay with your booking system and your payment processor."
+    },
+    {
+      "q": "How long does a build take, and when should it happen?",
+      "a": "The audit comes first and is free: we map where the hours and dollars leak across a real week and show the arithmetic. Builds are scoped so the work lands in the off-season and is live before your first departure, and we agree the measured number in writing beforehand. The timeframe is set per engagement. Nothing changes on your dock in August unless you ask for it."
+    }
+  ],
+  "what_we_built": [
+    {
+      "title": "Palapa Tours Ottawa: tip-out software, shipped",
+      "body": "Palapa Tours runs floating tiki-bar cruises in Ottawa with a small crew and a different set of staff on every sailing. Gratuity splits shifted cruise to cruise, reconciling them fairly across cash and card was manual arithmetic at the end of a shift, and there was no record to point at, so the crew argued about pay. We built software that totals the gratuity pool when the cruise closes, applies the split rules the operator set once by role, and records the payout per staff member per cruise. The engagement is closed, the software shipped and Palapa owns it. No dollar or hours figure is claimed; the result is a consistent process and a payout the crew can be shown."
+    },
+    {
+      "title": "Fennec: the operating capabilities we bring across",
+      "body": "Fennec is our venue operating system, live at Harbour Event Centre, TradeX, The Pit UBC and The Show Ottawa. Several of its modules are the same problems a tour operator has in a different room: ticketing integrations with Eventbrite, Showpass, Tixr, Ticketmaster and others that pull every buyer into one CRM while the venue keeps selling where it already sells; staff management with schedules, QR clock-in and automatic tip-out math; a guest CRM with segments such as lapsed 60 days; automated SMS, WhatsApp and email flows triggered by signals such as booking confirmed; and two-way POS sync with Square, Toast and Lightspeed. Fennec is built for nightlife, and we do not claim tour clients on it. It is the code and the experience we start from."
+    }
+  ],
+  "learned": [
+    "Variance is the dispute. At Palapa the argument was never about the arithmetic, it was about the number changing from one sailing to the next. Fix the rule and store the record and the argument has nothing left to be about.",
+    "A crew that changes every departure needs the record kept per departure, not per pay period. Anything summarised weekly loses the one question people actually ask, which is about last Saturday.",
+    "Cash and card side by side is normal in this trade and it is exactly where hand-worked splits drift. Read the card tips from the POS and make the cash entry a single step at close.",
+    "Seasonal operators cannot absorb change mid-season. Build in the off-season, go live before the first departure, and agree the number that will be measured against one season in writing.",
+    "Bookings from five channels stay five lists until something assembles them per departure. Every downstream number, from crewing to tip-out to what the sailing made, depends on that one manifest being right."
+  ],
+  "meta_title": "Tour and experience operators | Exodus Consulting",
+  "meta_description": "Software for seasonal, crew-based tour operators: tip-out that ends disputes, one manifest from every channel, a voice agent for the phone. Built in Vancouver."
+}

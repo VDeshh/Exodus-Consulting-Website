@@ -1,0 +1,190 @@
+{
+  "slug": "construction-trades",
+  "name": "Construction and trades",
+  "hero_title": "The job is won on the phone and lost on paperwork.",
+  "hero_lead": "A trades business runs on a phone that rings while the owner is on a ladder. Quotes, change orders, timesheets and invoices live across a truck cab, a kitchen table and three apps that never meet. We build the systems that catch the call, tie the hours to the job and tell you what each job actually made.",
+  "segments": [
+    "Residential renovation and custom home builders",
+    "Electrical, plumbing and HVAC service contractors",
+    "Roofing, siding and exterior trades",
+    "Landscaping, excavation and concrete",
+    "Commercial subcontractors and small general contractors"
+  ],
+  "how_it_runs": [
+    {
+      "title": "Phone rings while the owner is on a ladder.",
+      "body": "Most trades shops have no office. The owner is the estimator, the dispatcher and the person who answers the phone, and the phone rings during the pour. Calls go to voicemail, the caller phones the next company on Google, and the job is gone before lunch. Nobody knows how many calls were missed, because nothing counts them."
+    },
+    {
+      "title": "The quote is a gut number in a spreadsheet.",
+      "body": "Materials get priced off last month's supplier invoice, labour off how long the last similar job felt like it took. Margin is whatever is left after the owner rounds to a number the customer will accept. Two jobs that look identical on the quote come in an afternoon apart on labour, and nobody goes back to see which one was wrong."
+    },
+    {
+      "title": "Hours get written down at 6pm from memory.",
+      "body": "Crews move between two or three sites in a day. The hours land on a text, a dashboard notepad or a Friday recollection, then someone types them into payroll and, separately, into the job. The two totals never match. Payroll is right because people complain when it is wrong. The job cost is wrong because nobody complains about a report."
+    },
+    {
+      "title": "Change orders agreed by text, lost by invoice.",
+      "body": "The homeowner asks for the extra pot lights while the electrician is standing there. The answer is yes, the price is roughly stated, and the work gets done. Six weeks later the invoice is built from the original quote, the extra is remembered or it is not, and if it is the customer disputes the number because there is nothing signed."
+    },
+    {
+      "title": "Getting paid takes longer than doing the work.",
+      "body": "A subcontractor finishes in March, invoices in April and chases in June. Holdbacks sit for weeks after substantial completion. Meanwhile the supplier account is due on the thirtieth and payroll is due Friday. The owner finances the general contractor's project from a personal line of credit and calls it normal. Cash is decided by whoever picks up the phone."
+    }
+  ],
+  "systems": [
+    {
+      "name": "Job management and field service",
+      "examples": "Jobber, ServiceTitan, Housecall Pro, Buildertrend, Procore",
+      "holds": "Customers, quotes, jobs, the schedule, crew assignments, invoices raised, photos and notes from the field",
+      "how_we_connect": "API where the product has one (Jobber, ServiceTitan, Procore and Buildertrend do), webhooks for new jobs and status changes, scheduled CSV export otherwise",
+      "where_it_stops": "We never create or reprice a quote, close a job or move a schedule without a person confirming it in the tool."
+    },
+    {
+      "name": "Accounting and payroll",
+      "examples": "QuickBooks Online, Sage 50, Sage 300 CRE, Xero, Wagepoint",
+      "holds": "Invoices, bills, payments, payroll, holdbacks, GST and PST, the general ledger",
+      "how_we_connect": "API for QuickBooks Online and Xero; read-only reports or scheduled exports for the Sage desktop products",
+      "where_it_stops": "Read-mostly. We draft invoices and post approved timesheets only after sign-off. We never issue a payment, adjust a ledger entry or file a return."
+    },
+    {
+      "name": "Lead sources and customer contact",
+      "examples": "Google Business Profile, HomeStars, Houzz, Facebook lead forms, the website contact form, the business phone line",
+      "holds": "Where enquiries come from, the caller's details, the first message, what happened next",
+      "how_we_connect": "Webhooks from forms and lead platforms, call routing and transcripts from the phone system, and a write into the job software as a new lead",
+      "where_it_stops": "Every lead stays a lead until a person calls it back. No automated quote, no automated booking of anything that needs a site visit."
+    }
+  ],
+  "builds": [
+    {
+      "title": "Voice agent that answers on site days",
+      "mechanism": "The agent picks up when nobody in the shop can. It reads the job calendar and service area, takes the caller's name, address, trade and problem, books an estimate slot or a service window, and texts a confirmation. Emergencies and anything about price go to the owner as a live transfer with a summary. Every quote and every booking is confirmed by a person before it is final.",
+      "measure": "Missed calls per week that turned into a booked estimate"
+    },
+    {
+      "title": "Website chatbot for scope and quote questions",
+      "mechanism": "The chatbot reads your service list, service area, typical lead times and permit notes, and answers the repeat questions: do you do this, how soon, what do you need from me, is a permit required. It collects photos and measurements and files them as a lead in your job software. It never states a price. A person reviews each lead and sends the quote.",
+      "measure": "Leads that arrive with photos and an address attached"
+    },
+    {
+      "title": "Timesheets reconciled to jobs and payroll",
+      "mechanism": "Crew hours come in from the field app, from texts or from a photo of the whiteboard. The system reads them, matches each entry to a job and a cost code, and compares the total against what payroll paid. Mismatches over a threshold are listed with the original entry beside them. The office lead approves the week before anything posts to job cost.",
+      "measure": "Hours paid but never charged to a job, per month"
+    },
+    {
+      "title": "Change orders caught and signed on site",
+      "mechanism": "A foreman describes the extra in a voice note or a text. The system drafts a change order with the scope, the unit prices from the original quote and a labour estimate, then sends it to the customer for a tap-to-approve signature. The owner sets the price and approves the draft before it goes out. Approved extras land on the job and on the next invoice automatically.",
+      "measure": "Dollars of extras invoiced versus extras done"
+    },
+    {
+      "title": "Invoice, holdback and payment clock tracker",
+      "mechanism": "The system reads issued invoices from your accounting software and the contract terms per job. It knows when a proper invoice went out, when the prompt payment clock runs out in that province, and when a holdback becomes releasable. It drafts the reminder, the notice of non-payment or the release request on the right day. A person reads it and decides whether to send it.",
+      "measure": "Average days from invoice to cash"
+    },
+    {
+      "title": "Job profit report that cites its sources",
+      "mechanism": "Every Monday the report assembles itself: quoted versus actual labour, materials from supplier invoices, subcontractor bills, approved extras and what has been billed and collected, per job. Every number links to the timesheet, invoice or purchase it came from, so a wrong figure can be traced instead of argued. The owner reads it in five minutes. It changes nothing on its own; it shows where to look.",
+      "measure": "Gross margin per job, quoted against actual"
+    }
+  ],
+  "leaks": [
+    {
+      "leak": "Missed calls during working hours",
+      "how_measured": "Not measured; a voicemail count, if anyone checks it",
+      "what_closes_it": "A voice agent that books the estimate and counts every call"
+    },
+    {
+      "leak": "Extras done and never invoiced",
+      "how_measured": "Remembered at invoice time, or not",
+      "what_closes_it": "Change orders drafted on site and signed before the work"
+    },
+    {
+      "leak": "Hours paid but not charged to a job",
+      "how_measured": "A payroll total and a job cost total that never match",
+      "what_closes_it": "Timesheets matched to jobs before payroll posts"
+    },
+    {
+      "leak": "Cash tied up in slow invoices and holdbacks",
+      "how_measured": "An accounts receivable ageing report, read monthly",
+      "what_closes_it": "Payment clocks per job with reminders drafted on the day"
+    }
+  ],
+  "stats": [
+    {
+      "claim": "of Canadian construction employer businesses have one to four employees, and another 37% have five to 99. Almost every contractor is an owner doing the office work at night.",
+      "figure": "61.9%",
+      "source_org": "Innovation, Science and Economic Development Canada",
+      "source_title": "Canadian Industry Statistics, Construction (NAICS 23), Businesses",
+      "year": "2025",
+      "url": "https://ised-isde.canada.ca/app/ixb/cis/businesses-entreprises/23",
+      "caveat": "Counts 159,514 employer establishments only. Sole operators with no employees are excluded, so the true share of very small businesses is higher."
+    },
+    {
+      "claim": "of BC construction employers and tradespeople surveyed were paid late at least once in the past year, and 61% were paid late on more than a quarter of completed work.",
+      "figure": "89%",
+      "source_org": "British Columbia Construction Association",
+      "source_title": "2026 BC Construction Industry Survey and Spring Stat Pack",
+      "year": "2026",
+      "url": "https://bccassn.com/bc-construction-industry-calls-for-government-action-to-sustain-workforce-and-project-momentum/",
+      "caveat": "Industry association survey of 858 self-selected respondents in British Columbia. Not a random sample and not national."
+    },
+    {
+      "claim": "workers is the Canadian construction industry's total hiring requirement by 2034, and even at that rate of recruitment the industry may still be short 34,300 people. In residential alone, 135,000 workers are projected to retire by 2035. Every hour of paperwork taken off a skilled trade counts for more each year.",
+      "figure": "306,200",
+      "source_org": "BuildForce Canada",
+      "source_title": "Construction and Maintenance Looking Forward, 2026 to 2035 national forecast",
+      "year": "2026",
+      "url": "https://www.buildforce.ca/en/press-release/buildforce-canadas-construction-and-maintenance-looking-forward-reports-for-2026-to-2035-project-renewed-residential-growth-and-sustained-high-levels-of-non-residential-activity/",
+      "caveat": "A projection, not a measurement. BuildForce is an industry-funded labour market organisation and its scenarios depend on housing and investment assumptions. The 135,000 retirements figure covers the residential sector only; the 306,200 and 34,300 figures are industry-wide."
+    }
+  ],
+  "rules": [
+    {
+      "regime": "PIPEDA and BC PIPA (Alberta PIPA and Quebec Law 25 where you work there)",
+      "demands": "Homeowner names, addresses, phone numbers, site photos and call recordings are personal information. Collect only what the job needs, say why, keep it secure, and give people access on request. Recording a call needs notice at the start of it.",
+      "how_we_comply": "The voice agent announces recording and its purpose. We store only the fields the job requires, on Canadian hosting where the client asks for it, with role-based access and deletion on a schedule the owner sets."
+    },
+    {
+      "regime": "CASL (Canada's Anti-Spam Legislation)",
+      "demands": "Any marketing email or text to a customer needs express or implied consent, sender identification and a working unsubscribe. A past customer gives implied consent only for a limited period after the transaction.",
+      "how_we_comply": "Transactional messages (booking confirmations, change orders, invoices) are kept separate from marketing. Marketing goes only to contacts with a recorded consent date and source, and an unsubscribe writes back to the CRM the same day."
+    },
+    {
+      "regime": "Prompt payment legislation (Ontario Construction Act, Alberta Prompt Payment and Construction Lien Act, federal, Quebec, Saskatchewan and Manitoba; BC has enacted its own, not yet in force)",
+      "demands": "A proper invoice starts a clock. In Ontario the owner pays within 28 days or issues a notice of non-payment within 14, and the contractor pays subs within 7 days of being paid. Missing a date costs interest or a right.",
+      "how_we_comply": "The tracker stores each province's deadlines per job and flags the day a clock starts and the day it ends. It drafts the notice; a person sends it. Nothing is filed, disputed or released by the system on its own."
+    },
+    {
+      "regime": "WorkSafeBC Occupational Health and Safety Regulation (and the provincial equivalents)",
+      "demands": "Employers must keep records of safety orientations, toolbox talks, equipment inspections, first aid and incident reports, and produce them to an officer on request.",
+      "how_we_comply": "Field notes and photos are filed to the job and the date automatically, tagged with the worker who submitted them. The system reminds and files. It does not sign off an inspection on anyone's behalf."
+    }
+  ],
+  "wont_automate": [
+    "We will not let software set or send a price. Pricing a job needs someone who has stood on the site, and a wrong number is a loss you carry for months.",
+    "We will not auto-send a notice of non-payment, a lien or a holdback release. Those are legal steps against a customer relationship, and a person decides each one."
+  ],
+  "objections": [],
+  "faq": [
+    {
+      "q": "We run Jobber and QuickBooks. Do we have to change?",
+      "a": "No. Both have APIs and both stay. The job list, the customers and the schedule keep living in Jobber. Invoices and payroll keep living in QuickBooks. We read from both, write back only the fields we agree in advance, and show you the unmapped items before anything goes live. If a job management tool has no API, we work from its scheduled exports instead."
+    },
+    {
+      "q": "My crew will not use another app. What then?",
+      "a": "Then we do not give them one. The timesheet build accepts a text, a voice note or a photo of the whiteboard, because that is what a crew actually does at 6pm. The change order build starts from a foreman's voice note. The system does the typing. The only thing we ask of the field is what they already do, done into a phone number instead of a notepad."
+    },
+    {
+      "q": "Will a voice agent quote a price to my customers?",
+      "a": "No. It will not state a price, promise a date the calendar does not show, or accept a job. It books the estimate, takes the details and the photos, and hands anything about money or an emergency to a person with the call summary attached. Pricing stays with whoever walks the site. We write that boundary into the agent and test it before it takes a real call."
+    },
+    {
+      "q": "How do we know it worked?",
+      "a": "We agree the number before the build starts, in writing: missed calls that became estimates, hours paid but not charged to a job, days from invoice to cash, whichever one you chose. We measure it before, then measure it after deployment against the same baseline. If the system misses the agreed bar we keep working at no extra cost until it clears. You own the code either way."
+    }
+  ],
+  "what_we_built": [],
+  "learned": [],
+  "meta_title": "Construction and trades software | Exodus Consulting",
+  "meta_description": "Phone answered while you are on site, change orders signed by text, timesheets matched to jobs and payment clocks per job. Custom, from Vancouver."
+}

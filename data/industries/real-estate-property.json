@@ -1,0 +1,190 @@
+{
+  "slug": "real-estate-property",
+  "name": "Real estate and property management",
+  "hero_title": "The rent roll is right. Everything around it is retyped.",
+  "hero_lead": "A property manager or brokerage owner already runs a system of record, and it does the ledger well. The hours go to what sits around it: the phone, the maintenance thread, the application pile, the owner statement that has to be explained. We build the layer that answers the routine call, routes the work order and reconciles the numbers, and leaves every notice, payment and approval with a person.",
+  "segments": [
+    "Residential rental property managers running scattered units for many owners",
+    "Strata and condo management firms with council reporting and trust accounts",
+    "Real estate brokerages and agent teams working listings, leads and deal files",
+    "Leasing offices at purpose-built rental buildings with a showing calendar",
+    "Small commercial landlords with a handful of tenants and their own trades"
+  ],
+  "how_it_runs": [
+    {
+      "title": "The phone rings about the same six things",
+      "body": "Is the unit still available, when can I see it, my sink is leaking, did my rent go through, the neighbour is loud, I locked myself out. A manager with two hundred doors hears each of these several times a day, and the questions land between a showing and a council meeting. Most of the answers are already in the property system. Nobody has time to look them up while the caller waits."
+    },
+    {
+      "title": "Month end is a reconciliation, not a report",
+      "body": "Rent comes in by pre-authorised debit, e-transfer, cheque and the odd cash deposit. Some payments land a day late, some bounce, some arrive with the wrong reference. The trust account has to reconcile monthly and the owner statement has to match it. The bookkeeper spends the first week of the month matching bank lines to tenant ledgers by hand, then fielding owner emails that ask why the number moved."
+    },
+    {
+      "title": "Turnover is where a unit loses a month",
+      "body": "A tenant gives notice. The listing goes up late because photos are old. Enquiries arrive at all hours and half the showings are no-shows. Applications come in as photos of pay stubs and screenshots of credit reports. The unit is cleaned, the keys are cut, the move-in inspection is done on paper. Every one of those steps waits on a person, and the owner sees it as vacant days."
+    },
+    {
+      "title": "Maintenance lives in text messages to trades",
+      "body": "A tenant reports a problem. The manager texts the plumber, the plumber texts back a time, the tenant is told, the time slips, the invoice arrives three weeks later and nobody remembers which unit it was for. Owner approval thresholds are in the management agreement but checked from memory. The work order exists in the system only if someone remembers to type it in afterwards."
+    },
+    {
+      "title": "The brokerage copies the same deal four times",
+      "body": "A lead lands in the CRM. The listing is typed into the MLS. The offer is built in a forms tool, signed electronically, then re-entered into back office for commission and trust accounting. Client identity records for FINTRAC sit in a fourth place. The same names, addresses and dollar figures are keyed by hand four times, and the conveyancer catches the mismatch the day before completion."
+    }
+  ],
+  "systems": [
+    {
+      "name": "Property management system",
+      "examples": "Yardi Breeze and Yardi Voyager, Buildium, AppFolio, Rent Manager, Propertyware, Condo Control for strata",
+      "holds": "Units, leases, tenant ledgers, work orders, vendors, owner statements and the trust ledger. This is the rent roll and the system of record for every door under management.",
+      "how_we_connect": "API where the product offers one (Buildium, AppFolio and Rent Manager all do), otherwise a scheduled export into a read-only copy we keep. The agents and the reconciliation read from that copy. Writes go back only as drafts: a proposed work order, a flagged ledger line, a note on the tenant record.",
+      "where_it_stops": "Nothing posts a payment, adjusts a ledger, changes a lease or issues a notice without a licensed person confirming it in the property system itself."
+    },
+    {
+      "name": "Brokerage CRM and transaction management",
+      "examples": "Follow Up Boss, Lone Wolf Back Office and Transactions, DocuSign Rooms, dotloop, BrokerBay for showings, board MLS feeds through Paragon or Matrix",
+      "holds": "Leads and their source, listings, showing bookings, the deal file with every signed form, commission splits and trust deposits.",
+      "how_we_connect": "Webhooks from the CRM for new leads and stage changes, the transaction tool's API for deal fields, and MLS data through the board's licensed feed. We match one deal across all of them and show where the fields disagree.",
+      "where_it_stops": "No contract is drafted, sent or signed by the system. No commission is calculated as final. The managing broker reviews every deal file before it is marked complete."
+    },
+    {
+      "name": "Accounting and banking",
+      "examples": "QuickBooks Online, Sage 50, bank feeds from the trust and operating accounts, e-transfer notifications",
+      "holds": "The general ledger, the trust and operating bank balances, vendor bills, owner payouts and GST filings.",
+      "how_we_connect": "QuickBooks API for the ledger, read-only bank exports or feeds for the account lines. We reconcile bank lines against tenant ledgers and vendor bills and score every match for confidence.",
+      "where_it_stops": "No journal entry is posted and no disbursement is made by the system. Every unmatched or low-confidence line goes to the bookkeeper as a list, not a correction."
+    }
+  ],
+  "builds": [
+    {
+      "title": "Voice agent on the tenant line",
+      "mechanism": "The agent answers the main number. It reads the property system for unit availability, showing slots, rent status and open work orders, so it can confirm a showing, take a maintenance report with unit and photos by text, and answer whether rent cleared. Anything about an emergency, a notice, a dispute or money is transferred to a person with the transcript attached.",
+      "measure": "Share of calls resolved without a manager picking up, measured against a two week baseline of the call log"
+    },
+    {
+      "title": "Website chatbot for listing and tenant questions",
+      "mechanism": "The chatbot sits on the listing pages and the tenant portal. It reads current listings, building rules, pet and parking policies and portal instructions, and answers the repeated questions: is it available, what is included, how do I pay, how do I book a viewing. It books showings into the calendar. Anything it cannot answer from the record becomes a ticket to a named person.",
+      "measure": "Email and portal messages per unit per month, before and after"
+    },
+    {
+      "title": "Maintenance intake, triage and dispatch",
+      "mechanism": "Reports arrive by phone, text, email and portal. The system reads each one, pulls the unit and tenant from the property system, classifies urgency against rules the manager set, checks the owner approval threshold in the management agreement and drafts a work order with the right trade attached. The manager approves the order and the spend. The trade gets one message with unit, access and photos.",
+      "measure": "Hours from tenant report to trade confirmed, tracked per work order"
+    },
+    {
+      "title": "Rent and trust reconciliation with confidence scores",
+      "mechanism": "Every bank line from the trust account is read and matched against the tenant ledger and vendor bills using amount, date, reference and payer history. Each match carries a confidence score. High-confidence matches are queued for the bookkeeper to accept in one pass. Low-confidence and unmatched lines are listed with the reason. The bookkeeper posts. The system never does.",
+      "measure": "Bookkeeper hours to close the month, and unmatched lines left at month end"
+    },
+    {
+      "title": "Application intake and screening file",
+      "mechanism": "Applicants upload documents through one form instead of texting photos. The system reads pay stubs, letters of employment and references into a structured file, checks that everything the manager requires is present, and flags gaps and inconsistencies such as an income that does not match the stated employer. It applies no decision. The manager reads the file and decides, with the reason recorded.",
+      "measure": "Days from listing to signed lease, per turnover"
+    },
+    {
+      "title": "Owner statements that cite their source",
+      "mechanism": "Each month the system assembles the owner statement from the ledger, the work orders and the vendor bills. Every figure links to the line it came from, so an owner asking why the number moved gets the invoice and the ledger entry, not an explanation from memory. The manager reviews and releases each statement. Nothing goes to an owner unreviewed.",
+      "measure": "Owner questions per statement cycle, and time to answer each one"
+    }
+  ],
+  "leaks": [
+    {
+      "leak": "After-hours and midday calls answered personally by the manager",
+      "how_measured": "Rarely measured at all; the phone bill and the manager's evenings are the only record",
+      "what_closes_it": "The voice agent resolving the routine calls and logging every one, with a call report the owner can read"
+    },
+    {
+      "leak": "Vacant days between notice and the next signed lease",
+      "how_measured": "Noticed on the owner statement as a missing month of rent, after the fact",
+      "what_closes_it": "Listing live on notice day, showings booked by the chatbot, applications arriving as complete files"
+    },
+    {
+      "leak": "Vendor invoices with no matching work order or owner approval",
+      "how_measured": "Caught by the bookkeeper at month end, or by the owner who disputes the charge",
+      "what_closes_it": "Every trade dispatched from an approved work order, and every invoice matched back to it with a score"
+    },
+    {
+      "leak": "Listing leads that go cold before anyone replies",
+      "how_measured": "Almost never; the CRM shows the lead, not the hours it waited",
+      "what_closes_it": "Instant answer and showing booking from the chatbot, and a reply-time report per agent"
+    }
+  ],
+  "stats": [
+    {
+      "claim": "Canada's purpose-built rental vacancy rate rose to 3.1 percent in 2025, from 2.2 percent in 2024, and Vancouver reached 3.7 percent, its highest since 1988. Vacancy is back on the owner statement, so every day of turnover costs real money.",
+      "figure": "3.1%",
+      "source_org": "Canada Mortgage and Housing Corporation",
+      "source_title": "2025 Rental Market Report, news release: Canada's vacancy rate rises amid historically high rental construction",
+      "year": "2025",
+      "url": "https://www.cmhc-schl.gc.ca/media-newsroom/news-releases/2025/canadas-vacancy-rate-rises-amid-historically-high-rental-construction",
+      "caveat": "Purpose-built rental only, based on CMHC's October survey of major centres. Rental condominiums are reported separately."
+    },
+    {
+      "claim": "There were 5.0 million renter households in Canada in 2021, a rental rate of 33.1 percent, and renter households grew 21.5 percent between 2011 and 2021 against 8.4 percent for owners. The pool of tenants a manager answers to keeps growing faster than the pool of owners.",
+      "figure": "5.0 million",
+      "source_org": "Statistics Canada",
+      "source_title": "The Daily: To buy or to rent: The housing market continues to be reshaped by several factors as Canadians search for an affordable place to call home",
+      "year": "2022",
+      "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/220921/dq220921b-eng.htm",
+      "caveat": "2021 Census of Population figures released September 2022. Counts households, not individual renters."
+    },
+    {
+      "claim": "British Columbia's Residential Tenancy Branch receives roughly 200,000 calls and more than 20,000 applications for dispute resolution each year. A clean record of notices, payments and repairs is what a landlord brings to a hearing.",
+      "figure": "20,000+",
+      "source_org": "Government of British Columbia, Ministry of Housing",
+      "source_title": "News release: B.C. improving services, wait times for tenants, landlords",
+      "year": "2023",
+      "url": "https://news.gov.bc.ca/releases/2023HOUS0178-001974",
+      "caveat": "BC only, government-reported approximate annual volumes from a December 2023 release. Other provinces run separate tribunals with their own numbers."
+    }
+  ],
+  "rules": [
+    {
+      "regime": "PIPEDA and BC Personal Information Protection Act (PIPA)",
+      "demands": "Tenant applications carry income, employment, credit and identity details. The law limits collection to what is needed for the decision, requires consent, and requires the information to be protected and disposed of when no longer needed. Alberta PIPA and Quebec Law 25 apply the same idea with their own rules.",
+      "how_we_comply": "Application forms collect only the fields the manager has decided are needed. Documents are stored in the client's own environment, hosted in Canada when the client requires it, with access by role and a retention rule that deletes rejected applicant files on a set schedule. The client owns the code and the data."
+    },
+    {
+      "regime": "Real Estate Services Act (BC), administered by BCFSA",
+      "demands": "Rental property management and trading services require a licence. Client money sits in a brokerage trust account, reconciled monthly, and the service agreement sets who may authorise disbursements. Other provinces run equivalents such as RECO in Ontario and RECA in Alberta.",
+      "how_we_comply": "The reconciliation build reads the trust account and proposes matches; a licensee posts them. No disbursement is initiated by software. Every action the system drafts is logged with who approved it, which is the audit trail the regulator asks for."
+    },
+    {
+      "regime": "Residential Tenancy Act (BC) and provincial tenancy law",
+      "demands": "Notices to end tenancy, rent increases, entry for inspection or repair and deposit handling all have prescribed forms, timing and service rules. Errors void the notice and can cost months at the Residential Tenancy Branch or the Ontario Landlord and Tenant Board.",
+      "how_we_comply": "The system never issues a notice. It can calculate the earliest lawful date and assemble the evidence file: the ledger, the repair history, the communications. A person chooses to serve, and the served copy and date are recorded."
+    },
+    {
+      "regime": "CASL, Canada's Anti-Spam Legislation",
+      "demands": "Commercial electronic messages to prospects and past clients need consent, sender identification and a working unsubscribe. Messages about an existing tenancy or transaction are treated differently from marketing to leads.",
+      "how_we_comply": "Consent and its source are stored on every contact. Marketing sends go only to contacts with recorded consent, carry the brokerage identity and an unsubscribe that works within the required window. Tenancy notices and transaction messages are kept in a separate channel from marketing."
+    }
+  ],
+  "wont_automate": [
+    "We will not automate notices to end a tenancy, rent increases or anything served under tenancy law. A wrong date or a wrong form voids the notice, and the person who signs it carries the liability, so a person signs it.",
+    "We will not automate approving or declining a rental applicant, or moving money out of a trust account. Human rights law governs the first and the licensing regulator governs the second. The system prepares the file and the match; a licensed person decides."
+  ],
+  "objections": [],
+  "faq": [
+    {
+      "q": "Do we have to leave Yardi, Buildium or AppFolio to do this?",
+      "a": "No. The property system stays as the system of record and keeps the ledger. We connect to it through its API or a scheduled export, read from a copy, and hand back drafts for a person to accept. Replacing a rent roll that works is expensive and slow, and it is not where the hours are going. The hours are going to the phone, the maintenance thread and the month end, and that is what we build against."
+    },
+    {
+      "q": "What happens when a tenant calls the voice agent at 2am with a flood?",
+      "a": "The agent is built to recognise emergency language and hand off immediately to whoever is on call, with the unit, the tenant and what was said already attached. It does not try to troubleshoot a flood. The rule for what counts as an emergency is written with you before launch, and every call, resolved or transferred, is logged so you can check the agent's judgement the next morning and tighten the rule."
+    },
+    {
+      "q": "Where does tenant and applicant data live?",
+      "a": "In your environment, on hosting you control. When a client requires it, every model and every byte stays in Canada; that requirement shaped our architecture on other work and it is available here. Access is by role, applicant files for declined applications are deleted on a schedule you set, and you own the code. Nothing is sent to a third-party model provider outside the agreed hosting."
+    },
+    {
+      "q": "Does any of this touch our FINTRAC or trust account obligations?",
+      "a": "It supports them and does not replace them. For a brokerage, the system can assemble the client identification record and flag a deal file that is missing one, but the licensee verifies identity and files any report. For trust accounts, the reconciliation proposes matches with confidence scores and a person posts them. FINTRAC obligations do not apply to pure property management activity, only to purchases and sales, and we build to that line."
+    }
+  ],
+  "what_we_built": [],
+  "learned": [],
+  "meta_title": "AI for property managers and brokerages | Exodus Consulting",
+  "meta_description": "Voice agent on the tenant line, maintenance dispatch, trust reconciliation with confidence scores, owner statements that cite their source."
+}

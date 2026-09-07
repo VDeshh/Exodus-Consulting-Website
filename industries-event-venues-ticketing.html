@@ -1,0 +1,812 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Event venue and ticketing software | Exodus Consulting</title>
+  <meta name="description" content="Ticketing sync, an offline door scanner, promoter ledgers and ad attribution for Canadian venues. Built on Fennec, live at four rooms tonight.">
+  <meta name="theme-color" content="#FAF9F7">
+  <link rel="icon" href="assets/exodus-logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Exodus Consulting">
+  <meta property="og:title" content="Event venue and ticketing software | Exodus Consulting">
+  <meta property="og:description" content="Ticketing sync, an offline door scanner, promoter ledgers and ad attribution for Canadian venues. Built on Fennec, live at four rooms tonight.">
+  <meta property="og:image" content="assets/exodus-logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/exodus.css?v=12">
+  <link rel="stylesheet" href="css/ia.css?v=12">
+  <link rel="stylesheet" href="css/p-industries.css?v=12">
+  <script src="js/exodus.js?v=12" defer></script>
+</head>
+<body>
+
+<a class="ex-skip" href="#main">Skip to content</a>
+
+<header class="ex-header">
+  <div class="ex-header__inner">
+    <a class="ex-brand" href="index.html">
+      <img src="assets/exodus-logo.png" alt="Exodus Consulting" width="34" height="17">
+      <span class="ex-brand__name">Exodus Consulting</span>
+    </a>
+
+    <nav class="ex-nav" aria-label="Primary">
+      <a class="ex-nav__link" href="index.html">Home</a>
+      <a class="ex-nav__link" href="services.html">What we build</a>
+      <a class="ex-nav__link" href="work.html">Our work</a>
+      <a class="ex-nav__link is-current" aria-current="page" href="industries.html">Industries</a>
+      <a class="ex-nav__link" href="guarantee.html">How we charge</a>
+      <a class="ex-nav__link" href="about.html">About</a>
+      <a class="ex-btn ex-btn--primary ex-btn--sm" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+    </nav>
+
+    <button class="ex-burger" type="button" data-nav-toggle aria-expanded="false" aria-controls="ex-mobile-menu">
+      <span class="ex-burger__bars" aria-hidden="true"></span>
+      <span>Menu</span>
+    </button>
+  </div>
+
+  <div class="ex-mobile-menu" id="ex-mobile-menu">
+    <ul class="ex-mobile-menu__list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">What we build</a></li>
+      <li>
+        <a href="work.html">Our work</a>
+        <ul class="ia-submenu">
+          <li><a href="work-uniserve.html">Uniserve Communications</a></li>
+          <li><a href="work-fennec.html">Fennec</a></li>
+          <li><a href="work-palapa-tours.html">Palapa Tours Ottawa</a></li>
+          <li><a href="work-scoped.html">Current engagements</a></li>
+          <li><a href="fennec-events-floor.html">Fennec: events and floor ops</a></li>
+          <li><a href="fennec-ticketing-guests.html">Fennec: ticketing and guests</a></li>
+          <li><a href="fennec-pos-payments.html">Fennec: POS and payments</a></li>
+          <li><a href="fennec-inventory-staff.html">Fennec: inventory and staff</a></li>
+          <li><a href="fennec-media-intelligence.html">Fennec: media and intelligence</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="industries.html">Industries</a>
+        <ul class="ia-submenu">
+          <li><a href="industries.html">All industries</a></li>
+          <li><a href="industries-nightlife-hospitality.html">Nightlife and hospitality</a></li>
+          <li><a href="industries-restaurants-bars.html">Restaurants and bars</a></li>
+          <li><a href="industries-event-venues-ticketing.html">Event venues and ticketing</a></li>
+          <li><a href="industries-telecom-isps.html">Telecom and internet providers</a></li>
+          <li><a href="industries-political-campaigns.html">Political parties and campaign organisations</a></li>
+          <li><a href="industries-tours-experiences.html">Tour and experience operators</a></li>
+        </ul>
+      </li>
+      <li><a href="guarantee.html">How we charge</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a class="ex-btn ex-btn--primary ex-btn--block" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <nav class="ia-crumbs" aria-label="Breadcrumb">
+    <div class="ex-container">
+      <ol class="ia-crumbs__list">
+        <li class="ia-crumbs__item"><a class="ia-crumbs__link" href="index.html">Home</a></li>
+        <li class="ia-crumbs__item"><a class="ia-crumbs__link" href="industries.html">Industries</a></li>
+        <li class="ia-crumbs__item"><span aria-current="page">Event venues and ticketing</span></li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- ===================== 1. HERO ===================== -->
+  <section class="ex-hero">
+    <div class="ex-container">
+      <div class="ex-hero__inner">
+        <div>
+          <p class="ex-eyebrow ex-eyebrow--violet">Industries / Event venues and ticketing</p>
+          <h1 class="ex-hero__title">Keep selling where you sell. Own the guest yourself.</h1>
+          <p class="ex-hero__lead">Most venues know exactly how many tickets they sold and almost nothing about who bought them. The marketplace holds the buyer, the door holds a clipboard, the promoter holds a spreadsheet, and the bar holds the money. We built Fennec to connect those four without asking anyone to leave the platform they already sell on, and it runs tonight at Harbour Event Centre, TradeX, The Pit UBC and The Show Ottawa.</p>
+          <div class="ex-hero__actions">
+            <a class="ex-btn ex-btn--primary" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+            <a class="ex-btn ex-btn--secondary" href="industries.html">All industries</a>
+          </div>
+        </div>
+
+        <div class="ex-hero__meta">
+          <p class="ex-eyebrow">Who this is for</p>
+          <aside class="ex-rail" aria-label="Segments within Event venues and ticketing">
+            <div class="ex-rail__item"><span class="ex-rail__v">Nightclubs and late-night event rooms</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__v">Concert halls and live music venues</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__v">Multi-purpose event centres and trade show halls</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__v">Event promoters and touring production companies</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__v">Campus and community venues with a paid door</span></div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 2. HOW IT ACTUALLY RUNS ===================== -->
+  <section class="ex-band">
+    <div class="ex-container">
+      <p class="ex-eyebrow ex-eyebrow--onink">How it actually runs</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">Before anything is built, this is the week we are describing.</h2>
+        <p class="ex-shead__sub">No software can be scoped from a category name. These are the specifics of event venues and ticketing that decide what is worth building and what is not.</p>
+      </header>
+
+      <ol class="ex-timeline">
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">01</span>
+          <div>
+            <h3 class="ex-timeline__title">The week sells the night. The night counts it.</h3>
+            <p class="ex-timeline__body">Monday to Thursday is listings, posters, promoter chases and answering the same questions on Instagram. Friday and Saturday the whole team is on the floor. Nobody looks at a report until Sunday, and by then the decisions it would have changed, staffing, bar stock, which promoter to push, were already made on gut. The numbers arrive after the moment they were needed.</p>
+          </div>
+        </li>
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">02</span>
+          <div>
+            <h3 class="ex-timeline__title">Tickets sell on somebody else&#x27;s website.</h3>
+            <p class="ex-timeline__body">Eventbrite, Showpass, Ticketmaster and the rest hold the buyer. The venue gets a payout and a CSV. The contract runs for years and switching is slow and expensive, so the venue stays. The cost is quiet: the buyer&#x27;s name, email and birthday live in the marketplace&#x27;s database, and the venue markets to a mailing list that is two seasons old.</p>
+          </div>
+        </li>
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">03</span>
+          <div>
+            <h3 class="ex-timeline__title">The door is where the night breaks first.</h3>
+            <p class="ex-timeline__body">Two hundred people arrive in the same twenty minutes. The venue Wi-Fi drops the moment the room fills with phones. If the scanner needs a live connection, the line stops and the manager starts reading names off a phone screen. Guestlist is a text thread from three promoters, and two of them added names after the cutoff. Nobody knows the real count until the fire marshal asks.</p>
+          </div>
+        </li>
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">04</span>
+          <div>
+            <h3 class="ex-timeline__title">Promoter deals get settled by argument on Monday.</h3>
+            <p class="ex-timeline__body">A promoter is paid on heads through the door, or a cut of the bar, or a flat plus a bonus, and the deal is different for each one. The names came in on a spreadsheet, the scans happened on a device, and the tabs are in the POS. Someone rebuilds the count by hand and the promoter disagrees with it. That dispute costs more than the commission.</p>
+          </div>
+        </li>
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">05</span>
+          <div>
+            <h3 class="ex-timeline__title">Ad spend cannot be tied to a ticket.</h3>
+            <p class="ex-timeline__body">The venue spends on Meta and Instagram, the sale closes on a ticketing page it does not control, and the pixel never fires. The owner sees reach and clicks, then a payout two weeks later, and cannot say which post sold a table. So the budget goes to whatever felt like it worked, which is usually the promoter who shouted loudest.</p>
+          </div>
+        </li>
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">06</span>
+          <div>
+            <h3 class="ex-timeline__title">Settlement is a stack of printouts at 2am.</h3>
+            <p class="ex-timeline__body">After the last song the promoter, the artist&#x27;s rep and the manager sit down with a ticketing report, a bar Z-report, a guestlist count and a comp sheet, and try to make them agree. They never quite do. Comps, refunds, plus-ones and voids each live in a different system. The number everyone signs is the one nobody has the energy to fight.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================== 3. WHERE IT LEAKS ===================== -->
+  <section class="ex-section">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Where it leaks</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">Every one of these is measurable. Most are not measured.</h2>
+        <p class="ex-shead__sub">The free audit prices these in your own numbers before anything is scoped. You keep the map whether or not you hire us.</p>
+      </header>
+
+      <div class="ex-table-wrap">
+        <table class="ex-table p-ind__table">
+          <caption>Where the money and the hours go in event venues and ticketing, how it is measured today, and what closes it.</caption>
+          <thead>
+            <tr>
+              <th scope="col">The leak</th>
+              <th scope="col">How it is measured today</th>
+              <th scope="col">What closes it</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Buyers the venue never learns about</th>
+              <td>Payout report from the marketplace, no names attached</td>
+              <td>Ticketing sync that lands every buyer in the venue CRM with consent recorded</td>
+            </tr>
+            <tr>
+              <th scope="row">Promoter commissions paid on a disputed count</th>
+              <td>Manager rebuilds heads from a spreadsheet and scans on Monday</td>
+              <td>Live commission ledger tied to personal links, scans and tabs</td>
+            </tr>
+            <tr>
+              <th scope="row">Door time lost when the scanner loses signal</th>
+              <td>Nobody measures it; the line just gets longer</td>
+              <td>Offline-capable scanner with the event record cached on the device</td>
+            </tr>
+            <tr>
+              <th scope="row">Ad spend with no ticket to show for it</th>
+              <td>Reach and clicks in Ads Manager, payout two weeks later</td>
+              <td>Server-side conversions that attribute outside sales to the campaign</td>
+            </tr>
+            <tr>
+              <th scope="row">Comps, plus-ones and voids that never hit the settlement</th>
+              <td>A comp sheet on paper and a void report in the POS, reconciled by memory</td>
+              <td>One event record where every comp and void has a name and a reason</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 4. WHAT WE BUILD ===================== -->
+  <section class="ex-section ex-section--paper-2">
+    <div class="ex-container">
+      <p class="ex-eyebrow">What we build</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">8 builds that pay for themselves here.</h2>
+        <p class="ex-shead__sub">Each one states what it reads, what it does, and what a person still approves. Scope is agreed after the audit, one build at a time, against a baseline you sign.</p>
+      </header>
+
+      <div class="ex-grid">
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Every ticket buyer lands in your CRM</h3>
+          </div>
+          <p class="ex-card__body">Reads orders from Eventbrite, Showpass, Tixr, Ticketmaster, TicketWeb, Ora, POSH and Flite City as they close. Matches each buyer to an existing guest profile on email and phone, creates a profile when none exists, and attaches the event, tier and spend. Clear matches merge automatically. Near matches with a low confidence score wait for a person to confirm.</p>
+          <p class="ex-card__foot">Measured by: Share of ticket buyers with a complete profile in the venue&#x27;s own CRM</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">A door scanner that works with no signal</h3>
+          </div>
+          <p class="ex-card__body">Downloads the full event record to each device before doors: sold tickets, guestlist imports, comps and plus-ones. Scans validate locally against that record and sync when the connection returns, so the line never stops for Wi-Fi. Accepts the Fennec Pass and the original marketplace ticket. Door staff still decide who gets in on ID and conduct.</p>
+          <p class="ex-card__foot">Measured by: Guests scanned per minute at peak, and the live headcount against licensed capacity</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Promoter portal with a live commission ledger</h3>
+          </div>
+          <p class="ex-card__body">Each promoter gets a trackable personal link, promo codes, guestlist tools and a deposit record. Every sale, scan and tab that traces to their link posts to a ledger they can see during the night. The deal terms are set once per promoter. On Monday the number is already agreed. The owner still approves the payout before money moves.</p>
+          <p class="ex-card__foot">Measured by: Promoter payout disputes per month</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Guestlist imports that stop being a second truth</h3>
+          </div>
+          <p class="ex-card__body">Reads CSV files and promoter lists in whatever shape they arrive, normalises names and phones, flags duplicates across promoters and against sold tickets, and writes the clean list into the same event record the scanner reads. Names added after the cutoff are held in a queue and a manager decides whether they go on.</p>
+          <p class="ex-card__foot">Measured by: Minutes between the last list arriving and doors opening with a clean count</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Outside ticket sales attributed to the ad</h3>
+          </div>
+          <p class="ex-card__body">Posts server-side conversions to Meta when a synced ticket order closes, carrying the campaign and click identifiers, so a sale on Showpass or Eventbrite is credited to the post that drove it. Reports funnel, cost per guest and return per event by campaign. The owner reads the return and decides where the next budget goes.</p>
+          <p class="ex-card__foot">Measured by: Cost per guest through the door, by campaign</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">The night&#x27;s numbers in one report</h3>
+          </div>
+          <p class="ex-card__body">Reads the event record, the scans at the door, the guestlist check-ins, the comp ledger and the closed tabs from Square, Toast or Lightspeed. Reports revenue, attendance, table turnover and promoter and host leaderboards for the night, with every figure carrying the event it came from. Scheduled exports go to the bookkeeper on a timetable the owner sets and approves.</p>
+          <p class="ex-card__foot">Measured by: Hours between the last tab closing and the night&#x27;s numbers being read</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">One loyalty pass across every venue</h3>
+          </div>
+          <p class="ex-card__body">Reads visits and spend from the guest CRM and applies the tiers, points and perks the venue configured once. Issues an Apple or Google Wallet pass that the door scanner recognises at every venue on the network, so a tier earned in one room is honoured in the next. The owner sets the tiers and signs off any perk before it issues.</p>
+          <p class="ex-card__foot">Measured by: Repeat visits per guest, and visits at a second venue on the network</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Campaigns triggered by real attendance</h3>
+          </div>
+          <p class="ex-card__body">Reads the guest CRM for signals: came to three hip-hop nights then lapsed 60 days, birthday this week, spent over a set amount at a table. Drafts the SMS, WhatsApp or email flow from that segment using reference material from five years in nightlife. Throttling and A/B tests are built in. A person approves the audience and the copy before the first message sends.</p>
+          <p class="ex-card__foot">Measured by: Return visits within 30 days of a triggered message</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 5. THE NUMBERS ===================== -->
+  <section class="ex-band">
+    <div class="ex-container">
+      <p class="ex-eyebrow ex-eyebrow--onink">The numbers</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">Borrowed statistics, with their sources and their limits printed.</h2>
+        <p class="ex-shead__sub">None of these are our results. They are the published state of event venues and ticketing, linked so you can check them, with the caveat attached where the number is a survey, a forecast or a vendor's own figure.</p>
+      </header>
+
+      <div class="ex-stats">
+            <div class="ex-stat ex-stat--onink">
+              <span class="ex-stat__num">4.7%</span>
+              <p class="ex-stat__label">Promoters and presenters of performing arts, sports and similar events in Canada kept an operating profit margin of</p>
+              <cite class="ex-stat__source"><a class="ex-link ex-link--mono" href="https://www150.statcan.gc.ca/n1/daily-quotidien/260217/dq260217d-eng.htm" target="_blank" rel="noopener">Statistics Canada, 2026</a></cite>
+              <p class="p-ind__caveat">Annual industry survey covering 2024, published February 2026. The margin is an average for the promoters and presenters group, whose operating revenue was $5.3 billion. Individual venues vary widely.</p>
+            </div>
+            <div class="ex-stat ex-stat--onink">
+              <span class="ex-stat__num">18,945</span>
+              <p class="ex-stat__label">Live music shows booked across Canada in 2023, roughly 50 a day, each one a door, a guestlist and a settlement</p>
+              <cite class="ex-stat__source"><a class="ex-link ex-link--mono" href="https://www.canadianlivemusic.ca/economic-impact-assessment" target="_blank" rel="noopener">Canadian Live Music Association, 2025</a></cite>
+              <p class="p-ind__caveat">Industry association study prepared with Nordicity using 2023 data. The same report puts the industry&#x27;s GDP impact at $10.92 billion, a figure that includes indirect and induced effects.</p>
+            </div>
+            <div class="ex-stat ex-stat--onink">
+              <span class="ex-stat__num">20% to 65%</span>
+              <p class="ex-stat__label">Mandatory fees added late in the checkout that led the Competition Bureau to fine Ticketmaster $4.5 million for misleading pricing</p>
+              <cite class="ex-stat__source"><a class="ex-link ex-link--mono" href="https://www.canada.ca/en/competition-bureau/news/2019/06/ticketmaster-to-pay-45-million-to-settle-misleading-pricing-case.html" target="_blank" rel="noopener">Competition Bureau Canada, 2019</a></cite>
+              <p class="p-ind__caveat">A single enforcement case, not a market survey. The Bureau found fees exceeded 20% of the advertised price in most cases and 65% in some. The consent agreement binds Ticketmaster for ten years.</p>
+            </div>
+            <div class="ex-stat ex-stat--onink">
+              <span class="ex-stat__num">80%</span>
+              <p class="ex-stat__label">Canadians who support legislation banning ticket-buying bots</p>
+              <cite class="ex-stat__source"><a class="ex-link ex-link--mono" href="https://angusreid.org/ticket-bot-resale-legislation/" target="_blank" rel="noopener">Angus Reid Institute, 2017</a></cite>
+              <p class="p-ind__caveat">Online survey of just over 1,500 Canadians in 2017, before Ontario, BC and Alberta passed their ticket sales laws. Opinion data, not a measure of bot activity.</p>
+            </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 6. WHERE THE DATA COMES FROM ===================== -->
+  <section class="ex-section">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Where the data comes from</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">Your systems of record stay exactly where they are.</h2>
+        <p class="ex-shead__sub">We read them, we do not replace them. Each one below says what we connect to, how, and the line the build does not cross.</p>
+      </header>
+
+      <div class="ex-grid">
+        <article class="ex-card ex-card--inset">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Ticketing marketplaces</h3>
+          </div>
+          <p class="ex-card__body"><strong>Usually:</strong> Eventbrite, Showpass, Tixr, Ticketmaster, TicketWeb, Ora, POSH, Flite City</p>
+          <p class="ex-card__body"><strong>What it holds.</strong> Event listings, ticket tiers, buyer name, email, phone, order value, fees, refunds and the barcode the guest brings to the door.</p>
+          <p class="ex-card__body"><strong>How we connect.</strong> API and webhooks where the platform offers them, scheduled order exports where it does not. Connect once, link each event to its outside listing, and buyers sync into the venue&#x27;s own CRM with name, email, phone and birthday. Each ticket becomes a Fennec Pass and the scanner accepts both.</p>
+          <p class="ex-card__foot"><strong>Where it stops.</strong> We never write prices, inventory or refunds back to the marketplace. The listing stays the marketplace&#x27;s record; the guest becomes the venue&#x27;s.</p>
+        </article>
+        <article class="ex-card ex-card--inset">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Point of sale</h3>
+          </div>
+          <p class="ex-card__body"><strong>Usually:</strong> Square, Toast, Lightspeed</p>
+          <p class="ex-card__body"><strong>What it holds.</strong> Tabs, items, voids, tips, card type, terminal, bartender and timestamp. The only honest record of what was actually spent.</p>
+          <p class="ex-card__body"><strong>How we connect.</strong> Two-way sync, live in production for Square, Toast and Lightspeed. Menus, packages and table fees push out; closed tabs pull back in matched to a table, an event and a bar. Field ownership is written down before any credential is exchanged.</p>
+          <p class="ex-card__foot"><strong>Where it stops.</strong> Tax codes stay with the POS. Nothing is silently created or deleted on a terminal. Unmapped items go to the owner as a list, never a guess.</p>
+        </article>
+        <article class="ex-card ex-card--inset">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Marketing and audience tools</h3>
+          </div>
+          <p class="ex-card__body"><strong>Usually:</strong> Mailchimp, Klaviyo, Laylo, Meta Ads Manager, Instagram</p>
+          <p class="ex-card__body"><strong>What it holds.</strong> Mailing lists, SMS lists, drop subscribers, ad spend, reach, clicks and whatever conversion the pixel managed to see.</p>
+          <p class="ex-card__body"><strong>How we connect.</strong> Consented guests mirror out to Laylo with RSVPs and opt-outs matched back. Server-side conversions post to Meta so an outside ticket sale is attributed to the campaign that drove it. Campaign audiences are built from the guest CRM, not from a stale export.</p>
+          <p class="ex-card__foot"><strong>Where it stops.</strong> No send goes out without a person approving the audience and the copy. Opt-outs are honoured everywhere within the CASL window and never overwritten by a re-import.</p>
+        </article>
+        <article class="ex-card ex-card--inset">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Accounting and payroll</h3>
+          </div>
+          <p class="ex-card__body"><strong>Usually:</strong> QuickBooks Online, Xero, Sage 50, Wagepoint, Payworks</p>
+          <p class="ex-card__body"><strong>What it holds.</strong> The general ledger, promoter and artist payables, staff hours, tip-outs and the GST or PST return.</p>
+          <p class="ex-card__body"><strong>How we connect.</strong> Scheduled exports of settled event totals, promoter commissions and tip-out math, each line carrying the event ID it came from so the bookkeeper can trace any figure back to the night.</p>
+          <p class="ex-card__foot"><strong>Where it stops.</strong> We do not post journal entries or release payments. A bookkeeper or the owner reviews the export and posts it. Payroll stays in the payroll system.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 7. THE RULES ===================== -->
+  <section class="ex-section ex-section--paper-2">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Built around your rules</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">The regimes that govern this work, and how the build answers each one.</h2>
+        <p class="ex-shead__sub">Constraints come first, because they decide the architecture. Bring us your hosting, residency and regulatory rules at the start and we design to them rather than around them.</p>
+      </header>
+
+      <div class="ex-table-wrap">
+        <table class="ex-table p-ind__table">
+          <caption>Regulatory and professional obligations that shape a build in event venues and ticketing.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Regime</th>
+              <th scope="col">What it demands here</th>
+              <th scope="col">How the build complies</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">PIPEDA and BC PIPA</th>
+              <td>A ticket buyer&#x27;s name, email, phone and birthday are personal information. The venue must state why it collects them, get meaningful consent, limit use to that purpose, keep the data accurate and safeguarded, and delete it when no longer needed. BC, Alberta and Quebec have their own private-sector laws that apply in-province.</td>
+              <td>Consent and its source are stored on every synced guest record. Marketplace buyers are used for the event they bought and marketed to only where the platform&#x27;s consent language and the venue&#x27;s own notice allow it. Role permissions limit who sees phone numbers and birthdays. Data sits on Canadian hosting when the client requires it.</td>
+            </tr>
+            <tr>
+              <th scope="row">CASL (Canada&#x27;s Anti-Spam Legislation)</th>
+              <td>Every commercial email or SMS needs express or implied consent, must identify the sender, and must carry a working unsubscribe honoured within ten business days. Implied consent from a purchase expires after two years.</td>
+              <td>Every flow checks consent type and its expiry before sending. Unsubscribes apply across email, SMS and WhatsApp at once and are never overwritten by a guestlist re-import. The sender identity and physical address are on every template. Throttling keeps the venue&#x27;s numbers off carrier blocklists.</td>
+            </tr>
+            <tr>
+              <th scope="row">PCI DSS</th>
+              <td>Anyone who stores, processes or transmits cardholder data must meet the Payment Card Industry Data Security Standard, now at version 4.x. That covers the box office terminal, the bar POS and any deposit taken online.</td>
+              <td>We never touch a card number. Ticket payments stay with the marketplace, tabs stay with Square, Toast or Lightspeed, and table deposits run through the processor&#x27;s hosted fields. The CRM stores a token and the last four digits at most, so the venue&#x27;s PCI scope stays with its processors.</td>
+            </tr>
+            <tr>
+              <th scope="row">Provincial ticket sales laws (Ontario Ticket Sales Act, 2017; BC Ticket Sales Act; Quebec Consumer Protection Act and Bill 10)</th>
+              <td>Primary sellers must show the total price in Canadian dollars with fees itemised, disclose seat or standing location, and in Ontario publish capacity and distribution before the on-sale. Bots are banned and bot-bought tickets must be cancelled. Quebec caps resale at face value unless the producer consents. Enforcement in BC sits with Consumer Protection BC.</td>
+              <td>The public event page shows the all-in price and the age limit from the same record the operator built, so the disclosed price is never a stale copy. Capacity and tier counts are logged per event for the Ontario disclosure. Suspicious order velocity from one buyer is flagged for a manager to review before the door.</td>
+            </tr>
+            <tr>
+              <th scope="row">Competition Act (drip pricing)</th>
+              <td>Advertising a price that cannot actually be paid because mandatory fees are added later is misleading. The Competition Bureau has fined a ticketing company $4.5 million for it and the practice is now named in the Act.</td>
+              <td>Any price the system displays, on the event page, in a campaign or on a promoter&#x27;s link, is the total price with fees. Promo codes show the discount against that total. Marketing copy pulls the price from the event record rather than from a template someone typed.</td>
+            </tr>
+            <tr>
+              <th scope="row">Liquor licensing and occupant load (BC LCRB, AGCO, AGLC)</th>
+              <td>A licensed venue cannot exceed its liquor licence capacity or the occupant load set by the fire and building authority, whichever is lower, and must be able to show its count on request. Minors rules and service hours apply to every ticketed night.</td>
+              <td>The scanner keeps a live in-and-out count against the licensed capacity and warns the door manager as the room approaches it. Age limits set on the event carry to the public page and the scanner. The count is stored per night, so a question from an inspector six weeks later has an answer.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <hr class="ex-rule ex-rule--spaced">
+
+      <div class="ex-split">
+        <div class="ex-stack">
+          <h3>What we will not automate</h3>
+          <ul class="ex-measure">
+          <li>Refunds and chargeback responses. The system assembles the order, the scan history and the policy, and a person decides.</li>
+          <li>Who gets into the room. ID checks, intoxication calls and refusals at the door stay with trained staff; the scanner only tells them what the record says.</li>
+          <li>Releasing a promoter or artist payout. The ledger makes the number, a person with authority sends the money.</li>
+          </ul>
+        </div>
+        <div class="ex-stack">
+          <div class="ex-card ex-card--inset">
+            <div class="ex-card__head">
+              <h3 class="ex-card__title">A person stays in the loop</h3>
+            </div>
+            <p class="ex-card__body">Anything that spends money, sends something irreversible, or carries a professional obligation arrives as a draft with a named reviewer. The system prepares the work. A person decides whether it ships.</p>
+            <p class="ex-card__foot">You own the code and the data at the end of the engagement.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 8. OUR WORK HERE ===================== -->
+  <section class="ex-section">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Our work here</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">What we have built in this industry, at its real status.</h2>
+        <p class="ex-shead__sub">Live means running now. In build means under construction, with some phases delivered and some not. Shipped means delivered and closed. Where there is no number yet, we say so instead of borrowing one.</p>
+      </header>
+
+      <div class="ex-grid">
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Eight ticketing integrations, live in production</h3>
+          </div>
+          <p class="ex-card__body">Fennec connects to Eventbrite, Showpass, Ora, TicketWeb, POSH, Flite City, Tixr and Ticketmaster. A venue connects once and links each event to its outside listing. Buyers sync into the venue&#x27;s CRM with name, email, phone and birthday, tickets become Fennec Passes, and the door scanner accepts both the Pass and the original ticket. The venue keeps selling where it already sells, and owns the guest afterwards.</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">An offline-capable door scanner</h3>
+          </div>
+          <p class="ex-card__body">The guestlist and ticketing module includes a door scanner that keeps working without a connection, CSV and promoter list imports, and Apple Wallet and PDF tickets. An imported guestlist and a sold ticket check in through one queue against one event record, so the count at the door matches the count in the office. Role-aware views give host, VIP, bottle and scanner staff the screen they need, synced in real time.</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">A promoter portal with a live commission ledger</h3>
+          </div>
+          <p class="ex-card__body">Each promoter gets a dashboard with trackable personal links, guestlist tools, promo codes, deposits and a live commission ledger. Sales are attributed to the person who made them instead of being argued about on Monday. The venue sees every promoter in one place; each promoter sees only their own numbers. Promoter and host leaderboards sit in the reports module alongside revenue, attendance and table turnover.</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Meta Pixel attribution of outside ticket sales</h3>
+          </div>
+          <p class="ex-card__body">Fennec posts server-side conversions to Meta so ticket sales that close on an outside marketplace are attributed back to the campaign that drove them. The marketing analytics show the funnel, cost per guest and return per event. Consented guests mirror to Laylo with RSVPs and opt-outs matched back. Campaigns, offers and automated email, SMS and WhatsApp flows are drafted from a plain description, using reference material from five years in nightlife.</p>
+        </article>
+      </div>
+
+      <hr class="ex-rule ex-rule--spaced">
+
+      <h3>What the work taught us</h3>
+      <ol class="ex-index">
+        <li class="ex-index__row">
+          <span class="ex-index__num">01</span>
+          <div>
+            <p class="ex-index__note">Do not ask a venue to leave its ticketing marketplace. The contract is long, switching is slow, and the marketplace brings guests who were browsing for somewhere to go. Connect to it and pull the buyer into the venue&#x27;s own CRM instead.</p>
+          </div>
+        </li>
+        <li class="ex-index__row">
+          <span class="ex-index__num">02</span>
+          <div>
+            <p class="ex-index__note">The door must work with no signal. A full room kills the Wi-Fi every time, and a scanner that needs a live connection turns a twenty-minute rush into a line around the block.</p>
+          </div>
+        </li>
+        <li class="ex-index__row">
+          <span class="ex-index__num">03</span>
+          <div>
+            <p class="ex-index__note">A guestlist import that lives anywhere other than the event record becomes a second source of truth by midnight. One record, read by the promoter, the door and the office, is the whole fix.</p>
+          </div>
+        </li>
+        <li class="ex-index__row">
+          <span class="ex-index__num">04</span>
+          <div>
+            <p class="ex-index__note">Promoter disputes are not about the money. They are about two people holding two different counts. A ledger both sides can watch during the night ends the argument before it starts.</p>
+          </div>
+        </li>
+        <li class="ex-index__row">
+          <span class="ex-index__num">05</span>
+          <div>
+            <p class="ex-index__note">Marketing off real attendance beats marketing off a mailing list. Who came to which kind of night, what they spent and when they lapsed is the data that fills a room with people who came for the same reason.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================== 9. THE OBJECTIONS ===================== -->
+  <section class="ex-section ex-section--paper-2">
+    <div class="ex-container">
+      <p class="ex-eyebrow">The objections</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">The reasons an owner here says no, answered straight.</h2>
+      </header>
+
+      <div class="ex-faq">
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="obj-1">
+            <span>We are locked into Ticketmaster for three more years.</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="obj-1" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>Good. Stay there. We do not ask a venue to leave a marketplace, because the contract is expensive to break and the marketplace brings real discovery traffic. We connect to it. You keep selling where you sell, and every buyer lands in your own CRM. Eventbrite, Showpass, Ora, TicketWeb, POSH, Flite City, Tixr and Ticketmaster are all live in production today.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="obj-2">
+            <span>Our Wi-Fi is terrible and our scanner already fails.</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="obj-2" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>That is exactly why the scanner caches the whole event record on the device before doors. It validates offline and syncs when the signal comes back. Two hundred phones in one room will always crush the venue Wi-Fi. The door should not depend on it.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="obj-3">
+            <span>Promoters will never trust a number a computer gives them.</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="obj-3" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>They trust it more than a number you give them on Monday. Their ledger updates during the night from their own link, their own scans and the tabs that trace back to them. They can see it fill. The dispute usually disappears because both sides are reading the same page at the same time.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="obj-4">
+            <span>We tried a CRM before and nobody used it.</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="obj-4" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>A CRM that needs someone to type into it dies by the second weekend. This one fills itself from the ticketing sync, the scanner and the POS. Staff never enter a guest by hand. What the team actually touches is the campaign composer and the reports, and those save them time rather than costing it.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="obj-5">
+            <span>How do we know it pays for itself?</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="obj-5" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>We agree the number in writing before we build: disputes per month, cost per guest, minutes to a clean count at the door, whichever leak is biggest at your room. If the system misses the agreed bar we keep working at no extra cost until it clears. You own the code either way, and the audit that finds the number is free.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 10. FAQ ===================== -->
+  <section class="ex-section">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Questions</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">The questions we get asked in event venues and ticketing.</h2>
+      </header>
+
+      <div class="ex-faq">
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="faq-1">
+            <span>Does the guest need to download an app to get in?</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="faq-1" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>No. The original ticket from the marketplace scans at the door exactly as before. The Fennec Pass is offered as well, as an Apple Wallet or PDF ticket, and guests who take it carry one QR across every venue on the network. Either works on the same scanner, and both check in against the same event record, so the count is one count.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="faq-2">
+            <span>What happens to buyer data when the ticket sells on Eventbrite or Showpass?</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="faq-2" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>The order syncs into your CRM with name, email, phone and birthday, along with the event and spend, and the consent the buyer gave at checkout is recorded on the profile. You market to them only where that consent and your own notice allow it. The marketplace keeps its record too. We never write anything back to it.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="faq-3">
+            <span>How is a promoter&#x27;s commission actually calculated?</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="faq-3" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>You set the deal once per promoter: heads through the door, a percentage of bar or table spend, a flat fee with a bonus, or any mix. Every sale, scan or tab that traces to their personal link or promo code posts to their ledger during the night. On Monday the total is already there with every line traceable. You approve the payout; the software does not move money.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="faq-4">
+            <span>Can it tell me which Instagram post sold the tickets?</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="faq-4" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>Yes, for sales that close on a connected marketplace. When a synced order closes, a server-side conversion posts to Meta carrying the campaign and click identifiers, so the sale is credited to the post or ad that drove it. You then see cost per guest and return per event by campaign, instead of reach and clicks with a payout two weeks later.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="faq-5">
+            <span>We run a mix of concerts, private hires and club nights. Does one system fit all three?</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="faq-5" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>The event record is the same shape for all of them: a date, a room layout, a capacity, an age limit, ticket tiers or a guestlist, and a run of show with hosts and holds. A private hire is an event with one buyer and a deposit. A club night is an event with promoters. Reports roll up across all three, so the month reads as one business.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ex-band">
+    <div class="ex-container">
+      <div class="ex-split ex-split--wide">
+        <div class="ex-stack">
+          <p class="ex-eyebrow ex-eyebrow--onink">What happens next</p>
+          <h2>Start with the audit, and know the number before you commit.</h2>
+          <p class="ex-measure">Three to five days. We map where the hours and the money go in your event venues and ticketing operation and hand you a ranked plan with the payback attached.</p>
+          <p class="ex-measure">We map where time and money leak, and show the arithmetic before you commit to anything. You keep the map whether or not you hire us. If we do build, we agree the baseline in writing first, the clock starts at deployment rather than signature, and you own the code.</p>
+          <div class="ex-hero__actions">
+            <a class="ex-btn ex-btn--primary" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+            <a class="ex-btn ex-btn--onink" href="guarantee.html">How we charge</a>
+          </div>
+        </div>
+        <div class="ex-stack">
+          <dl class="ex-dl ex-dl--onink">
+            <dt class="ex-dl__k">Who you talk to</dt>
+            <dd class="ex-dl__v">Shiv and Vishal. No account managers, no slide decks.</dd>
+            <dt class="ex-dl__k">Direct</dt>
+            <dd class="ex-dl__v"><a href="mailto:shiv@exdsconsulting.com">shiv@exdsconsulting.com</a></dd>
+            <dt class="ex-dl__k">Read next</dt>
+            <dd class="ex-dl__v"><a href="services.html">What we build</a>, then <a href="work.html">Our work</a>.</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RELATED ===================== -->
+  <section class="ex-section ex-section--tight ia-related" aria-labelledby="related-heading">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Keep reading</p>
+      <h2 class="ex-shead__title" id="related-heading">Where to go next</h2>
+
+      <ul class="ia-related__grid">
+        <li>
+          <a class="ex-card ia-related__card" href="industries.html">
+            <p class="ia-related__kicker">Back up</p>
+            <h3 class="ex-card__title">All industries</h3>
+            <p class="ex-card__body">Every industry we build for, grouped by where our own work sits and where the same method applies.</p>
+            <span class="ia-related__go">See the index <span class="ia-related__arrow" aria-hidden="true">-&gt;</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="ex-card ia-related__card" href="work.html">
+            <p class="ia-related__kicker">The proof</p>
+            <h3 class="ex-card__title">Our work</h3>
+            <p class="ex-card__body">Five engagements at their real status, with the Fennec product gallery and the arithmetic behind every number.</p>
+            <span class="ia-related__go">Read the studies <span class="ia-related__arrow" aria-hidden="true">-&gt;</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="ex-card ia-related__card ia-related__card--next" href="industries-telecom-isps.html">
+            <p class="ia-related__kicker">Next industry</p>
+            <h3 class="ex-card__title">Telecom and internet providers</h3>
+            <p class="ex-card__body">The same method, a different set of systems, rules and failure modes.</p>
+            <span class="ia-related__go">Next <span class="ia-related__arrow" aria-hidden="true">-&gt;</span></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ex-footer">
+  <div class="ex-container">
+    <div class="ex-footer__grid ia-sitemap">
+      <div class="ex-footer__brand">
+        <img src="assets/exodus-logo.png" alt="Exodus Consulting" width="44" height="23">
+        <p class="ex-footer__blurb">AI enablement and custom software for owner-led businesses. Two founders, direct access.</p>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Work</p>
+        <ul>
+          <li><a href="work.html">Our work</a></li>
+          <li><a href="work-uniserve.html">Uniserve Communications</a></li>
+          <li><a href="work-fennec.html">Fennec</a></li>
+          <li><a href="work-palapa-tours.html">Palapa Tours Ottawa</a></li>
+          <li><a href="work-scoped.html">Current engagements</a></li>
+          <li><a href="fennec-events-floor.html">Fennec: events and floor</a></li>
+          <li><a href="fennec-ticketing-guests.html">Fennec: ticketing and guests</a></li>
+          <li><a href="fennec-pos-payments.html">Fennec: POS and payments</a></li>
+          <li><a href="fennec-inventory-staff.html">Fennec: inventory and staff</a></li>
+          <li><a href="fennec-media-intelligence.html">Fennec: media and intelligence</a></li>
+        </ul>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Industries</p>
+        <ul>
+          <li><a href="industries.html">All industries</a></li>
+          <li><a href="industries-nightlife-hospitality.html">Nightlife and hospitality</a></li>
+          <li><a href="industries-restaurants-bars.html">Restaurants and bars</a></li>
+          <li><a href="industries-event-venues-ticketing.html">Event venues and ticketing</a></li>
+          <li><a href="industries-telecom-isps.html">Telecom and internet providers</a></li>
+          <li><a href="industries-political-campaigns.html">Political parties and campaign organisations</a></li>
+          <li><a href="industries-tours-experiences.html">Tour and experience operators</a></li>
+        </ul>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Company</p>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">What we build</a></li>
+          <li><a href="guarantee.html">How we charge</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Direct</p>
+        <ul>
+          <li><a href="mailto:shiv@exdsconsulting.com">shiv@exdsconsulting.com</a></li>
+          <li><a href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a></li>
+          <li><a href="https://instagram.com/exodus_consulting_" target="_blank" rel="noopener">@exodus_consulting_</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ex-footer__legal">
+      <span>&copy; 2026 Exodus Consulting</span>
+      <span>Vancouver, BC</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

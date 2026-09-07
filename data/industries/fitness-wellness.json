@@ -1,0 +1,190 @@
+{
+  "slug": "fitness-wellness",
+  "name": "Fitness and wellness",
+  "hero_title": "Your billing system knows who pays, not who is leaving.",
+  "hero_lead": "A studio or clinic runs on a booking platform, a payment processor, a charting system and a spreadsheet, and none of them agree on the same person. We build the layer that reads all four, answers the phone and the website, and puts the numbers in one place with the source named. A person still approves anything that touches money, a contract or a health record.",
+  "segments": [
+    "Independent gyms and health clubs",
+    "Boutique studios: yoga, pilates, spin and functional training",
+    "Multidisciplinary clinics: physiotherapy, chiropractic and massage therapy",
+    "Spas, med spas and wellness centres",
+    "Personal training and small group coaching businesses"
+  ],
+  "how_it_runs": [
+    {
+      "title": "The front desk is also the phone",
+      "body": "One person checks in the 6pm class, sells a drop in, takes a package payment and answers the line. At peak the phone loses. Calls go to voicemail, and a caller asking whether you offer direct billing books somewhere else instead. Nobody counts the missed calls, so the busiest hour of the week is the hour the business is least reachable."
+    },
+    {
+      "title": "Two businesses share one reception",
+      "body": "A clinic with a gym floor, or a studio with treatment rooms, is two operations under one roof. The fitness side lives in a class and membership platform. The clinical side lives in a charting system with its own regulator and its own retention rules. Reception works both screens all day, and the same client exists twice with two versions of their phone number."
+    },
+    {
+      "title": "Billing knows who pays, not who left",
+      "body": "The card runs on the first of the month whether or not the member has been in since March. Attendance sits in the door system, payments sit in the processor, and no report joins them. The owner finds out someone has gone when the cancellation email arrives, which is weeks after the last visit and long after anything could have been said."
+    },
+    {
+      "title": "The schedule was set years ago",
+      "body": "Class times get inherited. The 9:30am was busy in 2021, so it still runs. The instructor is paid the same whether eleven people show up or three. Nobody has a clean number for revenue per class hour against the cost of running it, so a schedule change gets argued on feel and on which instructor will be upset."
+    },
+    {
+      "title": "Insurance money arrives late and short",
+      "body": "Direct billing is why a lot of clients pick a clinic, and it is also where the money slows down. A claim is submitted, one insurer pays part of it, another rejects it for a missing policy number, and the remittance lands weeks later in a bank feed nobody matches back. Short paid claims are usually found by accident, if at all."
+    }
+  ],
+  "systems": [
+    {
+      "name": "Member, class and membership management",
+      "examples": "Mindbody, WellnessLiving, Glofox, Xplor Mariana Tek, ABC Ignite, Perfect Gym, PushPress, Zen Planner",
+      "holds": "Memberships and contract terms, class schedules and capacity, bookings and waitlists, signed waivers, door access records, recurring billing and package balances.",
+      "how_we_connect": "Read-only through the platform API where one exists, otherwise a nightly scheduled export into a replica hosted in Canada. Webhooks for bookings and cancellations where the platform sends them.",
+      "where_it_stops": "We never cancel, freeze or alter a membership contract from outside. Contract changes are drafted for the desk and entered by a person in the platform itself."
+    },
+    {
+      "name": "Clinical practice management and insurance billing",
+      "examples": "Jane App, Juvonno, Noterro, ClinicSense, Practice Better, Cliniko, with TELUS Health eClaims for direct billing to insurers such as Sun Life, Manulife, Canada Life and Pacific Blue Cross",
+      "holds": "Patient demographics, clinical charts and treatment notes, consent records, appointment history, invoices, claim submissions and remittances.",
+      "how_we_connect": "Read-only, and only the fields the work needs: appointment times, invoice totals, claim status. Access is scoped per practitioner and every read is logged.",
+      "where_it_stops": "Charts are never written, summarised or copied by software. No claim is submitted, resubmitted or adjusted without the practitioner or the billing clerk approving it on screen."
+    },
+    {
+      "name": "Payments, retail POS and accounting",
+      "examples": "Square, Lightspeed, Stripe, Moneris, QuickBooks Online, Xero, with payroll in Payworks or Wagepoint",
+      "holds": "Drop in sales, retail and supplement stock, card transactions and declines, deposits, unused balances on class packs, instructor and practitioner pay.",
+      "how_we_connect": "API or scheduled export for transaction and deposit records. Card numbers never enter our systems: tokens and the last four digits only, so cardholder data stays inside the processor.",
+      "where_it_stops": "We do not take payments, refund a card or move money. The system flags what needs chasing and a person acts inside the payment platform."
+    }
+  ],
+  "builds": [
+    {
+      "title": "Voice agent on the front desk line",
+      "mechanism": "It answers every call, including the ones at 6pm while the desk is checking in a class. It reads the live schedule and the client record, so it can give class times, opening hours, pricing and whether you direct bill, and it books or moves an appointment. Anything clinical, angry or contractual transfers to a person with a written summary attached.",
+      "measure": "Calls answered on the first ring, and the share resolved without a person."
+    },
+    {
+      "title": "Website chatbot for the repeat questions",
+      "mechanism": "It reads your policies, the schedule, the price list and the insurers you bill, then answers the twenty questions that arrive every week: parking, what to bring, the cancellation window, whether a first visit needs a referral, what a package costs. It names the page it answered from. Health questions and complaints go to staff instead of being guessed at.",
+      "measure": "Emails and messages the front desk still has to answer each week."
+    },
+    {
+      "title": "Intake, waiver and consent capture",
+      "mechanism": "The client fills one form before arriving. The system reads it, matches it to an existing record where there is one, scores that match, and drafts the entry: contact details, health history, insurer and policy number, signed waiver. Weak matches are held back rather than merged. Reception approves before anything is written into the platform of record.",
+      "measure": "Minutes of desk time per new client, and the share who arrive with intake complete."
+    },
+    {
+      "title": "Membership billing against attendance",
+      "mechanism": "It reads the billing platform, the door scans and the class bookings, then lines them up per member. Three lists come out each morning: cards that failed, members on a paid contract who have not attended in thirty days, and people training on a lapsed one. Each message is drafted and the owner approves it before it sends.",
+      "measure": "Dollars of failed billing recovered each month."
+    },
+    {
+      "title": "Insurance claim reconciliation",
+      "mechanism": "Every claim submitted is matched against the invoice raised and the remittance received. Short payments, rejections and claims with no answer after a set number of days land on one list with the reason beside them. Nothing is resubmitted automatically. The billing clerk reads the list and decides what goes back to which insurer.",
+      "measure": "Dollars outstanding past thirty days, and claims written off per quarter."
+    },
+    {
+      "title": "Retention and win back from real attendance",
+      "mechanism": "Segments are built from what you already hold: first month members who came once, packages expiring with sessions unused, clients who stopped after an injury, people who only ever book the 6am. The system drafts the email or the text for each segment against the consent on file, and the owner reads and approves every send.",
+      "measure": "Ninety day retention of new members, and reactivations per month."
+    }
+  ],
+  "leaks": [
+    {
+      "leak": "Cards decline and nobody chases them.",
+      "how_measured": "Noticed at month end, or when the member mentions it.",
+      "what_closes_it": "A daily decline list with a drafted message and one person approving each one."
+    },
+    {
+      "leak": "Classes run half empty at full cost.",
+      "how_measured": "The instructor's headcount, remembered.",
+      "what_closes_it": "Attendance per class hour with the instructor cost printed beside it."
+    },
+    {
+      "leak": "Insurance claims rejected or short paid.",
+      "how_measured": "Found weeks later in the bank reconciliation, if at all.",
+      "what_closes_it": "A nightly match of claim, invoice and remittance, with the exceptions flagged."
+    },
+    {
+      "leak": "Calls go to voicemail at peak hours.",
+      "how_measured": "Not measured. The phone log at best.",
+      "what_closes_it": "A voice agent answering every call and logging what was asked."
+    }
+  ],
+  "stats": [
+    {
+      "claim": "Operating revenue for Canada's fitness and recreational sports centres reached $5.8 billion in 2024, up 14.9 percent on the year, with an operating profit margin of 8.3 percent.",
+      "figure": "$5.8 billion",
+      "source_org": "Statistics Canada",
+      "source_title": "The Daily: Amusement and recreation industry, 2024",
+      "year": "2025",
+      "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/251216/dq251216c-eng.htm",
+      "caveat": "Survey data for the 2024 reference year, released December 2025. It covers fitness and recreational sports centres, not allied health clinics, so the wellness half of the sector sits outside this figure."
+    },
+    {
+      "claim": "The average Canadian small business spends 735 hours a year on regulatory compliance, 256 of those on red tape owners consider avoidable.",
+      "figure": "256 hours",
+      "source_org": "Canadian Federation of Independent Business",
+      "source_title": "Canada's Red Tape Report: The Cost of Regulation to Small Business",
+      "year": "2025",
+      "url": "https://www.cfib-fcei.ca/en/media/small-businesses-spend-over-250-hours-or-32-business-days-a-year-wrapped-up-in-red-tape",
+      "caveat": "A CFIB member survey across all sectors, not fitness and wellness specifically, and the hours are self-reported by owners."
+    },
+    {
+      "claim": "46 percent of Canadian adults met the physical activity guideline of 150 minutes a week between 2022 and 2024.",
+      "figure": "46 percent",
+      "source_org": "Statistics Canada",
+      "source_title": "Directly measured physical activity and sedentary time in Canada: New results from the Canadian Health Measures Survey, 2022 to 2024",
+      "year": "2025",
+      "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/251017/dq251017b-eng.htm",
+      "caveat": "Measured by accelerometer on a national sample. It describes the whole adult population rather than paying members, so read it as the size of the market, not demand for any one facility."
+    }
+  ],
+  "rules": [
+    {
+      "regime": "PIPEDA, with BC PIPA, Alberta PIPA and Quebec Law 25 where they apply",
+      "demands": "Consent to collect personal information, use limited to the stated purpose, safeguards proportionate to how sensitive the information is, and access on request. Quebec adds a named privacy officer, breach reporting, and disclosure when a decision about a person is made by automated means.",
+      "how_we_comply": "Data stays in Canada. Each field is read for one named purpose and nothing else. Access is scoped per role, every read and write is logged, and health information is kept separate from anything used for marketing."
+    },
+    {
+      "regime": "CASL",
+      "demands": "Express or implied consent before any commercial electronic message, clear identification of the sender, and an unsubscribe mechanism that works and is honoured within ten business days.",
+      "how_we_comply": "Consent and where it came from sit on the record, and a send cannot be built against a segment without it. Unsubscribes write back to every connected system the same day, so a member removed in one tool is removed everywhere."
+    },
+    {
+      "regime": "Fitness and personal services contract rules: the Business Practices and Consumer Protection Act in BC, personal development services under Ontario's Consumer Protection Act",
+      "demands": "Limits on contract length, a ten day cancellation window after the customer receives the contract, prescribed contract contents, prominent notice of cancellation rights, and set refund rules when a customer cancels on a change of circumstances.",
+      "how_we_comply": "The system never cancels, renews or alters a contract itself. It flags the dates that matter, drafts the notice, and a person completes the change in the platform of record so the paperwork matches the statute."
+    },
+    {
+      "regime": "Regulatory colleges and health information law: PHIPA in Ontario, the Health Information Act in Alberta, plus each college's record rules",
+      "demands": "Registered practitioners keep records to their college's standard. Ontario massage therapy records, for example, are kept for ten years after the last visit, or ten years after a client who was a minor turns eighteen.",
+      "how_we_comply": "Charts stay inside the practice management system and are never read, copied or written by our software. We take appointment and billing fields only, and retention stays under the clinic's own policy and the college rule."
+    }
+  ],
+  "wont_automate": [
+    "We do not let software answer health questions. Whether a sore knee needs physiotherapy or rest is a judgement a registered practitioner makes, and the system hands that call straight to one.",
+    "We do not cancel, freeze or renew a member's contract automatically. Consumer protection law sets the notice period and the refund, and a wrong automatic change costs you money and invites a complaint to a regulator."
+  ],
+  "objections": [],
+  "faq": [
+    {
+      "q": "Do we have to leave Mindbody or Jane?",
+      "a": "No. Those hold your bookings, contracts and charts, and moving them is a bad trade for a small gain. We read them and build on top: the phone, the website, the reconciliation, the reporting. If a platform has no usable API we take a scheduled export instead. Your staff keep the system they already know how to work."
+    },
+    {
+      "q": "Can any of this touch patient charts?",
+      "a": "No, and that is deliberate. Charts belong to the practitioner and their college. We read appointment times, invoice totals and claim status, which is enough to reconcile the money and fill the schedule. Clinical note text is not read, copied or summarised, and nothing is written back into a chart by software at any point."
+    },
+    {
+      "q": "Will the voice agent make us sound like a call centre?",
+      "a": "It is built to do the opposite. It answers on the first ring instead of sending someone to voicemail at 6pm, handles hours, class times, pricing and rebooking, then hands anything real to a person with a written summary so the caller never repeats themselves. You listen to every call it takes in the first weeks and correct it."
+    },
+    {
+      "q": "We are one studio with 400 members. Is this worth it?",
+      "a": "That depends on arithmetic, which is what the free audit produces. We map where the desk time goes, where money leaks, and what each fix is worth, then write the number down before anything is built. You keep that map whether or not you hire us. If we do build, the baseline is agreed in writing and you own the code."
+    }
+  ],
+  "what_we_built": [],
+  "learned": [],
+  "meta_title": "Fitness and wellness operations | Exodus Consulting",
+  "meta_description": "Custom software and AI for Canadian gyms, studios, spas and clinics: front desk voice agents, intake, billing reconciliation and retention."
+}

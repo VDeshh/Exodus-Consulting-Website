@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nonprofits and associations | Exodus Consulting</title>
+  <meta name="description" content="Software and AI for Canadian charities and associations: one supporter record, a voice agent on the main line, and funder reports that cite their sources.">
+  <meta name="theme-color" content="#FAF9F7">
+  <link rel="icon" href="assets/exodus-logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Exodus Consulting">
+  <meta property="og:title" content="Nonprofits and associations | Exodus Consulting">
+  <meta property="og:description" content="Software and AI for Canadian charities and associations: one supporter record, a voice agent on the main line, and funder reports that cite their sources.">
+  <meta property="og:image" content="assets/exodus-logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/exodus.css?v=12">
+  <link rel="stylesheet" href="css/ia.css?v=12">
+  <link rel="stylesheet" href="css/p-industries.css?v=12">
+  <script src="js/exodus.js?v=12" defer></script>
+</head>
+<body>
+
+<a class="ex-skip" href="#main">Skip to content</a>
+
+<header class="ex-header">
+  <div class="ex-header__inner">
+    <a class="ex-brand" href="index.html">
+      <img src="assets/exodus-logo.png" alt="Exodus Consulting" width="34" height="17">
+      <span class="ex-brand__name">Exodus Consulting</span>
+    </a>
+
+    <nav class="ex-nav" aria-label="Primary">
+      <a class="ex-nav__link" href="index.html">Home</a>
+      <a class="ex-nav__link" href="services.html">What we build</a>
+      <a class="ex-nav__link" href="work.html">Our work</a>
+      <a class="ex-nav__link is-current" aria-current="page" href="industries.html">Industries</a>
+      <a class="ex-nav__link" href="guarantee.html">How we charge</a>
+      <a class="ex-nav__link" href="about.html">About</a>
+      <a class="ex-btn ex-btn--primary ex-btn--sm" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+    </nav>
+
+    <button class="ex-burger" type="button" data-nav-toggle aria-expanded="false" aria-controls="ex-mobile-menu">
+      <span class="ex-burger__bars" aria-hidden="true"></span>
+      <span>Menu</span>
+    </button>
+  </div>
+
+  <div class="ex-mobile-menu" id="ex-mobile-menu">
+    <ul class="ex-mobile-menu__list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">What we build</a></li>
+      <li>
+        <a href="work.html">Our work</a>
+        <ul class="ia-submenu">
+          <li><a href="work-uniserve.html">Uniserve Communications</a></li>
+          <li><a href="work-fennec.html">Fennec</a></li>
+          <li><a href="work-palapa-tours.html">Palapa Tours Ottawa</a></li>
+          <li><a href="work-scoped.html">Current engagements</a></li>
+          <li><a href="fennec-events-floor.html">Fennec: events and floor ops</a></li>
+          <li><a href="fennec-ticketing-guests.html">Fennec: ticketing and guests</a></li>
+          <li><a href="fennec-pos-payments.html">Fennec: POS and payments</a></li>
+          <li><a href="fennec-inventory-staff.html">Fennec: inventory and staff</a></li>
+          <li><a href="fennec-media-intelligence.html">Fennec: media and intelligence</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="industries.html">Industries</a>
+        <ul class="ia-submenu">
+          <li><a href="industries.html">All industries</a></li>
+          <li><a href="industries-nightlife-hospitality.html">Nightlife and hospitality</a></li>
+          <li><a href="industries-restaurants-bars.html">Restaurants and bars</a></li>
+          <li><a href="industries-event-venues-ticketing.html">Event venues and ticketing</a></li>
+          <li><a href="industries-telecom-isps.html">Telecom and internet providers</a></li>
+          <li><a href="industries-political-campaigns.html">Political parties and campaign organisations</a></li>
+          <li><a href="industries-tours-experiences.html">Tour and experience operators</a></li>
+        </ul>
+      </li>
+      <li><a href="guarantee.html">How we charge</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a class="ex-btn ex-btn--primary ex-btn--block" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <nav class="ia-crumbs" aria-label="Breadcrumb">
+    <div class="ex-container">
+      <ol class="ia-crumbs__list">
+        <li class="ia-crumbs__item"><a class="ia-crumbs__link" href="index.html">Home</a></li>
+        <li class="ia-crumbs__item"><a class="ia-crumbs__link" href="industries.html">Industries</a></li>
+        <li class="ia-crumbs__item"><span aria-current="page">Nonprofits and associations</span></li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- ===================== 1. HERO ===================== -->
+  <section class="ex-hero">
+    <div class="ex-container">
+      <div class="ex-hero__inner">
+        <div>
+          <p class="ex-eyebrow ex-eyebrow--violet">Industries / Nonprofits and associations</p>
+          <h1 class="ex-hero__title">Your donors exist three times, in three systems, spelled three ways.</h1>
+          <p class="ex-hero__lead">A charity or association usually holds the same supporter in four places: the CRM, the giving platform, the events tool and the ledger. Each one is right about its own slice and wrong about the rest, so every appeal starts with a manual reconciliation that gets thrown away the moment it goes out. We build the layer that keeps one record true and answers the questions staff answer twice a day.</p>
+          <div class="ex-hero__actions">
+            <a class="ex-btn ex-btn--primary" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+            <a class="ex-btn ex-btn--secondary" href="industries.html">All industries</a>
+          </div>
+        </div>
+
+        <div class="ex-hero__meta">
+          <p class="ex-eyebrow">Who this is for</p>
+          <aside class="ex-rail" aria-label="Segments within Nonprofits and associations">
+            <div class="ex-rail__item"><span class="ex-rail__v">Registered charities delivering front-line services</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__v">Professional associations, colleges and licensing bodies</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__v">Foundations and grantmakers</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__v">Arts, culture, sport and recreation organisations</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__v">Faith groups, member societies and community associations</span></div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 2. HOW IT ACTUALLY RUNS ===================== -->
+  <section class="ex-band">
+    <div class="ex-container">
+      <p class="ex-eyebrow ex-eyebrow--onink">How it actually runs</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">Before anything is built, this is the week we are describing.</h2>
+        <p class="ex-shead__sub">No software can be scoped from a category name. These are the specifics of nonprofits and associations that decide what is worth building and what is not.</p>
+      </header>
+
+      <ol class="ex-timeline">
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">01</span>
+          <div>
+            <h3 class="ex-timeline__title">The donor list is three lists</h3>
+            <p class="ex-timeline__body">The CRM holds the mailing list. The giving platform holds who actually paid. The accounting system holds what was deposited. The same supporter sits in all three with a different spelling, a different address and a different email. Someone reconciles the three by hand before every appeal, then throws the working file away, and does it again next quarter.</p>
+          </div>
+        </li>
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">02</span>
+          <div>
+            <h3 class="ex-timeline__title">The year-end appeal is the whole plan</h3>
+            <p class="ex-timeline__body">A large part of the fundraising year lands in a few weeks around the year end deadline. The appeal goes out, gifts arrive through four channels at once, and the receipts have to be correct. Two people process gifts, answer the phone, fix bounced addresses and chase failed cards at the same time. Anything that is not the appeal waits until January.</p>
+          </div>
+        </li>
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">03</span>
+          <div>
+            <h3 class="ex-timeline__title">The main line is answered by whoever is free</h3>
+            <p class="ex-timeline__body">Calls come in from donors wanting last year&#x27;s receipt, clients asking whether they qualify for a programme, members asking when dues are owed, and someone offering to volunteer. There is no queue and no script. The person who picks up is mid task on something else, and the call is not logged anywhere, so nobody knows how many came in or what they wanted.</p>
+          </div>
+        </li>
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">04</span>
+          <div>
+            <h3 class="ex-timeline__title">Funder reports are retyped, not assembled</h3>
+            <p class="ex-timeline__body">Every funder wants the same programme in its own template, with its own period, its own categories and its own definition of a participant. The numbers get pulled out of the programme system, retyped into a spreadsheet, then retyped again into a portal. When the board asks why two reports disagree, the honest answer is that they were typed on different days.</p>
+          </div>
+        </li>
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">05</span>
+          <div>
+            <h3 class="ex-timeline__title">Volunteer hours live in a binder</h3>
+            <p class="ex-timeline__body">Shifts are booked by email or a group chat, sign-in is a sheet at the door, and hours are added up at year end by whoever has the binder. Police checks and training dates sit in a separate folder. When a funder asks for volunteer hours by programme, or a coordinator asks who is cleared to work with children, the answer takes a week.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================== 3. WHERE IT LEAKS ===================== -->
+  <section class="ex-section">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Where it leaks</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">Every one of these is measurable. Most are not measured.</h2>
+        <p class="ex-shead__sub">The free audit prices these in your own numbers before anything is scoped. You keep the map whether or not you hire us.</p>
+      </header>
+
+      <div class="ex-table-wrap">
+        <table class="ex-table p-ind__table">
+          <caption>Where the money and the hours go in nonprofits and associations, how it is measured today, and what closes it.</caption>
+          <thead>
+            <tr>
+              <th scope="col">The leak</th>
+              <th scope="col">How it is measured today</th>
+              <th scope="col">What closes it</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Monthly donors quietly lost to an expired card.</th>
+              <td>Nobody counts it. It shows up as a smaller payout two months later.</td>
+              <td>A card-failure watcher that flags the donor and drafts the call list the same week.</td>
+            </tr>
+            <tr>
+              <th scope="row">The same supporter gets three appeals and one thank you.</th>
+              <td>Counted only when a donor phones to complain about it.</td>
+              <td>Matching across systems with a confidence score and a merge a person approves.</td>
+            </tr>
+            <tr>
+              <th scope="row">Staff hours retyping the same numbers into different funder templates.</th>
+              <td>Not measured. Absorbed by programme staff after hours.</td>
+              <td>Reports assembled from source records, with every figure linked to its rows.</td>
+            </tr>
+            <tr>
+              <th scope="row">Calls to the main line that reach voicemail and never come back.</th>
+              <td>There is no call log, so the number defaults to zero.</td>
+              <td>An agent that answers every call, logs it, and transfers with context attached.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 4. WHAT WE BUILD ===================== -->
+  <section class="ex-section ex-section--paper-2">
+    <div class="ex-container">
+      <p class="ex-eyebrow">What we build</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">6 builds that pay for themselves here.</h2>
+        <p class="ex-shead__sub">Each one states what it reads, what it does, and what a person still approves. Scope is agreed after the audit, one build at a time, against a baseline you sign.</p>
+      </header>
+
+      <div class="ex-grid">
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Voice agent on the main line</h3>
+          </div>
+          <p class="ex-card__body">The agent answers every call, says plainly that it is an assistant, and handles the routine ones: reissuing a receipt, confirming a gift arrived, hours and location, when dues are owed, how to volunteer. It reads the donor and member database and never writes to it. Anything about eligibility, a complaint or a large gift transfers to a person with the caller, the record and the reason already on screen.</p>
+          <p class="ex-card__foot">Measured by: Share of incoming calls resolved without a staff member picking up.</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Website chatbot for the repeat questions</h3>
+          </div>
+          <p class="ex-card__body">It answers from your own published material: programme eligibility, drop-in times, what a donation pays for, how to get a duplicate receipt, how to renew a membership, what intake involves. Every answer cites the page it came from. When it cannot answer, it collects the question, routes it to the right inbox and attaches a draft reply for staff to edit and send.</p>
+          <p class="ex-card__foot">Measured by: Emails landing in the general inbox each week.</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">One supporter record across every system</h3>
+          </div>
+          <p class="ex-card__body">We read the CRM, the giving platform, the events tool and the finance ledger into one common shape, match records across them on name, address, email, phone and gift history, and score every match for confidence. Strong matches merge. Weak ones sit in a review queue with both records side by side. A staff member approves each merge and every merge can be undone.</p>
+          <p class="ex-card__foot">Measured by: Duplicate constituent records still open in the review queue.</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Funder reports that assemble themselves</h3>
+          </div>
+          <p class="ex-card__body">Each funder template is set up once with its reporting period, its categories and its definition of a participant. The report then builds from the programme, volunteer and finance records, and every figure carries a link to the rows it was counted from. Staff read it, write the narrative and submit it. Nothing is filed with a funder without a person pressing submit.</p>
+          <p class="ex-card__foot">Measured by: Staff hours spent per funder report.</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Intake and onboarding that runs on time</h3>
+          </div>
+          <p class="ex-card__body">A volunteer or member application creates the record, sends the forms, tracks the police check and the training dates, and offers first shifts against real availability. Reminders go out before an expiry rather than after it. Screening results and eligibility are entered by a coordinator, never inferred, and the system will not clear anyone to work on its own.</p>
+          <p class="ex-card__foot">Measured by: Days from application to first cleared shift.</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Segmented appeals off your own records</h3>
+          </div>
+          <p class="ex-card__body">Segments are built from the reconciled data: monthly donors whose card is about to expire, members who lapsed after one renewal, first-time donors from the last campaign, volunteers who have never given. The system drafts a message per segment and shows the list and the count before anything moves. A person reads the draft, checks the consent flags and sends.</p>
+          <p class="ex-card__foot">Measured by: Monthly donor retention rate, year over year.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 5. THE NUMBERS ===================== -->
+  <section class="ex-band">
+    <div class="ex-container">
+      <p class="ex-eyebrow ex-eyebrow--onink">The numbers</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">Borrowed statistics, with their sources and their limits printed.</h2>
+        <p class="ex-shead__sub">None of these are our results. They are the published state of nonprofits and associations, linked so you can check them, with the caveat attached where the number is a survey, a forecast or a vendor's own figure.</p>
+      </header>
+
+      <div class="ex-stats">
+            <div class="ex-stat ex-stat--onink">
+              <span class="ex-stat__num">41% to 32%</span>
+              <p class="ex-stat__label">Formal volunteering through an organisation fell sharply across Canada in five years.</p>
+              <cite class="ex-stat__source"><a class="ex-link ex-link--mono" href="https://www150.statcan.gc.ca/n1/daily-quotidien/250623/dq250623b-eng.htm" target="_blank" rel="noopener">Statistics Canada, 2025</a></cite>
+              <p class="p-ind__caveat">Survey data, self-reported by respondents to the Survey of Giving, Volunteering and Participating. The figure is the formal volunteer rate, meaning volunteering through an organisation.</p>
+            </div>
+            <div class="ex-stat ex-stat--onink p-ind__stat--sm">
+              <span class="ex-stat__num">35% of donors, 50% of dollars</span>
+              <p class="ex-stat__label">Donation dollars are concentrated in older donors, so a lapsed older file is not a small problem.</p>
+              <cite class="ex-stat__source"><a class="ex-link ex-link--mono" href="https://www150.statcan.gc.ca/n1/daily-quotidien/250401/dq250401c-eng.htm" target="_blank" rel="noopener">Statistics Canada, 2025</a></cite>
+              <p class="p-ind__caveat">Counts only donations claimed on a tax return, by filers aged 65 and over. Gifts that were never receipted or never claimed do not appear in it.</p>
+            </div>
+            <div class="ex-stat ex-stat--onink p-ind__stat--sm">
+              <span class="ex-stat__num">10 to 40 hours a month on reporting</span>
+              <p class="ex-stat__label">Grant administration takes real staff hours every single month.</p>
+              <cite class="ex-stat__source"><a class="ex-link ex-link--mono" href="https://imaginecanada.ca/en/research/hidden-cost-of-funding" target="_blank" rel="noopener">Imagine Canada, 2026</a></cite>
+              <p class="p-ind__caveat">Self-reported by the organisations interviewed for the report, about federal funders specifically. It is qualitative research, not a random sample of the sector.</p>
+            </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 6. WHERE THE DATA COMES FROM ===================== -->
+  <section class="ex-section">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Where the data comes from</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">Your systems of record stay exactly where they are.</h2>
+        <p class="ex-shead__sub">We read them, we do not replace them. Each one below says what we connect to, how, and the line the build does not cross.</p>
+      </header>
+
+      <div class="ex-grid">
+        <article class="ex-card ex-card--inset">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Donor and member database</h3>
+          </div>
+          <p class="ex-card__body"><strong>Usually:</strong> Blackbaud Raiser&#x27;s Edge NXT, Salesforce Nonprofit Cloud, Keela, DonorPerfect, Sumac, iMIS, Wild Apricot</p>
+          <p class="ex-card__body"><strong>What it holds.</strong> Constituent records, gift and pledge history, membership status and dues, campaign codes, communication preferences and consent flags.</p>
+          <p class="ex-card__body"><strong>How we connect.</strong> Read-only through the vendor API where one exists, or a scheduled export into a Canadian-hosted copy where it does not. Writes go back through the API one record at a time and every write is logged.</p>
+          <p class="ex-card__foot"><strong>Where it stops.</strong> We never bulk-overwrite constituent records. A merge, a consent change or a deletion is proposed with the evidence beside it and applied only after a staff member approves it.</p>
+        </article>
+        <article class="ex-card ex-card--inset">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Online giving, events and payments</h3>
+          </div>
+          <p class="ex-card__body"><strong>Usually:</strong> CanadaHelps, Zeffy, Stripe, Moneris, Eventbrite, PayPal Giving Fund</p>
+          <p class="ex-card__body"><strong>What it holds.</strong> Donation and ticket transactions, monthly gift schedules, card failures and refunds, event registrations, and the contact details a donor typed at checkout.</p>
+          <p class="ex-card__body"><strong>How we connect.</strong> A webhook per transaction as it happens, plus a nightly payout pull so fees, refunds and settlement dates line up with what the ledger actually received.</p>
+          <p class="ex-card__foot"><strong>Where it stops.</strong> No card data touches anything we build. The processor keeps it. We never retry a payment, change a recurring gift or issue a refund without a person doing it.</p>
+        </article>
+        <article class="ex-card ex-card--inset">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Programme, volunteer and finance records</h3>
+          </div>
+          <p class="ex-card__body"><strong>Usually:</strong> QuickBooks Online, Sage Intacct, Sage 50, HIFIS, Penelope by Bonterra, Better Impact, SmartSimple</p>
+          <p class="ex-card__body"><strong>What it holds.</strong> Restricted and unrestricted fund balances, grant budgets and claims, client and participant files, volunteer hours, shifts and screening dates.</p>
+          <p class="ex-card__body"><strong>How we connect.</strong> A read-only replica on a schedule for the finance ledger, an API where the programme system offers one, and a mapped file drop where it does not.</p>
+          <p class="ex-card__foot"><strong>Where it stops.</strong> Nothing is posted to the ledger and no client file is edited. We read, count and report. Journal entries stay with the bookkeeper and case notes stay with the caseworker.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 7. THE RULES ===================== -->
+  <section class="ex-section ex-section--paper-2">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Built around your rules</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">The regimes that govern this work, and how the build answers each one.</h2>
+        <p class="ex-shead__sub">Constraints come first, because they decide the architecture. Bring us your hosting, residency and regulatory rules at the start and we design to them rather than around them.</p>
+      </header>
+
+      <div class="ex-table-wrap">
+        <table class="ex-table p-ind__table">
+          <caption>Regulatory and professional obligations that shape a build in nonprofits and associations.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Regime</th>
+              <th scope="col">What it demands here</th>
+              <th scope="col">How the build complies</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Income Tax Act registered charity rules (CRA)</th>
+              <td>File the T3010 within six months of fiscal year end, issue receipts carrying the required content, and keep books and records at a Canadian address. Copies of donation receipts are kept for two years from the end of the calendar year of the donation, and most other records for six years.</td>
+              <td>Everything we build stores its data in Canada. Gift and receipt records stay in the systems the CRA expects to look at, because we read those systems rather than replace them, and every figure in a report links back to the rows behind it so an auditor can follow the number.</td>
+            </tr>
+            <tr>
+              <th scope="row">PIPEDA and provincial privacy law (BC PIPA, Alberta PIPA, Quebec Law 25)</th>
+              <td>PIPEDA catches a nonprofit when it does something commercial, which the Act defines to include selling, bartering or leasing donor, membership or other fundraising lists. BC PIPA covers not-for-profits and charities for all of their activities, not only commercial ones. Quebec Law 25 adds consent, breach reporting and a named privacy officer.</td>
+              <td>Personal information stays in Canada. Access is granted by role, every read and write is logged, and consent and do-not-contact flags travel with the record through a merge, so combining two files can never quietly widen who is allowed to be contacted.</td>
+            </tr>
+            <tr>
+              <th scope="row">CASL</th>
+              <td>A commercial electronic message needs consent, sender identification and a working unsubscribe. Registered charities have an exemption where the primary purpose of the message is raising funds, but a message that pushes a sponsor&#x27;s commercial activity can fall outside that exemption.</td>
+              <td>Consent status and where it came from sit on the record and are checked before any send. Anything not primarily a fundraising message is treated as commercial by default, with identification and an unsubscribe attached. A person approves the send list every time.</td>
+            </tr>
+            <tr>
+              <th scope="row">Alberta Charitable Fund-raising Act</th>
+              <td>A charity expecting more than $25,000 in contributions from Albertans in a financial year must register, disclose a set list of details at the time of solicitation, and keep records of solicitations made in Alberta for at least three years.</td>
+              <td>Every solicitation is logged with its date, channel, recipient and the disclosure text that was used, so the three year record exists by default instead of being rebuilt later. Province is stored on the record, so an Alberta list can be produced without filtering by hand.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <hr class="ex-rule ex-rule--spaced">
+
+      <div class="ex-split">
+        <div class="ex-stack">
+          <h3>What we will not automate</h3>
+          <ul class="ex-measure">
+          <li>We do not let a system issue an official donation receipt on its own. A person confirms the eligible amount and any advantage first, because a wrong receipt is the charity&#x27;s problem with the CRA, not the software&#x27;s.</li>
+          <li>We do not automate a decision about whether someone qualifies for a programme, a bursary or a service. The system gathers the file and puts it in front of the person whose job it is to decide.</li>
+          </ul>
+        </div>
+        <div class="ex-stack">
+          <div class="ex-card ex-card--inset">
+            <div class="ex-card__head">
+              <h3 class="ex-card__title">A person stays in the loop</h3>
+            </div>
+            <p class="ex-card__body">Anything that spends money, sends something irreversible, or carries a professional obligation arrives as a draft with a named reviewer. The system prepares the work. A person decides whether it ships.</p>
+            <p class="ex-card__foot">You own the code and the data at the end of the engagement.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 10. FAQ ===================== -->
+  <section class="ex-section">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Questions</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">The questions we get asked in nonprofits and associations.</h2>
+      </header>
+
+      <div class="ex-faq">
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="faq-1">
+            <span>Do we have to replace Raiser&#x27;s Edge, or whatever CRM we already run?</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="faq-1" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>No. Your CRM stays the system of record for constituents and gifts. We read it through its API, or on a scheduled export where the API is thin, and write back one approved record at a time. Pulling out a donor database mid year is how a charity loses its gift history. We build around the system you already pay for.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="faq-2">
+            <span>Can any of this touch our tax receipts or the T3010?</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="faq-2" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>It helps you get the numbers right and it issues nothing on its own. We reconcile gifts across the giving platform, the CRM and the ledger so the totals agree before receipting runs, and every figure in a summary links to the transactions behind it. A person still approves receipts and files the return.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="faq-3">
+            <span>Where does our donor data actually live?</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="faq-3" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>In Canada. Uniserve, a Canadian telecom, required every model and every byte hosted in Canada, and that requirement shaped how we build. For a charity it also sits well with the CRA rule that books and records be kept at a Canadian address. Access is granted by role and every read and write is logged.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="faq-4">
+            <span>We are six people and a part time bookkeeper. Where would we start?</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="faq-4" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>With the free audit. We sit with you, map where the hours go, and print the arithmetic beside each fix. You keep that map whether or not you hire us. If we do build, we agree the number we are aiming at in writing first, the clock starts at deployment, you can cancel any time, and you own the code.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ex-band">
+    <div class="ex-container">
+      <div class="ex-split ex-split--wide">
+        <div class="ex-stack">
+          <p class="ex-eyebrow ex-eyebrow--onink">What happens next</p>
+          <h2>Start with the audit, and know the number before you commit.</h2>
+          <p class="ex-measure">Three to five days. We map where the hours and the money go in your nonprofits and associations operation and hand you a ranked plan with the payback attached.</p>
+          <p class="ex-measure">We map where time and money leak, and show the arithmetic before you commit to anything. You keep the map whether or not you hire us. If we do build, we agree the baseline in writing first, the clock starts at deployment rather than signature, and you own the code.</p>
+          <div class="ex-hero__actions">
+            <a class="ex-btn ex-btn--primary" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+            <a class="ex-btn ex-btn--onink" href="guarantee.html">How we charge</a>
+          </div>
+        </div>
+        <div class="ex-stack">
+          <dl class="ex-dl ex-dl--onink">
+            <dt class="ex-dl__k">Who you talk to</dt>
+            <dd class="ex-dl__v">Shiv and Vishal. No account managers, no slide decks.</dd>
+            <dt class="ex-dl__k">Direct</dt>
+            <dd class="ex-dl__v"><a href="mailto:shiv@exdsconsulting.com">shiv@exdsconsulting.com</a></dd>
+            <dt class="ex-dl__k">Read next</dt>
+            <dd class="ex-dl__v"><a href="services.html">What we build</a>, then <a href="work.html">Our work</a>.</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RELATED ===================== -->
+  <section class="ex-section ex-section--tight ia-related" aria-labelledby="related-heading">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Keep reading</p>
+      <h2 class="ex-shead__title" id="related-heading">Where to go next</h2>
+
+      <ul class="ia-related__grid">
+        <li>
+          <a class="ex-card ia-related__card" href="industries.html">
+            <p class="ia-related__kicker">Back up</p>
+            <h3 class="ex-card__title">All industries</h3>
+            <p class="ex-card__body">Every industry we build for, grouped by where our own work sits and where the same method applies.</p>
+            <span class="ia-related__go">See the index <span class="ia-related__arrow" aria-hidden="true">-&gt;</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="ex-card ia-related__card" href="work.html">
+            <p class="ia-related__kicker">The proof</p>
+            <h3 class="ex-card__title">Our work</h3>
+            <p class="ex-card__body">Five engagements at their real status, with the Fennec product gallery and the arithmetic behind every number.</p>
+            <span class="ia-related__go">Read the studies <span class="ia-related__arrow" aria-hidden="true">-&gt;</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="ex-card ia-related__card ia-related__card--next" href="industries-nightlife-hospitality.html">
+            <p class="ia-related__kicker">Next industry</p>
+            <h3 class="ex-card__title">Nightlife and hospitality</h3>
+            <p class="ex-card__body">The same method, a different set of systems, rules and failure modes.</p>
+            <span class="ia-related__go">Next <span class="ia-related__arrow" aria-hidden="true">-&gt;</span></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ex-footer">
+  <div class="ex-container">
+    <div class="ex-footer__grid ia-sitemap">
+      <div class="ex-footer__brand">
+        <img src="assets/exodus-logo.png" alt="Exodus Consulting" width="44" height="23">
+        <p class="ex-footer__blurb">AI enablement and custom software for owner-led businesses. Two founders, direct access.</p>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Work</p>
+        <ul>
+          <li><a href="work.html">Our work</a></li>
+          <li><a href="work-uniserve.html">Uniserve Communications</a></li>
+          <li><a href="work-fennec.html">Fennec</a></li>
+          <li><a href="work-palapa-tours.html">Palapa Tours Ottawa</a></li>
+          <li><a href="work-scoped.html">Current engagements</a></li>
+          <li><a href="fennec-events-floor.html">Fennec: events and floor</a></li>
+          <li><a href="fennec-ticketing-guests.html">Fennec: ticketing and guests</a></li>
+          <li><a href="fennec-pos-payments.html">Fennec: POS and payments</a></li>
+          <li><a href="fennec-inventory-staff.html">Fennec: inventory and staff</a></li>
+          <li><a href="fennec-media-intelligence.html">Fennec: media and intelligence</a></li>
+        </ul>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Industries</p>
+        <ul>
+          <li><a href="industries.html">All industries</a></li>
+          <li><a href="industries-nightlife-hospitality.html">Nightlife and hospitality</a></li>
+          <li><a href="industries-restaurants-bars.html">Restaurants and bars</a></li>
+          <li><a href="industries-event-venues-ticketing.html">Event venues and ticketing</a></li>
+          <li><a href="industries-telecom-isps.html">Telecom and internet providers</a></li>
+          <li><a href="industries-political-campaigns.html">Political parties and campaign organisations</a></li>
+          <li><a href="industries-tours-experiences.html">Tour and experience operators</a></li>
+        </ul>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Company</p>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">What we build</a></li>
+          <li><a href="guarantee.html">How we charge</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Direct</p>
+        <ul>
+          <li><a href="mailto:shiv@exdsconsulting.com">shiv@exdsconsulting.com</a></li>
+          <li><a href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a></li>
+          <li><a href="https://instagram.com/exodus_consulting_" target="_blank" rel="noopener">@exodus_consulting_</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ex-footer__legal">
+      <span>&copy; 2026 Exodus Consulting</span>
+      <span>Vancouver, BC</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

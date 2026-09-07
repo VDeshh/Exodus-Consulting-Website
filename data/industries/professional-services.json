@@ -1,0 +1,190 @@
+{
+  "slug": "professional-services",
+  "name": "Professional services and agencies",
+  "hero_title": "Your firm sells hours, and nobody writes them all down.",
+  "hero_lead": "A studio of five sells the same thing a firm of five hundred sells: hours and judgement. The hours get recorded from memory on a Friday, the judgement is rarely the bottleneck, and the admin wrapped around both is what eats the margin. We build the systems that record work as it happens and answer the questions that never needed a professional in the first place.",
+  "segments": [
+    "Creative, marketing and PR agencies",
+    "Management and IT consultancies",
+    "Architecture, engineering and design practices",
+    "Accounting, bookkeeping and advisory practices",
+    "Independent specialists and small studios"
+  ],
+  "how_it_runs": [
+    {
+      "title": "Friday timesheets are written from memory",
+      "body": "Work happens all week in calls, email, briefs, drawings and site visits. The timesheet gets filled in at the end of the week by someone who wants to go home. Six minutes here and twenty minutes there never make it in. The firm then bills what was remembered rather than what was done, and that gap does not appear as a line anywhere in the accounts."
+    },
+    {
+      "title": "New business arrives by phone and inbox",
+      "body": "A prospect calls once, or sends one email. In a team of six the person best placed to answer is billing at the time, so the call goes to voicemail during the exact hours people call. The email waits two days behind delivery work. Nobody counts the enquiries that went quiet, so the cost of a busy Tuesday morning stays invisible."
+    },
+    {
+      "title": "Scope grows by email, never by change order",
+      "body": "The statement of work says one thing. Then the client asks for a small extra round, and it is easier to do it than to raise a change order. Ten of those and the project is thirty hours past the fee that was quoted. The extra work was real, it was done well, and it was never billed, because raising it late feels like starting a fight."
+    },
+    {
+      "title": "Launch weeks bend everything around them",
+      "body": "A pitch, a tender close, a filing date, a campaign going live. For two weeks the whole team points at one date and every other client waits. Admin stops, invoices do not go out, and questions that arrive in that window get a short answer or none. The backlog built in those two weeks gets paid for in the quiet month afterwards, at full salary cost."
+    },
+    {
+      "title": "Client margin is only known after the job",
+      "body": "The owner knows the fee and roughly knows the effort. Which clients actually pay for themselves is a feeling rather than a number, because hours sit in one tool, invoices in another, and freelancer costs in a folder of PDFs. The unprofitable client is usually the loudest one, and the retainer gets renewed because nobody has put the arithmetic on a page."
+    }
+  ],
+  "systems": [
+    {
+      "name": "Project, time and resource management",
+      "examples": "Productive.io, Scoro, Workamajig, Harvest, Float, Deltek Vantagepoint, BQE Core, Monograph, Asana, Monday.com, ClickUp",
+      "holds": "Projects and phases, time entries, tasks, budgets, staff allocation, freelancer bookings and the fee agreed per engagement.",
+      "how_we_connect": "Read through the vendor API where one exists, otherwise a scheduled export into a read-only copy we keep in sync. Anything we write back goes in as a draft time entry or a draft task.",
+      "where_it_stops": "No time entry is posted, no budget changed and no project closed without a person approving it inside the tool they already use every day."
+    },
+    {
+      "name": "Accounting, invoicing and payments",
+      "examples": "QuickBooks Online, Xero, Sage 50, Dext, Plooto, Wagepoint",
+      "holds": "Invoices, work in progress, disbursements, supplier and freelancer bills, receivables ageing and the general ledger.",
+      "how_we_connect": "Read-only API access plus webhooks on invoice and payment events. We reconcile against the project system on a schedule and record every mismatch with a confidence score rather than picking a winner.",
+      "where_it_stops": "We never issue an invoice, apply a credit or move money. The system prepares the batch and shows the arithmetic. The bookkeeper and the owner send it."
+    },
+    {
+      "name": "CRM, email and file stores",
+      "examples": "HubSpot, Salesforce, Pipedrive, Microsoft 365 and SharePoint, Google Workspace, Dropbox, Notion",
+      "holds": "Enquiries, pipeline stages, the email trail with each client, proposals, statements of work, deliverables and version history.",
+      "how_we_connect": "API and webhook on new enquiry and new message. Files are read only where permissions already allow it, indexed per client, and never copied outside the firm's own tenancy.",
+      "where_it_stops": "Nothing goes to a client from these systems on its own. Drafts land in the account lead's own drafts folder, and they press send."
+    }
+  ],
+  "builds": [
+    {
+      "title": "Voice agent on the main line",
+      "mechanism": "It answers every call, including the ones that ring out after five. It reads the project system for status and the calendar for open slots, says where a piece of work is up to, books the call, and takes a new enquiry into a structured record. Anything touching advice, fees or a complaint transfers to a named person with the transcript attached. A person confirms every new project before it opens.",
+      "measure": "Share of inbound calls resolved or booked without a call back."
+    },
+    {
+      "title": "Website chatbot for the repeat questions",
+      "mechanism": "It reads the firm's own published material: how the process works, what a typical timeline looks like, what the client needs to supply, how fees are structured, and the intake form. It answers the low-level questions that currently land in the inbox and hands anything specific to a live project to a person. Every answer cites the page it came from. The owner approves the source set.",
+      "measure": "Inbound emails per week that still need a senior person to reply."
+    },
+    {
+      "title": "Timesheets drafted from work already done",
+      "mechanism": "It reads the calendar, sent email, file edits and call records, groups them by client and project, and writes a draft time entry with a narrative and a duration. The person opens one screen, fixes the wording, deletes what is not billable and approves. Nothing posts to the project system until they do, and unapproved drafts expire instead of piling up.",
+      "measure": "Recorded billable hours per person per week, against the same week last quarter."
+    },
+    {
+      "title": "Intake and onboarding in one pass",
+      "mechanism": "One structured intake record opens the project, runs a conflict and duplicate search across existing clients and related parties, drafts the statement of work from the firm's own template, and creates the folder, the budget and the billing record in each system. The conflict result and the draft both go to a person to clear, and nothing reaches the client until they clear it.",
+      "measure": "Days from first enquiry to signed statement of work."
+    },
+    {
+      "title": "Scope drift flagged while it is happening",
+      "mechanism": "It reads the fee and the deliverables list in the signed statement of work, then watches logged hours, tasks and the email trail against them. When a project passes a threshold the owner sets, or a request arrives that is not on the list, it posts a note with the evidence and a drafted change order. The owner decides whether to raise it, absorb it or write it off.",
+      "measure": "Hours worked past agreed scope each month, and how many of them were billed."
+    },
+    {
+      "title": "One weekly number pack, every figure sourced",
+      "mechanism": "It pulls hours from the project system, invoices and payments from the accounting system, and pipeline from the CRM, reconciles the three, and builds one page: utilisation, billed against worked, unbilled work in progress, receivables ageing and margin per client. Each number carries the system, the query and the timestamp it was read at. Anything that will not reconcile is shown as a gap, not smoothed over.",
+      "measure": "Days of unbilled work in progress, tracked week to week."
+    }
+  ],
+  "leaks": [
+    {
+      "leak": "Billable time that never reaches the timesheet.",
+      "how_measured": "Not measured. It is the gap between a full day and what appears on Friday.",
+      "what_closes_it": "Draft time entries built from calendar, email and file activity, approved by the person who did the work."
+    },
+    {
+      "leak": "Out-of-scope work done as a favour.",
+      "how_measured": "Noticed at the end of the project, once the fee is already fixed.",
+      "what_closes_it": "A scope watcher that flags the overrun in the week it starts, with a change order already drafted."
+    },
+    {
+      "leak": "Finished work sitting unbilled.",
+      "how_measured": "A month-end scramble through the project system, if anyone has the time.",
+      "what_closes_it": "A weekly work in progress list per person, ranked by age and by value."
+    },
+    {
+      "leak": "Enquiries that ring out or wait days for a reply.",
+      "how_measured": "Not measured at all. A missed call leaves no record anyone reads.",
+      "what_closes_it": "A voice agent that answers every call and a chatbot that clears the routine email."
+    }
+  ],
+  "stats": [
+    {
+      "claim": "Nearly three quarters of professional services employers in Canada have fewer than five staff.",
+      "figure": "73.8%",
+      "source_org": "Innovation, Science and Economic Development Canada, using a Statistics Canada special tabulation",
+      "source_title": "Canadian Industry Statistics: Professional, scientific and technical services (NAICS 54), Businesses",
+      "year": "2025",
+      "url": "https://ised-isde.canada.ca/app/ixb/cis/businesses-entreprises/54",
+      "caveat": "Employer establishments only. The 372,200 non-employer or indeterminate establishments in the same sector sit outside this share. Unpublished Statistics Canada tabulation, unclassified establishments excluded."
+    },
+    {
+      "claim": "Professional services has the highest rate of generative AI use at work of any Canadian industry.",
+      "figure": "65.6%",
+      "source_org": "Statistics Canada",
+      "source_title": "Use of generative artificial intelligence tools among Canadian workers, March 2026",
+      "year": "2026",
+      "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/260730/dq260730b-eng.htm",
+      "caveat": "Self reported by workers in a March 2026 survey. It counts any use of a generative AI tool at work and says nothing about whether that use was sanctioned, governed or paid for itself."
+    },
+    {
+      "claim": "In an eight hour day, hourly professional work averages three billable hours recorded.",
+      "figure": "38%",
+      "source_org": "Clio",
+      "source_title": "Law Firm Key Performance Indicators: Insights from the Legal Trends Report",
+      "year": "2025",
+      "url": "https://www.clio.com/resources/legal-trends/benchmarks/",
+      "caveat": "Vendor reported, and law firms specifically. Clio aggregates anonymised data from firms using its own practice management software across North America, so it is not a Canadian government figure and not a benchmark for agencies. It is quoted here as the closest published measure of how much of a professional day is captured as billable."
+    }
+  ],
+  "rules": [
+    {
+      "regime": "PIPEDA",
+      "demands": "Consent, a stated purpose for each piece of personal information collected, limits on how long it is kept, and reporting a breach to the Privacy Commissioner where there is a real risk of significant harm.",
+      "how_we_comply": "Each field is mapped to the purpose it was collected for and access is set by role. Retention and deletion run on a schedule. Every read of a client record is logged, so a breach can be scoped in hours rather than weeks."
+    },
+    {
+      "regime": "BC PIPA, Alberta PIPA and Quebec Law 25",
+      "demands": "Provincial private sector privacy rules on top of the federal ones. Law 25 adds a named privacy officer, privacy impact assessments before a new system goes in, and disclosure when personal information is transferred outside Quebec.",
+      "how_we_comply": "Hosting location is decided before the build rather than patched in after. Canadian hosting is the default and we can hold data in a specific region where a firm needs it. The assessment is written down and handed to the client."
+    },
+    {
+      "regime": "CASL",
+      "demands": "Consent before a commercial electronic message, a clearly identified sender with contact details, and a working unsubscribe honoured within ten business days.",
+      "how_we_comply": "Consent type and the date and source it came from sit on every contact record. Anything without valid consent is excluded from a send. An unsubscribe writes back to every connected system at once, not just the one it arrived in."
+    },
+    {
+      "regime": "Professional regulators and client confidentiality",
+      "demands": "Provincial CPA bodies, law societies and regulators such as Engineers and Geoscientists BC require client confidentiality, conflict checks and records that can be produced on request. Client NDAs and master services agreements usually add their own limits on where data may sit.",
+      "how_we_comply": "Client data stays inside the firm's own tenancy. A conflict search produces a result a person clears rather than an automatic pass. Every automated action writes an audit line naming who approved it and when."
+    }
+  ],
+  "wont_automate": [
+    "We do not let a model give a client professional advice. It answers process and status questions and hands anything needing judgement to the person who carries the licence and the liability.",
+    "We do not automate a conflict clearance, a write-off, or an invoice going out the door. The system runs the search and drafts the number. A person signs it."
+  ],
+  "objections": [],
+  "faq": [
+    {
+      "q": "Our team already hates timesheets. Why would they use another tool?",
+      "a": "Because this one writes the entry for them. The draft is built from the calendar, the sent email and the files they touched, so the job changes from remembering a whole week to editing a list. It takes minutes instead of an hour, and nothing posts until they approve it. If they ignore it, the drafts expire rather than becoming another backlog."
+    },
+    {
+      "q": "Will a voice agent make us sound like a call centre?",
+      "a": "It is built to sound like your office and to hand over quickly. It covers status, availability, what a client needs to send, directions and booking a call. The moment someone asks a question that needs judgement, or sounds unhappy, it transfers to a named person with the transcript so nobody repeats themselves. You set what it may answer and you hear the recordings."
+    },
+    {
+      "q": "We are five people. Is this sized for a firm like ours?",
+      "a": "Yes. Nearly three quarters of professional services employers in Canada have fewer than five staff, and that is the shape of business we build for. The work is scoped to one or two builds that pay for themselves, not a platform. We agree the number we are aiming at in writing first, and if the system misses it we keep working at no extra cost until it clears."
+    },
+    {
+      "q": "Can client files stay in Canada?",
+      "a": "Yes, and often they have to, because a client contract or a regulator says so. We treat hosting as a constraint decided before the first line of code rather than a setting changed later. Canadian hosting is the default, and we can hold the data in a named region where an agreement requires it. Every model and every byte stays where you say it stays. You own the code at the end of it."
+    }
+  ],
+  "what_we_built": [],
+  "learned": [],
+  "meta_title": "Professional services and agencies | Exodus Consulting",
+  "meta_description": "Voice agents, intake automation, time capture and sourced reporting for Canadian agencies, consultancies and professional practices."
+}

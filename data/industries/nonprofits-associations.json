@@ -1,0 +1,190 @@
+{
+  "slug": "nonprofits-associations",
+  "name": "Nonprofits and associations",
+  "hero_title": "Your donors exist three times, in three systems, spelled three ways.",
+  "hero_lead": "A charity or association usually holds the same supporter in four places: the CRM, the giving platform, the events tool and the ledger. Each one is right about its own slice and wrong about the rest, so every appeal starts with a manual reconciliation that gets thrown away the moment it goes out. We build the layer that keeps one record true and answers the questions staff answer twice a day.",
+  "segments": [
+    "Registered charities delivering front-line services",
+    "Professional associations, colleges and licensing bodies",
+    "Foundations and grantmakers",
+    "Arts, culture, sport and recreation organisations",
+    "Faith groups, member societies and community associations"
+  ],
+  "how_it_runs": [
+    {
+      "title": "The donor list is three lists",
+      "body": "The CRM holds the mailing list. The giving platform holds who actually paid. The accounting system holds what was deposited. The same supporter sits in all three with a different spelling, a different address and a different email. Someone reconciles the three by hand before every appeal, then throws the working file away, and does it again next quarter."
+    },
+    {
+      "title": "The year-end appeal is the whole plan",
+      "body": "A large part of the fundraising year lands in a few weeks around the year end deadline. The appeal goes out, gifts arrive through four channels at once, and the receipts have to be correct. Two people process gifts, answer the phone, fix bounced addresses and chase failed cards at the same time. Anything that is not the appeal waits until January."
+    },
+    {
+      "title": "The main line is answered by whoever is free",
+      "body": "Calls come in from donors wanting last year's receipt, clients asking whether they qualify for a programme, members asking when dues are owed, and someone offering to volunteer. There is no queue and no script. The person who picks up is mid task on something else, and the call is not logged anywhere, so nobody knows how many came in or what they wanted."
+    },
+    {
+      "title": "Funder reports are retyped, not assembled",
+      "body": "Every funder wants the same programme in its own template, with its own period, its own categories and its own definition of a participant. The numbers get pulled out of the programme system, retyped into a spreadsheet, then retyped again into a portal. When the board asks why two reports disagree, the honest answer is that they were typed on different days."
+    },
+    {
+      "title": "Volunteer hours live in a binder",
+      "body": "Shifts are booked by email or a group chat, sign-in is a sheet at the door, and hours are added up at year end by whoever has the binder. Police checks and training dates sit in a separate folder. When a funder asks for volunteer hours by programme, or a coordinator asks who is cleared to work with children, the answer takes a week."
+    }
+  ],
+  "systems": [
+    {
+      "name": "Donor and member database",
+      "examples": "Blackbaud Raiser's Edge NXT, Salesforce Nonprofit Cloud, Keela, DonorPerfect, Sumac, iMIS, Wild Apricot",
+      "holds": "Constituent records, gift and pledge history, membership status and dues, campaign codes, communication preferences and consent flags.",
+      "how_we_connect": "Read-only through the vendor API where one exists, or a scheduled export into a Canadian-hosted copy where it does not. Writes go back through the API one record at a time and every write is logged.",
+      "where_it_stops": "We never bulk-overwrite constituent records. A merge, a consent change or a deletion is proposed with the evidence beside it and applied only after a staff member approves it."
+    },
+    {
+      "name": "Online giving, events and payments",
+      "examples": "CanadaHelps, Zeffy, Stripe, Moneris, Eventbrite, PayPal Giving Fund",
+      "holds": "Donation and ticket transactions, monthly gift schedules, card failures and refunds, event registrations, and the contact details a donor typed at checkout.",
+      "how_we_connect": "A webhook per transaction as it happens, plus a nightly payout pull so fees, refunds and settlement dates line up with what the ledger actually received.",
+      "where_it_stops": "No card data touches anything we build. The processor keeps it. We never retry a payment, change a recurring gift or issue a refund without a person doing it."
+    },
+    {
+      "name": "Programme, volunteer and finance records",
+      "examples": "QuickBooks Online, Sage Intacct, Sage 50, HIFIS, Penelope by Bonterra, Better Impact, SmartSimple",
+      "holds": "Restricted and unrestricted fund balances, grant budgets and claims, client and participant files, volunteer hours, shifts and screening dates.",
+      "how_we_connect": "A read-only replica on a schedule for the finance ledger, an API where the programme system offers one, and a mapped file drop where it does not.",
+      "where_it_stops": "Nothing is posted to the ledger and no client file is edited. We read, count and report. Journal entries stay with the bookkeeper and case notes stay with the caseworker."
+    }
+  ],
+  "builds": [
+    {
+      "title": "Voice agent on the main line",
+      "mechanism": "The agent answers every call, says plainly that it is an assistant, and handles the routine ones: reissuing a receipt, confirming a gift arrived, hours and location, when dues are owed, how to volunteer. It reads the donor and member database and never writes to it. Anything about eligibility, a complaint or a large gift transfers to a person with the caller, the record and the reason already on screen.",
+      "measure": "Share of incoming calls resolved without a staff member picking up."
+    },
+    {
+      "title": "Website chatbot for the repeat questions",
+      "mechanism": "It answers from your own published material: programme eligibility, drop-in times, what a donation pays for, how to get a duplicate receipt, how to renew a membership, what intake involves. Every answer cites the page it came from. When it cannot answer, it collects the question, routes it to the right inbox and attaches a draft reply for staff to edit and send.",
+      "measure": "Emails landing in the general inbox each week."
+    },
+    {
+      "title": "One supporter record across every system",
+      "mechanism": "We read the CRM, the giving platform, the events tool and the finance ledger into one common shape, match records across them on name, address, email, phone and gift history, and score every match for confidence. Strong matches merge. Weak ones sit in a review queue with both records side by side. A staff member approves each merge and every merge can be undone.",
+      "measure": "Duplicate constituent records still open in the review queue."
+    },
+    {
+      "title": "Funder reports that assemble themselves",
+      "mechanism": "Each funder template is set up once with its reporting period, its categories and its definition of a participant. The report then builds from the programme, volunteer and finance records, and every figure carries a link to the rows it was counted from. Staff read it, write the narrative and submit it. Nothing is filed with a funder without a person pressing submit.",
+      "measure": "Staff hours spent per funder report."
+    },
+    {
+      "title": "Intake and onboarding that runs on time",
+      "mechanism": "A volunteer or member application creates the record, sends the forms, tracks the police check and the training dates, and offers first shifts against real availability. Reminders go out before an expiry rather than after it. Screening results and eligibility are entered by a coordinator, never inferred, and the system will not clear anyone to work on its own.",
+      "measure": "Days from application to first cleared shift."
+    },
+    {
+      "title": "Segmented appeals off your own records",
+      "mechanism": "Segments are built from the reconciled data: monthly donors whose card is about to expire, members who lapsed after one renewal, first-time donors from the last campaign, volunteers who have never given. The system drafts a message per segment and shows the list and the count before anything moves. A person reads the draft, checks the consent flags and sends.",
+      "measure": "Monthly donor retention rate, year over year."
+    }
+  ],
+  "leaks": [
+    {
+      "leak": "Monthly donors quietly lost to an expired card.",
+      "how_measured": "Nobody counts it. It shows up as a smaller payout two months later.",
+      "what_closes_it": "A card-failure watcher that flags the donor and drafts the call list the same week."
+    },
+    {
+      "leak": "The same supporter gets three appeals and one thank you.",
+      "how_measured": "Counted only when a donor phones to complain about it.",
+      "what_closes_it": "Matching across systems with a confidence score and a merge a person approves."
+    },
+    {
+      "leak": "Staff hours retyping the same numbers into different funder templates.",
+      "how_measured": "Not measured. Absorbed by programme staff after hours.",
+      "what_closes_it": "Reports assembled from source records, with every figure linked to its rows."
+    },
+    {
+      "leak": "Calls to the main line that reach voicemail and never come back.",
+      "how_measured": "There is no call log, so the number defaults to zero.",
+      "what_closes_it": "An agent that answers every call, logs it, and transfers with context attached."
+    }
+  ],
+  "stats": [
+    {
+      "claim": "Formal volunteering through an organisation fell sharply across Canada in five years.",
+      "figure": "41% to 32%",
+      "source_org": "Statistics Canada",
+      "source_title": "Volunteering and charitable giving in Canada, 2018 to 2023 (The Daily)",
+      "year": "2025",
+      "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/250623/dq250623b-eng.htm",
+      "caveat": "Survey data, self-reported by respondents to the Survey of Giving, Volunteering and Participating. The figure is the formal volunteer rate, meaning volunteering through an organisation."
+    },
+    {
+      "claim": "Donation dollars are concentrated in older donors, so a lapsed older file is not a small problem.",
+      "figure": "35% of donors, 50% of dollars",
+      "source_org": "Statistics Canada",
+      "source_title": "Charitable donors, 2023 (The Daily)",
+      "year": "2025",
+      "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/250401/dq250401c-eng.htm",
+      "caveat": "Counts only donations claimed on a tax return, by filers aged 65 and over. Gifts that were never receipted or never claimed do not appear in it."
+    },
+    {
+      "claim": "Grant administration takes real staff hours every single month.",
+      "figure": "10 to 40 hours a month on reporting",
+      "source_org": "Imagine Canada",
+      "source_title": "The Hidden Cost of Funding: How Federal Policies and Practices Impact Nonprofits and Their Communities",
+      "year": "2026",
+      "url": "https://imaginecanada.ca/en/research/hidden-cost-of-funding",
+      "caveat": "Self-reported by the organisations interviewed for the report, about federal funders specifically. It is qualitative research, not a random sample of the sector."
+    }
+  ],
+  "rules": [
+    {
+      "regime": "Income Tax Act registered charity rules (CRA)",
+      "demands": "File the T3010 within six months of fiscal year end, issue receipts carrying the required content, and keep books and records at a Canadian address. Copies of donation receipts are kept for two years from the end of the calendar year of the donation, and most other records for six years.",
+      "how_we_comply": "Everything we build stores its data in Canada. Gift and receipt records stay in the systems the CRA expects to look at, because we read those systems rather than replace them, and every figure in a report links back to the rows behind it so an auditor can follow the number."
+    },
+    {
+      "regime": "PIPEDA and provincial privacy law (BC PIPA, Alberta PIPA, Quebec Law 25)",
+      "demands": "PIPEDA catches a nonprofit when it does something commercial, which the Act defines to include selling, bartering or leasing donor, membership or other fundraising lists. BC PIPA covers not-for-profits and charities for all of their activities, not only commercial ones. Quebec Law 25 adds consent, breach reporting and a named privacy officer.",
+      "how_we_comply": "Personal information stays in Canada. Access is granted by role, every read and write is logged, and consent and do-not-contact flags travel with the record through a merge, so combining two files can never quietly widen who is allowed to be contacted."
+    },
+    {
+      "regime": "CASL",
+      "demands": "A commercial electronic message needs consent, sender identification and a working unsubscribe. Registered charities have an exemption where the primary purpose of the message is raising funds, but a message that pushes a sponsor's commercial activity can fall outside that exemption.",
+      "how_we_comply": "Consent status and where it came from sit on the record and are checked before any send. Anything not primarily a fundraising message is treated as commercial by default, with identification and an unsubscribe attached. A person approves the send list every time."
+    },
+    {
+      "regime": "Alberta Charitable Fund-raising Act",
+      "demands": "A charity expecting more than $25,000 in contributions from Albertans in a financial year must register, disclose a set list of details at the time of solicitation, and keep records of solicitations made in Alberta for at least three years.",
+      "how_we_comply": "Every solicitation is logged with its date, channel, recipient and the disclosure text that was used, so the three year record exists by default instead of being rebuilt later. Province is stored on the record, so an Alberta list can be produced without filtering by hand."
+    }
+  ],
+  "wont_automate": [
+    "We do not let a system issue an official donation receipt on its own. A person confirms the eligible amount and any advantage first, because a wrong receipt is the charity's problem with the CRA, not the software's.",
+    "We do not automate a decision about whether someone qualifies for a programme, a bursary or a service. The system gathers the file and puts it in front of the person whose job it is to decide."
+  ],
+  "objections": [],
+  "faq": [
+    {
+      "q": "Do we have to replace Raiser's Edge, or whatever CRM we already run?",
+      "a": "No. Your CRM stays the system of record for constituents and gifts. We read it through its API, or on a scheduled export where the API is thin, and write back one approved record at a time. Pulling out a donor database mid year is how a charity loses its gift history. We build around the system you already pay for."
+    },
+    {
+      "q": "Can any of this touch our tax receipts or the T3010?",
+      "a": "It helps you get the numbers right and it issues nothing on its own. We reconcile gifts across the giving platform, the CRM and the ledger so the totals agree before receipting runs, and every figure in a summary links to the transactions behind it. A person still approves receipts and files the return."
+    },
+    {
+      "q": "Where does our donor data actually live?",
+      "a": "In Canada. Uniserve, a Canadian telecom, required every model and every byte hosted in Canada, and that requirement shaped how we build. For a charity it also sits well with the CRA rule that books and records be kept at a Canadian address. Access is granted by role and every read and write is logged."
+    },
+    {
+      "q": "We are six people and a part time bookkeeper. Where would we start?",
+      "a": "With the free audit. We sit with you, map where the hours go, and print the arithmetic beside each fix. You keep that map whether or not you hire us. If we do build, we agree the number we are aiming at in writing first, the clock starts at deployment, you can cancel any time, and you own the code."
+    }
+  ],
+  "what_we_built": [],
+  "learned": [],
+  "meta_title": "Nonprofits and associations | Exodus Consulting",
+  "meta_description": "Software and AI for Canadian charities and associations: one supporter record, a voice agent on the main line, and funder reports that cite their sources."
+}

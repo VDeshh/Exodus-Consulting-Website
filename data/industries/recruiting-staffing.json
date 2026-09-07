@@ -1,0 +1,190 @@
+{
+  "slug": "recruiting-staffing",
+  "name": "Recruiting and staffing",
+  "hero_title": "Your recruiters were hired to place people, not chase timesheets.",
+  "hero_lead": "A staffing agency sells speed and trust, and both leak in the back office: the candidate line that rings all afternoon, the timesheet that arrives late, the invoice that gets disputed, the worker who finished on Friday and took another agency's shift on Monday. We connect to the ATS and payroll system you already run, take the routine work off the recruiters, and put a person in front of every decision that touches a placement or a pay cheque. The number we are measured on is agreed in writing before we build.",
+  "segments": [
+    "Temporary and light-industrial staffing (warehouse, manufacturing, logistics)",
+    "Professional, IT and finance contract staffing",
+    "Permanent placement and executive search",
+    "Healthcare staffing and nursing agencies",
+    "Hospitality and event staffing"
+  ],
+  "how_it_runs": [
+    {
+      "title": "The morning is order intake, the afternoon is chasing",
+      "body": "Client orders land by phone, email and text before nine. Recruiters spend the first two hours searching the ATS and calling the bench to fill them. The rest of the day goes to the other direction: candidates ringing to ask whether their timesheet went in, when pay lands, what the address is. The same questions, from different people, answered one call at a time."
+    },
+    {
+      "title": "Friday payroll is the busiest and most fragile day",
+      "body": "Temp agencies pay weekly. Hours come in as photographed paper, client portal exports, emails and texts, in different formats for every client. Someone keys them into the payroll system against the assignment record, applies overtime and statutory holiday rules by province, and runs pay. A missing approval or a wrong rate is found by the worker on Saturday, or by the client when the invoice arrives."
+    },
+    {
+      "title": "Who to submit is a gut call on stale data",
+      "body": "The ATS holds thousands of candidates. Many are duplicates, many have dead phone numbers, and the notes on the good ones live in one recruiter's head. So the recruiter submits the three people they spoke to last week, not the best three on file. The database is an asset on paper and a liability in practice, because nobody trusts it enough to search it."
+    },
+    {
+      "title": "Redeployment is noticed after the worker is gone",
+      "body": "A worker finishing an assignment on Friday is the cheapest placement the agency will ever make: screened, onboarded, proven. Most agencies find out the assignment ended when the timesheets stop. By then the worker has taken a shift from another agency. Nobody has a list of who finishes in the next two weeks, so the redeployment conversation never happens on time."
+    },
+    {
+      "title": "The owner never has a clean gross margin per client",
+      "body": "Bill rate minus pay rate looks simple until burden, statutory holiday pay, overtime, unbilled hours and credits for disputes are counted. Those live in payroll, the ATS, the accounting system and a spreadsheet. The owner can tell you revenue per client and can guess at margin. The clients that feel busiest are often the ones paying least, and nobody has the number to prove it."
+    }
+  ],
+  "systems": [
+    {
+      "name": "Applicant tracking system and CRM",
+      "examples": "Bullhorn, JobAdder, Crelate, Vincere, Loxo",
+      "holds": "Candidates, resumes, notes, job orders, submissions, interviews, placements, client contacts and recruiter activity.",
+      "how_we_connect": "REST API and webhooks where the product offers them (Bullhorn and JobAdder both do), otherwise a scheduled export. We read candidates, jobs and placements, and write back notes, tags, consent flags and reconciliation results to fields agreed in advance.",
+      "where_it_stops": "Nothing submits a candidate to a client, changes a placement status or edits a pay or bill rate without a recruiter or manager approving it in the tool they already use."
+    },
+    {
+      "name": "Front-to-back staffing platform with timesheets, payroll and billing",
+      "examples": "Avionté, TempWorks",
+      "holds": "Assignments, pay and bill rates, timesheets and approvals, payroll runs, invoices, worker onboarding documents and compliance items.",
+      "how_we_connect": "API where licensed, otherwise scheduled exports of timesheets, assignments and invoice lines, read into a reconciliation layer that compares hours approved against hours paid and hours billed.",
+      "where_it_stops": "We never approve a timesheet, run payroll, or issue an invoice. The system flags the mismatch and a controller decides. Rates are read, never written."
+    },
+    {
+      "name": "Accounting and Canadian payroll",
+      "examples": "QuickBooks Online, Sage 50, Xero; Payworks, Wagepoint, ADP Workforce Now",
+      "holds": "The general ledger, receivables, remittances, T4 and ROE records, and for agencies without a front-to-back platform, the payroll run itself.",
+      "how_we_connect": "API read for invoices, payments and payroll journals. Where we create anything, it is a draft invoice or a draft journal entry that appears in the accountant's queue.",
+      "where_it_stops": "No journal entry posts, no remittance files, no ROE issues without a bookkeeper approving. Statutory deductions stay with the payroll provider; we read them, we do not calculate them."
+    }
+  ],
+  "builds": [
+    {
+      "title": "A voice agent on the candidate line",
+      "mechanism": "The agent answers the worker line, identifies the caller by phone number against the ATS, and reads the assignment, timesheet status and pay date from the staffing platform. It answers the routine questions, sends the shift address by text, and transfers anything about a dispute, a rate or a complaint to a recruiter with a written summary. It never changes pay, hours or an assignment.",
+      "measure": "Calls per week resolved without a recruiter picking up"
+    },
+    {
+      "title": "A website chatbot for candidates and clients",
+      "mechanism": "The chatbot reads your registration steps, required documents, office hours, timesheet deadlines and client approval process, and answers those questions on the site in plain language. It collects a name, phone and role interest into the ATS as a lead with a consent flag. Anything about a specific placement, pay or a complaint goes to a named person by email with the transcript.",
+      "measure": "Front-desk emails and calls per week asking a question the site already answers"
+    },
+    {
+      "title": "Candidate records reconciled with confidence scores",
+      "mechanism": "The system reads every candidate record in the ATS, job board exports and the payroll worker list, matches them on phone, email, name and work history, and scores each match. High-confidence duplicates are merged with a full history kept. Anything below the threshold is queued for a recruiter to confirm or reject. Government identifiers are never used as a match key and never leave your systems.",
+      "measure": "Duplicate rate in the ATS, and dead numbers dialled per recruiter per week"
+    },
+    {
+      "title": "Onboarding and compliance intake that chases itself",
+      "mechanism": "When a candidate is marked ready to onboard, the system sends the document requests by text and email: identification, work eligibility, certifications such as WHMIS, forklift or Food Safe, banking for direct deposit. It reads what comes back, checks expiry dates, and builds the compliance file. A person verifies identity documents and signs off before the worker is marked available for assignment.",
+      "measure": "Hours from offer accepted to cleared for first shift"
+    },
+    {
+      "title": "Timesheet to payroll to invoice reconciliation",
+      "mechanism": "Before payroll runs, the system reads approved hours from the timesheet source, pay and bill rates from the assignment, and the provincial overtime and statutory holiday rules for the work location. It compares hours approved, hours paid and hours to be billed, and lists every line that disagrees with the reason. A controller clears the list; nothing is paid or invoiced by the system itself.",
+      "measure": "Invoice credits and pay corrections issued per month"
+    },
+    {
+      "title": "Shift broadcast to the right workers first",
+      "mechanism": "When an order lands, the system reads the role, certifications, location, shift time and rate, then ranks available workers by matching certifications, distance, past attendance and consent to be contacted. It drafts the text message and the ordered list. A recruiter approves the list and the send. Replies are written back as pending confirmations, and the recruiter confirms the final assignment.",
+      "measure": "Minutes from order received to shift confirmed"
+    }
+  ],
+  "leaks": [
+    {
+      "leak": "Hours worked that are never billed, or billed at the wrong rate",
+      "how_measured": "Discovered by the client disputing the invoice, weeks later, if at all",
+      "what_closes_it": "Reconciling approved hours against pay and invoice lines before either goes out"
+    },
+    {
+      "leak": "Proven workers finishing assignments and not redeployed",
+      "how_measured": "Not measured; noticed when their timesheets stop and another agency has them",
+      "what_closes_it": "A list every Monday of who finishes within fourteen days, matched to open orders"
+    },
+    {
+      "leak": "Recruiter hours spent answering the same routine candidate questions",
+      "how_measured": "Nobody counts it; it is the whole afternoon and everyone knows it",
+      "what_closes_it": "A voice agent and a chatbot that answer the routine and hand over the rest with context"
+    },
+    {
+      "leak": "Duplicate and stale candidate records that make the database unsearchable",
+      "how_measured": "Recruiters dialling dead numbers and re-sourcing people already on file",
+      "what_closes_it": "Reconciliation with confidence scores, merges kept under human control"
+    }
+  ],
+  "stats": [
+    {
+      "claim": "Operating profit margin across Canada's employment services industry in 2024, on $24.3 billion of revenue that fell 1.7 percent from the year before.",
+      "figure": "4.3%",
+      "source_org": "Statistics Canada",
+      "source_title": "The Daily: Employment services, 2024",
+      "year": "2025",
+      "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/251017/dq251017d-eng.htm",
+      "caveat": "Industry-wide average including the largest national firms; temporary staffing was 48.2 percent of sales. It was the first annual revenue drop since comparable data began in 2013, excluding 2020."
+    },
+    {
+      "claim": "Share of Canadian job vacancies that had been open for 90 days or more in the fourth quarter of 2025, out of 495,100 vacancies.",
+      "figure": "28.5%",
+      "source_org": "Statistics Canada",
+      "source_title": "The Daily: Job vacancies, fourth quarter 2025",
+      "year": "2026",
+      "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/260317/dq260317a-eng.htm",
+      "caveat": "Covers all Canadian employers, not agency-filled roles specifically. The overall vacancy rate was 2.8 percent, down from a year earlier."
+    },
+    {
+      "claim": "Hours per week a recruiter spends searching for the right candidates, according to the largest annual survey of the staffing industry.",
+      "figure": "14.6 hours",
+      "source_org": "Bullhorn",
+      "source_title": "GRID 2025 Industry Trends Report",
+      "year": "2025",
+      "url": "https://www.bullhorn.com/grid/2025-industry-trends-report/",
+      "caveat": "Vendor survey of more than 1,500 recruitment professionals worldwide, not Canadian-specific. Bullhorn sells the software the survey argues for."
+    }
+  ],
+  "rules": [
+    {
+      "regime": "Ontario Employment Standards Act, 2000: temporary help agency and recruiter licensing",
+      "demands": "Since July 1, 2024, temporary help agencies and recruiters operating in Ontario must hold a licence from the Ministry of Labour, backed by $25,000 in security for most applicants. Clients are prohibited from knowingly using an unlicensed agency. Penalties start at $15,000 and rise to $50,000 for repeat contraventions. Licences now run two years.",
+      "how_we_comply": "The licence number and expiry live on the agency record and appear on client-facing documents the system drafts. Renewal is flagged 90 days out. Any workflow assigning a worker to an Ontario client checks that a valid licence record exists and stops if it does not."
+    },
+    {
+      "regime": "BC Employment Standards Act employment agency licence, and the Temporary Foreign Worker Protection Act",
+      "demands": "An agency recruiting for more than one employer in BC needs an employment agency licence and must keep records of each employer served and each person directed to them for two years. Recruiting foreign nationals needs a separate recruiter licence with $20,000 security and four years of records. No fee may be charged to a job seeker for core placement services.",
+      "how_we_comply": "Every placement and referral writes the record the Act requires, with retention timers set to the longer period where a worker is a foreign national. No part of any intake or chatbot flow can take a payment from a candidate. Records export in the form the Employment Standards Branch asks for."
+    },
+    {
+      "regime": "PIPEDA and BC Personal Information Protection Act",
+      "demands": "Candidate files are personal information: identification, work eligibility, banking, health and certification details. The agency must state the purpose, obtain consent, collect only what it needs, keep it only as long as needed, and safeguard it. Information that crosses a border falls under the federal Act regardless of province.",
+      "how_we_comply": "Consent and purpose are captured at intake and stored on the record. Identification numbers and banking details are never passed to a language model and never used as a match key. Hosting stays in Canada where the agency requires it. A retention schedule produces a deletion queue that a named person approves."
+    },
+    {
+      "regime": "Canada's Anti-Spam Legislation (CASL)",
+      "demands": "Commercial electronic messages need express or implied consent, must identify the sender, and must carry an unsubscribe mechanism that is honoured promptly. Client marketing emails and texts fall squarely inside it; candidate outreach is safest treated the same way.",
+      "how_we_comply": "Every contact carries a consent flag with its source and date. The shift broadcast and any client campaign only draw from contacts with consent on file. Every message identifies the agency and carries a working unsubscribe, and opt-outs are written back to the ATS the same day."
+    }
+  ],
+  "wont_automate": [
+    "Submitting a candidate to a client. The system shortlists, drafts and ranks; a recruiter decides who is put forward, because a bad submission costs the client relationship, not a click.",
+    "Changing a pay rate, a bill rate, or running payroll. A controller approves every rate and every run, because a wrong pay day loses the worker and a wrong invoice loses the client."
+  ],
+  "objections": [],
+  "faq": [
+    {
+      "q": "Do we have to leave Bullhorn or Avionté for any of this?",
+      "a": "No. Both have APIs, and where a product does not, a scheduled export does the job. We connect to what you run, agree field by field which system owns which piece of data, and write that down before anything is connected. Your recruiters keep working in the tool they know. What changes is that the routine work around it stops landing on them."
+    },
+    {
+      "q": "Where does candidate data go, and does it leave Canada?",
+      "a": "It stays in your systems and in a data layer we build for you. If you need every model and every byte hosted in Canada, we build to that from the first day; it is a constraint we design to rather than patch around later, and it rules out some vendors. Identification numbers and banking details never go to a language model at all. You own the code and the data."
+    },
+    {
+      "q": "Will a voice agent put candidates off?",
+      "a": "It depends what it does. A worker calling to ask whether their timesheet went in wants the answer in twenty seconds, not a callback. The agent answers that kind of call and hands everything else to a recruiter with a written summary, so the person picking up already knows why they called. We measure the handoff rate and the callbacks, and adjust what the agent is allowed to handle."
+    },
+    {
+      "q": "How do you measure it, and what happens if it misses?",
+      "a": "The free audit maps where recruiter hours and margin go today and prints the arithmetic. If we build, we agree one number in writing first: calls resolved, invoice corrections, hours to first shift, or whatever the audit shows matters most. The clock starts at deployment. If the system misses the agreed bar, we keep working at no additional cost until it clears, and you can cancel any time."
+    }
+  ],
+  "what_we_built": [],
+  "learned": [],
+  "meta_title": "Staffing agency automation | Exodus Consulting",
+  "meta_description": "Custom software and AI for staffing agencies: candidate voice agent, timesheet to invoice reconciliation, onboarding and shift fill, on your ATS."
+}

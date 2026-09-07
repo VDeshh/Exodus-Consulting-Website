@@ -1,0 +1,190 @@
+{
+  "slug": "education-training",
+  "name": "Education and training providers",
+  "hero_title": "The enquiry, the enrolment and the invoice live in different systems.",
+  "hero_lead": "A training provider runs on a student system, a learning platform, a CRM, a shared inbox and an accounting file. Each one is right about its own slice and none of them agrees on how many students you actually have. We connect them, answer the repeat questions before they reach a person, and make the reporting build itself.",
+  "segments": [
+    "Private career colleges",
+    "Language schools",
+    "Corporate and professional training providers",
+    "Trades and safety training centres",
+    "Tutoring and test preparation centres"
+  ],
+  "how_it_runs": [
+    {
+      "title": "The enquiry arrives at nine and waits till Thursday",
+      "body": "Someone fills the form on the programme page, or rings during a class. The enquiry lands in a shared inbox that three people watch and nobody owns. By the time it gets answered, the person has booked a seat somewhere else. Nothing in any system records that the enquiry existed, so the loss never appears in a report and never gets discussed."
+    },
+    {
+      "title": "Intake week is the whole quarter in five days",
+      "body": "Everything lands at once: contracts signed, deposits taken, transcripts checked, timetables issued, permits verified. Admin staff work from a checklist held in one person's head and a spreadsheet nobody else edits. A missing document surfaces on day four, after the cohort has started, and the fix is a chain of phone calls rather than a flag on a record."
+    },
+    {
+      "title": "Attendance is on paper until somebody types it in",
+      "body": "Instructors mark a sheet or a screen at the start of class, then the numbers reach the office days later, if at all. Withdrawal rules, funding claims and permit reporting all depend on attendance being current. The owner finds out a student stopped coming three weeks after they stopped coming, which is three weeks of a seat nobody could resell."
+    },
+    {
+      "title": "Nobody has a clean number for cost per enrolment",
+      "body": "Ad spend sits in one account, enquiries in an inbox, applications in a spreadsheet, enrolments in the student system. Joining them is a Sunday of copy and paste, so it happens twice a year at most. Which open house, which agent and which ad actually filled the cohort gets decided from memory, and memory favours whoever spoke last."
+    },
+    {
+      "title": "Refunds get worked out by hand, then argued",
+      "body": "A student withdraws in week two. Someone opens the contract, the provincial refund schedule and the payment history, and works out what goes back. Two staff doing the same calculation get two answers, because one counted from the start date and one counted from the signature. The student sees the difference, and a regulator can ask to see the working."
+    }
+  ],
+  "systems": [
+    {
+      "name": "Student records and course delivery",
+      "examples": "Populi, Classe365, Moodle, Canvas, D2L Brightspace, Absorb LMS, Thinkific",
+      "holds": "Applications, enrolments, cohorts, attendance, grades, transcripts, course completions and certificates.",
+      "how_we_connect": "Read-only API where the product has one, a scheduled nightly export where it does not, and a webhook for events such as an enrolment or a withdrawal.",
+      "where_it_stops": "Grades, academic standing and transcripts are never written back by us. A change of that kind is made by a registrar, in the system of record, by hand."
+    },
+    {
+      "name": "Enquiries, admissions and agents",
+      "examples": "Salesforce Education Cloud, Technolutions Slate, HubSpot, Zoho CRM, shared Outlook and Gmail inboxes, agent portals such as ApplyBoard",
+      "holds": "Enquiry source, first contact, documents supplied, agent of record, offer letters and deposit status.",
+      "how_we_connect": "API into the CRM, plus a read of the shared inbox so enquiries that never reached the CRM still get counted.",
+      "where_it_stops": "An offer is never issued automatically. The system assembles the file and an admissions officer decides."
+    },
+    {
+      "name": "Money, payments and regulator reporting",
+      "examples": "QuickBooks Online, Sage 50, Moneris, Stripe, Flywire, PayMyTuition, the IRCC DLI Portal, provincial student data reports",
+      "holds": "Tuition invoices, instalment plans, deposits, refunds, agent commissions and the enrolment figures a regulator asks for.",
+      "how_we_connect": "Scheduled export from the accounting file and a read-only replica of payment records. Card data stays on the processor's path and never reaches anything we build.",
+      "where_it_stops": "We never submit to a regulator portal and never move money. The pack gets assembled and a named person files it."
+    }
+  ],
+  "builds": [
+    {
+      "title": "Voice agent on the admissions line",
+      "mechanism": "It answers every call, including the one at nine on a Sunday. It reads the live programme list, start dates, fees, entry requirements and open house times, and answers those outright. Anything about a specific student file, a refund or an offer is transferred to a person with a written summary of what was already asked. Every call is logged against an enquiry record.",
+      "measure": "Share of enquiry calls resolved without a callback."
+    },
+    {
+      "title": "Chatbot on the programme pages",
+      "mechanism": "It reads your own course outlines, fee schedule, refund policy and intake calendar, and answers the repeat questions: is there a work placement, what does it cost, when is the next start, does funding apply. It cites the page each answer came from. Anything it cannot answer from your documents becomes an enquiry with the question attached, not a guess.",
+      "measure": "Enquiry emails a person has to answer each week."
+    },
+    {
+      "title": "Enquiry follow-up that drops nothing",
+      "mechanism": "It reads form submissions, the inbox and the call log, makes one enquiry record per person, and runs the follow-up the admissions team agreed: a reply in minutes, a reminder before the next intake closes, a nudge while a document is outstanding. Staff see one queue ordered by intake date. A person approves any message that quotes a fee or a date.",
+      "measure": "Enquiries with no reply after twenty four hours."
+    },
+    {
+      "title": "One student record across every system",
+      "mechanism": "It reads the student system, the CRM, the inbox and the accounting file into a common shape, matches people across them, and scores every match for confidence. A strong match merges. A weak one is listed for a person to decide, with both records side by side. Nothing merges silently and every merge can be reversed.",
+      "measure": "Duplicate student records left unresolved."
+    },
+    {
+      "title": "A compliance pack that assembles itself",
+      "mechanism": "It pulls attendance, enrolment status, start and end dates and withdrawals into the shape the regulator asks for, whether that is a provincial student data report or the twice yearly enrolment status report. Every figure carries the record it came from, so a challenged number can be traced in one click. A named person reviews it and files it.",
+      "measure": "Hours spent building the reporting pack each period."
+    },
+    {
+      "title": "Campaigns off your own student data",
+      "mechanism": "It reads enrolment history, completions, enquiries that never converted and course interest, then builds segments: finished level one and never came back, enquired twice and never applied, employer that sent four staff last year. Consented contacts only. Drafts are written against your own catalogue, and a person approves the list and the wording before anything sends.",
+      "measure": "Repeat enrolments from past students and old enquiries."
+    }
+  ],
+  "leaks": [
+    {
+      "leak": "Enquiries that go cold before anyone replies.",
+      "how_measured": "Not measured at all: the enquiry leaves no record once the inbox scrolls.",
+      "what_closes_it": "One enquiry record per person, and a reply in minutes at any hour."
+    },
+    {
+      "leak": "Empty seats in a cohort that is already staffed.",
+      "how_measured": "Counted on the first morning of class, when it is too late to sell.",
+      "what_closes_it": "A live seat count per intake and a waitlist that gets contacted automatically."
+    },
+    {
+      "leak": "Withdrawals found weeks after the student stopped attending.",
+      "how_measured": "By an instructor mentioning it, or by the refund request arriving.",
+      "what_closes_it": "Attendance read nightly and a flag on the second consecutive absence."
+    },
+    {
+      "leak": "Admin hours rebuilding the same report every reporting period.",
+      "how_measured": "Rarely costed: it is absorbed by salaried staff and treated as normal.",
+      "what_closes_it": "A pack built from source records, every figure citing where it came from."
+    }
+  ],
+  "stats": [
+    {
+      "claim": "International enrolment at Canadian public colleges hit 288,801 in 2023/2024, a rise of 40.1 percent in one year.",
+      "figure": "288,801",
+      "source_org": "Statistics Canada",
+      "source_title": "Canadian postsecondary enrolments and graduates, 2023/2024",
+      "year": "2025",
+      "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/251120/dq251120e-eng.htm",
+      "caveat": "Public colleges and universities only. Private training institutions are not in this count, and study permit limits brought in after this reference year have since cut intake sharply."
+    },
+    {
+      "claim": "Fewer than three in ten workers in Canada took part in job-related training in the year to November 2024.",
+      "figure": "29.7 percent",
+      "source_org": "Statistics Canada",
+      "source_title": "Training participation, 2024",
+      "year": "2025",
+      "url": "https://www150.statcan.gc.ca/n1/pub/14-28-0001/2025001/article/00006-eng.htm",
+      "caveat": "Self-reported survey data on workers, not a count of enrolments at training providers."
+    },
+    {
+      "claim": "In the fall of 2025, 587 of 648 designated learning institutions, or 91 percent, answered IRCC's request to report enrolment status.",
+      "figure": "587 out of 648 (91%)",
+      "source_org": "Immigration, Refugees and Citizenship Canada",
+      "source_title": "CIMM - Fraud and Compliance in the International Student Program",
+      "year": "2026",
+      "url": "https://www.canada.ca/en/immigration-refugees-citizenship/corporate/transparency/committees/cimm-may-04-2026/fraud-compliance-international-student-program.html",
+      "caveat": "Briefing material prepared for a parliamentary committee, covering the fall 2025 reporting exercise only. It records who answered the request, not whether the answers were complete or accurate."
+    }
+  ],
+  "rules": [
+    {
+      "regime": "PIPEDA, plus BC PIPA, Alberta PIPA and Quebec Law 25",
+      "demands": "Student personal information collected for a stated purpose, kept only as long as it is needed, and protected. Quebec adds privacy impact assessments and a named privacy officer.",
+      "how_we_comply": "Data stays in Canada where the client requires it, access is role-based, every read and write is logged, and we hold no student record we cannot name a purpose for."
+    },
+    {
+      "regime": "BC Private Training Act and the Ontario Career Colleges Act, 2005",
+      "demands": "A registered institution, approved programmes, a written student contract, a set refund schedule, and student records kept and produced on inspection.",
+      "how_we_comply": "Refund arithmetic follows the schedule in the contract, prints its working, and is approved by a person before anything is paid. Records export in the format an inspector asks for."
+    },
+    {
+      "regime": "IRCC compliance reporting for designated learning institutions",
+      "demands": "Enrolment status reported for every study permit holder twice a year, inside the reporting window, through the DLI Portal.",
+      "how_we_comply": "The system builds enrolment status from attendance and registration records, flags every student it cannot resolve, and hands a reviewed file to the person who submits it. We never submit."
+    },
+    {
+      "regime": "CASL",
+      "demands": "Consent, sender identification and a working unsubscribe on every commercial electronic message, with proof of consent on the record.",
+      "how_we_comply": "Consent state and its source sit on the contact record. Anyone without it is excluded from the send list, and an unsubscribe is honoured across every system at once."
+    }
+  ],
+  "wont_automate": [
+    "We do not let software decide who is admitted, who passes, or who is removed from a programme. It can assemble the file. A person makes the call and signs it.",
+    "We do not file a regulator report or issue a refund without a named person approving it. The system does the arithmetic and shows its working, and the accountability stays with a human."
+  ],
+  "objections": [],
+  "faq": [
+    {
+      "q": "We already pay for a student information system. Why would we need anything else?",
+      "a": "You probably do not need a second one. The problem is rarely the student system. It is that the enquiry inbox, the CRM, the accounting file and the timetable each hold part of the same student, and none of them can see the others. We read them into one shape and leave your systems where they are. If the audit says nothing needs building, we say so."
+    },
+    {
+      "q": "Will a voice agent answer badly and cost us students?",
+      "a": "It answers only what it can prove from your own documents: fees, start dates, entry requirements, intake calendar. Anything about a specific file, a refund or an offer goes to a person with the context already written down. The failure mode we design for is a transfer, not a wrong answer. You hear every recording and can correct any answer it gave."
+    },
+    {
+      "q": "Our intake is seasonal. Does any of this help in the quiet months?",
+      "a": "That is when it pays most. The enquiries that decide the next cohort arrive while the current one is running, which is exactly when nobody has time to chase them. Follow-up that runs on its own keeps that pipeline warm, and the seat count for the next intake stops being a guess made in week one of class."
+    },
+    {
+      "q": "Where does our student data live?",
+      "a": "Wherever your rules require. We have built to a Canadian hosting requirement before, treating it as a constraint set before the first line of code rather than something patched in later, and the same approach applies here: Canadian hosting where you need it, role-based access, an audit log on every read and write, and no student record kept without a purpose you agreed to."
+    }
+  ],
+  "what_we_built": [],
+  "learned": [],
+  "meta_title": "Education and training providers | Exodus Consulting",
+  "meta_description": "Software, admin and compliance for Canadian education and training providers, and what Exodus builds to close the gaps."
+}

@@ -1,0 +1,190 @@
+{
+  "slug": "home-services",
+  "name": "Home services and trades",
+  "hero_title": "Every unanswered call is a job the next company books.",
+  "hero_lead": "A home services business lives on the phone, and the phone rings hardest at six on a Friday. Between the call, the driveway quote, the parts on the van and the invoice a week later, one job is recorded in four systems that never agree. We build the parts that catch the call and make the four agree.",
+  "segments": [
+    "HVAC service and installation, residential and light commercial",
+    "Plumbing, drain and water heater service",
+    "Residential electrical service and panel work",
+    "Appliance repair, garage doors, chimney and duct cleaning",
+    "Recurring route work: lawn care, pest control, pool and snow"
+  ],
+  "how_it_runs": [
+    {
+      "title": "The phone rings hardest when nobody is there.",
+      "body": "The first cold snap, the Saturday of a long weekend, the storm that pops breakers across a whole neighbourhood. That is when a homeowner calls, and that is when the office is shut and the on-call technician is under a house. Most people do not leave a voicemail. They call the next name on the list. The owner never learns how many calls came in, only how many turned into work."
+    },
+    {
+      "title": "Dispatch is one person and a whiteboard.",
+      "body": "Somebody holds the whole day in their head: who is certified for gas, whose van has the right board, which customer will accept a late window, which job is going to run long. It works because that person is good at it. It breaks the day they are sick, and it never leaves a record, so the next person starts from nothing and the owner cannot check the reasoning."
+    },
+    {
+      "title": "The technician sets the price in the driveway.",
+      "body": "The price book exists. It is also six months old, and the technician standing in a wet basement is going to round it to a number the customer will say yes to. Two identical repairs go out at two prices in the same week. Nobody compares them, because comparing them means reading job notes one at a time and nobody has an afternoon for that."
+    },
+    {
+      "title": "Nobody knows what is on the vans.",
+      "body": "Stock leaves the shop, goes on a truck, and stops being counted. A technician takes a fitting off another van at eight in the morning. Parts come off a job and never come back on paper. The first sign of a problem is a second visit for something the truck was supposed to be carrying, and by then the customer has already taken the afternoon off twice."
+    },
+    {
+      "title": "Two months of the year decide the whole year.",
+      "body": "The first freeze and the first heatwave produce more calls in ten days than the previous ten weeks. Hiring for the peak means paying people through the quiet. Not hiring means turning work away and hearing about it in the reviews. The owner has never had a clean number for how much demand walked away in those ten days, so the staffing decision is made on feel every year."
+    }
+  ],
+  "systems": [
+    {
+      "name": "Field service and job management",
+      "examples": "Jobber, Housecall Pro, ServiceTitan, FieldEdge, Workiz, simPRO",
+      "holds": "Customers and their properties, equipment installed, quotes, scheduled jobs, technician notes and photos, invoices, maintenance plan records.",
+      "how_we_connect": "API where the platform offers one, plus a scheduled export into a read-only replica so reporting never queries the board a dispatcher is working on.",
+      "where_it_stops": "We do not write a schedule change, a price or an invoice back into it. Anything that changes the day is proposed to the dispatcher and applied by them."
+    },
+    {
+      "name": "Accounting, payroll and payments",
+      "examples": "QuickBooks Online, Sage 50, Xero, Wagepoint, Square, Stripe, Helcim",
+      "holds": "Supplier bills, chart of accounts, payroll runs, card settlements, GST, HST and provincial sales tax positions.",
+      "how_we_connect": "Read-only, on a schedule, into the same replica. Credentials are scoped to read and nothing else.",
+      "where_it_stops": "No journal entry, no refund, no payroll change is ever posted by us. The bookkeeper stays the only writer in the accounting file."
+    },
+    {
+      "name": "Phone, lead channels and reviews",
+      "examples": "Google Business Profile, Google Local Services Ads, CallRail, RingCentral, HomeStars, TrustedPros",
+      "holds": "Call logs and recordings, web form submissions, ad spend and cost per lead, review text and ratings.",
+      "how_we_connect": "Webhooks on call end and form submit, so a lead is in the system within seconds, plus scheduled pulls for ad and review data.",
+      "where_it_stops": "No review reply is published and no ad budget is moved without a person approving the words and the number."
+    }
+  ],
+  "builds": [
+    {
+      "title": "A voice agent that answers every call",
+      "mechanism": "It reads your customer list, your service area, your price bands and your open slots. Routine calls get booked in the diary: annual service, a slow drain, a tripped breaker, a warranty visit. Emergencies and anything outside the rules go straight to the on-call technician with the address and the history already written up. A dispatcher approves any booking that moves an existing appointment.",
+      "measure": "Share of inbound calls that end in a booked job, counted after hours as well as in office hours."
+    },
+    {
+      "title": "A website chatbot for the repeat questions",
+      "mechanism": "It answers the questions your inbox answers forty times a week: do you cover this town, what is the callout fee, is the part under warranty, when is the next window, do I need a permit. The answers come from your own documents and job records, not from guesswork. Anything the system scores as low confidence goes to a person before it is sent.",
+      "measure": "Weekly count of emails and calls that were pure repeat questions."
+    },
+    {
+      "title": "A dispatch board that proposes the day",
+      "mechanism": "It reads open jobs, technician certifications, promised windows, drive time between addresses and what each van is carrying, then proposes the running order and flags the jobs that cannot make their window. The dispatcher accepts, edits or ignores each suggestion, one at a time. Nothing in the schedule moves until a person confirms it, and the reason for each move is recorded.",
+      "measure": "Completed jobs per technician per day, and the number of promised windows missed."
+    },
+    {
+      "title": "Records matched across your systems",
+      "mechanism": "It reads the field service platform, the accounting file and the payment processor, matches each job to its invoice and its settlement, resolves duplicate customer and property records, and scores every match for confidence. A weak join sits in a queue where somebody can see it, rather than being quietly trusted. A person clears the queue before the month closes.",
+      "measure": "Dollar value of completed jobs with no matching invoice or settlement at month end."
+    },
+    {
+      "title": "Van stock tied to completed jobs",
+      "mechanism": "It reads the parts used on each closed job against what was issued to that van, sets a reorder point per truck off real consumption instead of a hunch, and flags any part that left stock without appearing on an invoice. Purchase orders are drafted against your supplier accounts. The owner or the lead technician approves before anything is ordered.",
+      "measure": "Second visits caused by a part that was not on the van."
+    },
+    {
+      "title": "Maintenance plans that renew themselves",
+      "mechanism": "It reads plan start dates, last visit, equipment age and the seasonal calendar, then queues the renewal and the service reminder for each household on the channel that household consented to. Copy is drafted from what has worked before. The owner approves the list and the wording, and the queue skips anyone whose consent has lapsed.",
+      "measure": "Share of maintenance plan households that renew without being chased by phone."
+    }
+  ],
+  "leaks": [
+    {
+      "leak": "Calls that ring out after five and at weekends.",
+      "how_measured": "Not measured at all. The phone bill shows minutes, not misses.",
+      "what_closes_it": "A voice agent that answers, books the routine work and pages the on-call technician for the rest."
+    },
+    {
+      "leak": "A second visit for a part nobody checked.",
+      "how_measured": "Buried inside job time. Only visible if someone reads the notes line by line.",
+      "what_closes_it": "Van stock read against parts used on closed jobs, with a reorder point per truck."
+    },
+    {
+      "leak": "Maintenance plans that quietly lapse.",
+      "how_measured": "Found by accident, usually when the customer books a competitor.",
+      "what_closes_it": "A renewal queue built from plan dates and last visit, sent only to consented households."
+    },
+    {
+      "leak": "Work finished and never invoiced.",
+      "how_measured": "A quarterly guess, made when the accountant asks the question.",
+      "what_closes_it": "Jobs matched to invoices and settlements, with every unmatched job held in a visible queue."
+    }
+  ],
+  "stats": [
+    {
+      "claim": "Almost two thirds of Canadian construction and trades employers are tiny, which is why the owner is also the dispatcher.",
+      "figure": "61.9%",
+      "source_org": "Innovation, Science and Economic Development Canada",
+      "source_title": "Canadian Industry Statistics: Construction (NAICS 23), Businesses",
+      "year": "2025",
+      "url": "https://ised-isde.canada.ca/app/ixb/cis/businesses-entreprises/23",
+      "caveat": "Counts employer establishments across all of construction, not home services alone, and excludes the large number of firms with no paid employees. The page showed 159,514 establishments when it was read."
+    },
+    {
+      "claim": "Residential construction is the single largest source of underground economic activity in Canada, so cash work is the competition a licensed shop is quoting against.",
+      "figure": "32.7% of $72.4 billion",
+      "source_org": "Statistics Canada",
+      "source_title": "The Daily: The underground economy in Canada, 2023",
+      "year": "2023",
+      "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/250318/dq250318c-eng.htm",
+      "caveat": "An estimate of unreported activity, modelled rather than measured directly, and it covers residential construction as a whole rather than service and repair work only."
+    },
+    {
+      "claim": "Canadian small businesses report spending about 735 hours a year on regulatory compliance, 256 of which they consider avoidable red tape.",
+      "figure": "735 hours",
+      "source_org": "Canadian Federation of Independent Business",
+      "source_title": "Canada's Red Tape Report",
+      "year": "2025",
+      "url": "https://www.cfib-fcei.ca/en/media/small-businesses-spend-over-250-hours-or-32-business-days-a-year-wrapped-up-in-red-tape",
+      "caveat": "Self-reported survey of CFIB members across every small business sector, not trades specifically. The hours cover 2024 and were published in 2025."
+    }
+  ],
+  "rules": [
+    {
+      "regime": "PIPEDA, with BC PIPA, Alberta PIPA and Quebec Law 25 where they apply",
+      "demands": "Consent and a stated purpose before you collect a homeowner's name, address, photographs of the inside of their house or payment details. Access on request. Quebec adds a named privacy officer, an assessment before a new system handles personal data, and a right to have records deleted.",
+      "how_we_comply": "Personal data lives in one place with access set by role, every read and write is logged, and we can host the whole system in Canada. Site photographs and customer notes stay out of any model prompt unless that use was consented to."
+    },
+    {
+      "regime": "CASL",
+      "demands": "Express or implied consent before a commercial electronic message, clear sender identification, and an unsubscribe that works and is honoured within ten business days. An existing customer gives implied consent for a limited window, not forever.",
+      "how_we_comply": "Consent, where it came from and when it expires all sit on the customer record. The reminder and renewal queue skips anyone whose window has closed, and an unsubscribe is applied across every channel at once rather than one list at a time."
+    },
+    {
+      "regime": "PCI-DSS",
+      "demands": "Card numbers must not be stored in your own systems. Payments taken at the door, over the phone or through a link have to run through a compliant processor, and recordings must not capture card details.",
+      "how_we_comply": "We hold a token from the processor and nothing else. No card number reaches the field service platform, our replica or a voice agent transcript, and the agent pauses recording around any payment step."
+    },
+    {
+      "regime": "Provincial trade licensing and consumer protection: Technical Safety BC, the Electrical Safety Authority, the TSSA, the BC Business Practices and Consumer Protection Act, the Ontario Consumer Protection Act",
+      "demands": "Regulated gas, electrical and pressure work is done by qualified people under a licensed contractor, and permitted where the province requires it. Home repair contracts above a low threshold must be written, and in Ontario a final price cannot run more than ten percent past a written estimate unless the customer agrees to the change.",
+      "how_we_comply": "Certification and permit status sit on the technician and on the job, so the dispatch board never proposes regulated work to somebody who is not qualified for it. Any figure that would cross the estimate threshold is held for a written change order before the work is booked."
+    }
+  ],
+  "wont_automate": [
+    "We do not let software quote a price on regulated gas or electrical work. A qualified technician looks at the equipment first, and the system only records what they decided.",
+    "We do not put an emergency in a queue. A no-heat call in January reaches a person on the first attempt, with the address, the equipment and the service history already written up for them."
+  ],
+  "objections": [],
+  "faq": [
+    {
+      "q": "Do we have to move off Jobber or ServiceTitan?",
+      "a": "No. Your field service platform stays the system of record and your technicians keep the app they already know. We read from it, build the pieces it does not do, and hand anything that changes the schedule back to your dispatcher to approve. Ripping out the platform that holds every customer and every maintenance plan is the most expensive way to fix a phone problem."
+    },
+    {
+      "q": "The phone is how we win work. Will a voice agent cost us jobs?",
+      "a": "It only handles what you tell it to handle. Routine bookings, service questions, appointment changes. Anything urgent, unusual or outside the rules goes to a person with the caller's history already summarised, so the technician picks up knowing who is on the line. The comparison is not the agent against your best person. It is the agent against a voicemail nobody leaves."
+    },
+    {
+      "q": "Our data is a mess. Three spellings of the same customer, addresses from 2016.",
+      "a": "That is normal and it is most of the work. We read every source into one shape, match records across them, resolve duplicates and near-duplicates, and put a confidence score on each match so a weak join stays visible instead of being quietly believed. You see the queue of uncertain matches and you decide them. Nothing gets merged silently."
+    },
+    {
+      "q": "How do we know it paid for itself?",
+      "a": "We agree the number in writing before the build starts, measured against your own baseline. The clock starts at deployment, not at signature. If the system misses the agreed bar we keep working at no extra cost until it clears. You can cancel at any time and you own the code. The free audit comes first, and you keep the map either way."
+    }
+  ],
+  "what_we_built": [],
+  "learned": [],
+  "meta_title": "Home services and trades | Exodus Consulting",
+  "meta_description": "Voice agents, dispatch help and job reconciliation for Canadian home services and trades businesses. Built around Jobber, Housecall Pro and ServiceTitan."
+}

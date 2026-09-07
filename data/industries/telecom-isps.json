@@ -1,0 +1,276 @@
+{
+  "slug": "telecom-isps",
+  "name": "Telecom and internet providers",
+  "hero_title": "The repeat question is the biggest cost in your support queue.",
+  "hero_lead": "Independent ISPs and regional telecoms run thin support teams against a queue that repeats itself: the same modem reboot, the same bill question, the same outage call. We build the chatbot and the voice agent that answer the routine ones, hosted in Canada, and hand the rest to a technician with the context already attached. We are building exactly that for Uniserve Communications now.",
+  "segments": [
+    "Independent and wholesale-based ISPs",
+    "Regional fibre and cable operators",
+    "Fixed wireless and rural broadband providers",
+    "Business internet, VoIP and hosted phone resellers",
+    "Multi-dwelling and condo building internet providers"
+  ],
+  "how_it_runs": [
+    {
+      "title": "Most support calls have been answered before",
+      "body": "A technician picks up and hears the modem lights question, the wifi password question, the slow speed question or the bill question. Each one has a known answer. The person asking has never heard it, so it takes ten minutes every time. By Friday the same technician has walked twenty customers through the same reboot and has done none of the network work that was on the list."
+    },
+    {
+      "title": "Outage day floods the queue with one call",
+      "body": "When a node or an upstream link drops, every affected customer phones within the same half hour to report the same thing. The team already knows. Nobody has time to say so, because they are on the phones saying so one caller at a time. Hold times climb, calls get abandoned, and the people who do get through are told what a status page could have told them."
+    },
+    {
+      "title": "Trucks are booked to find out what is wrong",
+      "body": "A technician cannot see the problem from the desk, so a truck is dispatched to look. A share of those visits find a loose cable, a powered-off router or a neighbour's equipment. The window was four hours, the drive was forty minutes, and the fix was thirty seconds. Nobody counts these visits separately, so nobody knows how many there were last month."
+    },
+    {
+      "title": "Billing questions eat the network team's day",
+      "body": "A promotion ends, a plan change prorates mid-cycle, an equipment charge appears, and the customer calls to ask why. Billing is the largest single category of complaint at the CCTS year after year. In a small provider the person explaining the invoice is often the same person who should be provisioning the fibre order that came in this morning."
+    },
+    {
+      "title": "Billing, tickets and the network sit in separate tools",
+      "body": "The account is in the billing system, the history is in the help desk, the modem status is in the monitoring tool, and the install window is in a calendar. Answering one call means three logins and a lot of retyping. When the same customer calls back the next agent starts from zero, because nothing wrote the last conversation back to the account."
+    },
+    {
+      "title": "Nobody has a clean number for support cost per subscriber",
+      "body": "The owner knows the payroll and the subscriber count but not what a support contact costs, how many are repeats, or which plans generate the most calls. Hiring, opening hours and the after-hours answering service are decided by feel. Churn is measured after the disconnect, and the reason is whatever the customer typed in the cancellation box."
+    }
+  ],
+  "systems": [
+    {
+      "name": "ISP billing and subscriber management (OSS/BSS)",
+      "examples": "Sonar, Splynx, Powercode, VISP, UISP, Gaiia",
+      "holds": "Every account: service address, plan, invoices and payments, equipment on the account, contract dates, promotions and their end dates, service status and notes.",
+      "how_we_connect": "API access with a read scope for account lookup and a narrow write scope for adding notes and logging contacts. The agent verifies the caller against the account before it reads anything.",
+      "where_it_stops": "No plan change, credit, refund, disconnect or contract change is written without a named person approving it in the billing system."
+    },
+    {
+      "name": "Help desk and ticketing",
+      "examples": "Zendesk, Freshdesk, Zoho Desk, HubSpot Service Hub, the ticketing module inside Sonar or Splynx",
+      "holds": "Every ticket, its history, who worked it, the transcript of the chat or call, tags for reason and outcome, and the customer's past contacts.",
+      "how_we_connect": "API and webhooks. The chatbot and voice agent open a ticket for every contact they handle, attach the transcript and the resolution, and update it when the customer replies.",
+      "where_it_stops": "A ticket the customer disputes, or that a person has touched, is never closed by the system. Merges and deletions stay with staff."
+    },
+    {
+      "name": "Network monitoring and provisioning",
+      "examples": "PRTG, Zabbix, LibreNMS, Auvik, UISP, Calix Cloud, Preseem",
+      "holds": "Device and link status, the state of the modem or ONT at each address, alerts, known outages, and speed and utilisation history per subscriber.",
+      "how_we_connect": "Read-only polling through the monitoring API so the agent knows, before answering, whether the address is inside a known outage or whether the customer's equipment is offline.",
+      "where_it_stops": "No configuration change, reprovisioning or network-side action of any kind. The system reads state. Engineers change it."
+    },
+    {
+      "name": "Field service and dispatch",
+      "examples": "Sonar scheduling, Jobber, Zuper, Praxedo, shared Google or Outlook calendars",
+      "holds": "Install and repair jobs, technician schedules, service windows, the address and the notes from the triage that booked the visit.",
+      "how_we_connect": "API where it exists, otherwise a scheduled export. The agent can propose a job with the triage attached and offer the customer open windows.",
+      "where_it_stops": "A dispatcher confirms every truck roll. The system never moves, cancels or reassigns a booked job on its own."
+    }
+  ],
+  "builds": [
+    {
+      "title": "Voice agent for residential support",
+      "mechanism": "Answers the support line, verifies the caller against the billing system, and handles the routine calls in full: modem reboot walk-through, wifi and password help, plan and invoice questions, appointment confirmation. Anything outside that list, or any caller who asks for a person, transfers to a technician with the transcript and the account already on screen. Every call writes a ticket.",
+      "measure": "Technician hours per day spent on calls that the agent could have closed"
+    },
+    {
+      "title": "Website chatbot on your own plans and policies",
+      "mechanism": "Answers written questions on the website and in the customer portal from your own plan sheet, fair use policy, install process and billing rules, with a logged-in view of the customer's account for personal questions. Questions it cannot answer become tickets with the conversation attached. The chatbot never invents a price or a promise it cannot find in your documents.",
+      "measure": "Emails and tickets per week that reach a person"
+    },
+    {
+      "title": "Outage-aware answers on the worst day",
+      "mechanism": "Reads the monitoring system before every answer. When the caller's address sits inside an outage that an engineer has declared, the agent says so, gives the last update, and offers a text when service is restored, then takes the queue pressure off the team. The declaration of an outage and every public update are written by a person, never by the system.",
+      "measure": "Abandoned calls and hold time on outage days"
+    },
+    {
+      "title": "Pre-dispatch triage before a truck rolls",
+      "mechanism": "Before any repair visit is booked the agent runs the checks a technician would run first: power, cabling, modem status from the monitoring tool, a reboot, a speed test at the router. It records the results on the ticket. If the fault is still present it proposes a visit with the findings attached. A dispatcher reads the triage and approves the truck.",
+      "measure": "Repair visits per month that find no fault"
+    },
+    {
+      "title": "Billing questions answered with the invoice open",
+      "mechanism": "Reads the customer's invoice lines, plan history, promotion dates and payments, then explains the charge in plain words: a promotion that ended, a mid-cycle plan change, an equipment fee. Where the customer is owed something the agent drafts the credit with the reason and the amount. A person approves it in the billing system before anything changes.",
+      "measure": "Billing contacts that need a second call"
+    },
+    {
+      "title": "Sign-up, serviceability and install booking",
+      "mechanism": "Takes a new order on the website or by phone, checks the address against your serviceable footprint, collects the plan choice and contact details, sends the contract and the critical information summary in the format the customer picks, and offers open install windows from the dispatch calendar. A person confirms the order and the window before the customer is told it is booked.",
+      "measure": "Days from sign-up to a booked install"
+    },
+    {
+      "title": "One customer view across billing, tickets and network",
+      "mechanism": "Pulls the account, the ticket history, the equipment status and the next appointment into one screen for whoever picks up, whether that is the agent or a technician. Reads only. Any change is made in the system that owns the record. The point is that the third call from the same customer starts from what the first two learned.",
+      "measure": "Minutes per contact spent finding the account"
+    },
+    {
+      "title": "A support report that assembles itself",
+      "mechanism": "Every week: contacts by reason, share resolved by the agent against by a person, transfers and why, truck rolls booked and truck rolls that found no fault, billing credits issued, repeat callers. Each number links to the tickets it was counted from so anyone can check it. A person reads it before it is shared and nothing in it changes an account.",
+      "measure": "Support cost per subscriber per month"
+    }
+  ],
+  "leaks": [
+    {
+      "leak": "Technician hours spent on questions that have a known answer",
+      "how_measured": "Not measured. Buried in payroll and in the network work that did not get done.",
+      "what_closes_it": "The voice agent and chatbot take the routine contacts, with each one logged so the count is real."
+    },
+    {
+      "leak": "Repair visits that find no fault at the address",
+      "how_measured": "Rarely tagged separately in the dispatch tool, so the count is a guess.",
+      "what_closes_it": "Pre-dispatch triage on every repair request, with the no-fault outcome recorded per visit."
+    },
+    {
+      "leak": "Calls abandoned on outage days and the credits that follow",
+      "how_measured": "Hold time reports nobody reads and credits nobody totals.",
+      "what_closes_it": "Outage-aware answers and a restoration text, so the queue clears without a person per caller."
+    },
+    {
+      "leak": "Credits given to end a billing argument",
+      "how_measured": "Sits in the billing system as adjustments, seldom summed by reason.",
+      "what_closes_it": "The invoice explained line by line first, and every credit drafted with a reason before a person approves it."
+    },
+    {
+      "leak": "Subscribers lost at the end of a promotion",
+      "how_measured": "Churn is counted after the disconnect, with no tie back to the promotion date.",
+      "what_closes_it": "Promotion end dates read from billing and a plain-language notice sent ahead, with the renewal offer approved by the owner."
+    }
+  ],
+  "stats": [
+    {
+      "claim": "Billing is the leading complaint issue across Canada's telecom and TV sectors, and complaint volumes hit a record.",
+      "figure": "23,647 complaints, 46% about billing",
+      "source_org": "Commission for Complaints for Telecom-television Services (CCTS)",
+      "source_title": "Telecom and TV Complaints Continue to Rise Across Canada: CCTS Annual Report 2024-2025",
+      "year": "2026",
+      "url": "https://www.ccts-cprst.ca/telecom-and-tv-complaints-continue-to-rise-across-canada-ccts-annual-report/",
+      "caveat": "Complaints accepted by the CCTS between 1 August 2024 and 31 July 2025. Covers wireless, internet, home phone and TV together, and only complaints that reached the CCTS."
+    },
+    {
+      "claim": "Independent wholesale-based ISPs have lost half their share of home internet subscribers in four years.",
+      "figure": "8.4% in 2020 to 4.2% in 2024",
+      "source_org": "Canadian Radio-television and Telecommunications Commission (CRTC)",
+      "source_title": "Canadian Telecommunications Market Report 2026, Figure 12: Share of subscribers, wholesale-based operators",
+      "year": "2026",
+      "url": "https://crtc.gc.ca/eng/publications/reports/policymonitoring/2026/ctmr.htm",
+      "caveat": "CRTC data collection. Wholesale-based means independent ISPs not owned by an incumbent telephone or cable company. The same report puts total retail fixed internet subscribers at 17.1 million in 2024."
+    },
+    {
+      "claim": "Nearly every Canadian household already has a home internet connection, so growth for a provider is mostly won from another provider.",
+      "figure": "94% of Canadians had home internet access in 2022",
+      "source_org": "Statistics Canada",
+      "source_title": "The Daily: Canadian Internet Use Survey, 2022",
+      "year": "2023",
+      "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/230720/dq230720b-eng.htm",
+      "caveat": "Survey of Canadians aged 15 and older. Household access, not subscriptions by provider type."
+    },
+    {
+      "claim": "A large share of field visits are avoidable, which is why triage before dispatch pays.",
+      "figure": "About 25% of truck rolls deemed avoidable",
+      "source_org": "Prodapt",
+      "source_title": "Eliminating avoidable truck rolls to save costs and improve customer satisfaction",
+      "year": "2024",
+      "url": "https://www.prodapt.com/eliminating-avoidable-truck-rolls-to-save-costs-and-improve-customer-satisfaction/",
+      "caveat": "Vendor-published estimate from a telecom services firm, not Canadian and not an independent study. Treat as an order of magnitude, and measure your own no-fault visit rate in the audit."
+    }
+  ],
+  "rules": [
+    {
+      "regime": "PIPEDA, with BC PIPA, Alberta PIPA and Quebec Law 25 where they apply",
+      "demands": "Meaningful consent for collecting and using personal information, limits on use, safeguards, breach records, and the ability to answer an access request. Quebec adds privacy impact assessments and rules on transferring data outside the province.",
+      "how_we_comply": "Every model and every byte hosted in Canada. Transcripts and account data kept only as long as the retention rule you set. The agent reads the fields it needs for the question and nothing else. Access and deletion requests can be answered from one log."
+    },
+    {
+      "regime": "CRTC confidential customer information rules",
+      "demands": "Everything a carrier holds about a customer other than name, address and listed number is confidential and cannot be disclosed without express consent or legal authority. Express consent has to be clear, informed and recorded.",
+      "how_we_comply": "The agent verifies the caller against the account before reading anything personal. Disclosure to a third party is not something the system can do. Consent captured on a call or in chat is recorded on the ticket."
+    },
+    {
+      "regime": "CRTC Internet Code and the CCTS",
+      "demands": "The Code binds the large facilities-based providers it names: plain-language contracts, a critical information summary, a trial period, notice before a promotion ends or a contract changes, and disconnection notice periods. The CCTS handles consumer complaints against telecom providers, and the CRTC requires providers to participate in it.",
+      "how_we_comply": "The chatbot and voice agent only quote terms found in your contract and critical information summary. Promotion end notices are generated from billing dates and approved before sending. Every contact is logged, so a CCTS complaint can be answered from the record rather than from memory."
+    },
+    {
+      "regime": "CASL and the CRTC Unsolicited Telecommunications Rules",
+      "demands": "Consent, identification and an unsubscribe route on every commercial email or text. For outbound calls, registration with the National Do Not Call List, an internal do not call list kept for three years and 14 days, and clear identification on the call.",
+      "how_we_comply": "Service messages such as a restoration text or an appointment reminder stay separate from marketing. Marketing sends only to consented contacts, with the unsubscribe link and the consent record kept. The voice agent makes no outbound sales calls."
+    },
+    {
+      "regime": "Telecom Decision CRTC 2025-225, mandatory major outage notification and reporting",
+      "demands": "From 4 November 2025, a major outage of at least 30 minutes and 600,000 user-minutes, or one that isolates a community, must be reported to the CRTC and ISED within two hours, with a post-outage report within 30 days of restoration.",
+      "how_we_comply": "The outage is declared by your engineers, not by the system. Once declared, the agent gives customers the same update on every channel and logs contact counts by address and time, which becomes part of the record your post-outage report draws on."
+    },
+    {
+      "regime": "PCI-DSS",
+      "demands": "Card numbers never sit in systems that were not built to hold them, including call recordings, chat transcripts and ticket notes.",
+      "how_we_comply": "The agent never takes a card number. Payment is handed to your processor's hosted page or a secure payment link, recording is paused on a call at that point, and transcripts are screened so a number typed in chat is masked before it is stored."
+    }
+  ],
+  "wont_automate": [
+    "Declaring an outage or issuing a public outage update. An engineer decides what is down and what to say; the system repeats it.",
+    "Credits, refunds, plan changes, contract changes and disconnections. The agent can draft them with the reason attached, and a person approves every one.",
+    "Any contact touching 9-1-1, a safety concern or a customer in distress. The call goes straight to a person and the system stays out of the way."
+  ],
+  "objections": [
+    {
+      "objection": "Our customers hate talking to a bot. They chose a small provider to reach a human.",
+      "answer": "They still can, in one sentence, and the person who picks up sees the transcript. The agent exists for the 11pm modem question and the outage-day flood, when the choice today is a bot or nobody. In the audit we count how many of your contacts are routine before anyone decides what the agent should handle."
+    },
+    {
+      "objection": "Our data has to stay in Canada. Most AI tools cannot promise that.",
+      "answer": "That was the first constraint on the Uniserve engagement and it shaped the architecture before any code was written. Every model and every byte hosted in Canada. Anything that could not meet that was struck for that reason alone. The same design is what we build for every carrier."
+    },
+    {
+      "objection": "Our billing system is small and has no proper integration.",
+      "answer": "Sonar, Splynx, Powercode and VISP all expose an API, and where a tool does not we work from a scheduled export or a read-only replica. The audit lists what each system can give us before we quote. If the honest answer is that a system cannot be connected safely, we say so."
+    },
+    {
+      "objection": "We tried a chatbot from our help desk vendor and it made things up.",
+      "answer": "A general chatbot answers from the whole internet. Ours answers only from your plan sheet, policies and the customer's own account, and when it cannot find the answer it makes a ticket rather than a guess. Every answer is logged, so a wrong one is found and corrected rather than repeated."
+    },
+    {
+      "objection": "How do we know it actually saved technician time?",
+      "answer": "We agree the number in writing before the build. Technician time on routine contacts is measured before, then against the same baseline after deployment. The clock starts at deployment, not at signature. If the system misses the agreed bar we keep working at no extra cost until it clears, and you own the code either way."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Will the voice agent be able to see whether my customer is in an outage?",
+      "a": "Yes, if your monitoring tool can be read. We poll it read-only, so when a caller's address falls inside an outage your engineers have declared, the agent says so, gives the last update and offers a text when service is back. It never declares the outage itself. That call is made by a person, and the agent repeats it."
+    },
+    {
+      "q": "What happens when the agent cannot answer?",
+      "a": "It transfers to a person with the transcript and the account on screen, or it opens a ticket with the whole conversation attached if nobody is available. It does not guess. Every transfer is tagged with the reason, and that tag list is what we review each week to decide what the agent should learn to handle next."
+    },
+    {
+      "q": "Can it reset a modem or change a plan for the customer?",
+      "a": "It walks the customer through a reboot and reads the modem status from monitoring. It does not push configuration to equipment and it does not change plans, apply credits or disconnect anything. It drafts those actions with the reason attached, and a person in your billing system approves them. That gate stays in."
+    },
+    {
+      "q": "How long does a build like this take?",
+      "a": "The Uniserve engagement was scoped as three months: a first phase mapping where support time goes, then a chatbot and voice agent built to the shortlist that came out of the map. Your timeframe depends on how many systems have to be connected and how clean your plan and policy documents are. The audit answers that before anything is agreed."
+    },
+    {
+      "q": "Where does the data live, and who owns the code?",
+      "a": "In Canada, on hosting you approve, with retention set to your rule. Transcripts, tickets and account reads stay inside your systems of record. You own the code and every document we produce, written into the agreement before the build starts. If the relationship ends, the system and the map stay with you."
+    }
+  ],
+  "what_we_built": [
+    {
+      "title": "Uniserve Communications: mapping where the support time goes",
+      "body": "A Canadian internet and telecom provider brought us in for a three-month AI enablement engagement aimed at its own residential customers. Phase 1 was the map: where work repeats, where information is retyped from one system into another, and where a person waits on another person. Each candidate was written up with its arithmetic beside it and ranked on return, then feasibility. Anything that could not be hosted in Canada was struck for that reason alone. Uniserve owns that map whatever happens next."
+    },
+    {
+      "title": "Uniserve Communications: a chatbot and a voice agent, in build",
+      "body": "Phase 2 is a customer-facing chatbot and a voice agent for residential support, one system with two front doors so a customer gets the same answer in writing or on the phone. Every model and every byte is hosted in Canada, a decision made before the first line of code. A person approves anything irreversible. The projection, labelled as a projection and not a result, is about one hour a day given back per technician, measured against a baseline agreed in writing. Nothing here is presented as a finished result."
+    }
+  ],
+  "learned": [
+    "The repeat question is the leak. The same fault is described again by the next customer, and a technician spends part of every day answering something that was answered yesterday. A customer who gets the real answer at 11pm does not need a technician at 9am.",
+    "Outage days are a different business. Hundreds of people report the same known fact inside half an hour, and the team that should be fixing the network is on the phone confirming it is broken. The agent has to read the monitoring system before it answers, or it is just another voice in the queue.",
+    "A truck roll is the most expensive way to ask a question. A share of repair visits find nothing wrong at the address, and few providers tag those visits separately, so the number nobody counts is usually the number worth counting first.",
+    "The CRTC regime is part of the design, not a footnote. Confidential customer information rules, the Internet Code, the CCTS and the outage reporting decision each set a rule the support system has to respect, and it is cheaper to build to them than to retrofit.",
+    "Data residency decides the architecture. A Canadian carrier that requires every model and every byte to stay in Canada rules out most off-the-shelf AI tooling at once. Set the constraint before the first line of code and the shortlist gets shorter and more honest."
+  ],
+  "meta_title": "AI for ISPs and Telecoms in Canada | Exodus Consulting",
+  "meta_description": "Chatbots and voice agents for residential telecom support, hosted in Canada. We map where support time goes, then build to the shortlist that pays."
+}

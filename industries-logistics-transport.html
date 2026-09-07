@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trucking and logistics software | Exodus Consulting</title>
+  <meta name="description" content="Custom software and AI for Canadian carriers and 3PLs: check-call voice agent, rate con parsing, detention recovery and weekly fleet numbers.">
+  <meta name="theme-color" content="#FAF9F7">
+  <link rel="icon" href="assets/exodus-logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Exodus Consulting">
+  <meta property="og:title" content="Trucking and logistics software | Exodus Consulting">
+  <meta property="og:description" content="Custom software and AI for Canadian carriers and 3PLs: check-call voice agent, rate con parsing, detention recovery and weekly fleet numbers.">
+  <meta property="og:image" content="assets/exodus-logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/exodus.css?v=12">
+  <link rel="stylesheet" href="css/ia.css?v=12">
+  <link rel="stylesheet" href="css/p-industries.css?v=12">
+  <script src="js/exodus.js?v=12" defer></script>
+</head>
+<body>
+
+<a class="ex-skip" href="#main">Skip to content</a>
+
+<header class="ex-header">
+  <div class="ex-header__inner">
+    <a class="ex-brand" href="index.html">
+      <img src="assets/exodus-logo.png" alt="Exodus Consulting" width="34" height="17">
+      <span class="ex-brand__name">Exodus Consulting</span>
+    </a>
+
+    <nav class="ex-nav" aria-label="Primary">
+      <a class="ex-nav__link" href="index.html">Home</a>
+      <a class="ex-nav__link" href="services.html">What we build</a>
+      <a class="ex-nav__link" href="work.html">Our work</a>
+      <a class="ex-nav__link is-current" aria-current="page" href="industries.html">Industries</a>
+      <a class="ex-nav__link" href="guarantee.html">How we charge</a>
+      <a class="ex-nav__link" href="about.html">About</a>
+      <a class="ex-btn ex-btn--primary ex-btn--sm" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+    </nav>
+
+    <button class="ex-burger" type="button" data-nav-toggle aria-expanded="false" aria-controls="ex-mobile-menu">
+      <span class="ex-burger__bars" aria-hidden="true"></span>
+      <span>Menu</span>
+    </button>
+  </div>
+
+  <div class="ex-mobile-menu" id="ex-mobile-menu">
+    <ul class="ex-mobile-menu__list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">What we build</a></li>
+      <li>
+        <a href="work.html">Our work</a>
+        <ul class="ia-submenu">
+          <li><a href="work-uniserve.html">Uniserve Communications</a></li>
+          <li><a href="work-fennec.html">Fennec</a></li>
+          <li><a href="work-palapa-tours.html">Palapa Tours Ottawa</a></li>
+          <li><a href="work-scoped.html">Current engagements</a></li>
+          <li><a href="fennec-events-floor.html">Fennec: events and floor ops</a></li>
+          <li><a href="fennec-ticketing-guests.html">Fennec: ticketing and guests</a></li>
+          <li><a href="fennec-pos-payments.html">Fennec: POS and payments</a></li>
+          <li><a href="fennec-inventory-staff.html">Fennec: inventory and staff</a></li>
+          <li><a href="fennec-media-intelligence.html">Fennec: media and intelligence</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="industries.html">Industries</a>
+        <ul class="ia-submenu">
+          <li><a href="industries.html">All industries</a></li>
+          <li><a href="industries-nightlife-hospitality.html">Nightlife and hospitality</a></li>
+          <li><a href="industries-restaurants-bars.html">Restaurants and bars</a></li>
+          <li><a href="industries-event-venues-ticketing.html">Event venues and ticketing</a></li>
+          <li><a href="industries-telecom-isps.html">Telecom and internet providers</a></li>
+          <li><a href="industries-political-campaigns.html">Political parties and campaign organisations</a></li>
+          <li><a href="industries-tours-experiences.html">Tour and experience operators</a></li>
+        </ul>
+      </li>
+      <li><a href="guarantee.html">How we charge</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a class="ex-btn ex-btn--primary ex-btn--block" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <nav class="ia-crumbs" aria-label="Breadcrumb">
+    <div class="ex-container">
+      <ol class="ia-crumbs__list">
+        <li class="ia-crumbs__item"><a class="ia-crumbs__link" href="index.html">Home</a></li>
+        <li class="ia-crumbs__item"><a class="ia-crumbs__link" href="industries.html">Industries</a></li>
+        <li class="ia-crumbs__item"><span aria-current="page">Logistics and transportation</span></li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- ===================== 1. HERO ===================== -->
+  <section class="ex-hero">
+    <div class="ex-container">
+      <div class="ex-hero__inner">
+        <div>
+          <p class="ex-eyebrow ex-eyebrow--violet">Industries / Logistics and transportation</p>
+          <h1 class="ex-hero__title">Every load gets typed in three times before it is paid.</h1>
+          <p class="ex-hero__lead">A carrier or a small 3PL runs on a dispatch board, an ELD platform and an accounting file, and the same load is keyed into each one by hand. We connect those systems, put a voice agent on the check-call phone, and turn detention, empty kilometres and unbilled accessorials into numbers that assemble themselves. A dispatcher still decides who drives what.</p>
+          <div class="ex-hero__actions">
+            <a class="ex-btn ex-btn--primary" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+            <a class="ex-btn ex-btn--secondary" href="industries.html">All industries</a>
+          </div>
+        </div>
+
+        <div class="ex-hero__meta">
+          <p class="ex-eyebrow">Who this is for</p>
+          <aside class="ex-rail" aria-label="Segments within Logistics and transportation">
+            <div class="ex-rail__item"><span class="ex-rail__v">For-hire truckload and LTL carriers with 5 to 100 trucks</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__v">Owner-operator fleets and small freight brokerages</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__v">Courier and final-mile delivery companies</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__v">Drayage and intermodal carriers serving Vancouver, Prince Rupert and Montreal ports</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__v">Moving, freight forwarding and warehousing operators</span></div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 2. HOW IT ACTUALLY RUNS ===================== -->
+  <section class="ex-band">
+    <div class="ex-container">
+      <p class="ex-eyebrow ex-eyebrow--onink">How it actually runs</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">Before anything is built, this is the week we are describing.</h2>
+        <p class="ex-shead__sub">No software can be scoped from a category name. These are the specifics of logistics and transportation that decide what is worth building and what is not.</p>
+      </header>
+
+      <ol class="ex-timeline">
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">01</span>
+          <div>
+            <h3 class="ex-timeline__title">The rate confirmation arrives as a PDF and gets re-typed</h3>
+            <p class="ex-timeline__body">A broker emails a rate con. Dispatch reads it, keys the shipper, consignee, pickup window, rate and reference numbers into the TMS, and then the driver gets the same details by text. At delivery the BOL is photographed, emailed back, and someone matches it to the load again so the invoice can go out. One load, three or four manual entries, and the reference number is wrong on one of them.</p>
+          </div>
+        </li>
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">02</span>
+          <div>
+            <h3 class="ex-timeline__title">The phone rings all day with the same three questions</h3>
+            <p class="ex-timeline__body">Where is my truck. Can you cover a load tomorrow from Surrey to Calgary. What is your rate to Edmonton. The dispatcher who answers is the same person building tomorrow&#x27;s board, so every check call costs a planning minute. The GPS answer is on the ELD screen already. The rate answer is in last month&#x27;s invoices. Neither gets to the caller without a person looking it up.</p>
+          </div>
+        </li>
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">03</span>
+          <div>
+            <h3 class="ex-timeline__title">Detention happens, and most of it never gets billed</h3>
+            <p class="ex-timeline__body">A driver sits at a dock for three hours. The ELD knows exactly when the truck arrived and left, because it was geofenced and logging the whole time. But the detention claim depends on the driver remembering to note it, dispatch remembering to add the accessorial, and the office chasing the broker for it. Fleets charge for detention on paper and collect on a fraction of it.</p>
+          </div>
+        </li>
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">04</span>
+          <div>
+            <h3 class="ex-timeline__title">The weekly numbers are built in a spreadsheet on Sunday</h3>
+            <p class="ex-timeline__body">Revenue per truck, cost per kilometre, empty kilometres, fuel per litre, driver pay as a share of revenue. Owners want these every week and get them once a month, if the bookkeeper is caught up. The data exists in the TMS, the ELD platform, the fuel card statement and the accounting file, and it takes one person a Sunday afternoon to line it up.</p>
+          </div>
+        </li>
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">05</span>
+          <div>
+            <h3 class="ex-timeline__title">Compliance lives in expiry dates nobody is watching</h3>
+            <p class="ex-timeline__body">Driver licences, medicals, insurance certificates, CVIP inspections, IFTA filings, the National Safety Code profile and the annual carrier renewal all expire on their own schedule. Small fleets track them in a binder or a shared spreadsheet. The first warning is usually a roadside inspection, a rejected load from a shipper&#x27;s compliance check or an insurer asking for a document nobody can find.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================== 3. WHERE IT LEAKS ===================== -->
+  <section class="ex-section">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Where it leaks</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">Every one of these is measurable. Most are not measured.</h2>
+        <p class="ex-shead__sub">The free audit prices these in your own numbers before anything is scoped. You keep the map whether or not you hire us.</p>
+      </header>
+
+      <div class="ex-table-wrap">
+        <table class="ex-table p-ind__table">
+          <caption>Where the money and the hours go in logistics and transportation, how it is measured today, and what closes it.</caption>
+          <thead>
+            <tr>
+              <th scope="col">The leak</th>
+              <th scope="col">How it is measured today</th>
+              <th scope="col">What closes it</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Detention time that is logged by the ELD but never invoiced</th>
+              <td>Driver memory, a note on the BOL, and whether dispatch remembered to add the line</td>
+              <td>Geofence stamps compared to appointment windows, with a drafted accessorial per stop for the office to approve</td>
+            </tr>
+            <tr>
+              <th scope="row">Empty kilometres between drop and next pickup</th>
+              <td>Rarely; odometer totals against loaded distance once a month, if at all</td>
+              <td>A weekly empty share per truck and a dispatch assistant that prices each option&#x27;s deadhead before assignment</td>
+            </tr>
+            <tr>
+              <th scope="row">Re-typing rate cons, BOLs and PODs into the TMS and the accounting file</th>
+              <td>Nobody times it; it is what the dispatcher and the bookkeeper do between phone calls</td>
+              <td>Document parsing into draft orders with confidence scores, promoted by a person in one click</td>
+            </tr>
+            <tr>
+              <th scope="row">Invoices that go out days after delivery because the POD is missing</th>
+              <td>Days sales outstanding, seen at month end</td>
+              <td>POD matched to the load on arrival, so the draft invoice is ready for approval the same day</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 4. WHAT WE BUILD ===================== -->
+  <section class="ex-section ex-section--paper-2">
+    <div class="ex-container">
+      <p class="ex-eyebrow">What we build</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">6 builds that pay for themselves here.</h2>
+        <p class="ex-shead__sub">Each one states what it reads, what it does, and what a person still approves. Scope is agreed after the audit, one build at a time, against a baseline you sign.</p>
+      </header>
+
+      <div class="ex-grid">
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Voice agent for check calls and quotes</h3>
+          </div>
+          <p class="ex-card__body">Answers the dispatch line. For a check call it reads the load reference, pulls the last ELD position and the current ETA, and tells the caller. For a quote it reads the lane and your rate history, gives a range you set, and books a callback. Anything about a claim, a damaged load or an angry shipper transfers to a person with the transcript attached. A dispatcher confirms every quote before it becomes a rate.</p>
+          <p class="ex-card__foot">Measured by: Calls resolved without a dispatcher picking up, per week</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Rate confirmation and BOL parsing</h3>
+          </div>
+          <p class="ex-card__body">Reads incoming rate cons, BOLs and PODs from the dispatch inbox and the driver app. Extracts shipper, consignee, windows, rate, references and weights, and creates a draft order in the TMS with a confidence score on each field. Low-confidence fields are highlighted. Dispatch reviews the draft and promotes it in one click. At delivery the POD is matched to the load so invoicing can start the same day.</p>
+          <p class="ex-card__foot">Measured by: Minutes from rate con received to order live in the TMS</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Detention and accessorial recovery</h3>
+          </div>
+          <p class="ex-card__body">Reads geofence arrival and departure stamps from the ELD platform for every stop, compares them to the appointment window and the free time in the customer&#x27;s contract, and flags every stop where detention is owed. Drafts the accessorial line with the time stamps as evidence and attaches it to the invoice. The office approves each claim before it goes out; nothing is billed automatically.</p>
+          <p class="ex-card__foot">Measured by: Detention dollars invoiced per month</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Driver and carrier onboarding with expiry tracking</h3>
+          </div>
+          <p class="ex-card__body">New drivers and partner carriers upload licence, abstract, medical, insurance certificate and safety fitness certificate through a form. The system reads each document, checks the expiry date and the name against the application, and builds the file. It then watches every expiry date across the fleet and warns 60, 30 and 7 days out. The safety manager approves each driver before they are dispatchable.</p>
+          <p class="ex-card__foot">Measured by: Expired documents found at roadside or by a shipper audit</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Dispatch board assistant</h3>
+          </div>
+          <p class="ex-card__body">Reads tomorrow&#x27;s open loads, every driver&#x27;s remaining hours of service, current truck positions and home time commitments. Proposes a plan that covers the loads with the least empty distance and no hours violations, and shows the empty kilometres each option costs. The dispatcher drags, changes or rejects any line. No driver is assigned and no load is accepted or declined without a dispatcher approving it.</p>
+          <p class="ex-card__foot">Measured by: Empty kilometres as a share of total kilometres</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Weekly fleet report that cites its sources</h3>
+          </div>
+          <p class="ex-card__body">Every Monday the system assembles revenue per truck, revenue per loaded kilometre, cost per kilometre, empty share, fuel litres per 100 kilometres by truck, detention billed and collected, and receivables past 30 days. Every number carries a link to the TMS, ELD or accounting records it came from, so a doubtful figure can be traced in seconds. The owner reads it. Nobody builds it.</p>
+          <p class="ex-card__foot">Measured by: Hours the office spends assembling numbers each week</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 5. THE NUMBERS ===================== -->
+  <section class="ex-band">
+    <div class="ex-container">
+      <p class="ex-eyebrow ex-eyebrow--onink">The numbers</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">Borrowed statistics, with their sources and their limits printed.</h2>
+        <p class="ex-shead__sub">None of these are our results. They are the published state of logistics and transportation, linked so you can check them, with the caveat attached where the number is a survey, a forecast or a vendor's own figure.</p>
+      </header>
+
+      <div class="ex-stats">
+            <div class="ex-stat ex-stat--onink">
+              <span class="ex-stat__num">13,310</span>
+              <p class="ex-stat__label">Truck driver job vacancies in Canada in the first quarter of 2026, at a 4.7 percent vacancy rate</p>
+              <cite class="ex-stat__source"><a class="ex-link ex-link--mono" href="https://truckinghr.com/labour-market-information/" target="_blank" rel="noopener">Trucking HR Canada, 2026</a></cite>
+              <p class="p-ind__caveat">Industry association dashboard built on Statistics Canada labour data, updated April 2026. Quarterly figures move; check the live dashboard.</p>
+            </div>
+            <div class="ex-stat ex-stat--onink">
+              <span class="ex-stat__num">136,664</span>
+              <p class="ex-stat__label">Trucking businesses in Canada as of December 2022, of which 83,898 had no employees at all</p>
+              <cite class="ex-stat__source"><a class="ex-link ex-link--mono" href="https://tc.canada.ca/en/corporate-services/transparency/corporate-management-reporting/transportation-canada-annual-reports/transportation-canada-2022/key-traffic-volume-statistics-2" target="_blank" rel="noopener">Transport Canada, 2023</a></cite>
+              <p class="p-ind__caveat">Business counts from Statistics Canada&#x27;s business register. Most of the industry is owner-operators and very small fleets, which is who this page is written for.</p>
+            </div>
+            <div class="ex-stat ex-stat--onink">
+              <span class="ex-stat__num">94.5%</span>
+              <p class="ex-stat__label">Fleets that charge detention fees, while fewer than half of detention invoices actually get paid</p>
+              <cite class="ex-stat__source"><a class="ex-link ex-link--mono" href="https://truckingresearch.org/2024/09/new-research-documents-substantial-financial-and-safety-impacts-from-truck-driver-detention/" target="_blank" rel="noopener">American Transportation Research Institute, 2024</a></cite>
+              <p class="p-ind__caveat">United States research based on a survey of motor carriers and drivers plus ELD data. Canadian dock behaviour is similar but not separately measured.</p>
+            </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 6. WHERE THE DATA COMES FROM ===================== -->
+  <section class="ex-section">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Where the data comes from</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">Your systems of record stay exactly where they are.</h2>
+        <p class="ex-shead__sub">We read them, we do not replace them. Each one below says what we connect to, how, and the line the build does not cross.</p>
+      </header>
+
+      <div class="ex-grid">
+        <article class="ex-card ex-card--inset">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Dispatch and TMS</h3>
+          </div>
+          <p class="ex-card__body"><strong>Usually:</strong> Axon Software (Saskatoon), Tailwind TMS (Vancouver), Rose Rocket (Toronto), Trimble TruckMate, McLeod LoadMaster</p>
+          <p class="ex-card__body"><strong>What it holds.</strong> Orders, loads, stops, drivers and equipment assigned, rates, accessorials, customer invoices and driver settlements.</p>
+          <p class="ex-card__body"><strong>How we connect.</strong> API where the vendor offers one (Rose Rocket, Tailwind and TruckMate do), otherwise a scheduled export or a read-only database replica. We write new orders in as draft records with the source document attached.</p>
+          <p class="ex-card__foot"><strong>Where it stops.</strong> We never assign a driver, change a rate or issue an invoice without a dispatcher or the office approving it. Drafts wait in a queue; a person promotes them.</p>
+        </article>
+        <article class="ex-card ex-card--inset">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">ELD and telematics</h3>
+          </div>
+          <p class="ex-card__body"><strong>Usually:</strong> Geotab (Oakville), ISAAC Instruments (Quebec), Samsara, Motive, Trimble</p>
+          <p class="ex-card__body"><strong>What it holds.</strong> Hours of service logs, GPS breadcrumbs, geofence arrivals and departures, engine faults, fuel consumption and driver behaviour events.</p>
+          <p class="ex-card__body"><strong>How we connect.</strong> Read-only API pull on a schedule, plus webhooks where the platform fires them for arrivals and departures. Location and time stamps flow into the load record and the detention calculation.</p>
+          <p class="ex-card__foot"><strong>Where it stops.</strong> Hours of service logs are never edited, annotated or certified by our software. Only the driver and the carrier&#x27;s safety person touch a record of duty status.</p>
+        </article>
+        <article class="ex-card ex-card--inset">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Accounting and fuel</h3>
+          </div>
+          <p class="ex-card__body"><strong>Usually:</strong> QuickBooks Online, Sage 50 Canadian, Xero, fuel card statements from Petro-Canada SuperPass, Shell Fleet, Comdata</p>
+          <p class="ex-card__body"><strong>What it holds.</strong> Customer invoices, receivables, payables, driver pay, fuel purchases by card and province, and the IFTA inputs.</p>
+          <p class="ex-card__body"><strong>How we connect.</strong> QuickBooks and Xero by API. Sage 50 by scheduled export. Fuel card statements by parsing the monthly CSV or PDF, with each line matched to a truck and a trip.</p>
+          <p class="ex-card__foot"><strong>Where it stops.</strong> We post invoices as drafts and match payments as suggestions. A bookkeeper approves every posting. Nothing is filed with CRA or a provincial fuel tax authority by the system.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 7. THE RULES ===================== -->
+  <section class="ex-section ex-section--paper-2">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Built around your rules</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">The regimes that govern this work, and how the build answers each one.</h2>
+        <p class="ex-shead__sub">Constraints come first, because they decide the architecture. Bring us your hosting, residency and regulatory rules at the start and we design to them rather than around them.</p>
+      </header>
+
+      <div class="ex-table-wrap">
+        <table class="ex-table p-ind__table">
+          <caption>Regulatory and professional obligations that shape a build in logistics and transportation.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Regime</th>
+              <th scope="col">What it demands here</th>
+              <th scope="col">How the build complies</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Commercial Vehicle Drivers Hours of Service Regulations (Transport Canada) and the ELD mandate</th>
+              <td>Federally regulated carriers must record hours of service on an ELD certified by an accredited third party. Records of duty status belong to the driver and the carrier, must be retained, and edits must be annotated and approved by the driver.</td>
+              <td>Our systems read hours of service and location data from the certified ELD platform and never write to it. No log is edited, certified or annotated by software we build. Remaining hours are used only to propose dispatch plans that a person approves.</td>
+            </tr>
+            <tr>
+              <th scope="row">National Safety Code, provincial carrier safety programmes (BC NSC safety certificate, Ontario CVOR)</th>
+              <td>Carriers must hold a safety fitness certificate, keep driver files, inspection records and hours of service records for set periods, and their profile is scored on inspections, collisions and convictions.</td>
+              <td>Driver and vehicle files are built from parsed documents with retention dates set to the regulated period. Expiry warnings run automatically. The safety manager approves every driver file before dispatch and nothing is deleted before its retention date.</td>
+            </tr>
+            <tr>
+              <th scope="row">PIPEDA and BC PIPA</th>
+              <td>GPS positions, hours of service and driver behaviour events are personal information about an identifiable employee. Collection must be for a reasonable purpose, drivers must be told, and access must be limited and logged.</td>
+              <td>Location and behaviour data are used for dispatch, safety and billing only, with role-based access and an audit log of every read. Drivers are told what is collected and why. Where a carrier requires it, every model and every byte is hosted in Canada, and we design to that constraint before the first line of code.</td>
+            </tr>
+            <tr>
+              <th scope="row">Canada&#x27;s Anti-Spam Legislation (CASL)</th>
+              <td>Commercial email or text to shippers, brokers and prospects needs express or implied consent, sender identification and a working unsubscribe.</td>
+              <td>Capacity emails and lane offers go only to contacts with recorded consent or an existing business relationship within the CASL window. Every message carries the carrier&#x27;s identity and an unsubscribe that is honoured within ten business days. Transactional messages about a live load are kept separate from marketing sends.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <hr class="ex-rule ex-rule--spaced">
+
+      <div class="ex-split">
+        <div class="ex-stack">
+          <h3>What we will not automate</h3>
+          <ul class="ex-measure">
+          <li>We will not edit, annotate or certify a driver&#x27;s hours of service log. Only the driver and the carrier&#x27;s safety person touch a record of duty status.</li>
+          <li>We will not accept a load, assign a driver or file a CBSA eManifest without a dispatcher approving it. The system drafts; a person commits.</li>
+          </ul>
+        </div>
+        <div class="ex-stack">
+          <div class="ex-card ex-card--inset">
+            <div class="ex-card__head">
+              <h3 class="ex-card__title">A person stays in the loop</h3>
+            </div>
+            <p class="ex-card__body">Anything that spends money, sends something irreversible, or carries a professional obligation arrives as a draft with a named reviewer. The system prepares the work. A person decides whether it ships.</p>
+            <p class="ex-card__foot">You own the code and the data at the end of the engagement.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 10. FAQ ===================== -->
+  <section class="ex-section">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Questions</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">The questions we get asked in logistics and transportation.</h2>
+      </header>
+
+      <div class="ex-faq">
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="faq-1">
+            <span>We run Axon and Geotab already. Do we have to change either of them?</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="faq-1" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>No. Both stay. Axon holds the loads and the money, Geotab holds the hours and the positions, and we read from each and write drafts back into the TMS only. The first day of work is mapping which system owns which field, writing that down, and agreeing what never gets written back. Your dispatchers keep the screens they know.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="faq-2">
+            <span>Will a voice agent annoy brokers who want a real dispatcher?</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="faq-2" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>It answers the check call with the truck&#x27;s actual position and ETA, which is what the broker wanted, and it does it in seconds. Anything that is not a status question or a simple quote goes straight to a person, with the caller&#x27;s details and the load already on screen. If a caller asks for a human at any point, they get one. You set the rules for what it can say.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="faq-3">
+            <span>How do you handle drivers who worry about being tracked?</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="faq-3" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>The ELD is already tracking them by law; we do not add a device. What we do is use the data for dispatch, detention billing and safety only, restrict who can see it by role, log every access, and put that in writing so drivers can read it. Detention recovery is popular with drivers because it turns the hours they waste at docks into evidence.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="faq-4">
+            <span>What does an engagement look like and what does it cost?</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="faq-4" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>It starts with a free audit: we sit with dispatch and the office for a few days, map where time and re-typing go, and print the arithmetic. You keep that map whether or not you hire us. If we build, the measured number is agreed in writing first, and if the system misses it we keep working at no extra cost until it clears. You own the code. Fees are set per engagement.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ex-band">
+    <div class="ex-container">
+      <div class="ex-split ex-split--wide">
+        <div class="ex-stack">
+          <p class="ex-eyebrow ex-eyebrow--onink">What happens next</p>
+          <h2>Start with the audit, and know the number before you commit.</h2>
+          <p class="ex-measure">Three to five days. We map where the hours and the money go in your logistics and transportation operation and hand you a ranked plan with the payback attached.</p>
+          <p class="ex-measure">We map where time and money leak, and show the arithmetic before you commit to anything. You keep the map whether or not you hire us. If we do build, we agree the baseline in writing first, the clock starts at deployment rather than signature, and you own the code.</p>
+          <div class="ex-hero__actions">
+            <a class="ex-btn ex-btn--primary" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+            <a class="ex-btn ex-btn--onink" href="guarantee.html">How we charge</a>
+          </div>
+        </div>
+        <div class="ex-stack">
+          <dl class="ex-dl ex-dl--onink">
+            <dt class="ex-dl__k">Who you talk to</dt>
+            <dd class="ex-dl__v">Shiv and Vishal. No account managers, no slide decks.</dd>
+            <dt class="ex-dl__k">Direct</dt>
+            <dd class="ex-dl__v"><a href="mailto:shiv@exdsconsulting.com">shiv@exdsconsulting.com</a></dd>
+            <dt class="ex-dl__k">Read next</dt>
+            <dd class="ex-dl__v"><a href="services.html">What we build</a>, then <a href="work.html">Our work</a>.</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RELATED ===================== -->
+  <section class="ex-section ex-section--tight ia-related" aria-labelledby="related-heading">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Keep reading</p>
+      <h2 class="ex-shead__title" id="related-heading">Where to go next</h2>
+
+      <ul class="ia-related__grid">
+        <li>
+          <a class="ex-card ia-related__card" href="industries.html">
+            <p class="ia-related__kicker">Back up</p>
+            <h3 class="ex-card__title">All industries</h3>
+            <p class="ex-card__body">Every industry we build for, grouped by where our own work sits and where the same method applies.</p>
+            <span class="ia-related__go">See the index <span class="ia-related__arrow" aria-hidden="true">-&gt;</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="ex-card ia-related__card" href="work.html">
+            <p class="ia-related__kicker">The proof</p>
+            <h3 class="ex-card__title">Our work</h3>
+            <p class="ex-card__body">Five engagements at their real status, with the Fennec product gallery and the arithmetic behind every number.</p>
+            <span class="ia-related__go">Read the studies <span class="ia-related__arrow" aria-hidden="true">-&gt;</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="ex-card ia-related__card ia-related__card--next" href="industries-manufacturing-distribution.html">
+            <p class="ia-related__kicker">Next industry</p>
+            <h3 class="ex-card__title">Manufacturing and distribution</h3>
+            <p class="ex-card__body">The same method, a different set of systems, rules and failure modes.</p>
+            <span class="ia-related__go">Next <span class="ia-related__arrow" aria-hidden="true">-&gt;</span></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ex-footer">
+  <div class="ex-container">
+    <div class="ex-footer__grid ia-sitemap">
+      <div class="ex-footer__brand">
+        <img src="assets/exodus-logo.png" alt="Exodus Consulting" width="44" height="23">
+        <p class="ex-footer__blurb">AI enablement and custom software for owner-led businesses. Two founders, direct access.</p>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Work</p>
+        <ul>
+          <li><a href="work.html">Our work</a></li>
+          <li><a href="work-uniserve.html">Uniserve Communications</a></li>
+          <li><a href="work-fennec.html">Fennec</a></li>
+          <li><a href="work-palapa-tours.html">Palapa Tours Ottawa</a></li>
+          <li><a href="work-scoped.html">Current engagements</a></li>
+          <li><a href="fennec-events-floor.html">Fennec: events and floor</a></li>
+          <li><a href="fennec-ticketing-guests.html">Fennec: ticketing and guests</a></li>
+          <li><a href="fennec-pos-payments.html">Fennec: POS and payments</a></li>
+          <li><a href="fennec-inventory-staff.html">Fennec: inventory and staff</a></li>
+          <li><a href="fennec-media-intelligence.html">Fennec: media and intelligence</a></li>
+        </ul>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Industries</p>
+        <ul>
+          <li><a href="industries.html">All industries</a></li>
+          <li><a href="industries-nightlife-hospitality.html">Nightlife and hospitality</a></li>
+          <li><a href="industries-restaurants-bars.html">Restaurants and bars</a></li>
+          <li><a href="industries-event-venues-ticketing.html">Event venues and ticketing</a></li>
+          <li><a href="industries-telecom-isps.html">Telecom and internet providers</a></li>
+          <li><a href="industries-political-campaigns.html">Political parties and campaign organisations</a></li>
+          <li><a href="industries-tours-experiences.html">Tour and experience operators</a></li>
+        </ul>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Company</p>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">What we build</a></li>
+          <li><a href="guarantee.html">How we charge</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Direct</p>
+        <ul>
+          <li><a href="mailto:shiv@exdsconsulting.com">shiv@exdsconsulting.com</a></li>
+          <li><a href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a></li>
+          <li><a href="https://instagram.com/exodus_consulting_" target="_blank" rel="noopener">@exodus_consulting_</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ex-footer__legal">
+      <span>&copy; 2026 Exodus Consulting</span>
+      <span>Vancouver, BC</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

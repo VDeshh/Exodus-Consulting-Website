@@ -1,0 +1,190 @@
+{
+  "slug": "automotive-service",
+  "name": "Automotive dealers and service",
+  "hero_title": "A dealership holds one customer in six systems that never reconcile.",
+  "hero_lead": "The DMS knows the repair order. The CRM knows the lead, the scheduler knows the appointment, and the phone at eight in the morning knows nothing at all. We build the layer that reads all of them, answers the routine calls, and puts one number in front of the owner.",
+  "segments": [
+    "Franchised new car dealerships",
+    "Used vehicle dealers and independent lots",
+    "Independent repair and tyre shops",
+    "Multi-store dealer groups",
+    "Collision and body repair centres"
+  ],
+  "how_it_runs": [
+    {
+      "title": "The phone goes to voicemail at eight",
+      "body": "Doors open and the service drive fills. Three advisors are writing up the cars standing in front of them, so the calls stack up behind. A customer asking whether their part came in gets voicemail, and most of them do not leave one. By ten the queue has cleared and nobody knows how many people gave up and rang the shop down the road."
+    },
+    {
+      "title": "One customer sits in five systems",
+      "body": "The DMS holds the repair order. The CRM holds the lead from the website. The scheduler holds the appointment, the marketing tool holds the email address, and the accounting package holds the payment. The same person exists in all five with a different spelling and two phone numbers. When the owner asks how many customers the store actually has, five answers come back."
+    },
+    {
+      "title": "The write-up decides whether the claim gets paid",
+      "body": "A warranty claim lives or dies on what the advisor typed at seven in the morning. Miss the complaint, cause and correction wording, the technician code or the mileage, and the manufacturer rejects it or claws it back at audit. The rejection arrives weeks later on a statement, long after the technician has been paid and the car has gone home."
+    },
+    {
+      "title": "Reconditioning has no owner and no clock",
+      "body": "A trade comes in. It waits for a detail bay, then for a safety inspection, then for a part nobody ordered on the day it arrived. Each hand-off is a text message. The used vehicle manager knows the car is late but not which stage ate the week, and every extra day is depreciation the store pays for quietly."
+    },
+    {
+      "title": "Declined work is written down and forgotten",
+      "body": "The inspection finds four items. The customer approves one and declines three because of the bill that month. Those three lines sit inside a closed repair order, and nothing brings them back. Six weeks later the same customer books the same job at a tyre shop, and the store never learns it lost work it had already found."
+    }
+  ],
+  "systems": [
+    {
+      "name": "The dealer management system",
+      "examples": "PBS Systems, Serti, CDK Global, Reynolds and Reynolds, Quorum XSELLERATOR, Tekion, Dealertrack DMS",
+      "holds": "Repair orders, technician time and flat rate hours, parts stock and orders, deal jackets, warranty claims, and the general ledger the accountant signs.",
+      "how_we_connect": "Vendor API where the DMS opens one. Where it does not, a scheduled export or a read-only replica we build against, refreshed nightly.",
+      "where_it_stops": "Nothing we build posts, closes or edits a repair order, a claim or a ledger entry. The DMS stays the system of record and a person does the writing."
+    },
+    {
+      "name": "CRM and service scheduling",
+      "examples": "VinSolutions, Activix, DealerSocket, Elead, Xtime, Dealer-FX, Kimoby, myKaarma",
+      "holds": "Leads, appointment slots and shop capacity, the message log with each customer, inspection results and the video the technician recorded.",
+      "how_we_connect": "API for reads, plus a webhook on appointment created and appointment changed so the voice agent and the reports are never working from last night's copy.",
+      "where_it_stops": "No booking lands in a technician's bay outside the dispatch rules the shop foreman set. Capacity changes stay with the person who owns the schedule."
+    },
+    {
+      "name": "Shop management, parts and books",
+      "examples": "Protractor, Mitchell 1 Manager SE, Tekmetric, Shop-Ware, NAPA TRACS, Lankar, with QuickBooks or Sage behind them",
+      "holds": "Estimates and repair orders, the parts catalogue and supplier pricing, labour times, technician efficiency, payables and receivables.",
+      "how_we_connect": "Scheduled export or a read-only replica, matched against the parts catalogue so a variance points at a part number rather than a hunch.",
+      "where_it_stops": "We never place a parts order or change a sell price automatically. The system flags the shortfall and a person orders."
+    }
+  ],
+  "builds": [
+    {
+      "title": "Voice agent on the service line",
+      "mechanism": "The agent answers every call, including the ones during the morning rush. It reads the scheduler and repair order status, so it can book an appointment, confirm a part has landed, quote posted menu pricing and say when a car is ready. Anything else transfers to an advisor with the caller's name, vehicle and reason already on screen.",
+      "measure": "Share of inbound calls answered inside three rings."
+    },
+    {
+      "title": "Website chatbot for the repetitive questions",
+      "mechanism": "It answers what the email queue is full of: opening hours, what a scheduled service covers, whether a recall applies to a given VIN, loaner and shuttle rules, tyre storage, and what to bring to an appointment. It reads the store's own published policies rather than guessing. Anything about a price or a diagnosis goes to a person.",
+      "measure": "Front desk emails and calls handled per week."
+    },
+    {
+      "title": "One customer record across every system",
+      "mechanism": "We read the DMS, the CRM, the scheduler and the marketing list into one shape, match records on name, phone, email and VIN, and score every match for confidence. Weak joins stay visible instead of being merged quietly. A person reviews anything below the threshold before two records become one, and nothing is deleted from the source systems.",
+      "measure": "Duplicate customer records left in the merged set."
+    },
+    {
+      "title": "Declined work that comes back",
+      "mechanism": "A nightly job reads closed repair orders for declined inspection lines, checks the vehicle has not since had the work done elsewhere in the group, and builds a follow-up list by job and by how long it has waited. The advisor sees the car, the item, the original estimate and the date, and approves the message before it sends.",
+      "measure": "Dollars of declined work recovered each month."
+    },
+    {
+      "title": "Reconditioning clock from trade to line",
+      "mechanism": "Every used unit is stamped at each stage: arrival, appraisal, mechanical, body, detail, photos, listed. The stamps come from the shop system and a scan on a phone rather than a whiteboard. When a car sits longer than the rule for that stage, the manager gets one alert naming the car and the stage. Priority changes stay with the manager.",
+      "measure": "Average days from trade acceptance to front line."
+    },
+    {
+      "title": "A daily report that cites its rows",
+      "mechanism": "One page each morning: repair orders written, hours sold per technician, effective labour rate, parts on back order, aged used units and calls answered. Every figure links back to the record it came from, so a number that looks wrong gets opened rather than argued about. Nothing is estimated, and if a source failed to load the report says so.",
+      "measure": "Minutes spent building the Monday numbers by hand."
+    }
+  ],
+  "leaks": [
+    {
+      "leak": "Calls that hit voicemail during the morning write-up rush.",
+      "how_measured": "Not measured. The phone system logs exist and nobody opens them.",
+      "what_closes_it": "A voice agent answers every call and logs what it could not resolve."
+    },
+    {
+      "leak": "Declined inspection items nobody ever calls back about.",
+      "how_measured": "It sits inside a closed repair order and is never counted.",
+      "what_closes_it": "A nightly read of declined lines and a follow-up an advisor approves."
+    },
+    {
+      "leak": "Warranty claims rejected for a field missed at write-up.",
+      "how_measured": "Found on the manufacturer statement weeks after the car left.",
+      "what_closes_it": "A check at write-up that flags missing fields before the order closes."
+    },
+    {
+      "leak": "Used units stalled in reconditioning with no owner.",
+      "how_measured": "A whiteboard in the back office and somebody's memory.",
+      "what_closes_it": "Stage timestamps end to end, with one alert when a car stops moving."
+    }
+  ],
+  "stats": [
+    {
+      "claim": "More than half of Canadian dealers name integration between their systems as a problem, and many run twenty or more systems with overlapping functions.",
+      "figure": "55%",
+      "source_org": "Canadian Automobile Dealers Association, reported by Canadian Auto Dealer",
+      "source_title": "First-ever CADA study looks at dealership technology use",
+      "year": "2025",
+      "url": "https://canadianautodealer.ca/2025/11/first-ever-cada-study-looks-at-dealership-technology-use/",
+      "caveat": "Self-reported survey of about 550 dealer principals and managers, commissioned by CADA and conducted by Clarify Group. It reports opinion, not audited system counts."
+    },
+    {
+      "claim": "Federal projections put automotive service technicians at moderate risk of shortage, with job openings running slightly ahead of job seekers for a decade.",
+      "figure": "52,600 openings against 51,600 seekers",
+      "source_org": "Employment and Social Development Canada, Canadian Occupational Projection System",
+      "source_title": "Automotive service technicians, truck and bus mechanics and mechanical repairers (NOC 72410), occupation summary",
+      "year": "2024",
+      "url": "https://occupations.esdc.gc.ca/sppc-cops/occupationsummarydetail.jsp?tid=369&lang=eng",
+      "caveat": "A projection covering 2024 to 2033, not a count of current vacancies. It is a national figure and the picture differs by province."
+    },
+    {
+      "claim": "Ontario's dealer regulator laid thousands of charges in a single year, and enforcement against registrants rose sharply.",
+      "figure": "2,332 charges, $1.9 million in fines",
+      "source_org": "Ontario Motor Vehicle Industry Council",
+      "source_title": "OMVIC releases 2025 Annual Report highlighting strong consumer protection results",
+      "year": "2025",
+      "url": "https://www.omvic.ca/news/news-releases/omvic-releases-2025-annual-report/",
+      "caveat": "Ontario only, and it counts charges laid rather than convictions. Other provinces are regulated separately and publish differently."
+    }
+  ],
+  "rules": [
+    {
+      "regime": "PIPEDA, with BC PIPA, Alberta PIPA and Quebec Law 25",
+      "demands": "Collect only what the job needs, say why you are collecting it, keep it secure and hand it over when the customer asks. Quebec adds transparency duties where a decision about a person is made by automated means.",
+      "how_we_comply": "Customer data stays in Canada where that is the requirement. Each build takes the fields it needs and no more, every read and write is logged, and no automated output affects a customer until a named person approves it."
+    },
+    {
+      "regime": "CASL",
+      "demands": "Every commercial electronic message needs consent, clear sender identification and a working unsubscribe. A purchase or a paid repair gives implied consent for a limited window, and that window expires.",
+      "how_we_comply": "Consent basis and its expiry date sit on the customer record. The follow-up builder excludes anyone without a valid basis, stamps identification and unsubscribe into every send, and an advisor approves the list before it goes."
+    },
+    {
+      "regime": "Provincial dealer regulators: OMVIC in Ontario, the Vehicle Sales Authority in British Columbia, AMVIC in Alberta",
+      "demands": "Registration of the dealership and its salespeople, all-in price advertising, and disclosure of a vehicle's history and material condition before the customer commits.",
+      "how_we_comply": "An advertised price is assembled from one priced record, so the figure on the website is the figure in the deal. Disclosure fields are mandatory on a listing and nothing publishes with them empty."
+    },
+    {
+      "regime": "PCI-DSS",
+      "demands": "Card data must not be stored or handled outside a compliant environment. That covers the cashier terminal, any pay-by-text link and the tablet on the service drive.",
+      "how_we_comply": "We do not touch card numbers. Payment stays inside the processor the store already uses, and our systems hold a payment reference and a status, nothing more."
+    }
+  ],
+  "wont_automate": [
+    "We do not let software authorise a repair or change a price on a repair order. An advisor approves every dollar a customer is asked to pay, in their own name.",
+    "We do not let a bot give a safety opinion. A caller describing brakes, steering or a warning light is put through to a person on that call, not into a queue."
+  ],
+  "objections": [],
+  "faq": [
+    {
+      "q": "Do we have to leave our DMS?",
+      "a": "No. The DMS stays where it is and keeps being the system of record. We read from it through a vendor API where one exists, and a scheduled export or a read-only replica where it does not. Nothing we build posts a repair order, closes a warranty claim or touches an accounting entry. The store keeps the system its staff already know."
+    },
+    {
+      "q": "Will a voice agent embarrass us with customers?",
+      "a": "It only handles what it can finish: hours, booking, part arrival, status, directions. It says what it is at the start of the call. Anything it cannot resolve transfers to an advisor with the caller's details already on screen, so nobody repeats themselves. If a caller describes a safety fault it hands over immediately rather than trying."
+    },
+    {
+      "q": "Our customer data is a mess. Does that stop us?",
+      "a": "It is the first job, not a blocker. Reading the sources into one shape, matching records across them and scoring the weak joins is most of the work on any of these builds. The free audit counts your duplicates against your own data before anything is agreed, and you keep that map whether or not you hire us."
+    },
+    {
+      "q": "Where does the data live?",
+      "a": "In Canada, when that is the requirement. Canadian hosting is a constraint we settle before the first line of code rather than patch in afterwards, so customer records, VINs and finance data stay on Canadian infrastructure. If your manufacturer agreement or your own policy is stricter, that becomes the rule the build is designed to, and we tell you where every vendor sits before we connect it."
+    }
+  ],
+  "what_we_built": [],
+  "learned": [],
+  "meta_title": "Automotive dealers and service | Exodus Consulting",
+  "meta_description": "Voice agents, chatbots and record reconciliation for Canadian dealers and repair shops, built on top of the DMS and CRM you already run."
+}

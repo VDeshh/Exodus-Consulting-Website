@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI and software for law firms | Exodus Consulting</title>
+  <meta name="description" content="Voice intake, conflict checks, time capture and cited reports for small Canadian law firms. Canadian hosting, lawyer approval on everything, trust untouched.">
+  <meta name="theme-color" content="#FAF9F7">
+  <link rel="icon" href="assets/exodus-logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Exodus Consulting">
+  <meta property="og:title" content="AI and software for law firms | Exodus Consulting">
+  <meta property="og:description" content="Voice intake, conflict checks, time capture and cited reports for small Canadian law firms. Canadian hosting, lawyer approval on everything, trust untouched.">
+  <meta property="og:image" content="assets/exodus-logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/exodus.css?v=12">
+  <link rel="stylesheet" href="css/ia.css?v=12">
+  <link rel="stylesheet" href="css/p-industries.css?v=12">
+  <script src="js/exodus.js?v=12" defer></script>
+</head>
+<body>
+
+<a class="ex-skip" href="#main">Skip to content</a>
+
+<header class="ex-header">
+  <div class="ex-header__inner">
+    <a class="ex-brand" href="index.html">
+      <img src="assets/exodus-logo.png" alt="Exodus Consulting" width="34" height="17">
+      <span class="ex-brand__name">Exodus Consulting</span>
+    </a>
+
+    <nav class="ex-nav" aria-label="Primary">
+      <a class="ex-nav__link" href="index.html">Home</a>
+      <a class="ex-nav__link" href="services.html">What we build</a>
+      <a class="ex-nav__link" href="work.html">Our work</a>
+      <a class="ex-nav__link is-current" aria-current="page" href="industries.html">Industries</a>
+      <a class="ex-nav__link" href="guarantee.html">How we charge</a>
+      <a class="ex-nav__link" href="about.html">About</a>
+      <a class="ex-btn ex-btn--primary ex-btn--sm" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+    </nav>
+
+    <button class="ex-burger" type="button" data-nav-toggle aria-expanded="false" aria-controls="ex-mobile-menu">
+      <span class="ex-burger__bars" aria-hidden="true"></span>
+      <span>Menu</span>
+    </button>
+  </div>
+
+  <div class="ex-mobile-menu" id="ex-mobile-menu">
+    <ul class="ex-mobile-menu__list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">What we build</a></li>
+      <li>
+        <a href="work.html">Our work</a>
+        <ul class="ia-submenu">
+          <li><a href="work-uniserve.html">Uniserve Communications</a></li>
+          <li><a href="work-fennec.html">Fennec</a></li>
+          <li><a href="work-palapa-tours.html">Palapa Tours Ottawa</a></li>
+          <li><a href="work-scoped.html">Current engagements</a></li>
+          <li><a href="fennec-events-floor.html">Fennec: events and floor ops</a></li>
+          <li><a href="fennec-ticketing-guests.html">Fennec: ticketing and guests</a></li>
+          <li><a href="fennec-pos-payments.html">Fennec: POS and payments</a></li>
+          <li><a href="fennec-inventory-staff.html">Fennec: inventory and staff</a></li>
+          <li><a href="fennec-media-intelligence.html">Fennec: media and intelligence</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="industries.html">Industries</a>
+        <ul class="ia-submenu">
+          <li><a href="industries.html">All industries</a></li>
+          <li><a href="industries-nightlife-hospitality.html">Nightlife and hospitality</a></li>
+          <li><a href="industries-restaurants-bars.html">Restaurants and bars</a></li>
+          <li><a href="industries-event-venues-ticketing.html">Event venues and ticketing</a></li>
+          <li><a href="industries-telecom-isps.html">Telecom and internet providers</a></li>
+          <li><a href="industries-political-campaigns.html">Political parties and campaign organisations</a></li>
+          <li><a href="industries-tours-experiences.html">Tour and experience operators</a></li>
+        </ul>
+      </li>
+      <li><a href="guarantee.html">How we charge</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a class="ex-btn ex-btn--primary ex-btn--block" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <nav class="ia-crumbs" aria-label="Breadcrumb">
+    <div class="ex-container">
+      <ol class="ia-crumbs__list">
+        <li class="ia-crumbs__item"><a class="ia-crumbs__link" href="index.html">Home</a></li>
+        <li class="ia-crumbs__item"><a class="ia-crumbs__link" href="industries.html">Industries</a></li>
+        <li class="ia-crumbs__item"><span aria-current="page">Law firms</span></li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- ===================== 1. HERO ===================== -->
+  <section class="ex-hero">
+    <div class="ex-container">
+      <div class="ex-hero__inner">
+        <div>
+          <p class="ex-eyebrow ex-eyebrow--violet">Industries / Law firms</p>
+          <h1 class="ex-hero__title">Three billable hours in eight, and the phone goes unanswered.</h1>
+          <p class="ex-hero__lead">A small firm runs on a practice management system, an inbox and a lawyer&#x27;s memory of what happened today. The intake, the conflict check, the time entry and the pre-bill all sit on the same few people, and none of it is billable. We build the software that does that work and hands the lawyer a decision instead of a task.</p>
+          <div class="ex-hero__actions">
+            <a class="ex-btn ex-btn--primary" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+            <a class="ex-btn ex-btn--secondary" href="industries.html">All industries</a>
+          </div>
+        </div>
+
+        <div class="ex-hero__meta">
+          <p class="ex-eyebrow">Who this is for</p>
+          <aside class="ex-rail" aria-label="Segments within Law firms">
+            <div class="ex-rail__item"><span class="ex-rail__v">Sole practitioners and small general practice firms</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__v">Real estate and conveyancing practices</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__v">Family law firms</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__v">Personal injury and civil litigation boutiques</span></div>
+            <div class="ex-rail__item"><span class="ex-rail__v">Wills, estates and small business solicitor practices</span></div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 2. HOW IT ACTUALLY RUNS ===================== -->
+  <section class="ex-band">
+    <div class="ex-container">
+      <p class="ex-eyebrow ex-eyebrow--onink">How it actually runs</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">Before anything is built, this is the week we are describing.</h2>
+        <p class="ex-shead__sub">No software can be scoped from a category name. These are the specifics of law firms that decide what is worth building and what is not.</p>
+      </header>
+
+      <ol class="ex-timeline">
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">01</span>
+          <div>
+            <h3 class="ex-timeline__title">The morning goes to intake, and intake is not billable.</h3>
+            <p class="ex-timeline__body">A new caller wants to know if the firm takes their kind of matter, what a consult costs, and what to bring. Someone asks the same twelve questions, opens a contact, runs the conflict search, sends the intake form and chases the ID. Two hours of that a day is normal in a small firm, and none of it lands on an invoice.</p>
+          </div>
+        </li>
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">02</span>
+          <div>
+            <h3 class="ex-timeline__title">The phone is answered by whoever is not in a meeting.</h3>
+            <p class="ex-timeline__body">In a firm of two to ten lawyers there is one receptionist, or none. When she is at lunch, in the file room or on another line, the call goes to voicemail. Prospective clients rarely leave one. They ring the next firm on the list, and the firm never finds out the call happened, so the loss never shows up anywhere.</p>
+          </div>
+        </li>
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">03</span>
+          <div>
+            <h3 class="ex-timeline__title">Time is entered at six, from memory.</h3>
+            <p class="ex-timeline__body">Most lawyers reconstruct the day at the end of it: the calls, the emails, the twenty minutes on a clause. Short tasks get forgotten and long ones get rounded down out of guilt. The result is a docket that undercounts real work by a margin nobody measures, and a realisation number that looks fine because the missing time was never written down in the first place.</p>
+          </div>
+        </li>
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">04</span>
+          <div>
+            <h3 class="ex-timeline__title">Trust accounting is monthly, exact, and personal.</h3>
+            <p class="ex-timeline__body">Every deposit, transfer and cheque out of trust has to tie to a client ledger, and the pooled account has to reconcile to the bank within thirty days, every month, with the lawyer signing. A shortage of a dollar is a report to the Law Society. That is why the bookkeeper is the most protected person in the building, and why nobody wants software touching that ledger.</p>
+          </div>
+        </li>
+        <li class="ex-timeline__step">
+          <span class="ex-timeline__num">05</span>
+          <div>
+            <h3 class="ex-timeline__title">Nobody knows what a file actually cost to run.</h3>
+            <p class="ex-timeline__body">The owner knows fees billed and fees collected. What they do not have is the number of hours a fixed-fee conveyance or an uncontested divorce really took, including the assistant&#x27;s time, the unbilled emails and the write-off at the end. Pricing is set by what the firm down the road charges, and the profitable practice area is a feeling rather than a figure.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================== 3. WHERE IT LEAKS ===================== -->
+  <section class="ex-section">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Where it leaks</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">Every one of these is measurable. Most are not measured.</h2>
+        <p class="ex-shead__sub">The free audit prices these in your own numbers before anything is scoped. You keep the map whether or not you hire us.</p>
+      </header>
+
+      <div class="ex-table-wrap">
+        <table class="ex-table p-ind__table">
+          <caption>Where the money and the hours go in law firms, how it is measured today, and what closes it.</caption>
+          <thead>
+            <tr>
+              <th scope="col">The leak</th>
+              <th scope="col">How it is measured today</th>
+              <th scope="col">What closes it</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Work done and never docketed</th>
+              <td>It is not. Realisation looks fine because the missing time was never entered.</td>
+              <td>Time entries drafted from the day&#x27;s emails, calls and edits, approved by the lawyer.</td>
+            </tr>
+            <tr>
+              <th scope="row">Calls that go to voicemail and never come back</th>
+              <td>A phone bill nobody reads and a gut sense that January was slow.</td>
+              <td>A voice agent that answers, books the consult and logs every call, so the count exists.</td>
+            </tr>
+            <tr>
+              <th scope="row">Unbilled work and slow collection</th>
+              <td>An accounts receivable report the bookkeeper runs at month end.</td>
+              <td>Weekly lockup by lawyer and matter, with pre-bills drafted for approval when work sits past thirty days.</td>
+            </tr>
+            <tr>
+              <th scope="row">Admin hours on intake, conflicts and ID</th>
+              <td>Nobody tracks it because it is not billable.</td>
+              <td>One intake flow that runs the conflict search, assembles the ID record and drafts the retainer for a lawyer to sign.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 4. WHAT WE BUILD ===================== -->
+  <section class="ex-section ex-section--paper-2">
+    <div class="ex-container">
+      <p class="ex-eyebrow">What we build</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">6 builds that pay for themselves here.</h2>
+        <p class="ex-shead__sub">Each one states what it reads, what it does, and what a person still approves. Scope is agreed after the audit, one build at a time, against a baseline you sign.</p>
+      </header>
+
+      <div class="ex-grid">
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">A voice agent that answers new client calls</h3>
+          </div>
+          <p class="ex-card__body">The agent reads the firm&#x27;s practice areas, consult fees, hours and intake checklist. It answers the routine questions, takes the caller&#x27;s name, the other side&#x27;s name and a short description, and books a consult into the calendar. Anything urgent, or any caller asking for advice, is transferred to a person with a written summary. A lawyer decides whether to take the matter.</p>
+          <p class="ex-card__foot">Measured by: Share of inbound calls answered and booked, by week</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">A website assistant for the questions that repeat</h3>
+          </div>
+          <p class="ex-card__body">It reads the pages the firm already publishes: process, what to bring, how retainers work, parking, timelines by matter type. It answers those, collects the intake form and routes anything about a live file to the responsible assistant. It never states the law or a matter&#x27;s status. The firm reviews every escalated thread, and the transcript is kept.</p>
+          <p class="ex-card__foot">Measured by: Intake emails per week that reach a human</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Intake, conflict check and client ID in one flow</h3>
+          </div>
+          <p class="ex-card__body">A new intake form triggers a search across every contact and related party in the practice management system, including near-spellings, and returns the hits with a confidence score. It assembles the client identification record the Law Society rules require and drafts the retainer letter. The lawyer clears the conflicts and signs the retainer before any matter is opened.</p>
+          <p class="ex-card__foot">Measured by: Hours from first contact to signed retainer</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Time entries drafted from the day&#x27;s evidence</h3>
+          </div>
+          <p class="ex-card__body">The system reads sent emails, calendar entries, phone log and document edit history for the day, groups them by matter and drafts a time entry with a narrative and a duration for each. At the end of the day the lawyer sees the drafts, edits or deletes, and approves. Only approved entries post to the practice management system.</p>
+          <p class="ex-card__foot">Measured by: Billable hours captured per lawyer per day</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Incoming records parsed and indexed with citations</h3>
+          </div>
+          <p class="ex-card__body">Medical records, disclosure bundles, bank statements and corporate minute books arrive as scans. The system reads each page, extracts dates, names, amounts and events into a chronology, and cites the page for every entry with a confidence score. Low-confidence rows are flagged for a person to read. Nothing is filed or relied on until a lawyer has checked it.</p>
+          <p class="ex-card__foot">Measured by: Paralegal hours per thousand pages received</p>
+        </article>
+        <article class="ex-card">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Firm reports that cite every number</h3>
+          </div>
+          <p class="ex-card__body">Each week the system reads time, invoices and receivables from the practice management system, payments from the processor and the phone log, and assembles utilisation, realisation, unbilled work over thirty days and lockup by lawyer and by practice area. Every figure links to the rows it came from. A partner reads it; nothing is sent to a client or the bookkeeper without them.</p>
+          <p class="ex-card__foot">Measured by: Unbilled work over thirty days, in dollars</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 5. THE NUMBERS ===================== -->
+  <section class="ex-band">
+    <div class="ex-container">
+      <p class="ex-eyebrow ex-eyebrow--onink">The numbers</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">Borrowed statistics, with their sources and their limits printed.</h2>
+        <p class="ex-shead__sub">None of these are our results. They are the published state of law firms, linked so you can check them, with the caveat attached where the number is a survey, a forecast or a vendor's own figure.</p>
+      </header>
+
+      <div class="ex-stats">
+            <div class="ex-stat ex-stat--onink">
+              <span class="ex-stat__num">81%</span>
+              <p class="ex-stat__label">of Canadian lawyers say spending too much time on administrative tasks and not enough time practising law is a moderate or significant challenge, the top challenge in the survey. Only 18% had made changes to address it.</p>
+              <cite class="ex-stat__source"><a class="ex-link ex-link--mono" href="https://www.thomsonreuters.com/en-us/posts/wp-content/uploads/sites/20/2024/03/2024-State-of-Canada-Law-Firms-Report_English.pdf" target="_blank" rel="noopener">Thomson Reuters Institute with the Canadian Bar Association, 2024</a></cite>
+              <p class="p-ind__caveat">Survey of 330 lawyers at Canadian firms of all sizes, conducted October 2023. Self-reported.</p>
+            </div>
+            <div class="ex-stat ex-stat--onink">
+              <span class="ex-stat__num">38%</span>
+              <p class="ex-stat__label">average utilisation rate: in an eight-hour day, lawyers record about 3.0 billable hours. Of that, 88% is invoiced and 93% of invoiced work is collected.</p>
+              <cite class="ex-stat__source"><a class="ex-link ex-link--mono" href="https://www.clio.com/resources/legal-trends/benchmarks/" target="_blank" rel="noopener">Clio, 2025</a></cite>
+              <p class="p-ind__caveat">Vendor-reported, drawn from aggregated anonymised data of Clio&#x27;s own customers, mostly in the United States. Small firm weighted.</p>
+            </div>
+            <div class="ex-stat ex-stat--onink">
+              <span class="ex-stat__num">40%</span>
+              <p class="ex-stat__label">of law firms answered the phone when a prospective client called, down from 56% in 2019. Counting call-backs, 48% of firms were effectively unreachable by phone.</p>
+              <cite class="ex-stat__source"><a class="ex-link ex-link--mono" href="https://www.clio.com/blog/highlights-from-2024-legal-trends-report/" target="_blank" rel="noopener">Clio, 2024</a></cite>
+              <p class="p-ind__caveat">Vendor-commissioned secret shop of 500 law firms in the United States, June to July 2024. Not a Canadian sample.</p>
+            </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 6. WHERE THE DATA COMES FROM ===================== -->
+  <section class="ex-section">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Where the data comes from</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">Your systems of record stay exactly where they are.</h2>
+        <p class="ex-shead__sub">We read them, we do not replace them. Each one below says what we connect to, how, and the line the build does not cross.</p>
+      </header>
+
+      <div class="ex-grid">
+        <article class="ex-card ex-card--inset">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Practice management and legal accounting</h3>
+          </div>
+          <p class="ex-card__body"><strong>Usually:</strong> Clio Manage, CosmoLex, PCLaw, Soluno, ESILaw, LEAP, Actionstep</p>
+          <p class="ex-card__body"><strong>What it holds.</strong> Matters, contacts, related parties, time entries, disbursements, invoices, accounts receivable, the client trust ledger and the general ledger.</p>
+          <p class="ex-card__body"><strong>How we connect.</strong> API where the product has one (Clio, CosmoLex, Actionstep), scheduled read-only export where it does not (PCLaw, ESILaw). We read matters, contacts and time. Draft time entries and contacts are written back only after a lawyer or assistant approves them on screen.</p>
+          <p class="ex-card__foot"><strong>Where it stops.</strong> Nothing is ever written to the trust ledger, the general ledger or an issued invoice. No matter is opened or closed by the system. Conflict results are a list for a lawyer to clear, never a verdict.</p>
+        </article>
+        <article class="ex-card ex-card--inset">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Email, calendar and documents</h3>
+          </div>
+          <p class="ex-card__body"><strong>Usually:</strong> Microsoft 365 (Outlook, SharePoint, OneDrive), Google Workspace, NetDocuments, iManage, Dropbox</p>
+          <p class="ex-card__body"><strong>What it holds.</strong> Every client email, the lawyer&#x27;s calendar, the drafts and the signed documents, and the timestamps that show what the day actually contained.</p>
+          <p class="ex-card__body"><strong>How we connect.</strong> Microsoft Graph or Google APIs with read scopes only, on the accounts the firm chooses. The system reads sent mail, calendar entries and document edit history to draft time entries and to file correspondence against the right matter.</p>
+          <p class="ex-card__foot"><strong>Where it stops.</strong> No email leaves the firm without a person pressing send. Nothing is filed to a matter without the assistant confirming the match, and privileged folders the firm marks off are never read at all.</p>
+        </article>
+        <article class="ex-card ex-card--inset">
+          <div class="ex-card__head">
+            <h3 class="ex-card__title">Accounting, payments and conveyancing</h3>
+          </div>
+          <p class="ex-card__body"><strong>Usually:</strong> QuickBooks Online, Xero, Clio Payments, LawPay, Unity by Dye &amp; Durham, BC Land Title and Survey Authority (LTSA) myLTSA</p>
+          <p class="ex-card__body"><strong>What it holds.</strong> The firm&#x27;s general books, card and e-transfer receipts for retainers and invoices, and for real estate practices the transaction, title and closing documents.</p>
+          <p class="ex-card__body"><strong>How we connect.</strong> Scheduled exports from the accounting system and payment processor for reporting, matched against matters in the practice management system. Conveyancing data is read from exports the firm already produces; we do not touch the land title filing itself.</p>
+          <p class="ex-card__foot"><strong>Where it stops.</strong> No journal entry is posted, no card is charged and no title document is filed by the system. Card data never passes through anything we build; it stays inside the processor the firm already uses.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 7. THE RULES ===================== -->
+  <section class="ex-section ex-section--paper-2">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Built around your rules</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">The regimes that govern this work, and how the build answers each one.</h2>
+        <p class="ex-shead__sub">Constraints come first, because they decide the architecture. Bring us your hosting, residency and regulatory rules at the start and we design to them rather than around them.</p>
+      </header>
+
+      <div class="ex-table-wrap">
+        <table class="ex-table p-ind__table">
+          <caption>Regulatory and professional obligations that shape a build in law firms.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Regime</th>
+              <th scope="col">What it demands here</th>
+              <th scope="col">How the build complies</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Law Society of BC Code of Professional Conduct and its Guidance on Professional Responsibility and Generative AI</th>
+              <td>The lawyer stays responsible for every piece of work, must keep client information confidential, must supervise staff and tools, must be competent with the technology used, and must not bill for time a tool saved as if a person had spent it. Some courts require disclosure when generative AI helped prepare a filing.</td>
+              <td>Every output is a draft for a named lawyer or assistant to approve, and the approval is logged. Client data goes only to models hosted in Canada under a contract that forbids training on it, or to models the firm runs itself. Nothing we build drafts court filings. The firm gets a written record of what the system reads and where it sends it, so the confidentiality analysis can be done once and kept.</td>
+            </tr>
+            <tr>
+              <th scope="row">Law Society of BC Rules, Part 3 Division 11: client identification and verification (Rules 3-98 to 3-110)</th>
+              <td>Identify every client at retainer, verify identity and record the source of money whenever there is a financial transaction, monitor the relationship, keep dated records, and withdraw if the lawyer would be assisting fraud.</td>
+              <td>The intake flow collects the identification fields the rule names, produces the verification checklist for the matter type, and stores the dated record against the matter. It does not decide whether a client is verified; the lawyer reviews the documents and marks the step complete.</td>
+            </tr>
+            <tr>
+              <th scope="row">BC Personal Information Protection Act (PIPA), and PIPEDA for firms elsewhere in Canada</th>
+              <td>Collect only what the purpose needs, tell people why, get consent, protect the information with reasonable security, give people access to their information on request, and destroy it when the purpose is served.</td>
+              <td>The intake form states its purpose and collects only the fields the matter type needs. Call recordings and chat transcripts have a retention period the firm sets and are deleted on schedule. Everything sits in Canadian hosting, access is by role, and every read is logged so an access request can be answered from the log.</td>
+            </tr>
+            <tr>
+              <th scope="row">Canada&#x27;s Anti-Spam Legislation (CASL)</th>
+              <td>Consent, express or implied, before sending a commercial electronic message; the message must identify the sender, give a working way to contact them and carry an unsubscribe mechanism.</td>
+              <td>Invoice and matter emails are transactional and stay separate from anything promotional. Newsletters, seminar invitations and referral campaigns go only to contacts with recorded consent and date, carry the firm&#x27;s identification and an unsubscribe link, and the consent record lives with the contact so it can be produced.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <hr class="ex-rule ex-rule--spaced">
+
+      <div class="ex-split">
+        <div class="ex-stack">
+          <h3>What we will not automate</h3>
+          <ul class="ex-measure">
+          <li>Nothing we build moves money out of trust. Rule 3-64 requires a practising lawyer to sign every trust cheque, and Rule 3-64.1 requires two people on every electronic transfer. The system can prepare the reconciliation and flag a mismatch; it does not authorise a cent.</li>
+          <li>Nothing we build gives legal advice, sets a fee for a matter or sends a document to a court, a registry or opposing counsel. The voice agent and the website assistant say that a lawyer will answer, and then a lawyer does.</li>
+          </ul>
+        </div>
+        <div class="ex-stack">
+          <div class="ex-card ex-card--inset">
+            <div class="ex-card__head">
+              <h3 class="ex-card__title">A person stays in the loop</h3>
+            </div>
+            <p class="ex-card__body">Anything that spends money, sends something irreversible, or carries a professional obligation arrives as a draft with a named reviewer. The system prepares the work. A person decides whether it ships.</p>
+            <p class="ex-card__foot">You own the code and the data at the end of the engagement.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 10. FAQ ===================== -->
+  <section class="ex-section">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Questions</p>
+      <header class="ex-shead ex-shead--wide">
+        <h2 class="ex-shead__title">The questions we get asked in law firms.</h2>
+      </header>
+
+      <div class="ex-faq">
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="faq-1">
+            <span>Where does our client data go? Solicitor-client privilege is not negotiable.</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="faq-1" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>Everything is hosted in Canada, and the models are either run under a contract that forbids training on your data or run on infrastructure you control. The system reads only the accounts and folders you name, and you can mark privileged folders it never touches. You get a written data map of what is read and where it goes, which is the document the Law Society guidance expects you to be able to produce.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="faq-2">
+            <span>Will the voice agent or the chatbot give someone legal advice by accident?</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="faq-2" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>No. Both work from a closed set of firm-approved answers: practice areas, fees for a consult, what to bring, process and timelines. Any question that asks what the law says, or what a caller should do, gets one response: a lawyer will answer that, and the call or thread is handed to a person with a summary. Every transcript is kept so you can check the boundary held.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="faq-3">
+            <span>We are on Clio. Do we have to change anything?</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="faq-3" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>No. Clio has an API, so we read matters, contacts and time from it and write back only the entries a lawyer has approved. The same is true of CosmoLex and Actionstep. For PCLaw or ESILaw on a desktop, we work from a scheduled export. Your practice management system stays the record; we sit beside it and never touch the trust ledger.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-faq__item ex-disclose">
+          <button class="ex-disclose__btn" type="button" data-disclose aria-expanded="false" aria-controls="faq-4">
+            <span>How do you decide whether this pays for a firm our size?</span>
+            <span class="ex-disclose__icon" data-disclose-icon aria-hidden="true">+</span>
+          </button>
+          <div class="ex-disclose__panel" id="faq-4" data-collapsed="true">
+            <div class="ex-disclose__inner">
+              <p>The free audit. We sit with the firm for a few days and count where the unbillable hours go: intake, conflict checks, time reconstruction, chasing pre-bills. We write down the baseline, such as billable hours captured per lawyer per day or calls answered, and agree in writing the number the build has to move. If it misses, we keep working at no additional cost until it clears. You own the code.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ex-band">
+    <div class="ex-container">
+      <div class="ex-split ex-split--wide">
+        <div class="ex-stack">
+          <p class="ex-eyebrow ex-eyebrow--onink">What happens next</p>
+          <h2>Start with the audit, and know the number before you commit.</h2>
+          <p class="ex-measure">Three to five days. We map where the hours and the money go in your law firms operation and hand you a ranked plan with the payback attached.</p>
+          <p class="ex-measure">We map where time and money leak, and show the arithmetic before you commit to anything. You keep the map whether or not you hire us. If we do build, we agree the baseline in writing first, the clock starts at deployment rather than signature, and you own the code.</p>
+          <div class="ex-hero__actions">
+            <a class="ex-btn ex-btn--primary" href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a>
+            <a class="ex-btn ex-btn--onink" href="guarantee.html">How we charge</a>
+          </div>
+        </div>
+        <div class="ex-stack">
+          <dl class="ex-dl ex-dl--onink">
+            <dt class="ex-dl__k">Who you talk to</dt>
+            <dd class="ex-dl__v">Shiv and Vishal. No account managers, no slide decks.</dd>
+            <dt class="ex-dl__k">Direct</dt>
+            <dd class="ex-dl__v"><a href="mailto:shiv@exdsconsulting.com">shiv@exdsconsulting.com</a></dd>
+            <dt class="ex-dl__k">Read next</dt>
+            <dd class="ex-dl__v"><a href="services.html">What we build</a>, then <a href="work.html">Our work</a>.</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RELATED ===================== -->
+  <section class="ex-section ex-section--tight ia-related" aria-labelledby="related-heading">
+    <div class="ex-container">
+      <p class="ex-eyebrow">Keep reading</p>
+      <h2 class="ex-shead__title" id="related-heading">Where to go next</h2>
+
+      <ul class="ia-related__grid">
+        <li>
+          <a class="ex-card ia-related__card" href="industries.html">
+            <p class="ia-related__kicker">Back up</p>
+            <h3 class="ex-card__title">All industries</h3>
+            <p class="ex-card__body">Every industry we build for, grouped by where our own work sits and where the same method applies.</p>
+            <span class="ia-related__go">See the index <span class="ia-related__arrow" aria-hidden="true">-&gt;</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="ex-card ia-related__card" href="work.html">
+            <p class="ia-related__kicker">The proof</p>
+            <h3 class="ex-card__title">Our work</h3>
+            <p class="ex-card__body">Five engagements at their real status, with the Fennec product gallery and the arithmetic behind every number.</p>
+            <span class="ia-related__go">Read the studies <span class="ia-related__arrow" aria-hidden="true">-&gt;</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="ex-card ia-related__card ia-related__card--next" href="industries-accounting-firms.html">
+            <p class="ia-related__kicker">Next industry</p>
+            <h3 class="ex-card__title">Accounting and bookkeeping firms</h3>
+            <p class="ex-card__body">The same method, a different set of systems, rules and failure modes.</p>
+            <span class="ia-related__go">Next <span class="ia-related__arrow" aria-hidden="true">-&gt;</span></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ex-footer">
+  <div class="ex-container">
+    <div class="ex-footer__grid ia-sitemap">
+      <div class="ex-footer__brand">
+        <img src="assets/exodus-logo.png" alt="Exodus Consulting" width="44" height="23">
+        <p class="ex-footer__blurb">AI enablement and custom software for owner-led businesses. Two founders, direct access.</p>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Work</p>
+        <ul>
+          <li><a href="work.html">Our work</a></li>
+          <li><a href="work-uniserve.html">Uniserve Communications</a></li>
+          <li><a href="work-fennec.html">Fennec</a></li>
+          <li><a href="work-palapa-tours.html">Palapa Tours Ottawa</a></li>
+          <li><a href="work-scoped.html">Current engagements</a></li>
+          <li><a href="fennec-events-floor.html">Fennec: events and floor</a></li>
+          <li><a href="fennec-ticketing-guests.html">Fennec: ticketing and guests</a></li>
+          <li><a href="fennec-pos-payments.html">Fennec: POS and payments</a></li>
+          <li><a href="fennec-inventory-staff.html">Fennec: inventory and staff</a></li>
+          <li><a href="fennec-media-intelligence.html">Fennec: media and intelligence</a></li>
+        </ul>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Industries</p>
+        <ul>
+          <li><a href="industries.html">All industries</a></li>
+          <li><a href="industries-nightlife-hospitality.html">Nightlife and hospitality</a></li>
+          <li><a href="industries-restaurants-bars.html">Restaurants and bars</a></li>
+          <li><a href="industries-event-venues-ticketing.html">Event venues and ticketing</a></li>
+          <li><a href="industries-telecom-isps.html">Telecom and internet providers</a></li>
+          <li><a href="industries-political-campaigns.html">Political parties and campaign organisations</a></li>
+          <li><a href="industries-tours-experiences.html">Tour and experience operators</a></li>
+        </ul>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Company</p>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">What we build</a></li>
+          <li><a href="guarantee.html">How we charge</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="ex-footer__col">
+        <p class="ex-footer__title">Direct</p>
+        <ul>
+          <li><a href="mailto:shiv@exdsconsulting.com">shiv@exdsconsulting.com</a></li>
+          <li><a href="https://calendly.com/shiv-exdsconsulting/30min" target="_blank" rel="noopener">Book a free audit</a></li>
+          <li><a href="https://instagram.com/exodus_consulting_" target="_blank" rel="noopener">@exodus_consulting_</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ex-footer__legal">
+      <span>&copy; 2026 Exodus Consulting</span>
+      <span>Vancouver, BC</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

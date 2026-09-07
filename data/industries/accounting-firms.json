@@ -1,0 +1,190 @@
+{
+  "slug": "accounting-firms",
+  "name": "Accounting and bookkeeping firms",
+  "hero_title": "Every firm sells hours it spends chasing documents.",
+  "hero_lead": "Accounting and bookkeeping firms in Canada are mostly one to four people. The billable work is judgement. The unbillable work is asking a client for the same bank statement three times, re-keying slips from phone photos, and answering the same deadline question by email. We build the software that takes the second list off the desk and leaves the first one alone.",
+  "segments": [
+    "Sole-practitioner CPA firms doing year-ends and T1 season",
+    "Bookkeeping practices on QuickBooks Online or Xero with 40 to 200 monthly clients",
+    "Tax preparation shops that live between February and April 30",
+    "Payroll and fractional CFO practices",
+    "Multi-partner regional firms with review and compilation engagements"
+  ],
+  "how_it_runs": [
+    {
+      "title": "Tax season is a fixed deadline against a variable inbox.",
+      "body": "Personal returns are due April 30 and self-employed returns June 15, and neither date moves because a client forgot a T5. From February to May the firm runs on whatever arrives, in whatever order, in whatever format. The preparer opens an email, finds a phone photo of a slip, types it into TaxCycle, and sends the same reminder for the third time. The queue lives in someone's head."
+    },
+    {
+      "title": "The bookkeeping is done. The tidy-up is not.",
+      "body": "Bank feeds land in QuickBooks Online or Xero every night. Most transactions code themselves. The rest sit in an uncategorised pile until someone asks the client what the $412 e-transfer was. That question goes out by email, gets answered three weeks later, and the month cannot close until it does. Month-end is late because of twelve transactions, not because of the ledger."
+    },
+    {
+      "title": "Documents arrive on every channel except the one you asked for.",
+      "body": "The firm has a portal. Clients still text a receipt, email a PDF, drop a shoebox at reception, or forward a Dext link nobody set up. Each one is filed by hand, renamed by hand, and matched to the right client and year by hand. Nobody has a clean count of how many documents came in, how many are still missing, and which clients are the reason."
+    },
+    {
+      "title": "The owner prices on gut and finds out at year-end.",
+      "body": "Fixed-fee bookkeeping is priced when the client signs. Actual hours are recorded loosely, if at all, in Karbon or a spreadsheet. The owner knows which clients feel like work but cannot show the number, so the renewal conversation is a guess. Year-end write-offs are the first honest measure of which files lost money, and by then the answer is a year late."
+    },
+    {
+      "title": "Staff are hard to find, so partners do junior work.",
+      "body": "Firms across Canada report the same thing: the pipeline of new accountants is thinner, and a good bookkeeper who knows Canadian payroll and GST is hard to replace. The result is that partners review, but partners also code transactions, chase slips and answer portal questions, because there is nobody else. Every hour of that is an hour not billed at partner rates."
+    }
+  ],
+  "systems": [
+    {
+      "name": "General ledger and bank feeds",
+      "examples": "QuickBooks Online, Xero, Sage 50, Sage Business Cloud Accounting, Wave",
+      "holds": "Chart of accounts, bank and credit card feeds, coded transactions, invoices and bills, GST/HST filings, payroll journals.",
+      "how_we_connect": "Read through the QuickBooks Online and Xero APIs with the firm's own app credentials, one connection per client file. Sage 50 desktop files are read from a scheduled export. We read transactions, attachments and account codes.",
+      "where_it_stops": "We never post a journal entry, reclassify a transaction or file a GST/HST return without a bookkeeper approving the specific change. A suggested code is a suggestion until a person accepts it."
+    },
+    {
+      "name": "Tax and working papers",
+      "examples": "TaxCycle, Intuit ProFile, Wolters Kluwer Cantax and Taxprep, CaseWare Working Papers",
+      "holds": "T1, T2 and T3 returns, slips, carryforwards, T183 authorisations, year-end trial balances, adjusting entries, review and compilation files.",
+      "how_we_connect": "Read-only. Client lists and slip data come out on a scheduled export or through the software's own import formats. Extracted slip values are prepared as an import file the preparer loads and checks.",
+      "where_it_stops": "Nothing is transmitted to the CRA by our software. EFILE happens from the certified tax software, by the registered preparer, after a signed T183 is on file."
+    },
+    {
+      "name": "Practice management and client intake",
+      "examples": "Karbon, Financial Cents, Canopy, TaxDome, Ignition, Dext, Hubdoc",
+      "holds": "Client list, engagement letters, recurring work schedules, task status, time entries, document requests and the client portal.",
+      "how_we_connect": "API or webhook where the product offers one, so a task closes or a request updates when the document actually arrives. Dext and Hubdoc are read for what has been captured against what was asked for.",
+      "where_it_stops": "Engagement letters, fee changes and anything that reaches a client as a commitment are drafted by the system and sent by a person."
+    }
+  ],
+  "builds": [
+    {
+      "title": "Document chasing that runs itself",
+      "mechanism": "The system reads each client's engagement and last year's file to build the list of what is needed: slips, statements, receipts by category. It sends the request, watches the portal, the Dext inbox and email for what arrives, ticks items off and sends the next reminder on a schedule the firm sets. A person sees the exceptions list and decides who gets a phone call.",
+      "measure": "Days from first request to complete file, per client"
+    },
+    {
+      "title": "Slip and receipt extraction with confidence scores",
+      "mechanism": "Photos, PDFs and scans are read into structured fields: payer, box numbers, amounts, GST/HST, date. Every field carries a confidence score. High confidence rows are prepared as an import for TaxCycle or the ledger. Low confidence rows are flagged with the source image beside the extracted value. The preparer approves the import; nothing lands in a return unreviewed.",
+      "measure": "Minutes of keying per return"
+    },
+    {
+      "title": "Uncategorised transactions, batched and asked once",
+      "mechanism": "The system reads the uncoded transactions in QuickBooks Online or Xero, groups them by client, and drafts one plain question per batch with a suggested code based on that client's own history. The client answers in the portal or by replying to a text. The bookkeeper reviews the suggested coding and posts it. The system never posts on its own.",
+      "measure": "Days to close each client's month"
+    },
+    {
+      "title": "Website chatbot for the routine questions",
+      "mechanism": "Trained on the firm's own answers: deadlines, what to bring, how to upload, what a Notice of Assessment means, how to pay an instalment. It answers those on the website and in the portal, and hands anything about a specific client's file to a named person with the conversation attached. It never gives advice on a specific tax situation.",
+      "measure": "Routine emails per week reaching staff"
+    },
+    {
+      "title": "Phone agent for tax season",
+      "mechanism": "Answers the phone from February to April, tells callers where their return sits (received, in progress, awaiting signature, filed) by reading the practice management status, books a call with the right preparer, and takes a message with the file number. Anything involving money, advice or an upset client is transferred to a person with the notes attached.",
+      "measure": "Calls resolved without a staff pickup"
+    },
+    {
+      "title": "Realisation report that assembles itself",
+      "mechanism": "Reads time entries from Karbon or Financial Cents, fixed fees from the engagement, and the invoiced amounts. Produces realisation per client and per service line each month, with every number linking to the entries behind it. Flags clients whose actual hours have run past the fee. The owner decides what to do about pricing. The report only shows.",
+      "measure": "Realisation rate per client"
+    }
+  ],
+  "leaks": [
+    {
+      "leak": "Unbillable hours chasing client documents",
+      "how_measured": "Not measured. Felt in evening email.",
+      "what_closes_it": "Automated request lists with reminders and an exceptions view."
+    },
+    {
+      "leak": "Month-end held open by a handful of uncoded transactions",
+      "how_measured": "Close date per client, if anyone records it.",
+      "what_closes_it": "Batched client queries with suggested codes, posted on approval."
+    },
+    {
+      "leak": "Fixed-fee clients quietly running past the hours priced",
+      "how_measured": "Year-end write-offs, a year late.",
+      "what_closes_it": "Monthly realisation per client, every number citing its entries."
+    },
+    {
+      "leak": "Partner time on routine questions and re-keying",
+      "how_measured": "Nobody tracks it. Partners bill less than expected.",
+      "what_closes_it": "Chatbot and phone agent for routine questions; slip extraction for the keying."
+    }
+  ],
+  "stats": [
+    {
+      "claim": "Canadian accounting, tax, bookkeeping and payroll firms are overwhelmingly small: most employer firms have fewer than five staff.",
+      "figure": "74.9%",
+      "source_org": "Innovation, Science and Economic Development Canada, Canadian Industry Statistics, using Statistics Canada data",
+      "source_title": "Accounting, tax preparation, bookkeeping and payroll services (NAICS 5412): Businesses",
+      "year": "2025",
+      "url": "https://ised-isde.canada.ca/app/ixb/cis/businesses-entreprises/5412",
+      "caveat": "Share of employer establishments with 1 to 4 employees. Of 62,102 establishments in the sector, 39,313 have no employees or an indeterminate size and are outside this percentage."
+    },
+    {
+      "claim": "Six in ten individual tax returns in Canada are filed by a preparer through EFILE.",
+      "figure": "60%",
+      "source_org": "Canada Revenue Agency",
+      "source_title": "Individual income tax return statistics for the 2026 tax-filing season",
+      "year": "2026",
+      "url": "https://www.canada.ca/en/revenue-agency/corporate/about-canada-revenue-agency-cra/individual-income-tax-return-statistics.html",
+      "caveat": "19,827,110 EFILE returns out of 33,098,360 received between February 6 and August 30, 2026. The CRA updates this page in place, so the counts move as late returns arrive."
+    },
+    {
+      "claim": "Getting information and documents from clients is the workflow challenge firm owners name most often.",
+      "figure": "65.2%",
+      "source_org": "Financial Cents",
+      "source_title": "2024 Report: The State of Accounting Workflow Automation",
+      "year": "2024",
+      "url": "https://financial-cents.com/resources/articles/2024-report-state-of-accounting-workflow-automation/",
+      "caveat": "Vendor survey by a practice management software company. 367 completed responses, mostly North American, not specifically Canadian."
+    }
+  ],
+  "rules": [
+    {
+      "regime": "PIPEDA and BC PIPA (Personal Information Protection Act)",
+      "demands": "Client financial and identity data is personal information. Collect only what the engagement needs, use it for that purpose, protect it with safeguards that match its sensitivity, and be able to say where it is stored and who can see it.",
+      "how_we_comply": "Data hosted in Canada, encrypted at rest and in transit, access scoped per client file and per staff role, an audit log of every read, and retention set to the firm's own policy so nothing lingers after the engagement ends."
+    },
+    {
+      "regime": "CPABC Code of Professional Conduct, Rule 208 (Confidentiality of information)",
+      "demands": "A CPA must not disclose confidential client information without authority and must limit access to people with a legitimate purpose. CPABC guidance on AI tools says confidential client data should not go into tools that may store, expose or reuse it.",
+      "how_we_comply": "Models run in an environment the firm controls, with no training on client data and no third-party retention. Every extraction and draft is logged with its input and output, so a member can document the tool, the query and the result as Rule 218 expects."
+    },
+    {
+      "regime": "CRA EFILE electronic filer requirements",
+      "demands": "The registered preparer must deal directly with the client, verify identity, hold a signed T183 before transmitting, protect taxpayer information, report any loss or unauthorised disclosure, and prepare and file from Canada. Breaches lead to suspension.",
+      "how_we_comply": "Our software never transmits to the CRA. It prepares data for the certified tax software, records which T183 is on file before a return is marked ready, and keeps every byte in Canada. The preparer files."
+    },
+    {
+      "regime": "PCMLTFA and FINTRAC obligations for accountants",
+      "demands": "An accountant who receives, pays or transfers funds on a client's behalf, or gives instructions to do so, becomes a reporting entity: compliance programme, client identification, record keeping and suspicious transaction reporting.",
+      "how_we_comply": "Where a firm handles client funds, the system records identity verification per client and keeps transaction records in the shape FINTRAC expects. It never files a report on its own; the firm's compliance officer decides what is suspicious."
+    }
+  ],
+  "wont_automate": [
+    "We will not let software decide a tax position or transmit a return. Slip data gets extracted and checked; the judgement, the sign-off and the EFILE stay with the registered preparer whose name is on it.",
+    "We will not send a client a fee change, an engagement letter or a demand for payment without a person pressing send. Those are commitments between a firm and its client, and the CPA owns them."
+  ],
+  "objections": [],
+  "faq": [
+    {
+      "q": "Our clients are already bad at using the portal we have. Why would another system help?",
+      "a": "It is not another portal. The system works through whatever the client already uses: email, text, the existing portal, a Dext inbox. It reads what arrives on any of them and matches it to the request. The client's behaviour does not have to change. Your staff stop being the ones who notice what is still missing and type the reminder."
+    },
+    {
+      "q": "Where does client data sit, and can a model learn from it?",
+      "a": "In Canada, on infrastructure the firm controls, with the models running there too. Nothing is sent to a public AI service and nothing is used to train anything. That is the arrangement CPABC guidance expects before client data goes near an AI tool, and it is written into the build before the first line of code, not patched in afterwards."
+    },
+    {
+      "q": "Will this replace TaxCycle, QuickBooks or Karbon?",
+      "a": "No. Those stay the systems of record. We read from them and prepare imports for them. Replacing tools your staff know in February is how a firm loses a tax season. The work sits in the gaps between those systems: what arrived, what is missing, what needs a question, and what a client's file actually cost."
+    },
+    {
+      "q": "How do you measure whether it worked?",
+      "a": "One number is agreed in writing before the build starts, taken from your own data: days from request to complete file, keying minutes per return, or realisation per client. We baseline it, deploy, and measure against the same baseline. If the system misses the agreed bar we keep working at no extra cost until it clears. You own the code either way."
+    }
+  ],
+  "what_we_built": [],
+  "learned": [],
+  "meta_title": "Accounting firm software and AI | Exodus Consulting",
+  "meta_description": "Document chasing, slip extraction, client queries and realisation reporting for Canadian accounting and bookkeeping firms. Hosted in Canada."
+}

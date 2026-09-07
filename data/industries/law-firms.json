@@ -1,0 +1,190 @@
+{
+  "slug": "law-firms",
+  "name": "Law firms",
+  "hero_title": "Three billable hours in eight, and the phone goes unanswered.",
+  "hero_lead": "A small firm runs on a practice management system, an inbox and a lawyer's memory of what happened today. The intake, the conflict check, the time entry and the pre-bill all sit on the same few people, and none of it is billable. We build the software that does that work and hands the lawyer a decision instead of a task.",
+  "segments": [
+    "Sole practitioners and small general practice firms",
+    "Real estate and conveyancing practices",
+    "Family law firms",
+    "Personal injury and civil litigation boutiques",
+    "Wills, estates and small business solicitor practices"
+  ],
+  "how_it_runs": [
+    {
+      "title": "The morning goes to intake, and intake is not billable.",
+      "body": "A new caller wants to know if the firm takes their kind of matter, what a consult costs, and what to bring. Someone asks the same twelve questions, opens a contact, runs the conflict search, sends the intake form and chases the ID. Two hours of that a day is normal in a small firm, and none of it lands on an invoice."
+    },
+    {
+      "title": "The phone is answered by whoever is not in a meeting.",
+      "body": "In a firm of two to ten lawyers there is one receptionist, or none. When she is at lunch, in the file room or on another line, the call goes to voicemail. Prospective clients rarely leave one. They ring the next firm on the list, and the firm never finds out the call happened, so the loss never shows up anywhere."
+    },
+    {
+      "title": "Time is entered at six, from memory.",
+      "body": "Most lawyers reconstruct the day at the end of it: the calls, the emails, the twenty minutes on a clause. Short tasks get forgotten and long ones get rounded down out of guilt. The result is a docket that undercounts real work by a margin nobody measures, and a realisation number that looks fine because the missing time was never written down in the first place."
+    },
+    {
+      "title": "Trust accounting is monthly, exact, and personal.",
+      "body": "Every deposit, transfer and cheque out of trust has to tie to a client ledger, and the pooled account has to reconcile to the bank within thirty days, every month, with the lawyer signing. A shortage of a dollar is a report to the Law Society. That is why the bookkeeper is the most protected person in the building, and why nobody wants software touching that ledger."
+    },
+    {
+      "title": "Nobody knows what a file actually cost to run.",
+      "body": "The owner knows fees billed and fees collected. What they do not have is the number of hours a fixed-fee conveyance or an uncontested divorce really took, including the assistant's time, the unbilled emails and the write-off at the end. Pricing is set by what the firm down the road charges, and the profitable practice area is a feeling rather than a figure."
+    }
+  ],
+  "systems": [
+    {
+      "name": "Practice management and legal accounting",
+      "examples": "Clio Manage, CosmoLex, PCLaw, Soluno, ESILaw, LEAP, Actionstep",
+      "holds": "Matters, contacts, related parties, time entries, disbursements, invoices, accounts receivable, the client trust ledger and the general ledger.",
+      "how_we_connect": "API where the product has one (Clio, CosmoLex, Actionstep), scheduled read-only export where it does not (PCLaw, ESILaw). We read matters, contacts and time. Draft time entries and contacts are written back only after a lawyer or assistant approves them on screen.",
+      "where_it_stops": "Nothing is ever written to the trust ledger, the general ledger or an issued invoice. No matter is opened or closed by the system. Conflict results are a list for a lawyer to clear, never a verdict."
+    },
+    {
+      "name": "Email, calendar and documents",
+      "examples": "Microsoft 365 (Outlook, SharePoint, OneDrive), Google Workspace, NetDocuments, iManage, Dropbox",
+      "holds": "Every client email, the lawyer's calendar, the drafts and the signed documents, and the timestamps that show what the day actually contained.",
+      "how_we_connect": "Microsoft Graph or Google APIs with read scopes only, on the accounts the firm chooses. The system reads sent mail, calendar entries and document edit history to draft time entries and to file correspondence against the right matter.",
+      "where_it_stops": "No email leaves the firm without a person pressing send. Nothing is filed to a matter without the assistant confirming the match, and privileged folders the firm marks off are never read at all."
+    },
+    {
+      "name": "Accounting, payments and conveyancing",
+      "examples": "QuickBooks Online, Xero, Clio Payments, LawPay, Unity by Dye & Durham, BC Land Title and Survey Authority (LTSA) myLTSA",
+      "holds": "The firm's general books, card and e-transfer receipts for retainers and invoices, and for real estate practices the transaction, title and closing documents.",
+      "how_we_connect": "Scheduled exports from the accounting system and payment processor for reporting, matched against matters in the practice management system. Conveyancing data is read from exports the firm already produces; we do not touch the land title filing itself.",
+      "where_it_stops": "No journal entry is posted, no card is charged and no title document is filed by the system. Card data never passes through anything we build; it stays inside the processor the firm already uses."
+    }
+  ],
+  "builds": [
+    {
+      "title": "A voice agent that answers new client calls",
+      "mechanism": "The agent reads the firm's practice areas, consult fees, hours and intake checklist. It answers the routine questions, takes the caller's name, the other side's name and a short description, and books a consult into the calendar. Anything urgent, or any caller asking for advice, is transferred to a person with a written summary. A lawyer decides whether to take the matter.",
+      "measure": "Share of inbound calls answered and booked, by week"
+    },
+    {
+      "title": "A website assistant for the questions that repeat",
+      "mechanism": "It reads the pages the firm already publishes: process, what to bring, how retainers work, parking, timelines by matter type. It answers those, collects the intake form and routes anything about a live file to the responsible assistant. It never states the law or a matter's status. The firm reviews every escalated thread, and the transcript is kept.",
+      "measure": "Intake emails per week that reach a human"
+    },
+    {
+      "title": "Intake, conflict check and client ID in one flow",
+      "mechanism": "A new intake form triggers a search across every contact and related party in the practice management system, including near-spellings, and returns the hits with a confidence score. It assembles the client identification record the Law Society rules require and drafts the retainer letter. The lawyer clears the conflicts and signs the retainer before any matter is opened.",
+      "measure": "Hours from first contact to signed retainer"
+    },
+    {
+      "title": "Time entries drafted from the day's evidence",
+      "mechanism": "The system reads sent emails, calendar entries, phone log and document edit history for the day, groups them by matter and drafts a time entry with a narrative and a duration for each. At the end of the day the lawyer sees the drafts, edits or deletes, and approves. Only approved entries post to the practice management system.",
+      "measure": "Billable hours captured per lawyer per day"
+    },
+    {
+      "title": "Incoming records parsed and indexed with citations",
+      "mechanism": "Medical records, disclosure bundles, bank statements and corporate minute books arrive as scans. The system reads each page, extracts dates, names, amounts and events into a chronology, and cites the page for every entry with a confidence score. Low-confidence rows are flagged for a person to read. Nothing is filed or relied on until a lawyer has checked it.",
+      "measure": "Paralegal hours per thousand pages received"
+    },
+    {
+      "title": "Firm reports that cite every number",
+      "mechanism": "Each week the system reads time, invoices and receivables from the practice management system, payments from the processor and the phone log, and assembles utilisation, realisation, unbilled work over thirty days and lockup by lawyer and by practice area. Every figure links to the rows it came from. A partner reads it; nothing is sent to a client or the bookkeeper without them.",
+      "measure": "Unbilled work over thirty days, in dollars"
+    }
+  ],
+  "leaks": [
+    {
+      "leak": "Work done and never docketed",
+      "how_measured": "It is not. Realisation looks fine because the missing time was never entered.",
+      "what_closes_it": "Time entries drafted from the day's emails, calls and edits, approved by the lawyer."
+    },
+    {
+      "leak": "Calls that go to voicemail and never come back",
+      "how_measured": "A phone bill nobody reads and a gut sense that January was slow.",
+      "what_closes_it": "A voice agent that answers, books the consult and logs every call, so the count exists."
+    },
+    {
+      "leak": "Unbilled work and slow collection",
+      "how_measured": "An accounts receivable report the bookkeeper runs at month end.",
+      "what_closes_it": "Weekly lockup by lawyer and matter, with pre-bills drafted for approval when work sits past thirty days."
+    },
+    {
+      "leak": "Admin hours on intake, conflicts and ID",
+      "how_measured": "Nobody tracks it because it is not billable.",
+      "what_closes_it": "One intake flow that runs the conflict search, assembles the ID record and drafts the retainer for a lawyer to sign."
+    }
+  ],
+  "stats": [
+    {
+      "claim": "of Canadian lawyers say spending too much time on administrative tasks and not enough time practising law is a moderate or significant challenge, the top challenge in the survey. Only 18% had made changes to address it.",
+      "figure": "81%",
+      "source_org": "Thomson Reuters Institute with the Canadian Bar Association",
+      "source_title": "2024 State of the Canadian Law Firm Market",
+      "year": "2024",
+      "url": "https://www.thomsonreuters.com/en-us/posts/wp-content/uploads/sites/20/2024/03/2024-State-of-Canada-Law-Firms-Report_English.pdf",
+      "caveat": "Survey of 330 lawyers at Canadian firms of all sizes, conducted October 2023. Self-reported."
+    },
+    {
+      "claim": "average utilisation rate: in an eight-hour day, lawyers record about 3.0 billable hours. Of that, 88% is invoiced and 93% of invoiced work is collected.",
+      "figure": "38%",
+      "source_org": "Clio",
+      "source_title": "Legal Trends Report, law firm key performance indicators",
+      "year": "2025",
+      "url": "https://www.clio.com/resources/legal-trends/benchmarks/",
+      "caveat": "Vendor-reported, drawn from aggregated anonymised data of Clio's own customers, mostly in the United States. Small firm weighted."
+    },
+    {
+      "claim": "of law firms answered the phone when a prospective client called, down from 56% in 2019. Counting call-backs, 48% of firms were effectively unreachable by phone.",
+      "figure": "40%",
+      "source_org": "Clio",
+      "source_title": "Legal Trends Report 2024, secret shopper study",
+      "year": "2024",
+      "url": "https://www.clio.com/blog/highlights-from-2024-legal-trends-report/",
+      "caveat": "Vendor-commissioned secret shop of 500 law firms in the United States, June to July 2024. Not a Canadian sample."
+    }
+  ],
+  "rules": [
+    {
+      "regime": "Law Society of BC Code of Professional Conduct and its Guidance on Professional Responsibility and Generative AI",
+      "demands": "The lawyer stays responsible for every piece of work, must keep client information confidential, must supervise staff and tools, must be competent with the technology used, and must not bill for time a tool saved as if a person had spent it. Some courts require disclosure when generative AI helped prepare a filing.",
+      "how_we_comply": "Every output is a draft for a named lawyer or assistant to approve, and the approval is logged. Client data goes only to models hosted in Canada under a contract that forbids training on it, or to models the firm runs itself. Nothing we build drafts court filings. The firm gets a written record of what the system reads and where it sends it, so the confidentiality analysis can be done once and kept."
+    },
+    {
+      "regime": "Law Society of BC Rules, Part 3 Division 11: client identification and verification (Rules 3-98 to 3-110)",
+      "demands": "Identify every client at retainer, verify identity and record the source of money whenever there is a financial transaction, monitor the relationship, keep dated records, and withdraw if the lawyer would be assisting fraud.",
+      "how_we_comply": "The intake flow collects the identification fields the rule names, produces the verification checklist for the matter type, and stores the dated record against the matter. It does not decide whether a client is verified; the lawyer reviews the documents and marks the step complete."
+    },
+    {
+      "regime": "BC Personal Information Protection Act (PIPA), and PIPEDA for firms elsewhere in Canada",
+      "demands": "Collect only what the purpose needs, tell people why, get consent, protect the information with reasonable security, give people access to their information on request, and destroy it when the purpose is served.",
+      "how_we_comply": "The intake form states its purpose and collects only the fields the matter type needs. Call recordings and chat transcripts have a retention period the firm sets and are deleted on schedule. Everything sits in Canadian hosting, access is by role, and every read is logged so an access request can be answered from the log."
+    },
+    {
+      "regime": "Canada's Anti-Spam Legislation (CASL)",
+      "demands": "Consent, express or implied, before sending a commercial electronic message; the message must identify the sender, give a working way to contact them and carry an unsubscribe mechanism.",
+      "how_we_comply": "Invoice and matter emails are transactional and stay separate from anything promotional. Newsletters, seminar invitations and referral campaigns go only to contacts with recorded consent and date, carry the firm's identification and an unsubscribe link, and the consent record lives with the contact so it can be produced."
+    }
+  ],
+  "wont_automate": [
+    "Nothing we build moves money out of trust. Rule 3-64 requires a practising lawyer to sign every trust cheque, and Rule 3-64.1 requires two people on every electronic transfer. The system can prepare the reconciliation and flag a mismatch; it does not authorise a cent.",
+    "Nothing we build gives legal advice, sets a fee for a matter or sends a document to a court, a registry or opposing counsel. The voice agent and the website assistant say that a lawyer will answer, and then a lawyer does."
+  ],
+  "objections": [],
+  "faq": [
+    {
+      "q": "Where does our client data go? Solicitor-client privilege is not negotiable.",
+      "a": "Everything is hosted in Canada, and the models are either run under a contract that forbids training on your data or run on infrastructure you control. The system reads only the accounts and folders you name, and you can mark privileged folders it never touches. You get a written data map of what is read and where it goes, which is the document the Law Society guidance expects you to be able to produce."
+    },
+    {
+      "q": "Will the voice agent or the chatbot give someone legal advice by accident?",
+      "a": "No. Both work from a closed set of firm-approved answers: practice areas, fees for a consult, what to bring, process and timelines. Any question that asks what the law says, or what a caller should do, gets one response: a lawyer will answer that, and the call or thread is handed to a person with a summary. Every transcript is kept so you can check the boundary held."
+    },
+    {
+      "q": "We are on Clio. Do we have to change anything?",
+      "a": "No. Clio has an API, so we read matters, contacts and time from it and write back only the entries a lawyer has approved. The same is true of CosmoLex and Actionstep. For PCLaw or ESILaw on a desktop, we work from a scheduled export. Your practice management system stays the record; we sit beside it and never touch the trust ledger."
+    },
+    {
+      "q": "How do you decide whether this pays for a firm our size?",
+      "a": "The free audit. We sit with the firm for a few days and count where the unbillable hours go: intake, conflict checks, time reconstruction, chasing pre-bills. We write down the baseline, such as billable hours captured per lawyer per day or calls answered, and agree in writing the number the build has to move. If it misses, we keep working at no additional cost until it clears. You own the code."
+    }
+  ],
+  "what_we_built": [],
+  "learned": [],
+  "meta_title": "AI and software for law firms | Exodus Consulting",
+  "meta_description": "Voice intake, conflict checks, time capture and cited reports for small Canadian law firms. Canadian hosting, lawyer approval on everything, trust untouched."
+}
