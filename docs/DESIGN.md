@@ -38,15 +38,15 @@ The site is segmented. Each page does one job and routes onward. Nobody scrolls 
 | `work-palapa-tours.html` | Palapa Tours Ottawa. SHIPPED. Tip-out variance and the custom tip-out software that ended the disputes. |
 | `work-scoped.html` | Scoped engagements. ABC (LIVE), B-Side Group (IN BUILD). |
 
-**Solution family detail pages, linked from `solutions.html`:**
+**Fennec module detail pages, linked from `work-fennec.html`:**
 
 | File | Job |
 | --- | --- |
-| `solutions-events-floor.html` | 01 Events and floor ops. Floor plan editor, live table statuses, the guest table map. |
-| `solutions-ticketing-guests.html` | 02 Ticketing and guests. Event pages, ticket sales, guestlists, scanner check-in, passes. |
-| `solutions-pos-payments.html` | 03 POS and payments. Square, Toast and Lightspeed sync. Needs an INTERFACE DIAGRAM, no screenshot exists. |
-| `solutions-inventory-staff.html` | 04 Inventory and loss prevention plus 05 Staff and payouts. Poured vs sold variance and tip-out splits, both as INTERFACE DIAGRAMS. |
-| `solutions-media-intelligence.html` | 06 Media and marketing plus 07 Intelligence and automation. Campaign composer, email designer, Ferry AI. |
+| `fennec-events-floor.html` | 01 Events and floor ops. Floor plan editor, live table statuses, the guest table map. |
+| `fennec-ticketing-guests.html` | 02 Ticketing and guests. Event pages, ticket sales, guestlists, scanner check-in, passes. |
+| `fennec-pos-payments.html` | 03 POS and payments. Square, Toast and Lightspeed sync. Needs an INTERFACE DIAGRAM, no screenshot exists. |
+| `fennec-inventory-staff.html` | 04 Inventory and loss prevention plus 05 Staff and payouts. Poured vs sold variance and tip-out splits, both as INTERFACE DIAGRAMS. |
+| `fennec-media-intelligence.html` | 06 Media and marketing plus 07 Intelligence and automation. Campaign composer, email designer, Ferry AI. |
 
 Count note: the brief calls this the 18-page structure. The enumerated route table above is 16 HTML files at
 the repo root, which is the authoritative list. If two more pages are added later they go in this table first,
