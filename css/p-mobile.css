@@ -26,7 +26,7 @@
    A touch target under about 44px is a mis-tap. These three were 32 to 38.
    Only the height is raised, so nothing moves on a pointer device.
    -------------------------------------------------------------------------- */
-@media (pointer: coarse), (max-width: 900px) {
+@media (pointer: coarse), (max-width: 1024px) {
   .ex-burger {
     min-height: 44px;
     padding-inline: var(--space-sm);

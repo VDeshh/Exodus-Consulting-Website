@@ -73,11 +73,11 @@ def head(title, desc, extra_css=''):
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap">
-  <link rel="stylesheet" href="css/exodus.css?v=12">
-  <link rel="stylesheet" href="css/ia.css?v=12">
-  <link rel="stylesheet" href="css/p-industries.css?v=12">
-  <link rel="stylesheet" href="css/p-mobile.css?v=12">{extra_css}
-  <script src="js/exodus.js?v=12" defer></script>
+  <link rel="stylesheet" href="css/exodus.css?v=13">
+  <link rel="stylesheet" href="css/ia.css?v=13">
+  <link rel="stylesheet" href="css/p-industries.css?v=13">
+  <link rel="stylesheet" href="css/p-mobile.css?v=13">{extra_css}
+  <script src="js/exodus.js?v=13" defer></script>
 </head>
 <body>
 
@@ -90,17 +90,50 @@ def header(current):
         if href == current:
             return f'      <a class="ex-nav__link is-current" aria-current="page" href="{href}">{label}</a>'
         return f'      <a class="ex-nav__link" href="{href}">{label}</a>'
+    built, rest = GROUPS[0][2], GROUPS[1][2]
+
+    def menu_items(slugs, indent):
+        pad = ' ' * indent
+        return '\n'.join(
+            f'{pad}<li><a class="ex-nav__menulink" href="industries-{s}.html">{e(TITLE_OF[s])}</a></li>'
+            for s in slugs if s in TITLE_OF)
+
+    cur = ' is-current" aria-current="page' if current == 'industries.html' else ''
+    panel = f'''      <div class="ex-nav__group" data-navmenu>
+        <a class="ex-nav__link{cur}" href="industries.html" aria-expanded="false" aria-controls="nav-industries" data-navmenu-trigger>Industries<span class="ex-nav__caret" aria-hidden="true"></span></a>
+        <div class="ex-nav__panel" id="nav-industries">
+          <div class="ex-nav__panel-inner">
+            <div class="ex-nav__col">
+              <p class="ex-nav__col-title">Where we have built</p>
+              <ul>
+{menu_items(built, 16)}
+              </ul>
+            </div>
+            <div class="ex-nav__col ex-nav__col--split">
+              <p class="ex-nav__col-title">Where the same build applies</p>
+              <ul>
+{menu_items(rest, 16)}
+              </ul>
+            </div>
+            <div class="ex-nav__panel-foot">
+              <p class="ex-nav__panel-note">Every page is written for one sector: how it runs, where it leaks, what we build and what it is measured by.</p>
+              <a class="ex-btn ex-btn--secondary ex-btn--sm" href="industries.html">All {len(built) + len(rest)} industries</a>
+            </div>
+          </div>
+        </div>
+      </div>'''
+
     nav = '\n'.join([
         link('index.html', 'Home'),
         link('services.html', 'What we build'),
         link('work.html', 'Our work'),
-        link('industries.html', 'Industries'),
+        panel,
         link('guarantee.html', 'How we charge'),
         link('about.html', 'About'),
     ])
-    feat = [s for s in ORDER[:6]]
     sub = '\n'.join(
-        f'          <li><a href="industries-{s}.html">{e(TITLE_OF[s])}</a></li>' for s in feat)
+        f'          <li><a href="industries-{s}.html">{e(TITLE_OF[s])}</a></li>'
+        for s in ORDER if s in TITLE_OF)
     return f'''
 <header class="ex-header">
   <div class="ex-header__inner">

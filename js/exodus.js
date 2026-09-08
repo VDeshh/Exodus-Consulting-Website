@@ -468,11 +468,44 @@
   }
 
   /* ------------------------------------------------------------------------
+     NAV MEGA MENU
+     Markup: .ex-nav__group > a[data-navmenu-trigger] + .ex-nav__panel
+     The open and close is pure CSS (:hover and :focus-within), so the menu
+     works with JS off. This only keeps aria-expanded honest for assistive
+     technology and lets Escape close a menu opened by keyboard.
+     ------------------------------------------------------------------------ */
+  function initNavMenu() {
+    qsa(".ex-nav__group").forEach(function (group) {
+      var trigger = qs("[data-navmenu-trigger]", group);
+      var panel = qs(".ex-nav__panel", group);
+      if (!trigger || !panel) return;
+
+      function set(open) { trigger.setAttribute("aria-expanded", open ? "true" : "false"); }
+
+      on(group, "mouseenter", function () { set(true); });
+      on(group, "mouseleave", function () { set(false); });
+      on(group, "focusin", function () { set(true); });
+      on(group, "focusout", function () {
+        // focusout fires before the new focus lands, so check on the next tick
+        window.setTimeout(function () {
+          if (!group.contains(document.activeElement)) set(false);
+        }, 0);
+      });
+      on(group, "keydown", function (e) {
+        if (e.key !== "Escape" && e.keyCode !== 27) return;
+        set(false);
+        trigger.focus();
+      });
+    });
+  }
+
+  /* ------------------------------------------------------------------------
      BOOT
      ------------------------------------------------------------------------ */
   function boot() {
     root.classList.add("ex-js");
     safe("mobile-nav", initMobileNav);
+    safe("nav-menu", initNavMenu);
     safe("scroller", initScrollers);
     safe("tabs", initTabs);
     safe("disclosures", initDisclosures);

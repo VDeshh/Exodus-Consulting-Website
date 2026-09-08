@@ -276,3 +276,143 @@ a.ia-related__card--next .ia-related__kicker { color: var(--violet); }
 @media (max-width: 560px) {
   .ex-footer__grid.ia-sitemap { grid-template-columns: minmax(0, 1fr); }
 }
+
+
+/* --------------------------------------------------------------------------
+   6. INDUSTRIES MEGA MENU  .ex-nav__group .ex-nav__caret .ex-nav__panel
+   .ex-nav__panel-inner .ex-nav__col .ex-nav__col-title .ex-nav__menulink
+   Opens on hover for a pointer and on focus for a keyboard, with no JS
+   required for the visual. The trigger is still a real link to
+   industries.html, so a tap on a touch device goes to the index instead of
+   trapping the user in a menu that needs a second tap to dismiss.
+   -------------------------------------------------------------------------- */
+.ex-nav__group {
+  position: static;
+  display: flex;
+  align-items: center;
+}
+
+.ex-nav__caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 0.4em;
+  border-left: 3.5px solid transparent;
+  border-right: 3.5px solid transparent;
+  border-top: 4px solid currentColor;
+  vertical-align: 0.15em;
+  transition: transform var(--dur) var(--ease);
+}
+.ex-nav__group:hover .ex-nav__caret,
+.ex-nav__group:focus-within .ex-nav__caret { transform: rotate(180deg); }
+
+.ex-nav__panel {
+  position: absolute;
+  top: calc(100% + 0.55rem);
+  right: 0;
+  z-index: 70;
+  width: min(56rem, calc(100vw - 2 * var(--gutter)));
+  padding: var(--space-md);
+  border: var(--hairline);
+  border-radius: var(--r-lg);
+  background-color: var(--card);
+  box-shadow: var(--shadow);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  pointer-events: none;
+  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease),
+              visibility var(--dur) var(--ease);
+}
+/* A hover bridge, so moving the pointer from the link into the panel across
+   the gap does not close it. */
+.ex-nav__panel::before {
+  content: "";
+  position: absolute;
+  top: -0.65rem;
+  left: 0;
+  right: 0;
+  height: 0.65rem;
+}
+.ex-nav__group:hover .ex-nav__panel,
+.ex-nav__group:focus-within .ex-nav__panel {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  pointer-events: auto;
+}
+
+.ex-nav__panel-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: var(--space-md) var(--space-lg);
+}
+
+.ex-nav__col-title {
+  margin: 0 0 var(--space-2xs);
+  padding-bottom: var(--space-3xs);
+  border-bottom: var(--hairline);
+  font-family: var(--font-mono);
+  font-size: var(--t-mono-sm);
+  text-transform: uppercase;
+  letter-spacing: var(--track-mono);
+  color: var(--ink-3);
+}
+
+.ex-nav__col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.ex-nav__col--split ul {
+  columns: 2;
+  column-gap: var(--space-lg);
+}
+.ex-nav__col li { margin: 0; max-width: none; break-inside: avoid; }
+
+.ex-nav__menulink {
+  display: block;
+  padding: 0.3rem 0.4rem;
+  border-radius: var(--r-sm);
+  color: var(--ink-2);
+  font-size: var(--t-sm);
+  line-height: 1.35;
+  text-decoration: none;
+  transition: color var(--dur) var(--ease), background-color var(--dur) var(--ease);
+}
+.ex-nav__menulink:hover {
+  color: var(--ink);
+  background-color: var(--paper-2);
+}
+.ex-nav__menulink:focus-visible {
+  outline: 2px solid var(--violet);
+  outline-offset: 1px;
+}
+
+.ex-nav__panel-foot {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xs);
+  margin-top: var(--space-2xs);
+  padding-top: var(--space-xs);
+  border-top: var(--hairline);
+}
+.ex-nav__panel-note {
+  margin: 0;
+  max-width: 48ch;
+  color: var(--ink-3);
+  font-size: var(--t-xs);
+}
+
+/* The drawer carries the same list below 1024px, so the panel never applies. */
+@media (max-width: 1024px) {
+  .ex-nav__panel { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ex-nav__panel,
+  .ex-nav__caret { transition: none; }
+}

@@ -303,6 +303,9 @@ button { cursor: pointer; }
 }
 
 .ex-header__inner {
+  /* Positioning context for the Industries mega menu, which right-aligns to
+     the header row rather than to its own trigger. */
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1645,7 +1648,11 @@ button { cursor: pointer; }
   .ex-footer__grid { gap: var(--space-lg); }
 }
 
-@media (max-width: 900px) {
+/* The header row is the brand plus six links plus the CTA, which needs about
+   1015px before it starts pushing the page wider than the viewport. The drawer
+   used to take over at 900, leaving a band between 900 and 1015 where the
+   header overflowed. Hand over before the row runs out of room. */
+@media (max-width: 1024px) {
   .ex-nav { display: none; }
   .ex-burger { display: inline-flex; }
 }
